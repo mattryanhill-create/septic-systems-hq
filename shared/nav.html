@@ -1,0 +1,88 @@
+<!-- Septic Systems HQ - Navigation -->
+<header class="fixed top-0 left-0 right-0 bg-white shadow-sm z-50" style="height: 72px;">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-full">
+    <div class="flex items-center justify-between h-full">
+      <!-- Logo -->
+      <a href="index.html" class="flex items-center gap-2">
+        <div class="w-10 h-10 bg-[#0d9488] rounded-lg flex items-center justify-center">
+          <i data-lucide="home" class="w-6 h-6 text-white"></i>
+        </div>
+        <span class="text-xl font-bold text-[#1e3a5f]">Septic Systems HQ</span>
+      </a>
+      
+      <!-- Desktop Navigation -->
+      <nav class="desktop-nav hidden lg:flex items-center gap-8">
+        <a href="index.html" class="nav-link flex items-center gap-1.5" data-nav="home">
+          <i data-lucide="home" class="w-4 h-4"></i>
+          <span>Home</span>
+        </a>
+        <a href="types.html" class="nav-link flex items-center gap-1.5" data-nav="types">
+          <i data-lucide="layers" class="w-4 h-4"></i>
+          <span>Types</span>
+        </a>
+        <a href="maintenance.html" class="nav-link flex items-center gap-1.5" data-nav="maintenance">
+          <i data-lucide="calendar-check" class="w-4 h-4"></i>
+          <span>Maintenance</span>
+        </a>
+        <a href="problems.html" class="nav-link flex items-center gap-1.5" data-nav="problems">
+          <i data-lucide="alert-triangle" class="w-4 h-4"></i>
+          <span>Problems</span>
+        </a>
+        <a href="costs.html" class="nav-link flex items-center gap-1.5" data-nav="costs">
+          <i data-lucide="dollar-sign" class="w-4 h-4"></i>
+          <span>Costs</span>
+        </a>
+        <a href="inspection.html" class="nav-link flex items-center gap-1.5" data-nav="inspection">
+          <i data-lucide="clipboard-check" class="w-4 h-4"></i>
+          <span>Inspection</span>
+        </a>
+        <a href="faq.html" class="nav-link flex items-center gap-1.5" data-nav="faq">
+          <i data-lucide="help-circle" class="w-4 h-4"></i>
+          <span>FAQ</span>
+        </a>
+      </nav>
+      
+      <!-- Mobile Menu Button -->
+      <button class="mobile-menu-btn lg:hidden p-2 rounded-lg hover:bg-gray-100 transition-colors" onclick="toggleMobileMenu()" aria-label="Toggle menu">
+        <i data-lucide="menu" class="w-6 h-6 text-[#475569]"></i>
+      </button>
+    </div>
+  </div>
+  
+  <!-- Mobile Menu -->
+  <div id="mobileMenu" class="mobile-menu lg:hidden">
+    <nav class="flex flex-col gap-2">
+      <a href="index.html" class="flex items-center gap-3 px-4 py-3 rounded-lg hover:bg-gray-50 text-[#475569] hover:text-[#0d9488] transition-colors" data-nav="home">
+        <i data-lucide="home" class="w-5 h-5"></i>
+        <span>Home</span>
+      </a>
+      <a href="types.html" class="flex items-center gap-3 px-4 py-3 rounded-lg hover:bg-gray-50 text-[#475569] hover:text-[#0d9488] transition-colors" data-nav="types">
+        <i data-lucide="layers" class="w-5 h-5"></i>
+        <span>Types</span>
+      </a>
+      <a href="maintenance.html" class="flex items-center gap-3 px-4 py-3 rounded-lg hover:bg-gray-50 text-[#475569] hover:text-[#0d9488] transition-colors" data-nav="maintenance">
+        <i data-lucide="calendar-check" class="w-5 h-5"></i>
+        <span>Maintenance</span>
+      </a>
+      <a href="problems.html" class="flex items-center gap-3 px-4 py-3 rounded-lg hover:bg-gray-50 text-[#475569] hover:text-[#0d9488] transition-colors" data-nav="problems">
+        <i data-lucide="alert-triangle" class="w-5 h-5"></i>
+        <span>Problems</span>
+      </a>
+      <a href="costs.html" class="flex items-center gap-3 px-4 py-3 rounded-lg hover:bg-gray-50 text-[#475569] hover:text-[#0d9488] transition-colors" data-nav="costs">
+        <i data-lucide="dollar-sign" class="w-5 h-5"></i>
+        <span>Costs</span>
+      </a>
+      <a href="inspection.html" class="flex items-center gap-3 px-4 py-3 rounded-lg hover:bg-gray-50 text-[#475569] hover:text-[#0d9488] transition-colors" data-nav="inspection">
+        <i data-lucide="clipboard-check" class="w-5 h-5"></i>
+        <span>Inspection</span>
+      </a>
+      <a href="faq.html" class="flex items-center gap-3 px-4 py-3 rounded-lg hover:bg-gray-50 text-[#475569] hover:text-[#0d9488] transition-colors" data-nav="faq">
+        <i data-lucide="help-circle" class="w-5 h-5"></i>
+        <span>FAQ</span>
+      </a>
+    </nav>
+  </div>
+</header>
+
+<!-- Spacer for fixed header -->
+<div style="height: 72px;"></div>

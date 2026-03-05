@@ -1,0 +1,1248 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Septic System Inspection Guide | Septic Systems HQ</title>
+  <meta name="description" content="Learn how to inspect your septic system with our comprehensive DIY checklist and professional inspection guide. Discover what inspectors look for and how often to schedule inspections.">
+  
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  
+  <!-- Tailwind CSS v4 -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  
+  <!-- Lucide Icons -->
+  <script src="https://unpkg.com/lucide@latest"></script>
+  
+  <!-- Shared Styles -->
+  <link rel="stylesheet" href="shared/styles.css">
+  
+  <style>
+    /* Page-specific styles */
+    .checklist-item {
+      transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+    
+    .checklist-item:hover {
+      background-color: var(--gray-50);
+    }
+    
+    .checklist-item.checked {
+      background-color: var(--success-light);
+      border-color: var(--success);
+    }
+    
+    .checklist-item.checked .checklist-text {
+      text-decoration: line-through;
+      color: var(--gray-500);
+    }
+    
+    .custom-checkbox {
+      width: 24px;
+      height: 24px;
+      border: 2px solid var(--gray-300);
+      border-radius: var(--radius-md);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+      cursor: pointer;
+    }
+    
+    .custom-checkbox:hover {
+      border-color: var(--teal-primary);
+    }
+    
+    .custom-checkbox.checked {
+      background-color: var(--success);
+      border-color: var(--success);
+    }
+    
+    .custom-checkbox.checked i {
+      opacity: 1;
+    }
+    
+    .custom-checkbox i {
+      opacity: 0;
+      transition: opacity 0.25s ease;
+    }
+    
+    /* Accordion styles */
+    .accordion-item {
+      border: 1px solid var(--gray-200);
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+      margin-bottom: 1rem;
+      transition: border-color 0.25s ease;
+    }
+    
+    .accordion-item:hover {
+      border-color: var(--teal-primary);
+    }
+    
+    .accordion-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 1.25rem 1.5rem;
+      background: var(--white);
+      cursor: pointer;
+      transition: background-color 0.25s ease;
+    }
+    
+    .accordion-header:hover {
+      background-color: var(--gray-50);
+    }
+    
+    .accordion-header.active {
+      background-color: var(--teal-pale);
+    }
+    
+    .accordion-icon {
+      transition: transform 0.3s ease-in-out;
+    }
+    
+    .accordion-header.active .accordion-icon {
+      transform: rotate(180deg);
+    }
+    
+    .accordion-content {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.3s ease-in-out, padding 0.3s ease-in-out;
+      background: var(--white);
+    }
+    
+    .accordion-content.active {
+      max-height: 500px;
+      padding: 0 1.5rem 1.5rem;
+    }
+    
+    /* Timeline styles */
+    .timeline-item {
+      position: relative;
+      padding-left: 2rem;
+      padding-bottom: 2rem;
+      border-left: 2px solid var(--gray-200);
+    }
+    
+    .timeline-item:last-child {
+      border-left: 2px solid transparent;
+      padding-bottom: 0;
+    }
+    
+    .timeline-item::before {
+      content: '';
+      position: absolute;
+      left: -9px;
+      top: 0;
+      width: 16px;
+      height: 16px;
+      border-radius: 50%;
+      background: var(--teal-primary);
+      border: 3px solid var(--white);
+      box-shadow: 0 0 0 2px var(--teal-primary);
+    }
+    
+    .timeline-item.urgent::before {
+      background: var(--warning);
+      box-shadow: 0 0 0 2px var(--warning);
+    }
+    
+    .timeline-item.critical::before {
+      background: var(--error);
+      box-shadow: 0 0 0 2px var(--error);
+    }
+    
+    /* Progress bar for checklist */
+    .progress-bar {
+      height: 8px;
+      background: var(--gray-200);
+      border-radius: var(--radius-full);
+      overflow: hidden;
+    }
+    
+    .progress-fill {
+      height: 100%;
+      background: linear-gradient(90deg, var(--teal-primary), var(--teal-light));
+      border-radius: var(--radius-full);
+      transition: width 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+    
+    /* Report preview styles */
+    .report-preview {
+      background: var(--white);
+      border: 1px solid var(--gray-200);
+      border-radius: var(--radius-lg);
+      box-shadow: var(--shadow-md);
+    }
+    
+    .report-header {
+      background: var(--navy-primary);
+      color: var(--white);
+      padding: 1.5rem;
+      border-radius: var(--radius-lg) var(--radius-lg) 0 0;
+    }
+    
+    .report-field {
+      border-bottom: 1px solid var(--gray-200);
+      padding: 1rem 1.5rem;
+    }
+    
+    .report-field:last-child {
+      border-bottom: none;
+    }
+    
+    /* Scroll animation initial states */
+    .scroll-animate {
+      opacity: 0;
+    }
+    
+    .scroll-animate.animated {
+      opacity: 1;
+    }
+    
+    .scroll-fadeInUp {
+      transform: translateY(30px);
+      transition: opacity 0.7s ease-out, transform 0.7s ease-out;
+    }
+    
+    .scroll-fadeInUp.animated {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    
+    .scroll-fadeInLeft {
+      transform: translateX(-30px);
+      transition: opacity 0.8s cubic-bezier(0.4, 0, 0.2, 1), transform 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+    
+    .scroll-fadeInLeft.animated {
+      opacity: 1;
+      transform: translateX(0);
+    }
+    
+    .scroll-fadeInRight {
+      transform: translateX(30px);
+      transition: opacity 0.8s cubic-bezier(0.4, 0, 0.2, 1), transform 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+    
+    .scroll-fadeInRight.animated {
+      opacity: 1;
+      transform: translateX(0);
+    }
+  </style>
+</head>
+<body class="bg-white">
+  <!-- Header/Navigation -->
+  <header class="fixed top-0 left-0 right-0 bg-white shadow-sm z-50" style="height: 72px;">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-full">
+      <div class="flex items-center justify-between h-full">
+        <!-- Logo -->
+        <a href="index.html" class="flex items-center gap-2">
+          <div class="w-10 h-10 bg-[#0d9488] rounded-lg flex items-center justify-center">
+            <i data-lucide="home" class="w-6 h-6 text-white"></i>
+          </div>
+          <span class="text-xl font-bold text-[#1e3a5f]">Septic Systems HQ</span>
+        </a>
+        
+        <!-- Desktop Navigation -->
+        <nav class="desktop-nav hidden lg:flex items-center gap-8">
+          <a href="index.html" class="nav-link flex items-center gap-1.5" data-nav="home">
+            <i data-lucide="home" class="w-4 h-4"></i>
+            <span>Home</span>
+          </a>
+          <a href="types.html" class="nav-link flex items-center gap-1.5" data-nav="types">
+            <i data-lucide="layers" class="w-4 h-4"></i>
+            <span>Types</span>
+          </a>
+          <a href="maintenance.html" class="nav-link flex items-center gap-1.5" data-nav="maintenance">
+            <i data-lucide="calendar-check" class="w-4 h-4"></i>
+            <span>Maintenance</span>
+          </a>
+          <a href="problems.html" class="nav-link flex items-center gap-1.5" data-nav="problems">
+            <i data-lucide="alert-triangle" class="w-4 h-4"></i>
+            <span>Problems</span>
+          </a>
+          <a href="costs.html" class="nav-link flex items-center gap-1.5" data-nav="costs">
+            <i data-lucide="dollar-sign" class="w-4 h-4"></i>
+            <span>Costs</span>
+          </a>
+          <a href="inspection.html" class="nav-link flex items-center gap-1.5 active" data-nav="inspection">
+            <i data-lucide="clipboard-check" class="w-4 h-4"></i>
+            <span>Inspection</span>
+          </a>
+          <a href="faq.html" class="nav-link flex items-center gap-1.5" data-nav="faq">
+            <i data-lucide="help-circle" class="w-4 h-4"></i>
+            <span>FAQ</span>
+          </a>
+        </nav>
+        
+        <!-- Mobile Menu Button -->
+        <button class="mobile-menu-btn lg:hidden p-2 rounded-lg hover:bg-gray-100 transition-colors" onclick="toggleMobileMenu()" aria-label="Toggle menu">
+          <i data-lucide="menu" class="w-6 h-6 text-[#475569]"></i>
+        </button>
+      </div>
+    </div>
+    
+    <!-- Mobile Menu -->
+    <div id="mobileMenu" class="mobile-menu lg:hidden">
+      <nav class="flex flex-col gap-2">
+        <a href="index.html" class="flex items-center gap-3 px-4 py-3 rounded-lg hover:bg-gray-50 text-[#475569] hover:text-[#0d9488] transition-colors" data-nav="home">
+          <i data-lucide="home" class="w-5 h-5"></i>
+          <span>Home</span>
+        </a>
+        <a href="types.html" class="flex items-center gap-3 px-4 py-3 rounded-lg hover:bg-gray-50 text-[#475569] hover:text-[#0d9488] transition-colors" data-nav="types">
+          <i data-lucide="layers" class="w-5 h-5"></i>
+          <span>Types</span>
+        </a>
+        <a href="maintenance.html" class="flex items-center gap-3 px-4 py-3 rounded-lg hover:bg-gray-50 text-[#475569] hover:text-[#0d9488] transition-colors" data-nav="maintenance">
+          <i data-lucide="calendar-check" class="w-5 h-5"></i>
+          <span>Maintenance</span>
+        </a>
+        <a href="problems.html" class="flex items-center gap-3 px-4 py-3 rounded-lg hover:bg-gray-50 text-[#475569] hover:text-[#0d9488] transition-colors" data-nav="problems">
+          <i data-lucide="alert-triangle" class="w-5 h-5"></i>
+          <span>Problems</span>
+        </a>
+        <a href="costs.html" class="flex items-center gap-3 px-4 py-3 rounded-lg hover:bg-gray-50 text-[#475569] hover:text-[#0d9488] transition-colors" data-nav="costs">
+          <i data-lucide="dollar-sign" class="w-5 h-5"></i>
+          <span>Costs</span>
+        </a>
+        <a href="inspection.html" class="flex items-center gap-3 px-4 py-3 rounded-lg hover:bg-gray-50 text-[#0d9488] bg-[#ccfbf1] transition-colors" data-nav="inspection">
+          <i data-lucide="clipboard-check" class="w-5 h-5"></i>
+          <span>Inspection</span>
+        </a>
+        <a href="faq.html" class="flex items-center gap-3 px-4 py-3 rounded-lg hover:bg-gray-50 text-[#475569] hover:text-[#0d9488] transition-colors" data-nav="faq">
+          <i data-lucide="help-circle" class="w-5 h-5"></i>
+          <span>FAQ</span>
+        </a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Spacer for fixed header -->
+  <div style="height: 72px;"></div>
+
+  <!-- Section 2: Page Hero -->
+  <section class="bg-[#1e3a5f] py-20 lg:py-28">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center max-w-3xl mx-auto">
+        <div class="inline-flex items-center gap-2 bg-[#2a4a73] text-white px-4 py-2 rounded-full text-sm font-medium mb-6 animate-fadeInUp" style="animation-delay: 0.1s;">
+          <i data-lucide="clipboard-check" class="w-4 h-4"></i>
+          <span>Comprehensive Guide</span>
+        </div>
+        <h1 class="text-4xl lg:text-5xl font-bold text-white mb-6 animate-fadeInUp" style="animation-delay: 0.2s; line-height: 1.1; letter-spacing: -0.02em;">
+          Septic System Inspection
+        </h1>
+        <p class="text-lg lg:text-xl text-gray-300 mb-8 animate-fadeInUp" style="animation-delay: 0.3s; line-height: 1.7;">
+          Learn how to perform DIY inspections and understand what professionals look for. Keep your system running smoothly with regular checkups.
+        </p>
+        <div class="flex flex-wrap justify-center gap-4 animate-fadeInUp" style="animation-delay: 0.4s;">
+          <a href="#diy-checklist" class="btn-primary">
+            <i data-lucide="list-checks" class="w-5 h-5"></i>
+            <span>DIY Checklist</span>
+          </a>
+          <a href="#inspection-frequency" class="btn-secondary border-white text-white hover:bg-white hover:text-[#1e3a5f]">
+            <i data-lucide="calendar" class="w-5 h-5"></i>
+            <span>Inspection Schedule</span>
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Section 3: DIY vs Professional -->
+  <section class="py-20 lg:py-24 bg-white">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-16 scroll-animate scroll-fadeInUp">
+        <span class="inline-block text-[#0d9488] font-semibold text-sm uppercase tracking-wider mb-3">Inspection Options</span>
+        <h2 class="text-3xl lg:text-4xl font-bold text-[#1e293b] mb-4" style="line-height: 1.2; letter-spacing: -0.01em;">
+          DIY vs Professional Inspection
+        </h2>
+        <p class="text-lg text-[#64748b] max-w-2xl mx-auto" style="line-height: 1.7;">
+          Understand the differences between what you can check yourself and when to call in the experts.
+        </p>
+      </div>
+
+      <div class="grid lg:grid-cols-2 gap-8">
+        <!-- DIY Inspection -->
+        <div class="scroll-animate scroll-fadeInLeft">
+          <div class="feature-card h-full">
+            <div class="flex items-center gap-4 mb-6">
+              <div class="w-14 h-14 bg-[#ccfbf1] rounded-xl flex items-center justify-center">
+                <i data-lucide="user-check" class="w-7 h-7 text-[#0d9488]"></i>
+              </div>
+              <div>
+                <h3 class="text-2xl font-bold text-[#1e293b]">DIY Inspection</h3>
+                <span class="tag tag-success">Free</span>
+              </div>
+            </div>
+            
+            <div class="mb-6">
+              <img src="images/diy-inspection.jpg" alt="Homeowner performing DIY septic inspection" class="w-full h-48 object-cover rounded-lg mb-4">
+            </div>
+            
+            <ul class="space-y-3 mb-6">
+              <li class="flex items-start gap-3">
+                <i data-lucide="check-circle" class="w-5 h-5 text-[#10b981] flex-shrink-0 mt-0.5"></i>
+                <span class="text-[#475569]">Visual yard check for wet spots</span>
+              </li>
+              <li class="flex items-start gap-3">
+                <i data-lucide="check-circle" class="w-5 h-5 text-[#10b981] flex-shrink-0 mt-0.5"></i>
+                <span class="text-[#475569]">Monitor drain speed in sinks and tubs</span>
+              </li>
+              <li class="flex items-start gap-3">
+                <i data-lucide="check-circle" class="w-5 h-5 text-[#10b981] flex-shrink-0 mt-0.5"></i>
+                <span class="text-[#475569]">Check for sewage odors indoors and out</span>
+              </li>
+              <li class="flex items-start gap-3">
+                <i data-lucide="check-circle" class="w-5 h-5 text-[#10b981] flex-shrink-0 mt-0.5"></i>
+                <span class="text-[#475569]">Look for unusually green grass patches</span>
+              </li>
+            </ul>
+            
+            <div class="flex items-center justify-between pt-4 border-t border-[#e2e8f0]">
+              <div class="flex items-center gap-2">
+                <i data-lucide="dollar-sign" class="w-5 h-5 text-[#10b981]"></i>
+                <span class="font-semibold text-[#1e293b]">Cost: Free</span>
+              </div>
+              <div class="flex items-center gap-2">
+                <i data-lucide="calendar" class="w-5 h-5 text-[#0d9488]"></i>
+                <span class="font-semibold text-[#1e293b]">Monthly</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Professional Inspection -->
+        <div class="scroll-animate scroll-fadeInRight">
+          <div class="feature-card h-full">
+            <div class="flex items-center gap-4 mb-6">
+              <div class="w-14 h-14 bg-[#dbeafe] rounded-xl flex items-center justify-center">
+                <i data-lucide="hard-hat" class="w-7 h-7 text-[#3b82f6]"></i>
+              </div>
+              <div>
+                <h3 class="text-2xl font-bold text-[#1e293b]">Professional Inspection</h3>
+                <span class="tag tag-info">Recommended</span>
+              </div>
+            </div>
+            
+            <div class="mb-6">
+              <img src="images/professional-inspection.png" alt="Professional septic inspector at work" class="w-full h-48 object-cover rounded-lg mb-4">
+            </div>
+            
+            <ul class="space-y-3 mb-6">
+              <li class="flex items-start gap-3">
+                <i data-lucide="check-circle" class="w-5 h-5 text-[#3b82f6] flex-shrink-0 mt-0.5"></i>
+                <span class="text-[#475569]">Tank pumping and thorough inspection</span>
+              </li>
+              <li class="flex items-start gap-3">
+                <i data-lucide="check-circle" class="w-5 h-5 text-[#3b82f6] flex-shrink-0 mt-0.5"></i>
+                <span class="text-[#475569]">Baffle check (inlet and outlet)</span>
+              </li>
+              <li class="flex items-start gap-3">
+                <i data-lucide="check-circle" class="w-5 h-5 text-[#3b82f6] flex-shrink-0 mt-0.5"></i>
+                <span class="text-[#475569]">Complete drain field evaluation</span>
+              </li>
+              <li class="flex items-start gap-3">
+                <i data-lucide="check-circle" class="w-5 h-5 text-[#3b82f6] flex-shrink-0 mt-0.5"></i>
+                <span class="text-[#475569]">Distribution box inspection</span>
+              </li>
+            </ul>
+            
+            <div class="flex items-center justify-between pt-4 border-t border-[#e2e8f0]">
+              <div class="flex items-center gap-2">
+                <i data-lucide="dollar-sign" class="w-5 h-5 text-[#3b82f6]"></i>
+                <span class="font-semibold text-[#1e293b]">Cost: $200-$500</span>
+              </div>
+              <div class="flex items-center gap-2">
+                <i data-lucide="calendar" class="w-5 h-5 text-[#0d9488]"></i>
+                <span class="font-semibold text-[#1e293b]">Every 1-3 Years</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Section 4: DIY Inspection Checklist -->
+  <section id="diy-checklist" class="py-20 lg:py-24 bg-[#f8fafc]">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-12 scroll-animate scroll-fadeInUp">
+        <span class="inline-block text-[#0d9488] font-semibold text-sm uppercase tracking-wider mb-3">Monthly Check</span>
+        <h2 class="text-3xl lg:text-4xl font-bold text-[#1e293b] mb-4" style="line-height: 1.2; letter-spacing: -0.01em;">
+          DIY Inspection Checklist
+        </h2>
+        <p class="text-lg text-[#64748b]" style="line-height: 1.7;">
+          Complete this simple checklist every month to catch potential problems early.
+        </p>
+      </div>
+
+      <!-- Progress Bar -->
+      <div class="mb-8 scroll-animate scroll-fadeInUp">
+        <div class="flex items-center justify-between mb-2">
+          <span class="text-sm font-medium text-[#475569]">Checklist Progress</span>
+          <span id="progressText" class="text-sm font-semibold text-[#0d9488]">0/6 Complete</span>
+        </div>
+        <div class="progress-bar">
+          <div id="progressFill" class="progress-fill" style="width: 0%;"></div>
+        </div>
+      </div>
+
+      <!-- Checklist Items -->
+      <div class="bg-white rounded-xl shadow-lg p-6 lg:p-8 scroll-animate scroll-fadeInUp">
+        <div class="space-y-4" id="checklistContainer">
+          <div class="checklist-item flex items-center gap-4 p-4 border border-[#e2e8f0] rounded-lg cursor-pointer" data-index="0">
+            <div class="custom-checkbox">
+              <i data-lucide="check" class="w-4 h-4 text-white"></i>
+            </div>
+            <div class="flex-1">
+              <p class="checklist-text font-medium text-[#1e293b]">Check for standing water in yard</p>
+              <p class="text-sm text-[#64748b]">Look for puddles or soggy areas near the drain field</p>
+            </div>
+            <i data-lucide="droplets" class="w-5 h-5 text-[#94a3b8]"></i>
+          </div>
+
+          <div class="checklist-item flex items-center gap-4 p-4 border border-[#e2e8f0] rounded-lg cursor-pointer" data-index="1">
+            <div class="custom-checkbox">
+              <i data-lucide="check" class="w-4 h-4 text-white"></i>
+            </div>
+            <div class="flex-1">
+              <p class="checklist-text font-medium text-[#1e293b]">Monitor all drain speeds</p>
+              <p class="text-sm text-[#64748b]">Sinks, tubs, and toilets should drain quickly</p>
+            </div>
+            <i data-lucide="gauge" class="w-5 h-5 text-[#94a3b8]"></i>
+          </div>
+
+          <div class="checklist-item flex items-center gap-4 p-4 border border-[#e2e8f0] rounded-lg cursor-pointer" data-index="2">
+            <div class="custom-checkbox">
+              <i data-lucide="check" class="w-4 h-4 text-white"></i>
+            </div>
+            <div class="flex-1">
+              <p class="checklist-text font-medium text-[#1e293b]">Sniff for sewage odors</p>
+              <p class="text-sm text-[#64748b]">Check indoors and outdoors for any unusual smells</p>
+            </div>
+            <i data-lucide="wind" class="w-5 h-5 text-[#94a3b8]"></i>
+          </div>
+
+          <div class="checklist-item flex items-center gap-4 p-4 border border-[#e2e8f0] rounded-lg cursor-pointer" data-index="3">
+            <div class="custom-checkbox">
+              <i data-lucide="check" class="w-4 h-4 text-white"></i>
+            </div>
+            <div class="flex-1">
+              <p class="checklist-text font-medium text-[#1e293b]">Look for unusually green grass</p>
+              <p class="text-sm text-[#64748b]">Extra-green patches may indicate drain field issues</p>
+            </div>
+            <i data-lucide="leaf" class="w-5 h-5 text-[#94a3b8]"></i>
+          </div>
+
+          <div class="checklist-item flex items-center gap-4 p-4 border border-[#e2e8f0] rounded-lg cursor-pointer" data-index="4">
+            <div class="custom-checkbox">
+              <i data-lucide="check" class="w-4 h-4 text-white"></i>
+            </div>
+            <div class="flex-1">
+              <p class="checklist-text font-medium text-[#1e293b]">Listen for gurgling sounds</p>
+              <p class="text-sm text-[#64748b]">Gurgling from drains or toilets can signal problems</p>
+            </div>
+            <i data-lucide="volume-2" class="w-5 h-5 text-[#94a3b8]"></i>
+          </div>
+
+          <div class="checklist-item flex items-center gap-4 p-4 border border-[#e2e8f0] rounded-lg cursor-pointer" data-index="5">
+            <div class="custom-checkbox">
+              <i data-lucide="check" class="w-4 h-4 text-white"></i>
+            </div>
+            <div class="flex-1">
+              <p class="checklist-text font-medium text-[#1e293b]">Check toilet flush performance</p>
+              <p class="text-sm text-[#64748b]">Toilets should flush completely without hesitation</p>
+            </div>
+            <i data-lucide="toilet" class="w-5 h-5 text-[#94a3b8]"></i>
+          </div>
+        </div>
+
+        <div class="mt-6 pt-6 border-t border-[#e2e8f0] flex flex-wrap items-center justify-between gap-4">
+          <button id="resetChecklist" class="text-[#64748b] hover:text-[#0d9488] transition-colors text-sm font-medium flex items-center gap-2">
+            <i data-lucide="rotate-ccw" class="w-4 h-4"></i>
+            Reset Checklist
+          </button>
+          <a href="#what-inspectors-look-for" class="btn-primary text-sm">
+            <i data-lucide="arrow-down" class="w-4 h-4"></i>
+            Learn What Pros Check
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Section 5: What Inspectors Look For -->
+  <section id="what-inspectors-look-for" class="py-20 lg:py-24 bg-white">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-12 scroll-animate scroll-fadeInUp">
+        <span class="inline-block text-[#0d9488] font-semibold text-sm uppercase tracking-wider mb-3">Professional Standards</span>
+        <h2 class="text-3xl lg:text-4xl font-bold text-[#1e293b] mb-4" style="line-height: 1.2; letter-spacing: -0.01em;">
+          What Inspectors Look For
+        </h2>
+        <p class="text-lg text-[#64748b]" style="line-height: 1.7;">
+          Understanding the professional inspection process helps you know what to expect.
+        </p>
+      </div>
+
+      <!-- Accordion -->
+      <div class="scroll-animate scroll-fadeInUp">
+        <!-- Tank Condition -->
+        <div class="accordion-item">
+          <div class="accordion-header" onclick="toggleAccordion(this)">
+            <div class="flex items-center gap-4">
+              <div class="w-12 h-12 bg-[#ccfbf1] rounded-lg flex items-center justify-center">
+                <i data-lucide="container" class="w-6 h-6 text-[#0d9488]"></i>
+              </div>
+              <div>
+                <h3 class="text-lg font-semibold text-[#1e293b]">Tank Condition</h3>
+                <p class="text-sm text-[#64748b]">Structural integrity and sludge levels</p>
+              </div>
+            </div>
+            <i data-lucide="chevron-down" class="w-5 h-5 text-[#64748b] accordion-icon"></i>
+          </div>
+          <div class="accordion-content">
+            <div class="pt-4 border-t border-[#e2e8f0]">
+              <ul class="space-y-3">
+                <li class="flex items-start gap-3">
+                  <i data-lucide="alert-circle" class="w-5 h-5 text-[#f59e0b] flex-shrink-0 mt-0.5"></i>
+                  <div>
+                    <span class="font-medium text-[#1e293b]">Cracks or Leaks:</span>
+                    <span class="text-[#475569]">Inspectors check for structural damage, cracks in walls, or leaks at seams and joints.</span>
+                  </div>
+                </li>
+                <li class="flex items-start gap-3">
+                  <i data-lucide="layers" class="w-5 h-5 text-[#f59e0b] flex-shrink-0 mt-0.5"></i>
+                  <div>
+                    <span class="font-medium text-[#1e293b]">Sludge Levels:</span>
+                    <span class="text-[#475569]">Measures sludge and scum layers. Pumping needed when sludge reaches 1/3 of tank depth.</span>
+                  </div>
+                </li>
+                <li class="flex items-start gap-3">
+                  <i data-lucide="droplet" class="w-5 h-5 text-[#f59e0b] flex-shrink-0 mt-0.5"></i>
+                  <div>
+                    <span class="font-medium text-[#1e293b]">Liquid Level:</span>
+                    <span class="text-[#475569]">Checks that liquid level is at proper height for optimal system function.</span>
+                  </div>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <!-- Baffle Inspection -->
+        <div class="accordion-item">
+          <div class="accordion-header" onclick="toggleAccordion(this)">
+            <div class="flex items-center gap-4">
+              <div class="w-12 h-12 bg-[#dbeafe] rounded-lg flex items-center justify-center">
+                <i data-lucide="arrow-left-right" class="w-6 h-6 text-[#3b82f6]"></i>
+              </div>
+              <div>
+                <h3 class="text-lg font-semibold text-[#1e293b]">Baffle Inspection</h3>
+                <p class="text-sm text-[#64748b]">Inlet and outlet baffles</p>
+              </div>
+            </div>
+            <i data-lucide="chevron-down" class="w-5 h-5 text-[#64748b] accordion-icon"></i>
+          </div>
+          <div class="accordion-content">
+            <div class="pt-4 border-t border-[#e2e8f0]">
+              <ul class="space-y-3">
+                <li class="flex items-start gap-3">
+                  <i data-lucide="log-in" class="w-5 h-5 text-[#3b82f6] flex-shrink-0 mt-0.5"></i>
+                  <div>
+                    <span class="font-medium text-[#1e293b]">Inlet Baffle:</span>
+                    <span class="text-[#475569]">Ensures proper flow into tank and prevents short-circuiting of waste.</span>
+                  </div>
+                </li>
+                <li class="flex items-start gap-3">
+                  <i data-lucide="log-out" class="w-5 h-5 text-[#3b82f6] flex-shrink-0 mt-0.5"></i>
+                  <div>
+                    <span class="font-medium text-[#1e293b]">Outlet Baffle:</span>
+                    <span class="text-[#475569]">Prevents sludge and scum from entering the drain field.</span>
+                  </div>
+                </li>
+                <li class="flex items-start gap-3">
+                  <i data-lucide="shield" class="w-5 h-5 text-[#3b82f6] flex-shrink-0 mt-0.5"></i>
+                  <div>
+                    <span class="font-medium text-[#1e293b]">Condition Check:</span>
+                    <span class="text-[#475569]">Verifies baffles are intact, not corroded, and properly positioned.</span>
+                  </div>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <!-- Drain Field -->
+        <div class="accordion-item">
+          <div class="accordion-header" onclick="toggleAccordion(this)">
+            <div class="flex items-center gap-4">
+              <div class="w-12 h-12 bg-[#d1fae5] rounded-lg flex items-center justify-center">
+                <i data-lucide="sprout" class="w-6 h-6 text-[#10b981]"></i>
+              </div>
+              <div>
+                <h3 class="text-lg font-semibold text-[#1e293b]">Drain Field Evaluation</h3>
+                <p class="text-sm text-[#64748b]">Soil absorption and biomat assessment</p>
+              </div>
+            </div>
+            <i data-lucide="chevron-down" class="w-5 h-5 text-[#64748b] accordion-icon"></i>
+          </div>
+          <div class="accordion-content">
+            <div class="pt-4 border-t border-[#e2e8f0]">
+              <ul class="space-y-3">
+                <li class="flex items-start gap-3">
+                  <i data-lucide="waves" class="w-5 h-5 text-[#10b981] flex-shrink-0 mt-0.5"></i>
+                  <div>
+                    <span class="font-medium text-[#1e293b]">Saturation Level:</span>
+                    <span class="text-[#475569]">Checks for over-saturation that indicates system failure or hydraulic overload.</span>
+                  </div>
+                </li>
+                <li class="flex items-start gap-3">
+                  <i data-lucide="microscope" class="w-5 h-5 text-[#10b981] flex-shrink-0 mt-0.5"></i>
+                  <div>
+                    <span class="font-medium text-[#1e293b]">Biomat Assessment:</span>
+                    <span class="text-[#475569]">Evaluates the biological mat that forms in the soil for proper thickness.</span>
+                  </div>
+                </li>
+                <li class="flex items-start gap-3">
+                  <i data-lucide="flower-2" class="w-5 h-5 text-[#10b981] flex-shrink-0 mt-0.5"></i>
+                  <div>
+                    <span class="font-medium text-[#1e293b]">Vegetation Check:</span>
+                    <span class="text-[#475569]">Looks for appropriate grass cover and absence of trees or shrubs with invasive roots.</span>
+                  </div>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <!-- Distribution Box -->
+        <div class="accordion-item">
+          <div class="accordion-header" onclick="toggleAccordion(this)">
+            <div class="flex items-center gap-4">
+              <div class="w-12 h-12 bg-[#fef3c7] rounded-lg flex items-center justify-center">
+                <i data-lucide="box" class="w-6 h-6 text-[#f59e0b]"></i>
+              </div>
+              <div>
+                <h3 class="text-lg font-semibold text-[#1e293b]">Distribution Box Inspection</h3>
+                <p class="text-sm text-[#64748b]">Level and outlet condition</p>
+              </div>
+            </div>
+            <i data-lucide="chevron-down" class="w-5 h-5 text-[#64748b] accordion-icon"></i>
+          </div>
+          <div class="accordion-content">
+            <div class="pt-4 border-t border-[#e2e8f0]">
+              <ul class="space-y-3">
+                <li class="flex items-start gap-3">
+                  <i data-lucide="scale" class="w-5 h-5 text-[#f59e0b] flex-shrink-0 mt-0.5"></i>
+                  <div>
+                    <span class="font-medium text-[#1e293b]">Level Check:</span>
+                    <span class="text-[#475569]">Ensures the box is level so effluent distributes evenly to all drain lines.</span>
+                  </div>
+                </li>
+                <li class="flex items-start gap-3">
+                  <i data-lucide="circle-dot" class="w-5 h-5 text-[#f59e0b] flex-shrink-0 mt-0.5"></i>
+                  <div>
+                    <span class="font-medium text-[#1e293b]">Outlet Clearance:</span>
+                    <span class="text-[#475569]">Verifies all outlets are clear of debris and flowing properly.</span>
+                  </div>
+                </li>
+                <li class="flex items-start gap-3">
+                  <i data-lucide="construction" class="w-5 h-5 text-[#f59e0b] flex-shrink-0 mt-0.5"></i>
+                  <div>
+                    <span class="font-medium text-[#1e293b]">Structural Integrity:</span>
+                    <span class="text-[#475569]">Checks for cracks, root intrusion, or damage to the distribution box.</span>
+                  </div>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <!-- Plumbing -->
+        <div class="accordion-item">
+          <div class="accordion-header" onclick="toggleAccordion(this)">
+            <div class="flex items-center gap-4">
+              <div class="w-12 h-12 bg-[#fee2e2] rounded-lg flex items-center justify-center">
+                <i data-lucide="pipeline" class="w-6 h-6 text-[#ef4444]"></i>
+              </div>
+              <div>
+                <h3 class="text-lg font-semibold text-[#1e293b]">Plumbing Inspection</h3>
+                <p class="text-sm text-[#64748b]">Connections, venting, and backups</p>
+              </div>
+            </div>
+            <i data-lucide="chevron-down" class="w-5 h-5 text-[#64748b] accordion-icon"></i>
+          </div>
+          <div class="accordion-content">
+            <div class="pt-4 border-t border-[#e2e8f0]">
+              <ul class="space-y-3">
+                <li class="flex items-start gap-3">
+                  <i data-lucide="link" class="w-5 h-5 text-[#ef4444] flex-shrink-0 mt-0.5"></i>
+                  <div>
+                    <span class="font-medium text-[#1e293b]">Connection Check:</span>
+                    <span class="text-[#475569]">Inspects all pipe connections from house to tank for leaks or damage.</span>
+                  </div>
+                </li>
+                <li class="flex items-start gap-3">
+                  <i data-lucide="wind" class="w-5 h-5 text-[#ef4444] flex-shrink-0 mt-0.5"></i>
+                  <div>
+                    <span class="font-medium text-[#1e293b]">Venting System:</span>
+                    <span class="text-[#475569]">Ensures proper venting to prevent pressure buildup and odor issues.</span>
+                  </div>
+                </li>
+                <li class="flex items-start gap-3">
+                  <i data-lucide="arrow-up-from-line" class="w-5 h-5 text-[#ef4444] flex-shrink-0 mt-0.5"></i>
+                  <div>
+                    <span class="font-medium text-[#1e293b]">Backup Prevention:</span>
+                    <span class="text-[#475569]">Tests for any signs of backup or slow drainage in the system.</span>
+                  </div>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Section 6: Inspection Report Sample -->
+  <section class="py-20 lg:py-24 bg-[#f8fafc]">
+    <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-12 scroll-animate scroll-fadeInUp">
+        <span class="inline-block text-[#0d9488] font-semibold text-sm uppercase tracking-wider mb-3">Documentation</span>
+        <h2 class="text-3xl lg:text-4xl font-bold text-[#1e293b] mb-4" style="line-height: 1.2; letter-spacing: -0.01em;">
+          Inspection Report Sample
+        </h2>
+        <p class="text-lg text-[#64748b]" style="line-height: 1.7;">
+          A professional inspection report should include these key sections.
+        </p>
+      </div>
+
+      <div class="grid lg:grid-cols-5 gap-8">
+        <!-- Report Preview -->
+        <div class="lg:col-span-3 scroll-animate scroll-fadeInLeft">
+          <div class="report-preview">
+            <div class="report-header">
+              <div class="flex items-center gap-3 mb-2">
+                <i data-lucide="clipboard-check" class="w-6 h-6"></i>
+                <span class="font-semibold">Septic System Inspection Report</span>
+              </div>
+              <p class="text-sm text-gray-300">Sample Documentation</p>
+            </div>
+            <div class="report-field">
+              <span class="text-sm text-[#64748b] block mb-1">Property Address</span>
+              <span class="font-medium text-[#1e293b]">123 Main Street, Anytown, ST 12345</span>
+            </div>
+            <div class="report-field">
+              <span class="text-sm text-[#64748b] block mb-1">Inspection Date</span>
+              <span class="font-medium text-[#1e293b]">January 15, 2024</span>
+            </div>
+            <div class="report-field">
+              <span class="text-sm text-[#64748b] block mb-1">Inspector</span>
+              <span class="font-medium text-[#1e293b]">John Smith, Licensed Septic Inspector #SE-12345</span>
+            </div>
+            <div class="report-field">
+              <span class="text-sm text-[#64748b] block mb-1">System Type</span>
+              <span class="font-medium text-[#1e293b]">Conventional Gravity-Fed System</span>
+            </div>
+            <div class="report-field">
+              <span class="text-sm text-[#64748b] block mb-1">Overall Condition</span>
+              <span class="inline-flex items-center gap-1.5 px-3 py-1 bg-[#d1fae5] text-[#10b981] rounded-full text-sm font-medium">
+                <i data-lucide="check-circle" class="w-4 h-4"></i>
+                Good Condition
+              </span>
+            </div>
+            <div class="p-4 bg-[#f8fafc]">
+              <span class="text-sm text-[#64748b] block mb-2">Key Findings</span>
+              <ul class="space-y-2 text-sm">
+                <li class="flex items-start gap-2">
+                  <i data-lucide="check" class="w-4 h-4 text-[#10b981] flex-shrink-0 mt-0.5"></i>
+                  <span class="text-[#475569]">Tank sludge level at 15% - pumping not yet required</span>
+                </li>
+                <li class="flex items-start gap-2">
+                  <i data-lucide="check" class="w-4 h-4 text-[#10b981] flex-shrink-0 mt-0.5"></i>
+                  <span class="text-[#475569]">All baffles intact and functioning properly</span>
+                </li>
+                <li class="flex items-start gap-2">
+                  <i data-lucide="alert-triangle" class="w-4 h-4 text-[#f59e0b] flex-shrink-0 mt-0.5"></i>
+                  <span class="text-[#475569]">Minor vegetation near drain field - recommend monitoring</span>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <!-- Report Elements -->
+        <div class="lg:col-span-2 scroll-animate scroll-fadeInRight">
+          <div class="bg-white rounded-xl shadow-lg p-6">
+            <h3 class="text-lg font-semibold text-[#1e293b] mb-4">Report Should Include:</h3>
+            <ul class="space-y-4">
+              <li class="flex items-start gap-3">
+                <div class="w-8 h-8 bg-[#ccfbf1] rounded-lg flex items-center justify-center flex-shrink-0">
+                  <i data-lucide="map-pin" class="w-4 h-4 text-[#0d9488]"></i>
+                </div>
+                <div>
+                  <span class="font-medium text-[#1e293b] block">Property Information</span>
+                  <span class="text-sm text-[#64748b]">Address, lot size, system location</span>
+                </div>
+              </li>
+              <li class="flex items-start gap-3">
+                <div class="w-8 h-8 bg-[#dbeafe] rounded-lg flex items-center justify-center flex-shrink-0">
+                  <i data-lucide="user" class="w-4 h-4 text-[#3b82f6]"></i>
+                </div>
+                <div>
+                  <span class="font-medium text-[#1e293b] block">Inspector Details</span>
+                  <span class="text-sm text-[#64748b]">Name, license number, company</span>
+                </div>
+              </li>
+              <li class="flex items-start gap-3">
+                <div class="w-8 h-8 bg-[#d1fae5] rounded-lg flex items-center justify-center flex-shrink-0">
+                  <i data-lucide="settings" class="w-4 h-4 text-[#10b981]"></i>
+                </div>
+                <div>
+                  <span class="font-medium text-[#1e293b] block">System Specifications</span>
+                  <span class="text-sm text-[#64748b]">Type, age, tank size, components</span>
+                </div>
+              </li>
+              <li class="flex items-start gap-3">
+                <div class="w-8 h-8 bg-[#fef3c7] rounded-lg flex items-center justify-center flex-shrink-0">
+                  <i data-lucide="file-text" class="w-4 h-4 text-[#f59e0b]"></i>
+                </div>
+                <div>
+                  <span class="font-medium text-[#1e293b] block">Detailed Findings</span>
+                  <span class="text-sm text-[#64748b]">Condition of each component</span>
+                </div>
+              </li>
+              <li class="flex items-start gap-3">
+                <div class="w-8 h-8 bg-[#fee2e2] rounded-lg flex items-center justify-center flex-shrink-0">
+                  <i data-lucide="lightbulb" class="w-4 h-4 text-[#ef4444]"></i>
+                </div>
+                <div>
+                  <span class="font-medium text-[#1e293b] block">Recommendations</span>
+                  <span class="text-sm text-[#64748b]">Maintenance needs and next steps</span>
+                </div>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Section 7: How Often to Inspect -->
+  <section id="inspection-frequency" class="py-20 lg:py-24 bg-white">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-12 scroll-animate scroll-fadeInUp">
+        <span class="inline-block text-[#0d9488] font-semibold text-sm uppercase tracking-wider mb-3">Schedule</span>
+        <h2 class="text-3xl lg:text-4xl font-bold text-[#1e293b] mb-4" style="line-height: 1.2; letter-spacing: -0.01em;">
+          How Often to Inspect
+        </h2>
+        <p class="text-lg text-[#64748b]" style="line-height: 1.7;">
+          Follow this timeline based on your system's age and condition.
+        </p>
+      </div>
+
+      <div class="scroll-animate scroll-fadeInUp">
+        <!-- Timeline -->
+        <div class="bg-white rounded-xl shadow-lg p-8">
+          <div class="timeline-item">
+            <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-2 mb-2">
+              <h3 class="text-lg font-semibold text-[#1e293b]">New Systems (0-2 years)</h3>
+              <span class="tag tag-info w-fit">Annual Inspection</span>
+            </div>
+            <p class="text-[#475569] mb-3">New septic systems should be inspected annually for the first two years to ensure proper settling and function.</p>
+            <ul class="space-y-1 text-sm text-[#64748b]">
+              <li class="flex items-center gap-2">
+                <i data-lucide="check" class="w-4 h-4 text-[#0d9488]"></i>
+                Check for proper bacterial establishment
+              </li>
+              <li class="flex items-center gap-2">
+                <i data-lucide="check" class="w-4 h-4 text-[#0d9488]"></i>
+                Monitor for any installation issues
+              </li>
+            </ul>
+          </div>
+
+          <div class="timeline-item">
+            <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-2 mb-2">
+              <h3 class="text-lg font-semibold text-[#1e293b]">Established Systems (3-15 years)</h3>
+              <span class="tag tag-success w-fit">Every 3 Years</span>
+            </div>
+            <p class="text-[#475569] mb-3">Systems in good working order typically need professional inspection every 3 years, along with pumping as needed.</p>
+            <ul class="space-y-1 text-sm text-[#64748b]">
+              <li class="flex items-center gap-2">
+                <i data-lucide="check" class="w-4 h-4 text-[#10b981]"></i>
+                Standard maintenance schedule
+              </li>
+              <li class="flex items-center gap-2">
+                <i data-lucide="check" class="w-4 h-4 text-[#10b981]"></i>
+                Continue monthly DIY checks
+              </li>
+            </ul>
+          </div>
+
+          <div class="timeline-item urgent">
+            <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-2 mb-2">
+              <h3 class="text-lg font-semibold text-[#1e293b]">Older Systems (15+ years)</h3>
+              <span class="tag tag-warning w-fit">Every 1-2 Years</span>
+            </div>
+            <p class="text-[#475569] mb-3">Aging systems require more frequent monitoring. Components may begin to deteriorate and need attention.</p>
+            <ul class="space-y-1 text-sm text-[#64748b]">
+              <li class="flex items-center gap-2">
+                <i data-lucide="check" class="w-4 h-4 text-[#f59e0b]"></i>
+                Watch for signs of component failure
+              </li>
+              <li class="flex items-center gap-2">
+                <i data-lucide="check" class="w-4 h-4 text-[#f59e0b]"></i>
+                Consider system upgrade planning
+              </li>
+            </ul>
+          </div>
+
+          <div class="timeline-item critical">
+            <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-2 mb-2">
+              <h3 class="text-lg font-semibold text-[#1e293b]">Before Home Purchase</h3>
+              <span class="tag tag-info w-fit">Always Required</span>
+            </div>
+            <p class="text-[#475569] mb-3">Always get a professional septic inspection before purchasing a home with a septic system. This protects your investment.</p>
+            <ul class="space-y-1 text-sm text-[#64748b]">
+              <li class="flex items-center gap-2">
+                <i data-lucide="check" class="w-4 h-4 text-[#3b82f6]"></i>
+                Required by most lenders
+              </li>
+              <li class="flex items-center gap-2">
+                <i data-lucide="check" class="w-4 h-4 text-[#3b82f6]"></i>
+                Negotiate repairs or price adjustments
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- Call to Action -->
+        <div class="mt-8 bg-[#ccfbf1] rounded-xl p-6 text-center">
+          <div class="flex items-center justify-center gap-3 mb-3">
+            <i data-lucide="calendar-check" class="w-8 h-8 text-[#0d9488]"></i>
+          </div>
+          <h3 class="text-xl font-semibold text-[#1e293b] mb-2">Ready to Schedule an Inspection?</h3>
+          <p class="text-[#475569] mb-4">Find a licensed septic professional in your area.</p>
+          <a href="maintenance.html" class="btn-primary">
+            <i data-lucide="search" class="w-5 h-5"></i>
+            <span>Find Inspectors</span>
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="bg-[#0f172a] text-white pt-16 pb-8">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-12">
+        <!-- Brand Column -->
+        <div>
+          <a href="index.html" class="flex items-center gap-2 mb-4">
+            <div class="w-10 h-10 bg-[#0d9488] rounded-lg flex items-center justify-center">
+              <i data-lucide="home" class="w-6 h-6 text-white"></i>
+            </div>
+            <span class="text-xl font-bold">Septic Systems HQ</span>
+          </a>
+          <p class="text-gray-400 text-sm leading-relaxed mb-6">
+            Your trusted resource for septic system information, maintenance guides, and expert advice.
+          </p>
+          <div class="flex gap-4">
+            <a href="#" class="w-10 h-10 bg-[#1e293b] rounded-lg flex items-center justify-center hover:bg-[#0d9488] transition-colors" aria-label="Facebook">
+              <i data-lucide="facebook" class="w-5 h-5"></i>
+            </a>
+            <a href="#" class="w-10 h-10 bg-[#1e293b] rounded-lg flex items-center justify-center hover:bg-[#0d9488] transition-colors" aria-label="Twitter">
+              <i data-lucide="twitter" class="w-5 h-5"></i>
+            </a>
+            <a href="#" class="w-10 h-10 bg-[#1e293b] rounded-lg flex items-center justify-center hover:bg-[#0d9488] transition-colors" aria-label="YouTube">
+              <i data-lucide="youtube" class="w-5 h-5"></i>
+            </a>
+          </div>
+        </div>
+        
+        <!-- Quick Links -->
+        <div>
+          <h3 class="text-lg font-semibold mb-4">Quick Links</h3>
+          <ul class="space-y-3">
+            <li>
+              <a href="index.html" class="text-gray-400 hover:text-[#0d9488] transition-colors text-sm">Home</a>
+            </li>
+            <li>
+              <a href="types.html" class="text-gray-400 hover:text-[#0d9488] transition-colors text-sm">Types of Systems</a>
+            </li>
+            <li>
+              <a href="maintenance.html" class="text-gray-400 hover:text-[#0d9488] transition-colors text-sm">Maintenance Guide</a>
+            </li>
+            <li>
+              <a href="problems.html" class="text-gray-400 hover:text-[#0d9488] transition-colors text-sm">Common Problems</a>
+            </li>
+            <li>
+              <a href="costs.html" class="text-gray-400 hover:text-[#0d9488] transition-colors text-sm">Cost Guides</a>
+            </li>
+          </ul>
+        </div>
+        
+        <!-- Resources -->
+        <div>
+          <h3 class="text-lg font-semibold mb-4">Resources</h3>
+          <ul class="space-y-3">
+            <li>
+              <a href="installation.html" class="text-gray-400 hover:text-[#0d9488] transition-colors text-sm">Installation Guide</a>
+            </li>
+            <li>
+              <a href="inspection.html" class="text-gray-400 hover:text-[#0d9488] transition-colors text-sm">Inspection Guide</a>
+            </li>
+            <li>
+              <a href="regulations.html" class="text-gray-400 hover:text-[#0d9488] transition-colors text-sm">Regulations</a>
+            </li>
+            <li>
+              <a href="faq.html" class="text-gray-400 hover:text-[#0d9488] transition-colors text-sm">FAQ</a>
+            </li>
+            <li>
+              <a href="glossary.html" class="text-gray-400 hover:text-[#0d9488] transition-colors text-sm">Glossary</a>
+            </li>
+          </ul>
+        </div>
+        
+        <!-- Legal -->
+        <div>
+          <h3 class="text-lg font-semibold mb-4">Legal</h3>
+          <ul class="space-y-3">
+            <li>
+              <a href="#" class="text-gray-400 hover:text-[#0d9488] transition-colors text-sm">Privacy Policy</a>
+            </li>
+            <li>
+              <a href="#" class="text-gray-400 hover:text-[#0d9488] transition-colors text-sm">Terms of Use</a>
+            </li>
+            <li>
+              <a href="#" class="text-gray-400 hover:text-[#0d9488] transition-colors text-sm">Disclaimer</a>
+            </li>
+            <li>
+              <a href="#" class="text-gray-400 hover:text-[#0d9488] transition-colors text-sm">Contact</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+      
+      <!-- Bottom Bar -->
+      <div class="border-t border-[#1e293b] pt-8">
+        <div class="flex flex-col md:flex-row justify-between items-center gap-4">
+          <p class="text-gray-500 text-sm">
+            &copy; 2024 Septic Systems HQ. All rights reserved.
+          </p>
+          <p class="text-gray-500 text-sm">
+            Information provided for educational purposes only.
+          </p>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- JavaScript -->
+  <script>
+    // Initialize Lucide icons
+    document.addEventListener('DOMContentLoaded', function() {
+      lucide.createIcons();
+      initScrollAnimations();
+      initChecklist();
+    });
+
+    // Mobile menu toggle
+    function toggleMobileMenu() {
+      const menu = document.getElementById('mobileMenu');
+      menu.classList.toggle('open');
+    }
+
+    // Accordion functionality
+    function toggleAccordion(header) {
+      const content = header.nextElementSibling;
+      const isActive = header.classList.contains('active');
+      
+      // Close all accordions
+      document.querySelectorAll('.accordion-header').forEach(h => {
+        h.classList.remove('active');
+        h.nextElementSibling.classList.remove('active');
+      });
+      
+      // Open clicked accordion if it wasn't active
+      if (!isActive) {
+        header.classList.add('active');
+        content.classList.add('active');
+      }
+    }
+
+    // Checklist functionality
+    function initChecklist() {
+      const checklistItems = document.querySelectorAll('.checklist-item');
+      const resetBtn = document.getElementById('resetChecklist');
+      
+      checklistItems.forEach(item => {
+        item.addEventListener('click', function() {
+          this.classList.toggle('checked');
+          this.querySelector('.custom-checkbox').classList.toggle('checked');
+          updateProgress();
+        });
+      });
+      
+      resetBtn.addEventListener('click', function(e) {
+        e.stopPropagation();
+        checklistItems.forEach(item => {
+          item.classList.remove('checked');
+          item.querySelector('.custom-checkbox').classList.remove('checked');
+        });
+        updateProgress();
+      });
+    }
+
+    function updateProgress() {
+      const total = document.querySelectorAll('.checklist-item').length;
+      const checked = document.querySelectorAll('.checklist-item.checked').length;
+      const percentage = (checked / total) * 100;
+      
+      document.getElementById('progressFill').style.width = percentage + '%';
+      document.getElementById('progressText').textContent = checked + '/' + total + ' Complete';
+    }
+
+    // Scroll animations with Intersection Observer
+    function initScrollAnimations() {
+      const observerOptions = {
+        root: null,
+        rootMargin: '0px',
+        threshold: 0.1
+      };
+
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('animated');
+            observer.unobserve(entry.target);
+          }
+        });
+      }, observerOptions);
+
+      document.querySelectorAll('.scroll-animate').forEach(el => {
+        observer.observe(el);
+      });
+    }
+
+    // Close mobile menu when clicking outside
+    document.addEventListener('click', function(e) {
+      const menu = document.getElementById('mobileMenu');
+      const menuBtn = document.querySelector('.mobile-menu-btn');
+      
+      if (menu.classList.contains('open') && 
+          !menu.contains(e.target) && 
+          !menuBtn.contains(e.target)) {
+        menu.classList.remove('open');
+      }
+    });
+  </script>
+</body>
+</html>

@@ -1,0 +1,1009 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Common Septic System Problems | Septic Systems HQ</title>
+  <meta name="description" content="Learn to identify and solve common septic system problems including slow drains, sewage odors, drain field failure, and more. Expert troubleshooting advice.">
+  
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  
+  <!-- Tailwind CSS v4 -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  
+  <!-- Lucide Icons -->
+  <script src="https://unpkg.com/lucide@latest"></script>
+  
+  <!-- Shared Styles -->
+  <link rel="stylesheet" href="shared/styles.css">
+  
+  <style>
+    /* Page-specific styles */
+    .warning-card {
+      opacity: 0;
+      transform: translateY(30px);
+    }
+    
+    .warning-card.animated {
+      animation: fadeInUp 0.6s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+    }
+    
+    .problem-section {
+      opacity: 0;
+    }
+    
+    .problem-section.animated-left {
+      animation: fadeInLeft 0.8s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+    }
+    
+    .problem-section.animated-right {
+      animation: fadeInRight 0.8s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+    }
+    
+    .prevention-item {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    
+    .prevention-item.animated {
+      animation: fadeInUp 0.5s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+    }
+    
+    @keyframes fadeInUp {
+      from {
+        opacity: 0;
+        transform: translateY(30px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+    
+    @keyframes fadeInLeft {
+      from {
+        opacity: 0;
+        transform: translateX(-30px);
+      }
+      to {
+        opacity: 1;
+        transform: translateX(0);
+      }
+    }
+    
+    @keyframes fadeInRight {
+      from {
+        opacity: 0;
+        transform: translateX(30px);
+      }
+      to {
+        opacity: 1;
+        transform: translateX(0);
+      }
+    }
+    
+    .emergency-alert {
+      border-left: 4px solid #ef4444;
+    }
+    
+    .hero-pattern {
+      background-image: radial-gradient(circle at 20% 50%, rgba(13, 148, 136, 0.1) 0%, transparent 50%),
+                        radial-gradient(circle at 80% 80%, rgba(255, 255, 255, 0.05) 0%, transparent 40%);
+    }
+  </style>
+</head>
+<body class="bg-white">
+  
+  <!-- Header/Navigation -->
+  <header class="fixed top-0 left-0 right-0 bg-white shadow-sm z-50" style="height: 72px;">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-full">
+      <div class="flex items-center justify-between h-full">
+        <!-- Logo -->
+        <a href="index.html" class="flex items-center gap-2">
+          <div class="w-10 h-10 bg-[#0d9488] rounded-lg flex items-center justify-center">
+            <i data-lucide="home" class="w-6 h-6 text-white"></i>
+          </div>
+          <span class="text-xl font-bold text-[#1e3a5f]">Septic Systems HQ</span>
+        </a>
+        
+        <!-- Desktop Navigation -->
+        <nav class="desktop-nav hidden lg:flex items-center gap-8">
+          <a href="index.html" class="nav-link flex items-center gap-1.5" data-nav="home">
+            <i data-lucide="home" class="w-4 h-4"></i>
+            <span>Home</span>
+          </a>
+          <a href="types.html" class="nav-link flex items-center gap-1.5" data-nav="types">
+            <i data-lucide="layers" class="w-4 h-4"></i>
+            <span>Types</span>
+          </a>
+          <a href="maintenance.html" class="nav-link flex items-center gap-1.5" data-nav="maintenance">
+            <i data-lucide="calendar-check" class="w-4 h-4"></i>
+            <span>Maintenance</span>
+          </a>
+          <a href="problems.html" class="nav-link flex items-center gap-1.5 text-[#0d9488]" data-nav="problems">
+            <i data-lucide="alert-triangle" class="w-4 h-4"></i>
+            <span>Problems</span>
+          </a>
+          <a href="costs.html" class="nav-link flex items-center gap-1.5" data-nav="costs">
+            <i data-lucide="dollar-sign" class="w-4 h-4"></i>
+            <span>Costs</span>
+          </a>
+          <a href="inspection.html" class="nav-link flex items-center gap-1.5" data-nav="inspection">
+            <i data-lucide="clipboard-check" class="w-4 h-4"></i>
+            <span>Inspection</span>
+          </a>
+          <a href="faq.html" class="nav-link flex items-center gap-1.5" data-nav="faq">
+            <i data-lucide="help-circle" class="w-4 h-4"></i>
+            <span>FAQ</span>
+          </a>
+        </nav>
+        
+        <!-- Mobile Menu Button -->
+        <button class="mobile-menu-btn lg:hidden p-2 rounded-lg hover:bg-gray-100 transition-colors" onclick="toggleMobileMenu()" aria-label="Toggle menu">
+          <i data-lucide="menu" class="w-6 h-6 text-[#475569]"></i>
+        </button>
+      </div>
+    </div>
+    
+    <!-- Mobile Menu -->
+    <div id="mobileMenu" class="mobile-menu lg:hidden">
+      <nav class="flex flex-col gap-2">
+        <a href="index.html" class="flex items-center gap-3 px-4 py-3 rounded-lg hover:bg-gray-50 text-[#475569] hover:text-[#0d9488] transition-colors" data-nav="home">
+          <i data-lucide="home" class="w-5 h-5"></i>
+          <span>Home</span>
+        </a>
+        <a href="types.html" class="flex items-center gap-3 px-4 py-3 rounded-lg hover:bg-gray-50 text-[#475569] hover:text-[#0d9488] transition-colors" data-nav="types">
+          <i data-lucide="layers" class="w-5 h-5"></i>
+          <span>Types</span>
+        </a>
+        <a href="maintenance.html" class="flex items-center gap-3 px-4 py-3 rounded-lg hover:bg-gray-50 text-[#475569] hover:text-[#0d9488] transition-colors" data-nav="maintenance">
+          <i data-lucide="calendar-check" class="w-5 h-5"></i>
+          <span>Maintenance</span>
+        </a>
+        <a href="problems.html" class="flex items-center gap-3 px-4 py-3 rounded-lg bg-[#ccfbf1] text-[#0d9488] transition-colors" data-nav="problems">
+          <i data-lucide="alert-triangle" class="w-5 h-5"></i>
+          <span>Problems</span>
+        </a>
+        <a href="costs.html" class="flex items-center gap-3 px-4 py-3 rounded-lg hover:bg-gray-50 text-[#475569] hover:text-[#0d9488] transition-colors" data-nav="costs">
+          <i data-lucide="dollar-sign" class="w-5 h-5"></i>
+          <span>Costs</span>
+        </a>
+        <a href="inspection.html" class="flex items-center gap-3 px-4 py-3 rounded-lg hover:bg-gray-50 text-[#475569] hover:text-[#0d9488] transition-colors" data-nav="inspection">
+          <i data-lucide="clipboard-check" class="w-5 h-5"></i>
+          <span>Inspection</span>
+        </a>
+        <a href="faq.html" class="flex items-center gap-3 px-4 py-3 rounded-lg hover:bg-gray-50 text-[#475569] hover:text-[#0d9488] transition-colors" data-nav="faq">
+          <i data-lucide="help-circle" class="w-5 h-5"></i>
+          <span>FAQ</span>
+        </a>
+      </nav>
+    </div>
+  </header>
+  
+  <!-- Spacer for fixed header -->
+  <div style="height: 72px;"></div>
+  
+  <!-- Section 2: Page Hero -->
+  <section class="bg-[#1e3a5f] py-20 lg:py-28 hero-pattern">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="max-w-3xl mx-auto text-center">
+        <div class="inline-flex items-center gap-2 bg-[#0d9488]/20 text-[#14b8a6] px-4 py-2 rounded-full text-sm font-medium mb-6">
+          <i data-lucide="alert-triangle" class="w-4 h-4"></i>
+          <span>Troubleshooting Guide</span>
+        </div>
+        <h1 class="text-4xl lg:text-5xl font-bold text-white mb-6 leading-tight">
+          Common Septic System Problems
+        </h1>
+        <p class="text-lg lg:text-xl text-gray-300 leading-relaxed mb-8">
+          Learn to identify warning signs, understand causes, and find solutions for the most frequent septic system issues. Early detection can save you thousands in repair costs.
+        </p>
+        <div class="flex flex-wrap justify-center gap-4">
+          <a href="#warning-signs" class="btn-primary">
+            <i data-lucide="search" class="w-5 h-5"></i>
+            Identify Warning Signs
+          </a>
+          <a href="#emergency-guide" class="btn-secondary border-white text-white hover:bg-white/10">
+            <i data-lucide="phone-call" class="w-5 h-5"></i>
+            Emergency Help
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+  
+  <!-- Section 3: Warning Signs Grid -->
+  <section id="warning-signs" class="py-16 lg:py-24 bg-white">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-12">
+        <h2 class="text-3xl lg:text-4xl font-bold text-[#1e293b] mb-4">
+          Warning Signs to Watch For
+        </h2>
+        <p class="text-lg text-[#64748b] max-w-2xl mx-auto">
+          Recognizing these early warning signs can help you address problems before they become major emergencies.
+        </p>
+      </div>
+      
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
+        <!-- Card 1: Slow Drains -->
+        <div class="warning-card feature-card" style="animation-delay: 0s;">
+          <div class="w-14 h-14 bg-[#fef3c7] rounded-xl flex items-center justify-center mb-5">
+            <i data-lucide="droplets" class="w-7 h-7 text-[#f59e0b]"></i>
+          </div>
+          <h3 class="text-xl font-semibold text-[#1e293b] mb-3">Slow Drains</h3>
+          <p class="text-[#64748b] mb-4">
+            Multiple fixtures draining slowly throughout your home, not just one sink or tub.
+          </p>
+          <div class="flex items-center gap-2 text-[#f59e0b] font-medium text-sm">
+            <i data-lucide="alert-circle" class="w-4 h-4"></i>
+            <span>Early Warning</span>
+          </div>
+        </div>
+        
+        <!-- Card 2: Sewage Odors -->
+        <div class="warning-card feature-card" style="animation-delay: 0.1s;">
+          <div class="w-14 h-14 bg-[#fee2e2] rounded-xl flex items-center justify-center mb-5">
+            <i data-lucide="wind" class="w-7 h-7 text-[#ef4444]"></i>
+          </div>
+          <h3 class="text-xl font-semibold text-[#1e293b] mb-3">Sewage Odors</h3>
+          <p class="text-[#64748b] mb-4">
+            Foul smells coming from drains, toilets, or outdoors near the septic tank or drain field.
+          </p>
+          <div class="flex items-center gap-2 text-[#ef4444] font-medium text-sm">
+            <i data-lucide="alert-triangle" class="w-4 h-4"></i>
+            <span>Moderate Concern</span>
+          </div>
+        </div>
+        
+        <!-- Card 3: Lush Green Grass -->
+        <div class="warning-card feature-card" style="animation-delay: 0.2s;">
+          <div class="w-14 h-14 bg-[#d1fae5] rounded-xl flex items-center justify-center mb-5">
+            <i data-lucide="sprout" class="w-7 h-7 text-[#10b981]"></i>
+          </div>
+          <h3 class="text-xl font-semibold text-[#1e293b] mb-3">Lush Green Grass</h3>
+          <p class="text-[#64748b] mb-4">
+            Unusually green or fast-growing patches of grass over your drain field area.
+          </p>
+          <div class="flex items-center gap-2 text-[#f59e0b] font-medium text-sm">
+            <i data-lucide="alert-circle" class="w-4 h-4"></i>
+            <span>Early Warning</span>
+          </div>
+        </div>
+        
+        <!-- Card 4: Standing Water -->
+        <div class="warning-card feature-card" style="animation-delay: 0.3s;">
+          <div class="w-14 h-14 bg-[#dbeafe] rounded-xl flex items-center justify-center mb-5">
+            <i data-lucide="waves" class="w-7 h-7 text-[#3b82f6]"></i>
+          </div>
+          <h3 class="text-xl font-semibold text-[#1e293b] mb-3">Standing Water</h3>
+          <p class="text-[#64748b] mb-4">
+            Puddles or soggy areas in your yard, especially near the septic tank or drain field.
+          </p>
+          <div class="flex items-center gap-2 text-[#ef4444] font-medium text-sm">
+            <i data-lucide="alert-triangle" class="w-4 h-4"></i>
+            <span>Moderate Concern</span>
+          </div>
+        </div>
+        
+        <!-- Card 5: Gurgling Sounds -->
+        <div class="warning-card feature-card" style="animation-delay: 0.4s;">
+          <div class="w-14 h-14 bg-[#fef3c7] rounded-xl flex items-center justify-center mb-5">
+            <i data-lucide="volume-2" class="w-7 h-7 text-[#f59e0b]"></i>
+          </div>
+          <h3 class="text-xl font-semibold text-[#1e293b] mb-3">Gurgling Sounds</h3>
+          <p class="text-[#64748b] mb-4">
+            Bubbling or gurgling noises coming from drains, toilets, or pipes after flushing.
+          </p>
+          <div class="flex items-center gap-2 text-[#f59e0b] font-medium text-sm">
+            <i data-lucide="alert-circle" class="w-4 h-4"></i>
+            <span>Early Warning</span>
+          </div>
+        </div>
+        
+        <!-- Card 6: Sewage Backup -->
+        <div class="warning-card feature-card" style="animation-delay: 0.5s;">
+          <div class="w-14 h-14 bg-[#fee2e2] rounded-xl flex items-center justify-center mb-5">
+            <i data-lucide="x-circle" class="w-7 h-7 text-[#ef4444]"></i>
+          </div>
+          <h3 class="text-xl font-semibold text-[#1e293b] mb-3">Sewage Backup</h3>
+          <p class="text-[#64748b] mb-4">
+            Waste backing up into sinks, tubs, or toilets. This is a serious emergency.
+          </p>
+          <div class="flex items-center gap-2 text-[#ef4444] font-medium text-sm">
+            <i data-lucide="alert-octagon" class="w-4 h-4"></i>
+            <span>Critical Emergency</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  
+  <!-- Section 4: Problem Detail Sections -->
+  <section class="py-16 lg:py-24 bg-[#f8fafc]">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-16">
+        <h2 class="text-3xl lg:text-4xl font-bold text-[#1e293b] mb-4">
+          Common Problems & Solutions
+        </h2>
+        <p class="text-lg text-[#64748b] max-w-2xl mx-auto">
+          Understanding the root causes helps you make informed decisions about repairs and prevention.
+        </p>
+      </div>
+      
+      <!-- Problem 1: Clogs (Image Left) -->
+      <div class="problem-section grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-16 items-center mb-20">
+        <div class="relative">
+          <div class="rounded-2xl overflow-hidden shadow-lg">
+            <img src="images/slow-drain.jpg" alt="Clogged bathroom sink showing slow draining water" class="w-full h-80 object-cover">
+          </div>
+          <div class="absolute -bottom-4 -right-4 bg-[#f59e0b] text-white px-4 py-2 rounded-lg font-semibold shadow-lg">
+            Most Common
+          </div>
+        </div>
+        <div>
+          <div class="flex items-center gap-3 mb-4">
+            <div class="w-12 h-12 bg-[#fef3c7] rounded-xl flex items-center justify-center">
+              <i data-lucide="ban" class="w-6 h-6 text-[#f59e0b]"></i>
+            </div>
+            <h3 class="text-2xl lg:text-3xl font-bold text-[#1e293b]">System Clogs</h3>
+          </div>
+          <p class="text-[#64748b] mb-6">
+            Clogs are the most frequent septic issue, caused by improper waste disposal and buildup in pipes or the tank.
+          </p>
+          
+          <div class="space-y-4 mb-6">
+            <div class="bg-white rounded-xl p-4 shadow-sm border border-[#e2e8f0]">
+              <h4 class="font-semibold text-[#1e293b] flex items-center gap-2 mb-2">
+                <i data-lucide="help-circle" class="w-4 h-4 text-[#0d9488]"></i>
+                Common Causes
+              </h4>
+              <ul class="text-[#64748b] text-sm space-y-1 ml-6">
+                <li>Non-biodegradable items (wipes, feminine products)</li>
+                <li>Grease and oil buildup from kitchen drains</li>
+                <li>Tree root intrusion into pipes</li>
+                <li>Excess solid waste accumulation</li>
+              </ul>
+            </div>
+            
+            <div class="bg-white rounded-xl p-4 shadow-sm border border-[#e2e8f0]">
+              <h4 class="font-semibold text-[#1e293b] flex items-center gap-2 mb-2">
+                <i data-lucide="check-circle" class="w-4 h-4 text-[#10b981]"></i>
+                Solutions
+              </h4>
+              <ul class="text-[#64748b] text-sm space-y-1 ml-6">
+                <li>Professional septic pumping</li>
+                <li>Hydro-jetting to clear pipes</li>
+                <li>Root removal and barrier installation</li>
+                <li>Enzyme treatments for maintenance</li>
+              </ul>
+            </div>
+          </div>
+          
+          <div class="flex items-center gap-2 text-[#0d9488] font-medium">
+            <i data-lucide="shield-check" class="w-5 h-5"></i>
+            <span>Prevention: Proper waste disposal and regular pumping</span>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Problem 2: Drain Field Failure (Image Right) -->
+      <div class="problem-section grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-16 items-center mb-20">
+        <div class="order-2 lg:order-1">
+          <div class="flex items-center gap-3 mb-4">
+            <div class="w-12 h-12 bg-[#fee2e2] rounded-xl flex items-center justify-center">
+              <i data-lucide="triangle-alert" class="w-6 h-6 text-[#ef4444]"></i>
+            </div>
+            <h3 class="text-2xl lg:text-3xl font-bold text-[#1e293b]">Drain Field Failure</h3>
+          </div>
+          <p class="text-[#64748b] mb-6">
+            When the drain field (leach field) fails, wastewater cannot properly absorb into the soil, leading to backups and environmental hazards.
+          </p>
+          
+          <div class="space-y-4 mb-6">
+            <div class="bg-white rounded-xl p-4 shadow-sm border border-[#e2e8f0]">
+              <h4 class="font-semibold text-[#1e293b] flex items-center gap-2 mb-2">
+                <i data-lucide="help-circle" class="w-4 h-4 text-[#0d9488]"></i>
+                Common Causes
+              </h4>
+              <ul class="text-[#64748b] text-sm space-y-1 ml-6">
+                <li>System overloading from excessive water use</li>
+                <li>Compacted soil from vehicles or structures</li>
+                <li>Biomat clogging the soil interface</li>
+                <li>Aging system beyond 20-25 years</li>
+              </ul>
+            </div>
+            
+            <div class="bg-white rounded-xl p-4 shadow-sm border border-[#e2e8f0]">
+              <h4 class="font-semibold text-[#1e293b] flex items-center gap-2 mb-2">
+                <i data-lucide="check-circle" class="w-4 h-4 text-[#10b981]"></i>
+                Solutions
+              </h4>
+              <ul class="text-[#64748b] text-sm space-y-1 ml-6">
+                <li>System rest and water use reduction</li>
+                <li>Soil aeration and remediation</li>
+                <li>Drain field replacement or expansion</li>
+                <li>Installation of additional leach lines</li>
+              </ul>
+            </div>
+          </div>
+          
+          <div class="flex items-center gap-2 text-[#ef4444] font-medium">
+            <i data-lucide="alert-triangle" class="w-5 h-5"></i>
+            <span>Warning Signs: Standing water, odors, lush grass patches</span>
+          </div>
+        </div>
+        <div class="order-1 lg:order-2 relative">
+          <div class="rounded-2xl overflow-hidden shadow-lg">
+            <img src="images/standing-water.jpg" alt="Standing water in yard indicating drain field failure" class="w-full h-80 object-cover">
+          </div>
+          <div class="absolute -bottom-4 -left-4 bg-[#ef4444] text-white px-4 py-2 rounded-lg font-semibold shadow-lg">
+            Serious Issue
+          </div>
+        </div>
+      </div>
+      
+      <!-- Problem 3: Tank Issues (Image Left) -->
+      <div class="problem-section grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-16 items-center mb-20">
+        <div class="relative">
+          <div class="rounded-2xl overflow-hidden shadow-lg">
+            <img src="images/sewage-odor.jpg" alt="Septic tank odor issues" class="w-full h-80 object-cover">
+          </div>
+          <div class="absolute -bottom-4 -right-4 bg-[#3b82f6] text-white px-4 py-2 rounded-lg font-semibold shadow-lg">
+            Inspection Needed
+          </div>
+        </div>
+        <div>
+          <div class="flex items-center gap-3 mb-4">
+            <div class="w-12 h-12 bg-[#dbeafe] rounded-xl flex items-center justify-center">
+              <i data-lucide="box" class="w-6 h-6 text-[#3b82f6]"></i>
+            </div>
+            <h3 class="text-2xl lg:text-3xl font-bold text-[#1e293b]">Tank Damage</h3>
+          </div>
+          <p class="text-[#64748b] mb-6">
+            Physical damage to the septic tank can cause leaks, contamination, and system failure. Older tanks are especially vulnerable.
+          </p>
+          
+          <div class="space-y-4 mb-6">
+            <div class="bg-white rounded-xl p-4 shadow-sm border border-[#e2e8f0]">
+              <h4 class="font-semibold text-[#1e293b] flex items-center gap-2 mb-2">
+                <i data-lucide="help-circle" class="w-4 h-4 text-[#0d9488]"></i>
+                Common Causes
+              </h4>
+              <ul class="text-[#64748b] text-sm space-y-1 ml-6">
+                <li>Cracks from ground shifting or age</li>
+                <li>Corrosion in concrete or steel tanks</li>
+                <li>Baffle damage affecting flow separation</li>
+                <li>Improper installation or maintenance</li>
+              </ul>
+            </div>
+            
+            <div class="bg-white rounded-xl p-4 shadow-sm border border-[#e2e8f0]">
+              <h4 class="font-semibold text-[#1e293b] flex items-center gap-2 mb-2">
+                <i data-lucide="check-circle" class="w-4 h-4 text-[#10b981]"></i>
+                Solutions
+              </h4>
+              <ul class="text-[#64748b] text-sm space-y-1 ml-6">
+                <li>Professional inspection and assessment</li>
+                <li>Crack sealing or patch repairs</li>
+                <li>Baffle replacement or repair</li>
+                <li>Tank replacement if severely damaged</li>
+              </ul>
+            </div>
+          </div>
+          
+          <div class="flex items-center gap-2 text-[#3b82f6] font-medium">
+            <i data-lucide="eye" class="w-5 h-5"></i>
+            <span>Watch for: Wet spots, persistent odors, rapid filling</span>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Problem 4: Tree Root Intrusion (Image Right) -->
+      <div class="problem-section grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-16 items-center">
+        <div class="order-2 lg:order-1">
+          <div class="flex items-center gap-3 mb-4">
+            <div class="w-12 h-12 bg-[#d1fae5] rounded-xl flex items-center justify-center">
+              <i data-lucide="trees" class="w-6 h-6 text-[#10b981]"></i>
+            </div>
+            <h3 class="text-2xl lg:text-3xl font-bold text-[#1e293b]">Tree Root Intrusion</h3>
+          </div>
+          <p class="text-[#64748b] mb-6">
+            Tree roots naturally seek moisture and nutrients, making your septic system an attractive target. Roots can infiltrate pipes and cause significant damage.
+          </p>
+          
+          <div class="space-y-4 mb-6">
+            <div class="bg-white rounded-xl p-4 shadow-sm border border-[#e2e8f0]">
+              <h4 class="font-semibold text-[#1e293b] flex items-center gap-2 mb-2">
+                <i data-lucide="help-circle" class="w-4 h-4 text-[#0d9488]"></i>
+                Common Causes
+              </h4>
+              <ul class="text-[#64748b] text-sm space-y-1 ml-6">
+                <li>Trees planted too close to the system</li>
+                <li>Small cracks or joints in pipes attracting roots</li>
+                <li>Willows, maples, and poplars with aggressive roots</li>
+                <li>Old clay or concrete pipes with loose connections</li>
+              </ul>
+            </div>
+            
+            <div class="bg-white rounded-xl p-4 shadow-sm border border-[#e2e8f0]">
+              <h4 class="font-semibold text-[#1e293b] flex items-center gap-2 mb-2">
+                <i data-lucide="check-circle" class="w-4 h-4 text-[#10b981]"></i>
+                Solutions
+              </h4>
+              <ul class="text-[#64748b] text-sm space-y-1 ml-6">
+                <li>Professional root cutting and removal</li>
+                <li>Hydro-jetting to clear root masses</li>
+                <li>Root barrier installation</li>
+                <li>Pipe replacement with root-resistant materials</li>
+              </ul>
+            </div>
+          </div>
+          
+          <div class="flex items-center gap-2 text-[#10b981] font-medium">
+            <i data-lucide="trees" class="w-5 h-5"></i>
+            <span>Prevention: Plant trees at least 50 feet from system</span>
+          </div>
+        </div>
+        <div class="order-1 lg:order-2 relative">
+          <div class="rounded-2xl overflow-hidden shadow-lg">
+            <img src="images/tree-roots.webp" alt="Tree roots damaging sewer pipe" class="w-full h-80 object-cover">
+          </div>
+          <div class="absolute -bottom-4 -left-4 bg-[#10b981] text-white px-4 py-2 rounded-lg font-semibold shadow-lg">
+            Preventable
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  
+  <!-- Section 5: Emergency Guide -->
+  <section id="emergency-guide" class="py-16 lg:py-24 bg-white">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="emergency-alert bg-[#fee2e2] rounded-2xl p-8 lg:p-12">
+        <div class="flex flex-col lg:flex-row lg:items-start gap-6 lg:gap-10">
+          <div class="flex-shrink-0">
+            <div class="w-20 h-20 bg-[#ef4444] rounded-2xl flex items-center justify-center">
+              <i data-lucide="siren" class="w-10 h-10 text-white"></i>
+            </div>
+          </div>
+          <div class="flex-1">
+            <h2 class="text-2xl lg:text-3xl font-bold text-[#1e293b] mb-4">
+              Emergency Action Guide
+            </h2>
+            <p class="text-[#64748b] mb-8">
+              If you're experiencing a sewage backup or other septic emergency, follow these steps immediately to minimize damage and health risks.
+            </p>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+              <div class="bg-white rounded-xl p-5 shadow-sm flex items-start gap-4">
+                <div class="w-10 h-10 bg-[#ef4444] rounded-full flex items-center justify-center flex-shrink-0">
+                  <span class="text-white font-bold">1</span>
+                </div>
+                <div>
+                  <h4 class="font-semibold text-[#1e293b] mb-1">Stop Using Water</h4>
+                  <p class="text-[#64748b] text-sm">Immediately stop all water use to prevent further backup and damage.</p>
+                </div>
+              </div>
+              
+              <div class="bg-white rounded-xl p-5 shadow-sm flex items-start gap-4">
+                <div class="w-10 h-10 bg-[#ef4444] rounded-full flex items-center justify-center flex-shrink-0">
+                  <span class="text-white font-bold">2</span>
+                </div>
+                <div>
+                  <h4 class="font-semibold text-[#1e293b] mb-1">Call a Professional</h4>
+                  <p class="text-[#64748b] text-sm">Contact a licensed septic service immediately for emergency assistance.</p>
+                </div>
+              </div>
+              
+              <div class="bg-white rounded-xl p-5 shadow-sm flex items-start gap-4">
+                <div class="w-10 h-10 bg-[#ef4444] rounded-full flex items-center justify-center flex-shrink-0">
+                  <span class="text-white font-bold">3</span>
+                </div>
+                <div>
+                  <h4 class="font-semibold text-[#1e293b] mb-1">Avoid the Area</h4>
+                  <p class="text-[#64748b] text-sm">Keep children and pets away from affected areas due to health hazards.</p>
+                </div>
+              </div>
+              
+              <div class="bg-white rounded-xl p-5 shadow-sm flex items-start gap-4">
+                <div class="w-10 h-10 bg-[#ef4444] rounded-full flex items-center justify-center flex-shrink-0">
+                  <span class="text-white font-bold">4</span>
+                </div>
+                <div>
+                  <h4 class="font-semibold text-[#1e293b] mb-1">Document Everything</h4>
+                  <p class="text-[#64748b] text-sm">Take photos for insurance claims and professional assessment.</p>
+                </div>
+              </div>
+            </div>
+            
+            <div class="mt-8 flex flex-wrap gap-4">
+              <a href="tel:+1-800-555-0199" class="btn-primary bg-[#ef4444] hover:bg-[#dc2626]">
+                <i data-lucide="phone" class="w-5 h-5"></i>
+                Call Emergency Service
+              </a>
+              <a href="faq.html" class="btn-secondary border-[#ef4444] text-[#ef4444] hover:bg-[#fee2e2]">
+                <i data-lucide="help-circle" class="w-5 h-5"></i>
+                More Help
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  
+  <!-- Section 6: Prevention Tips -->
+  <section class="py-16 lg:py-24 bg-[#ccfbf1]">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-12">
+        <h2 class="text-3xl lg:text-4xl font-bold text-[#1e293b] mb-4">
+          Prevention Tips
+        </h2>
+        <p class="text-lg text-[#64748b] max-w-2xl mx-auto">
+          The best way to handle septic problems is to prevent them. Follow these expert tips to keep your system running smoothly.
+        </p>
+      </div>
+      
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-6 max-w-5xl mx-auto">
+        <!-- Tip 1 -->
+        <div class="prevention-item bg-white rounded-xl p-6 shadow-md flex items-start gap-4" style="animation-delay: 0s;">
+          <div class="w-12 h-12 bg-[#0d9488] rounded-xl flex items-center justify-center flex-shrink-0">
+            <i data-lucide="calendar" class="w-6 h-6 text-white"></i>
+          </div>
+          <div>
+            <h4 class="font-semibold text-[#1e293b] mb-2">Regular Pumping Schedule</h4>
+            <p class="text-[#64748b] text-sm">Have your septic tank pumped every 3-5 years depending on household size and usage.</p>
+          </div>
+        </div>
+        
+        <!-- Tip 2 -->
+        <div class="prevention-item bg-white rounded-xl p-6 shadow-md flex items-start gap-4" style="animation-delay: 0.1s;">
+          <div class="w-12 h-12 bg-[#0d9488] rounded-xl flex items-center justify-center flex-shrink-0">
+            <i data-lucide="trash-2" class="w-6 h-6 text-white"></i>
+          </div>
+          <div>
+            <h4 class="font-semibold text-[#1e293b] mb-2">Watch What Goes Down</h4>
+            <p class="text-[#64748b] text-sm">Never flush wipes, feminine products, grease, or chemicals. Only toilet paper and human waste.</p>
+          </div>
+        </div>
+        
+        <!-- Tip 3 -->
+        <div class="prevention-item bg-white rounded-xl p-6 shadow-md flex items-start gap-4" style="animation-delay: 0.2s;">
+          <div class="w-12 h-12 bg-[#0d9488] rounded-xl flex items-center justify-center flex-shrink-0">
+            <i data-lucide="droplet" class="w-6 h-6 text-white"></i>
+          </div>
+          <div>
+            <h4 class="font-semibold text-[#1e293b] mb-2">Conserve Water</h4>
+            <p class="text-[#64748b] text-sm">Spread out laundry loads, fix leaks promptly, and install water-efficient fixtures.</p>
+          </div>
+        </div>
+        
+        <!-- Tip 4 -->
+        <div class="prevention-item bg-white rounded-xl p-6 shadow-md flex items-start gap-4" style="animation-delay: 0.3s;">
+          <div class="w-12 h-12 bg-[#0d9488] rounded-xl flex items-center justify-center flex-shrink-0">
+            <i data-lucide="trees" class="w-6 h-6 text-white"></i>
+          </div>
+          <div>
+            <h4 class="font-semibold text-[#1e293b] mb-2">Smart Landscaping</h4>
+            <p class="text-[#64748b] text-sm">Keep trees at least 50 feet from the system. Plant grass over the drain field.</p>
+          </div>
+        </div>
+        
+        <!-- Tip 5 -->
+        <div class="prevention-item bg-white rounded-xl p-6 shadow-md flex items-start gap-4" style="animation-delay: 0.4s;">
+          <div class="w-12 h-12 bg-[#0d9488] rounded-xl flex items-center justify-center flex-shrink-0">
+            <i data-lucide="car" class="w-6 h-6 text-white"></i>
+          </div>
+          <div>
+            <h4 class="font-semibold text-[#1e293b] mb-2">Protect the Drain Field</h4>
+            <p class="text-[#64748b] text-sm">Never drive or park vehicles on the drain field. Don't build structures over it.</p>
+          </div>
+        </div>
+        
+        <!-- Tip 6 -->
+        <div class="prevention-item bg-white rounded-xl p-6 shadow-md flex items-start gap-4" style="animation-delay: 0.5s;">
+          <div class="w-12 h-12 bg-[#0d9488] rounded-xl flex items-center justify-center flex-shrink-0">
+            <i data-lucide="clipboard-check" class="w-6 h-6 text-white"></i>
+          </div>
+          <div>
+            <h4 class="font-semibold text-[#1e293b] mb-2">Regular Inspections</h4>
+            <p class="text-[#64748b] text-sm">Have a professional inspect your system annually to catch issues early.</p>
+          </div>
+        </div>
+      </div>
+      
+      <div class="text-center mt-10">
+        <a href="maintenance.html" class="btn-primary">
+          <i data-lucide="book-open" class="w-5 h-5"></i>
+          View Full Maintenance Guide
+        </a>
+      </div>
+    </div>
+  </section>
+  
+  <!-- Related Resources -->
+  <section class="py-16 lg:py-20 bg-white">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <h2 class="text-2xl lg:text-3xl font-bold text-[#1e293b] text-center mb-10">
+        Related Resources
+      </h2>
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+        <a href="maintenance.html" class="card group">
+          <div class="w-12 h-12 bg-[#ccfbf1] rounded-xl flex items-center justify-center mb-4 group-hover:bg-[#0d9488] transition-colors">
+            <i data-lucide="calendar-check" class="w-6 h-6 text-[#0d9488] group-hover:text-white transition-colors"></i>
+          </div>
+          <h3 class="text-lg font-semibold text-[#1e293b] mb-2">Maintenance Guide</h3>
+          <p class="text-[#64748b] text-sm mb-4">Learn how to properly maintain your septic system to prevent problems.</p>
+          <span class="text-[#0d9488] font-medium text-sm flex items-center gap-1">
+            Read More <i data-lucide="arrow-right" class="w-4 h-4"></i>
+          </span>
+        </a>
+        
+        <a href="inspection.html" class="card group">
+          <div class="w-12 h-12 bg-[#dbeafe] rounded-xl flex items-center justify-center mb-4 group-hover:bg-[#3b82f6] transition-colors">
+            <i data-lucide="search" class="w-6 h-6 text-[#3b82f6] group-hover:text-white transition-colors"></i>
+          </div>
+          <h3 class="text-lg font-semibold text-[#1e293b] mb-2">Inspection Guide</h3>
+          <p class="text-[#64748b] text-sm mb-4">Learn what inspectors look for and how to perform basic checks yourself.</p>
+          <span class="text-[#0d9488] font-medium text-sm flex items-center gap-1">
+            Read More <i data-lucide="arrow-right" class="w-4 h-4"></i>
+          </span>
+        </a>
+        
+        <a href="costs.html" class="card group">
+          <div class="w-12 h-12 bg-[#d1fae5] rounded-xl flex items-center justify-center mb-4 group-hover:bg-[#10b981] transition-colors">
+            <i data-lucide="dollar-sign" class="w-6 h-6 text-[#10b981] group-hover:text-white transition-colors"></i>
+          </div>
+          <h3 class="text-lg font-semibold text-[#1e293b] mb-2">Repair Costs</h3>
+          <p class="text-[#64748b] text-sm mb-4">Understand the typical costs associated with common septic repairs.</p>
+          <span class="text-[#0d9488] font-medium text-sm flex items-center gap-1">
+            Read More <i data-lucide="arrow-right" class="w-4 h-4"></i>
+          </span>
+        </a>
+      </div>
+    </div>
+  </section>
+  
+  <!-- Footer -->
+  <footer class="bg-[#0f172a] text-white">
+    <!-- Main Footer Content -->
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 lg:gap-12">
+        
+        <!-- Column 1: Quick Links -->
+        <div>
+          <h3 class="text-lg font-semibold text-white mb-6 flex items-center gap-2">
+            <i data-lucide="link" class="w-5 h-5 text-[#14b8a6]"></i>
+            Quick Links
+          </h3>
+          <ul class="space-y-3">
+            <li>
+              <a href="index.html" class="text-[#94a3b8] hover:text-[#14b8a6] transition-colors flex items-center gap-2">
+                <i data-lucide="chevron-right" class="w-4 h-4"></i>
+                Home
+              </a>
+            </li>
+            <li>
+              <a href="types.html" class="text-[#94a3b8] hover:text-[#14b8a6] transition-colors flex items-center gap-2">
+                <i data-lucide="chevron-right" class="w-4 h-4"></i>
+                Types of Systems
+              </a>
+            </li>
+            <li>
+              <a href="maintenance.html" class="text-[#94a3b8] hover:text-[#14b8a6] transition-colors flex items-center gap-2">
+                <i data-lucide="chevron-right" class="w-4 h-4"></i>
+                Maintenance Guide
+              </a>
+            </li>
+            <li>
+              <a href="problems.html" class="text-[#14b8a6] flex items-center gap-2">
+                <i data-lucide="chevron-right" class="w-4 h-4"></i>
+                Common Problems
+              </a>
+            </li>
+            <li>
+              <a href="costs.html" class="text-[#94a3b8] hover:text-[#14b8a6] transition-colors flex items-center gap-2">
+                <i data-lucide="chevron-right" class="w-4 h-4"></i>
+                Cost Guides
+              </a>
+            </li>
+          </ul>
+        </div>
+
+        <!-- Column 2: Resources -->
+        <div>
+          <h3 class="text-lg font-semibold text-white mb-6 flex items-center gap-2">
+            <i data-lucide="book-open" class="w-5 h-5 text-[#14b8a6]"></i>
+            Resources
+          </h3>
+          <ul class="space-y-3">
+            <li>
+              <a href="installation.html" class="text-[#94a3b8] hover:text-[#14b8a6] transition-colors flex items-center gap-2">
+                <i data-lucide="chevron-right" class="w-4 h-4"></i>
+                Installation Guide
+              </a>
+            </li>
+            <li>
+              <a href="inspection.html" class="text-[#94a3b8] hover:text-[#14b8a6] transition-colors flex items-center gap-2">
+                <i data-lucide="chevron-right" class="w-4 h-4"></i>
+                Inspection Guide
+              </a>
+            </li>
+            <li>
+              <a href="regulations.html" class="text-[#94a3b8] hover:text-[#14b8a6] transition-colors flex items-center gap-2">
+                <i data-lucide="chevron-right" class="w-4 h-4"></i>
+                Regulations
+              </a>
+            </li>
+            <li>
+              <a href="faq.html" class="text-[#94a3b8] hover:text-[#14b8a6] transition-colors flex items-center gap-2">
+                <i data-lucide="chevron-right" class="w-4 h-4"></i>
+                FAQ
+              </a>
+            </li>
+            <li>
+              <a href="glossary.html" class="text-[#94a3b8] hover:text-[#14b8a6] transition-colors flex items-center gap-2">
+                <i data-lucide="chevron-right" class="w-4 h-4"></i>
+                Glossary
+              </a>
+            </li>
+          </ul>
+        </div>
+
+        <!-- Column 3: Legal -->
+        <div>
+          <h3 class="text-lg font-semibold text-white mb-6 flex items-center gap-2">
+            <i data-lucide="shield" class="w-5 h-5 text-[#14b8a6]"></i>
+            Legal
+          </h3>
+          <ul class="space-y-3">
+            <li>
+              <a href="privacy.html" class="text-[#94a3b8] hover:text-[#14b8a6] transition-colors flex items-center gap-2">
+                <i data-lucide="chevron-right" class="w-4 h-4"></i>
+                Privacy Policy
+              </a>
+            </li>
+            <li>
+              <a href="terms.html" class="text-[#94a3b8] hover:text-[#14b8a6] transition-colors flex items-center gap-2">
+                <i data-lucide="chevron-right" class="w-4 h-4"></i>
+                Terms of Use
+              </a>
+            </li>
+            <li>
+              <a href="disclaimer.html" class="text-[#94a3b8] hover:text-[#14b8a6] transition-colors flex items-center gap-2">
+                <i data-lucide="chevron-right" class="w-4 h-4"></i>
+                Disclaimer
+              </a>
+            </li>
+            <li>
+              <a href="contact.html" class="text-[#94a3b8] hover:text-[#14b8a6] transition-colors flex items-center gap-2">
+                <i data-lucide="chevron-right" class="w-4 h-4"></i>
+                Contact Us
+              </a>
+            </li>
+          </ul>
+        </div>
+
+        <!-- Column 4: Newsletter -->
+        <div>
+          <h3 class="text-lg font-semibold text-white mb-6 flex items-center gap-2">
+            <i data-lucide="mail" class="w-5 h-5 text-[#14b8a6]"></i>
+            Newsletter
+          </h3>
+          <p class="text-[#94a3b8] text-sm mb-4">
+            Get expert tips and maintenance reminders delivered to your inbox.
+          </p>
+          <form class="space-y-3" onsubmit="return false;">
+            <div class="relative">
+              <input 
+                type="email" 
+                class="w-full px-4 py-3 pr-12 bg-white text-gray-800 rounded-lg border-0 focus:ring-2 focus:ring-[#0d9488]" 
+                placeholder="Enter your email"
+                required
+              >
+              <i data-lucide="mail" class="w-5 h-5 absolute right-4 top-1/2 -translate-y-1/2 text-gray-400"></i>
+            </div>
+            <button type="submit" class="btn-primary w-full">
+              <i data-lucide="send" class="w-4 h-4"></i>
+              Subscribe
+            </button>
+          </form>
+          <p class="text-[#64748b] text-xs mt-3">
+            No spam. Unsubscribe anytime.
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Bottom Bar -->
+    <div class="border-t border-gray-800">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6">
+        <div class="flex flex-col md:flex-row items-center justify-between gap-4">
+          <!-- Copyright -->
+          <div class="flex items-center gap-2 text-[#94a3b8] text-sm">
+            <i data-lucide="home" class="w-4 h-4 text-[#14b8a6]"></i>
+            <span>&copy; 2024 Septic Systems HQ. All rights reserved.</span>
+          </div>
+          
+          <!-- Social Links -->
+          <div class="flex items-center gap-4">
+            <a href="#" class="text-[#94a3b8] hover:text-[#14b8a6] transition-colors" aria-label="Facebook">
+              <i data-lucide="facebook" class="w-5 h-5"></i>
+            </a>
+            <a href="#" class="text-[#94a3b8] hover:text-[#14b8a6] transition-colors" aria-label="Twitter">
+              <i data-lucide="twitter" class="w-5 h-5"></i>
+            </a>
+            <a href="#" class="text-[#94a3b8] hover:text-[#14b8a6] transition-colors" aria-label="YouTube">
+              <i data-lucide="youtube" class="w-5 h-5"></i>
+            </a>
+            <a href="#" class="text-[#94a3b8] hover:text-[#14b8a6] transition-colors" aria-label="Pinterest">
+              <i data-lucide="pin" class="w-5 h-5"></i>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </footer>
+  
+  <!-- Scripts -->
+  <script>
+    // Initialize Lucide icons
+    lucide.createIcons();
+    
+    // Mobile menu toggle
+    function toggleMobileMenu() {
+      const menu = document.getElementById('mobileMenu');
+      menu.classList.toggle('open');
+    }
+    
+    // Scroll animations using Intersection Observer
+    document.addEventListener('DOMContentLoaded', function() {
+      // Warning cards animation
+      const warningCards = document.querySelectorAll('.warning-card');
+      const warningObserver = new IntersectionObserver((entries) => {
+        entries.forEach((entry, index) => {
+          if (entry.isIntersecting) {
+            setTimeout(() => {
+              entry.target.classList.add('animated');
+            }, index * 100);
+            warningObserver.unobserve(entry.target);
+          }
+        });
+      }, { threshold: 0.2 });
+      
+      warningCards.forEach(card => warningObserver.observe(card));
+      
+      // Problem sections animation
+      const problemSections = document.querySelectorAll('.problem-section');
+      const problemObserver = new IntersectionObserver((entries) => {
+        entries.forEach((entry, index) => {
+          if (entry.isIntersecting) {
+            const animationClass = index % 2 === 0 ? 'animated-left' : 'animated-right';
+            entry.target.classList.add(animationClass);
+            problemObserver.unobserve(entry.target);
+          }
+        });
+      }, { threshold: 0.2 });
+      
+      problemSections.forEach(section => problemObserver.observe(section));
+      
+      // Prevention items animation
+      const preventionItems = document.querySelectorAll('.prevention-item');
+      const preventionObserver = new IntersectionObserver((entries) => {
+        entries.forEach((entry, index) => {
+          if (entry.isIntersecting) {
+            setTimeout(() => {
+              entry.target.classList.add('animated');
+            }, index * 100);
+            preventionObserver.unobserve(entry.target);
+          }
+        });
+      }, { threshold: 0.2 });
+      
+      preventionItems.forEach(item => preventionObserver.observe(item));
+    });
+  </script>
+</body>
+</html>

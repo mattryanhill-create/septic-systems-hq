@@ -1,0 +1,1038 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Septic System Installation Guide | Septic Systems HQ</title>
+  <meta name="description" content="Complete guide to septic system installation. Learn about the process, costs, permits, and how to choose the right contractor for your project.">
+  
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  
+  <!-- Tailwind CSS v4 -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  
+  <!-- Lucide Icons -->
+  <script src="https://unpkg.com/lucide@latest"></script>
+  
+  <!-- Shared Styles -->
+  <link rel="stylesheet" href="shared/styles.css">
+  
+  <style>
+    /* Page-specific styles */
+    .timeline-line {
+      position: absolute;
+      left: 2rem;
+      top: 4rem;
+      bottom: 0;
+      width: 3px;
+      background: linear-gradient(to bottom, #0d9488, #14b8a6);
+      border-radius: 2px;
+    }
+    
+    .timeline-step {
+      position: relative;
+      padding-left: 6rem;
+      padding-bottom: 3rem;
+    }
+    
+    .timeline-step:last-child {
+      padding-bottom: 0;
+    }
+    
+    .step-number {
+      position: absolute;
+      left: 0;
+      top: 0;
+      width: 4rem;
+      height: 4rem;
+      background: linear-gradient(135deg, #0d9488, #14b8a6);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.5rem;
+      font-weight: 700;
+      color: white;
+      box-shadow: 0 4px 14px rgba(13, 148, 136, 0.3);
+      z-index: 10;
+      transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    }
+    
+    .timeline-step:hover .step-number {
+      transform: scale(1.1);
+      box-shadow: 0 6px 20px rgba(13, 148, 136, 0.4);
+    }
+    
+    .cost-row {
+      transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+    
+    .cost-row:hover {
+      background-color: #ccfbf1;
+    }
+    
+    .checklist-item {
+      transition: all 0.25s ease;
+    }
+    
+    .checklist-item:hover {
+      transform: translateX(4px);
+    }
+    
+    .timeline-bar {
+      height: 3rem;
+      border-radius: 0.5rem;
+      display: flex;
+      align-items: center;
+      padding: 0 1rem;
+      color: white;
+      font-weight: 600;
+      font-size: 0.875rem;
+      transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    }
+    
+    .timeline-bar:hover {
+      transform: scaleX(1.02);
+    }
+    
+    .permit-card {
+      transition: all 0.35s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    }
+    
+    .permit-card:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 20px 25px -5px rgba(0,0,0,0.1), 0 8px 10px -6px rgba(0,0,0,0.1);
+    }
+    
+    /* Scroll animations */
+    .scroll-animate {
+      opacity: 0;
+      transform: translateY(30px);
+      transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+    
+    .scroll-animate.animated {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    
+    .scroll-animate-left {
+      opacity: 0;
+      transform: translateX(-30px);
+      transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+    
+    .scroll-animate-left.animated {
+      opacity: 1;
+      transform: translateX(0);
+    }
+    
+    .scroll-animate-right {
+      opacity: 0;
+      transform: translateX(30px);
+      transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+    
+    .scroll-animate-right.animated {
+      opacity: 1;
+      transform: translateX(0);
+    }
+    
+    /* Stagger delays for timeline steps */
+    .timeline-step:nth-child(1) { transition-delay: 0.1s; }
+    .timeline-step:nth-child(2) { transition-delay: 0.15s; }
+    .timeline-step:nth-child(3) { transition-delay: 0.2s; }
+    .timeline-step:nth-child(4) { transition-delay: 0.25s; }
+    .timeline-step:nth-child(5) { transition-delay: 0.3s; }
+    .timeline-step:nth-child(6) { transition-delay: 0.35s; }
+    .timeline-step:nth-child(7) { transition-delay: 0.4s; }
+  </style>
+</head>
+<body class="bg-white">
+  <!-- Header/Navigation -->
+  <header class="fixed top-0 left-0 right-0 bg-white shadow-sm z-50" style="height: 72px;">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-full">
+      <div class="flex items-center justify-between h-full">
+        <!-- Logo -->
+        <a href="index.html" class="flex items-center gap-2">
+          <div class="w-10 h-10 bg-[#0d9488] rounded-lg flex items-center justify-center">
+            <i data-lucide="home" class="w-6 h-6 text-white"></i>
+          </div>
+          <span class="text-xl font-bold text-[#1e3a5f]">Septic Systems HQ</span>
+        </a>
+        
+        <!-- Desktop Navigation -->
+        <nav class="desktop-nav hidden lg:flex items-center gap-8">
+          <a href="index.html" class="nav-link flex items-center gap-1.5" data-nav="home">
+            <i data-lucide="home" class="w-4 h-4"></i>
+            <span>Home</span>
+          </a>
+          <a href="types.html" class="nav-link flex items-center gap-1.5" data-nav="types">
+            <i data-lucide="layers" class="w-4 h-4"></i>
+            <span>Types</span>
+          </a>
+          <a href="maintenance.html" class="nav-link flex items-center gap-1.5" data-nav="maintenance">
+            <i data-lucide="calendar-check" class="w-4 h-4"></i>
+            <span>Maintenance</span>
+          </a>
+          <a href="problems.html" class="nav-link flex items-center gap-1.5" data-nav="problems">
+            <i data-lucide="alert-triangle" class="w-4 h-4"></i>
+            <span>Problems</span>
+          </a>
+          <a href="costs.html" class="nav-link flex items-center gap-1.5" data-nav="costs">
+            <i data-lucide="dollar-sign" class="w-4 h-4"></i>
+            <span>Costs</span>
+          </a>
+          <a href="inspection.html" class="nav-link flex items-center gap-1.5" data-nav="inspection">
+            <i data-lucide="clipboard-check" class="w-4 h-4"></i>
+            <span>Inspection</span>
+          </a>
+          <a href="faq.html" class="nav-link flex items-center gap-1.5" data-nav="faq">
+            <i data-lucide="help-circle" class="w-4 h-4"></i>
+            <span>FAQ</span>
+          </a>
+        </nav>
+        
+        <!-- Mobile Menu Button -->
+        <button class="mobile-menu-btn lg:hidden p-2 rounded-lg hover:bg-gray-100 transition-colors" onclick="toggleMobileMenu()" aria-label="Toggle menu">
+          <i data-lucide="menu" class="w-6 h-6 text-[#475569]"></i>
+        </button>
+      </div>
+    </div>
+    
+    <!-- Mobile Menu -->
+    <div id="mobileMenu" class="mobile-menu lg:hidden">
+      <nav class="flex flex-col gap-2">
+        <a href="index.html" class="flex items-center gap-3 px-4 py-3 rounded-lg hover:bg-gray-50 text-[#475569] hover:text-[#0d9488] transition-colors" data-nav="home">
+          <i data-lucide="home" class="w-5 h-5"></i>
+          <span>Home</span>
+        </a>
+        <a href="types.html" class="flex items-center gap-3 px-4 py-3 rounded-lg hover:bg-gray-50 text-[#475569] hover:text-[#0d9488] transition-colors" data-nav="types">
+          <i data-lucide="layers" class="w-5 h-5"></i>
+          <span>Types</span>
+        </a>
+        <a href="maintenance.html" class="flex items-center gap-3 px-4 py-3 rounded-lg hover:bg-gray-50 text-[#475569] hover:text-[#0d9488] transition-colors" data-nav="maintenance">
+          <i data-lucide="calendar-check" class="w-5 h-5"></i>
+          <span>Maintenance</span>
+        </a>
+        <a href="problems.html" class="flex items-center gap-3 px-4 py-3 rounded-lg hover:bg-gray-50 text-[#475569] hover:text-[#0d9488] transition-colors" data-nav="problems">
+          <i data-lucide="alert-triangle" class="w-5 h-5"></i>
+          <span>Problems</span>
+        </a>
+        <a href="costs.html" class="flex items-center gap-3 px-4 py-3 rounded-lg hover:bg-gray-50 text-[#475569] hover:text-[#0d9488] transition-colors" data-nav="costs">
+          <i data-lucide="dollar-sign" class="w-5 h-5"></i>
+          <span>Costs</span>
+        </a>
+        <a href="inspection.html" class="flex items-center gap-3 px-4 py-3 rounded-lg hover:bg-gray-50 text-[#475569] hover:text-[#0d9488] transition-colors" data-nav="inspection">
+          <i data-lucide="clipboard-check" class="w-5 h-5"></i>
+          <span>Inspection</span>
+        </a>
+        <a href="faq.html" class="flex items-center gap-3 px-4 py-3 rounded-lg hover:bg-gray-50 text-[#475569] hover:text-[#0d9488] transition-colors" data-nav="faq">
+          <i data-lucide="help-circle" class="w-5 h-5"></i>
+          <span>FAQ</span>
+        </a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Spacer for fixed header -->
+  <div style="height: 72px;"></div>
+
+  <!-- Section 2: Page Hero -->
+  <section class="bg-[#1e3a5f] py-20 lg:py-28">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center max-w-3xl mx-auto">
+        <div class="inline-flex items-center gap-2 bg-[#0d9488]/20 text-[#14b8a6] px-4 py-2 rounded-full text-sm font-medium mb-6 animate-fadeIn">
+          <i data-lucide="hard-hat" class="w-4 h-4"></i>
+          <span>Installation Guide</span>
+        </div>
+        <h1 class="text-4xl lg:text-5xl font-bold text-white mb-6 leading-tight animate-fadeInUp" style="animation-delay: 0.1s;">
+          Septic System Installation
+        </h1>
+        <p class="text-lg text-gray-300 leading-relaxed animate-fadeInUp" style="animation-delay: 0.2s;">
+          A complete step-by-step guide to installing a new septic system. Learn about the process, costs, permits, and how to choose the right contractor for your project.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Section 3: Installation Process Steps -->
+  <section class="py-20 lg:py-28 bg-white">
+    <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-16 scroll-animate">
+        <h2 class="text-3xl lg:text-4xl font-bold text-[#1e293b] mb-4">Installation Process</h2>
+        <p class="text-lg text-[#64748b] max-w-2xl mx-auto">
+          Installing a septic system is a complex process that requires careful planning and professional expertise. Here's what to expect at each stage.
+        </p>
+      </div>
+      
+      <div class="relative">
+        <!-- Timeline Line -->
+        <div class="timeline-line hidden md:block"></div>
+        
+        <!-- Step 1: Site Evaluation -->
+        <div class="timeline-step scroll-animate">
+          <div class="step-number">1</div>
+          <div class="bg-white rounded-xl shadow-lg border border-gray-100 p-6 lg:p-8 hover:shadow-xl transition-shadow">
+            <div class="flex flex-col lg:flex-row gap-6">
+              <div class="lg:w-1/2">
+                <h3 class="text-xl font-bold text-[#1e293b] mb-3">Site Evaluation</h3>
+                <p class="text-[#64748b] mb-4">
+                  A thorough site evaluation is the foundation of a successful septic installation. This step determines if your property can support a septic system and what type will work best.
+                </p>
+                <ul class="space-y-2">
+                  <li class="flex items-start gap-2">
+                    <i data-lucide="check-circle" class="w-5 h-5 text-[#0d9488] mt-0.5 flex-shrink-0"></i>
+                    <span class="text-[#475569]"><strong>Soil Test:</strong> Analysis of soil composition and drainage capability</span>
+                  </li>
+                  <li class="flex items-start gap-2">
+                    <i data-lucide="check-circle" class="w-5 h-5 text-[#0d9488] mt-0.5 flex-shrink-0"></i>
+                    <span class="text-[#475569]"><strong>Perc Test:</strong> Measures how quickly water absorbs into the soil</span>
+                  </li>
+                  <li class="flex items-start gap-2">
+                    <i data-lucide="check-circle" class="w-5 h-5 text-[#0d9488] mt-0.5 flex-shrink-0"></i>
+                    <span class="text-[#475569]"><strong>Site Survey:</strong> Maps property boundaries, setbacks, and obstacles</span>
+                  </li>
+                </ul>
+              </div>
+              <div class="lg:w-1/2">
+                <img src="images/site-evaluation.jpg" alt="Soil testing and site evaluation for septic system" class="w-full h-64 object-cover rounded-lg">
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Step 2: System Design -->
+        <div class="timeline-step scroll-animate">
+          <div class="step-number">2</div>
+          <div class="bg-white rounded-xl shadow-lg border border-gray-100 p-6 lg:p-8 hover:shadow-xl transition-shadow">
+            <h3 class="text-xl font-bold text-[#1e293b] mb-3">System Design</h3>
+            <p class="text-[#64748b] mb-4">
+              Based on the site evaluation results, a septic system designer creates a customized plan that meets your household needs and local regulations.
+            </p>
+            <div class="grid md:grid-cols-3 gap-4">
+              <div class="bg-[#f8fafc] rounded-lg p-4">
+                <i data-lucide="calculator" class="w-8 h-8 text-[#0d9488] mb-2"></i>
+                <h4 class="font-semibold text-[#1e293b] mb-1">Size Calculation</h4>
+                <p class="text-sm text-[#64748b]">Based on bedrooms and daily water usage</p>
+              </div>
+              <div class="bg-[#f8fafc] rounded-lg p-4">
+                <i data-lucide="git-branch" class="w-8 h-8 text-[#0d9488] mb-2"></i>
+                <h4 class="font-semibold text-[#1e293b] mb-1">Type Selection</h4>
+                <p class="text-sm text-[#64748b]">Conventional, aerobic, or mound system</p>
+              </div>
+              <div class="bg-[#f8fafc] rounded-lg p-4">
+                <i data-lucide="map" class="w-8 h-8 text-[#0d9488] mb-2"></i>
+                <h4 class="font-semibold text-[#1e293b] mb-1">Layout Planning</h4>
+                <p class="text-sm text-[#64748b]">Optimal placement of tank and drain field</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Step 3: Permits & Approvals -->
+        <div class="timeline-step scroll-animate">
+          <div class="step-number">3</div>
+          <div class="bg-white rounded-xl shadow-lg border border-gray-100 p-6 lg:p-8 hover:shadow-xl transition-shadow">
+            <h3 class="text-xl font-bold text-[#1e293b] mb-3">Permits & Approvals</h3>
+            <p class="text-[#64748b] mb-4">
+              Before construction can begin, you must obtain all necessary permits from local authorities. This process ensures your system meets health and safety standards.
+            </p>
+            <div class="flex flex-wrap gap-3">
+              <span class="inline-flex items-center gap-2 bg-[#dbeafe] text-[#3b82f6] px-4 py-2 rounded-lg text-sm font-medium">
+                <i data-lucide="building-2" class="w-4 h-4"></i>
+                Local Health Department
+              </span>
+              <span class="inline-flex items-center gap-2 bg-[#dbeafe] text-[#3b82f6] px-4 py-2 rounded-lg text-sm font-medium">
+                <i data-lucide="file-text" class="w-4 h-4"></i>
+                Building Permits
+              </span>
+              <span class="inline-flex items-center gap-2 bg-[#dbeafe] text-[#3b82f6] px-4 py-2 rounded-lg text-sm font-medium">
+                <i data-lucide="shield-check" class="w-4 h-4"></i>
+                Environmental Clearance
+              </span>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Step 4: Excavation -->
+        <div class="timeline-step scroll-animate">
+          <div class="step-number">4</div>
+          <div class="bg-white rounded-xl shadow-lg border border-gray-100 p-6 lg:p-8 hover:shadow-xl transition-shadow">
+            <div class="flex flex-col lg:flex-row gap-6">
+              <div class="lg:w-1/2">
+                <img src="images/excavation.jpg" alt="Excavation for septic tank installation" class="w-full h-64 object-cover rounded-lg">
+              </div>
+              <div class="lg:w-1/2">
+                <h3 class="text-xl font-bold text-[#1e293b] mb-3">Excavation</h3>
+                <p class="text-[#64748b] mb-4">
+                  Heavy equipment is used to excavate the areas where the septic tank and drain field will be installed. Proper excavation is critical for system longevity.
+                </p>
+                <ul class="space-y-2">
+                  <li class="flex items-start gap-2">
+                    <i data-lucide="check-circle" class="w-5 h-5 text-[#0d9488] mt-0.5 flex-shrink-0"></i>
+                    <span class="text-[#475569]"><strong>Tank Hole:</strong> Excavated to exact specifications for tank size</span>
+                  </li>
+                  <li class="flex items-start gap-2">
+                    <i data-lucide="check-circle" class="w-5 h-5 text-[#0d9488] mt-0.5 flex-shrink-0"></i>
+                    <span class="text-[#475569]"><strong>Drain Field Trenches:</strong> Dug at proper depth and slope</span>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Step 5: Tank Installation -->
+        <div class="timeline-step scroll-animate">
+          <div class="step-number">5</div>
+          <div class="bg-white rounded-xl shadow-lg border border-gray-100 p-6 lg:p-8 hover:shadow-xl transition-shadow">
+            <div class="flex flex-col lg:flex-row gap-6">
+              <div class="lg:w-1/2">
+                <h3 class="text-xl font-bold text-[#1e293b] mb-3">Tank Installation</h3>
+                <p class="text-[#64748b] mb-4">
+                  The septic tank is carefully placed in the excavated hole and connected to your home's plumbing system. This is one of the most critical steps in the installation.
+                </p>
+                <ul class="space-y-2">
+                  <li class="flex items-start gap-2">
+                    <i data-lucide="check-circle" class="w-5 h-5 text-[#0d9488] mt-0.5 flex-shrink-0"></i>
+                    <span class="text-[#475569]"><strong>Tank Placement:</strong> Leveled and positioned correctly</span>
+                  </li>
+                  <li class="flex items-start gap-2">
+                    <i data-lucide="check-circle" class="w-5 h-5 text-[#0d9488] mt-0.5 flex-shrink-0"></i>
+                    <span class="text-[#475569]"><strong>Connection:</strong> Linked to house sewer line</span>
+                  </li>
+                  <li class="flex items-start gap-2">
+                    <i data-lucide="check-circle" class="w-5 h-5 text-[#0d9488] mt-0.5 flex-shrink-0"></i>
+                    <span class="text-[#475569]"><strong>Backfill:</strong> Properly compacted around tank</span>
+                  </li>
+                </ul>
+              </div>
+              <div class="lg:w-1/2">
+                <img src="images/tank-installation.jpg" alt="Concrete septic tank being lowered into place" class="w-full h-64 object-cover rounded-lg">
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Step 6: Drain Field Construction -->
+        <div class="timeline-step scroll-animate">
+          <div class="step-number">6</div>
+          <div class="bg-white rounded-xl shadow-lg border border-gray-100 p-6 lg:p-8 hover:shadow-xl transition-shadow">
+            <h3 class="text-xl font-bold text-[#1e293b] mb-3">Drain Field Construction</h3>
+            <p class="text-[#64748b] mb-4">
+              The drain field (also called leach field) is where wastewater is naturally filtered and returned to the groundwater system. Proper construction is essential.
+            </p>
+            <div class="grid md:grid-cols-3 gap-4">
+              <div class="bg-[#f8fafc] rounded-lg p-4">
+                <i data-lucide="box" class="w-8 h-8 text-[#0d9488] mb-2"></i>
+                <h4 class="font-semibold text-[#1e293b] mb-1">Distribution Box</h4>
+                <p class="text-sm text-[#64748b]">Evenly distributes effluent to leach lines</p>
+              </div>
+              <div class="bg-[#f8fafc] rounded-lg p-4">
+                <i data-lucide="waves" class="w-8 h-8 text-[#0d9488] mb-2"></i>
+                <h4 class="font-semibold text-[#1e293b] mb-1">Leach Lines</h4>
+                <p class="text-sm text-[#64748b]">Perforated pipes in gravel bed</p>
+              </div>
+              <div class="bg-[#f8fafc] rounded-lg p-4">
+                <i data-lucide="mountain" class="w-8 h-8 text-[#0d9488] mb-2"></i>
+                <h4 class="font-semibold text-[#1e293b] mb-1">Final Grading</h4>
+                <p class="text-sm text-[#64748b]">Proper slope for drainage</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Step 7: Final Inspection -->
+        <div class="timeline-step scroll-animate">
+          <div class="step-number">7</div>
+          <div class="bg-white rounded-xl shadow-lg border border-gray-100 p-6 lg:p-8 hover:shadow-xl transition-shadow">
+            <h3 class="text-xl font-bold text-[#1e293b] mb-3">Final Inspection</h3>
+            <p class="text-[#64748b] mb-4">
+              A local health department inspector verifies that the installation meets all codes and regulations before the system is approved for use.
+            </p>
+            <div class="flex flex-wrap gap-3">
+              <span class="inline-flex items-center gap-2 bg-[#d1fae5] text-[#10b981] px-4 py-2 rounded-lg text-sm font-medium">
+                <i data-lucide="activity" class="w-4 h-4"></i>
+                System Testing
+              </span>
+              <span class="inline-flex items-center gap-2 bg-[#d1fae5] text-[#10b981] px-4 py-2 rounded-lg text-sm font-medium">
+                <i data-lucide="check-square" class="w-4 h-4"></i>
+                Official Approval
+              </span>
+              <span class="inline-flex items-center gap-2 bg-[#d1fae5] text-[#10b981] px-4 py-2 rounded-lg text-sm font-medium">
+                <i data-lucide="file-check" class="w-4 h-4"></i>
+                Documentation
+              </span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Section 4: Cost Breakdown -->
+  <section class="py-20 lg:py-28 bg-[#f8fafc]">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid lg:grid-cols-2 gap-12 items-start">
+        <!-- Left Column: Cost Table -->
+        <div class="scroll-animate-left">
+          <h2 class="text-3xl font-bold text-[#1e293b] mb-4">Installation Cost Breakdown</h2>
+          <p class="text-[#64748b] mb-8">
+            Understanding the costs involved helps you budget appropriately for your septic system installation. Prices vary based on system type, soil conditions, and location.
+          </p>
+          
+          <div class="bg-white rounded-xl shadow-lg overflow-hidden">
+            <table class="w-full">
+              <thead>
+                <tr class="bg-[#1e3a5f]">
+                  <th class="text-left text-white font-semibold py-4 px-6">Component</th>
+                  <th class="text-right text-white font-semibold py-4 px-6">Cost Range</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr class="cost-row border-b border-gray-100">
+                  <td class="py-4 px-6 text-[#475569]">Site Evaluation</td>
+                  <td class="py-4 px-6 text-right font-semibold text-[#1e293b]">$300 - $1,000</td>
+                </tr>
+                <tr class="cost-row border-b border-gray-100">
+                  <td class="py-4 px-6 text-[#475569]">Permits</td>
+                  <td class="py-4 px-6 text-right font-semibold text-[#1e293b]">$200 - $500</td>
+                </tr>
+                <tr class="cost-row border-b border-gray-100">
+                  <td class="py-4 px-6 text-[#475569]">Tank (1,000 gal)</td>
+                  <td class="py-4 px-6 text-right font-semibold text-[#1e293b]">$1,000 - $2,500</td>
+                </tr>
+                <tr class="cost-row border-b border-gray-100">
+                  <td class="py-4 px-6 text-[#475569]">Drain Field</td>
+                  <td class="py-4 px-6 text-right font-semibold text-[#1e293b]">$2,500 - $10,000</td>
+                </tr>
+                <tr class="cost-row">
+                  <td class="py-4 px-6 text-[#475569]">Installation Labor</td>
+                  <td class="py-4 px-6 text-right font-semibold text-[#1e293b]">$2,000 - $5,000</td>
+                </tr>
+                <tr class="bg-[#0d9488]">
+                  <td class="py-4 px-6 text-white font-bold">Total</td>
+                  <td class="py-4 px-6 text-right text-white font-bold text-lg">$6,000 - $19,000</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+        
+        <!-- Right Column: Cost Factors -->
+        <div class="scroll-animate-right">
+          <h3 class="text-xl font-bold text-[#1e293b] mb-6">Factors Affecting Cost</h3>
+          
+          <div class="space-y-4">
+            <div class="bg-white rounded-lg p-5 shadow-md border border-gray-100 hover:shadow-lg transition-shadow">
+              <div class="flex items-start gap-4">
+                <div class="w-12 h-12 bg-[#fef3c7] rounded-lg flex items-center justify-center flex-shrink-0">
+                  <i data-lucide="mountain" class="w-6 h-6 text-[#f59e0b]"></i>
+                </div>
+                <div>
+                  <h4 class="font-semibold text-[#1e293b] mb-1">Soil Conditions</h4>
+                  <p class="text-sm text-[#64748b]">Rocky or clay-heavy soils require more extensive preparation and may need specialized systems.</p>
+                </div>
+              </div>
+            </div>
+            
+            <div class="bg-white rounded-lg p-5 shadow-md border border-gray-100 hover:shadow-lg transition-shadow">
+              <div class="flex items-start gap-4">
+                <div class="w-12 h-12 bg-[#dbeafe] rounded-lg flex items-center justify-center flex-shrink-0">
+                  <i data-lucide="home" class="w-6 h-6 text-[#3b82f6]"></i>
+                </div>
+                <div>
+                  <h4 class="font-semibold text-[#1e293b] mb-1">System Size</h4>
+                  <p class="text-sm text-[#64748b]">Larger homes require bigger tanks and drain fields, increasing material and labor costs.</p>
+                </div>
+              </div>
+            </div>
+            
+            <div class="bg-white rounded-lg p-5 shadow-md border border-gray-100 hover:shadow-lg transition-shadow">
+              <div class="flex items-start gap-4">
+                <div class="w-12 h-12 bg-[#d1fae5] rounded-lg flex items-center justify-center flex-shrink-0">
+                  <i data-lucide="map-pin" class="w-6 h-6 text-[#10b981]"></i>
+                </div>
+                <div>
+                  <h4 class="font-semibold text-[#1e293b] mb-1">Location & Access</h4>
+                  <p class="text-sm text-[#64748b]">Remote locations or difficult access can increase transportation and equipment costs.</p>
+                </div>
+              </div>
+            </div>
+            
+            <div class="bg-white rounded-lg p-5 shadow-md border border-gray-100 hover:shadow-lg transition-shadow">
+              <div class="flex items-start gap-4">
+                <div class="w-12 h-12 bg-[#fce7f3] rounded-lg flex items-center justify-center flex-shrink-0">
+                  <i data-lucide="settings" class="w-6 h-6 text-[#ec4899]"></i>
+                </div>
+                <div>
+                  <h4 class="font-semibold text-[#1e293b] mb-1">System Type</h4>
+                  <p class="text-sm text-[#64748b]">Advanced systems like aerobic treatment units cost more than conventional gravity systems.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Section 5: Permit Requirements -->
+  <section class="py-20 lg:py-28 bg-white">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-12 scroll-animate">
+        <h2 class="text-3xl lg:text-4xl font-bold text-[#1e293b] mb-4">Permit Requirements</h2>
+        <p class="text-lg text-[#64748b] max-w-2xl mx-auto">
+          Permits ensure your septic system meets health and safety standards. Requirements vary by location and system type.
+        </p>
+      </div>
+      
+      <div class="grid md:grid-cols-3 gap-6">
+        <!-- Local Permits -->
+        <div class="permit-card bg-white rounded-xl shadow-lg border border-gray-100 p-6 scroll-animate">
+          <div class="w-14 h-14 bg-[#dbeafe] rounded-xl flex items-center justify-center mb-4">
+            <i data-lucide="building-2" class="w-7 h-7 text-[#3b82f6]"></i>
+          </div>
+          <h3 class="text-xl font-bold text-[#1e293b] mb-3">Local Health Department</h3>
+          <p class="text-[#64748b] mb-4">
+            Most areas require approval from the county or city health department before installation begins.
+          </p>
+          <ul class="space-y-2 text-sm">
+            <li class="flex items-center gap-2 text-[#475569]">
+              <i data-lucide="check" class="w-4 h-4 text-[#10b981]"></i>
+              Site evaluation approval
+            </li>
+            <li class="flex items-center gap-2 text-[#475569]">
+              <i data-lucide="check" class="w-4 h-4 text-[#10b981]"></i>
+              System design review
+            </li>
+            <li class="flex items-center gap-2 text-[#475569]">
+              <i data-lucide="check" class="w-4 h-4 text-[#10b981]"></i>
+              Final inspection
+            </li>
+          </ul>
+        </div>
+        
+        <!-- Building Permits -->
+        <div class="permit-card bg-white rounded-xl shadow-lg border border-gray-100 p-6 scroll-animate" style="transition-delay: 0.1s;">
+          <div class="w-14 h-14 bg-[#fef3c7] rounded-xl flex items-center justify-center mb-4">
+            <i data-lucide="file-text" class="w-7 h-7 text-[#f59e0b]"></i>
+          </div>
+          <h3 class="text-xl font-bold text-[#1e293b] mb-3">Building Permits</h3>
+          <p class="text-[#64748b] mb-4">
+            Construction permits may be required for excavation and plumbing work associated with the installation.
+          </p>
+          <ul class="space-y-2 text-sm">
+            <li class="flex items-center gap-2 text-[#475569]">
+              <i data-lucide="check" class="w-4 h-4 text-[#10b981]"></i>
+              Excavation permit
+            </li>
+            <li class="flex items-center gap-2 text-[#475569]">
+              <i data-lucide="check" class="w-4 h-4 text-[#10b981]"></i>
+              Plumbing permit
+            </li>
+            <li class="flex items-center gap-2 text-[#475569]">
+              <i data-lucide="check" class="w-4 h-4 text-[#10b981]"></i>
+              Electrical (if applicable)
+            </li>
+          </ul>
+        </div>
+        
+        <!-- Environmental -->
+        <div class="permit-card bg-white rounded-xl shadow-lg border border-gray-100 p-6 scroll-animate" style="transition-delay: 0.2s;">
+          <div class="w-14 h-14 bg-[#d1fae5] rounded-xl flex items-center justify-center mb-4">
+            <i data-lucide="leaf" class="w-7 h-7 text-[#10b981]"></i>
+          </div>
+          <h3 class="text-xl font-bold text-[#1e293b] mb-3">Environmental Clearance</h3>
+          <p class="text-[#64748b] mb-4">
+            Properties near wetlands, water bodies, or protected areas may need additional environmental approvals.
+          </p>
+          <ul class="space-y-2 text-sm">
+            <li class="flex items-center gap-2 text-[#475569]">
+              <i data-lucide="check" class="w-4 h-4 text-[#10b981]"></i>
+              Wetland assessment
+            </li>
+            <li class="flex items-center gap-2 text-[#475569]">
+              <i data-lucide="check" class="w-4 h-4 text-[#10b981]"></i>
+              Water quality review
+            </li>
+            <li class="flex items-center gap-2 text-[#475569]">
+              <i data-lucide="check" class="w-4 h-4 text-[#10b981]"></i>
+              Setback verification
+            </li>
+          </ul>
+        </div>
+      </div>
+      
+      <!-- Permit Tip -->
+      <div class="mt-10 bg-[#fef3c7] border-l-4 border-[#f59e0b] rounded-r-lg p-6 scroll-animate">
+        <div class="flex items-start gap-4">
+          <i data-lucide="lightbulb" class="w-6 h-6 text-[#f59e0b] flex-shrink-0 mt-0.5"></i>
+          <div>
+            <h4 class="font-semibold text-[#1e293b] mb-1">Pro Tip</h4>
+            <p class="text-[#64748b]">
+              Start the permit process early, as approvals can take 2-4 weeks or longer. Your contractor can often handle permit applications as part of their services.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Section 6: Contractor Selection -->
+  <section class="py-20 lg:py-28 bg-[#ccfbf1]">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid lg:grid-cols-2 gap-12 items-center">
+        <!-- Left Column: Content -->
+        <div class="scroll-animate-left">
+          <h2 class="text-3xl lg:text-4xl font-bold text-[#1e293b] mb-4">Choosing the Right Contractor</h2>
+          <p class="text-lg text-[#64748b] mb-8">
+            Selecting a qualified, experienced contractor is crucial for a successful installation. Use this checklist to evaluate potential contractors.
+          </p>
+          
+          <div class="bg-white rounded-xl shadow-lg p-6 lg:p-8">
+            <h3 class="text-lg font-semibold text-[#1e293b] mb-6 flex items-center gap-2">
+              <i data-lucide="clipboard-check" class="w-5 h-5 text-[#0d9488]"></i>
+              Contractor Checklist
+            </h3>
+            
+            <div class="space-y-4">
+              <label class="checklist-item flex items-start gap-3 cursor-pointer group">
+                <input type="checkbox" class="w-5 h-5 mt-0.5 rounded border-gray-300 text-[#0d9488] focus:ring-[#0d9488] cursor-pointer">
+                <span class="text-[#475569] group-hover:text-[#1e293b] transition-colors">
+                  <strong>Licensed and insured</strong> - Verify current licenses and liability insurance
+                </span>
+              </label>
+              
+              <label class="checklist-item flex items-start gap-3 cursor-pointer group">
+                <input type="checkbox" class="w-5 h-5 mt-0.5 rounded border-gray-300 text-[#0d9488] focus:ring-[#0d9488] cursor-pointer">
+                <span class="text-[#475569] group-hover:text-[#1e293b] transition-colors">
+                  <strong>Experience with your system type</strong> - Ask about similar projects completed
+                </span>
+              </label>
+              
+              <label class="checklist-item flex items-start gap-3 cursor-pointer group">
+                <input type="checkbox" class="w-5 h-5 mt-0.5 rounded border-gray-300 text-[#0d9488] focus:ring-[#0d9488] cursor-pointer">
+                <span class="text-[#475569] group-hover:text-[#1e293b] transition-colors">
+                  <strong>Local references</strong> - Request contact information for recent clients
+                </span>
+              </label>
+              
+              <label class="checklist-item flex items-start gap-3 cursor-pointer group">
+                <input type="checkbox" class="w-5 h-5 mt-0.5 rounded border-gray-300 text-[#0d9488] focus:ring-[#0d9488] cursor-pointer">
+                <span class="text-[#475569] group-hover:text-[#1e293b] transition-colors">
+                  <strong>Written estimate</strong> - Get detailed, itemized quotes in writing
+                </span>
+              </label>
+              
+              <label class="checklist-item flex items-start gap-3 cursor-pointer group">
+                <input type="checkbox" class="w-5 h-5 mt-0.5 rounded border-gray-300 text-[#0d9488] focus:ring-[#0d9488] cursor-pointer">
+                <span class="text-[#475569] group-hover:text-[#1e293b] transition-colors">
+                  <strong>Warranty offered</strong> - Understand what's covered and for how long
+                </span>
+              </label>
+              
+              <label class="checklist-item flex items-start gap-3 cursor-pointer group">
+                <input type="checkbox" class="w-5 h-5 mt-0.5 rounded border-gray-300 text-[#0d9488] focus:ring-[#0d9488] cursor-pointer">
+                <span class="text-[#475569] group-hover:text-[#1e293b] transition-colors">
+                  <strong>Proper equipment</strong> - Ensure they have the right machinery for your job
+                </span>
+              </label>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Right Column: Image & Stats -->
+        <div class="scroll-animate-right">
+          <img src="images/contractor-meeting.jpg" alt="Homeowner meeting with septic contractor" class="w-full h-80 object-cover rounded-xl shadow-lg mb-8">
+          
+          <div class="grid grid-cols-2 gap-4">
+            <div class="bg-white rounded-lg p-5 text-center shadow-md">
+              <div class="text-3xl font-bold text-[#0d9488] mb-1">3+</div>
+              <div class="text-sm text-[#64748b]">Get Multiple Quotes</div>
+            </div>
+            <div class="bg-white rounded-lg p-5 text-center shadow-md">
+              <div class="text-3xl font-bold text-[#0d9488] mb-1">5+</div>
+              <div class="text-sm text-[#64748b]">Years Experience</div>
+            </div>
+            <div class="bg-white rounded-lg p-5 text-center shadow-md">
+              <div class="text-3xl font-bold text-[#0d9488] mb-1">100%</div>
+              <div class="text-sm text-[#64748b]">Licensed & Insured</div>
+            </div>
+            <div class="bg-white rounded-lg p-5 text-center shadow-md">
+              <div class="text-3xl font-bold text-[#0d9488] mb-1">A+</div>
+              <div class="text-sm text-[#64748b]">Better Business Bureau</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Section 7: Timeline Visual -->
+  <section class="py-20 lg:py-28 bg-white">
+    <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-12 scroll-animate">
+        <h2 class="text-3xl lg:text-4xl font-bold text-[#1e293b] mb-4">Installation Timeline</h2>
+        <p class="text-lg text-[#64748b] max-w-2xl mx-auto">
+          Understanding the timeline helps you plan accordingly. Here's a typical schedule for a residential septic system installation.
+        </p>
+      </div>
+      
+      <div class="bg-[#f8fafc] rounded-2xl p-8 lg:p-12 scroll-animate">
+        <!-- Timeline Chart -->
+        <div class="space-y-6">
+          <!-- Site Evaluation -->
+          <div class="flex flex-col sm:flex-row sm:items-center gap-4">
+            <div class="sm:w-40 flex-shrink-0">
+              <span class="font-semibold text-[#1e293b]">Site Evaluation</span>
+            </div>
+            <div class="flex-1">
+              <div class="timeline-bar bg-gradient-to-r from-[#0d9488] to-[#14b8a6]" style="width: 15%;">
+                <span>1-2 Days</span>
+              </div>
+            </div>
+          </div>
+          
+          <!-- Design & Permits -->
+          <div class="flex flex-col sm:flex-row sm:items-center gap-4">
+            <div class="sm:w-40 flex-shrink-0">
+              <span class="font-semibold text-[#1e293b]">Design & Permits</span>
+            </div>
+            <div class="flex-1">
+              <div class="timeline-bar bg-gradient-to-r from-[#3b82f6] to-[#60a5fa]" style="width: 60%;">
+                <span>2-4 Weeks</span>
+              </div>
+            </div>
+          </div>
+          
+          <!-- Installation -->
+          <div class="flex flex-col sm:flex-row sm:items-center gap-4">
+            <div class="sm:w-40 flex-shrink-0">
+              <span class="font-semibold text-[#1e293b]">Installation</span>
+            </div>
+            <div class="flex-1">
+              <div class="timeline-bar bg-gradient-to-r from-[#f59e0b] to-[#fbbf24]" style="width: 35%;">
+                <span>3-5 Days</span>
+              </div>
+            </div>
+          </div>
+          
+          <!-- Final Inspection -->
+          <div class="flex flex-col sm:flex-row sm:items-center gap-4">
+            <div class="sm:w-40 flex-shrink-0">
+              <span class="font-semibold text-[#1e293b]">Final Inspection</span>
+            </div>
+            <div class="flex-1">
+              <div class="timeline-bar bg-gradient-to-r from-[#10b981] to-[#34d399]" style="width: 10%;">
+                <span>1 Day</span>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Total Timeline -->
+        <div class="mt-10 pt-8 border-t border-gray-200">
+          <div class="flex flex-col sm:flex-row items-center justify-between gap-4">
+            <div class="text-center sm:text-left">
+              <span class="text-[#64748b]">Total Project Duration</span>
+              <div class="text-2xl font-bold text-[#1e293b]">3-6 Weeks</div>
+            </div>
+            <a href="costs.html" class="btn-primary">
+              <span>View Cost Calculator</span>
+              <i data-lucide="arrow-right" class="w-4 h-4"></i>
+            </a>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Timeline Notes -->
+      <div class="mt-8 grid md:grid-cols-2 gap-4 scroll-animate">
+        <div class="flex items-start gap-3 bg-[#fef3c7] rounded-lg p-4">
+          <i data-lucide="alert-circle" class="w-5 h-5 text-[#f59e0b] flex-shrink-0 mt-0.5"></i>
+          <p class="text-sm text-[#64748b]">
+            <strong>Weather delays:</strong> Rain or frozen ground can extend the timeline significantly.
+          </p>
+        </div>
+        <div class="flex items-start gap-3 bg-[#dbeafe] rounded-lg p-4">
+          <i data-lucide="info" class="w-5 h-5 text-[#3b82f6] flex-shrink-0 mt-0.5"></i>
+          <p class="text-sm text-[#64748b]">
+            <strong>Permit timing:</strong> Some jurisdictions may take longer to approve permits.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA Section -->
+  <section class="py-16 bg-[#1e3a5f]">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+      <h2 class="text-2xl lg:text-3xl font-bold text-white mb-4">Ready to Learn More?</h2>
+      <p class="text-gray-300 mb-8">
+        Explore our comprehensive guides on maintenance, troubleshooting, and costs to keep your septic system running smoothly.
+      </p>
+      <div class="flex flex-wrap justify-center gap-4">
+        <a href="maintenance.html" class="btn-primary">
+          <i data-lucide="calendar-check" class="w-5 h-5"></i>
+          <span>Maintenance Guide</span>
+        </a>
+        <a href="costs.html" class="btn-secondary border-white text-white hover:bg-white/10">
+          <i data-lucide="dollar-sign" class="w-5 h-5"></i>
+          <span>Cost Guides</span>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="bg-[#0f172a] text-white pt-16 pb-8">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-12">
+        <!-- Brand Column -->
+        <div>
+          <a href="index.html" class="flex items-center gap-2 mb-4">
+            <div class="w-10 h-10 bg-[#0d9488] rounded-lg flex items-center justify-center">
+              <i data-lucide="home" class="w-6 h-6 text-white"></i>
+            </div>
+            <span class="text-xl font-bold">Septic Systems HQ</span>
+          </a>
+          <p class="text-gray-400 text-sm leading-relaxed mb-6">
+            Your trusted resource for septic system information, maintenance guides, and expert advice.
+          </p>
+          <div class="flex gap-4">
+            <a href="#" class="w-10 h-10 bg-[#1e293b] rounded-lg flex items-center justify-center hover:bg-[#0d9488] transition-colors" aria-label="Facebook">
+              <i data-lucide="facebook" class="w-5 h-5"></i>
+            </a>
+            <a href="#" class="w-10 h-10 bg-[#1e293b] rounded-lg flex items-center justify-center hover:bg-[#0d9488] transition-colors" aria-label="Twitter">
+              <i data-lucide="twitter" class="w-5 h-5"></i>
+            </a>
+            <a href="#" class="w-10 h-10 bg-[#1e293b] rounded-lg flex items-center justify-center hover:bg-[#0d9488] transition-colors" aria-label="YouTube">
+              <i data-lucide="youtube" class="w-5 h-5"></i>
+            </a>
+          </div>
+        </div>
+        
+        <!-- Quick Links -->
+        <div>
+          <h3 class="text-lg font-semibold mb-4">Quick Links</h3>
+          <ul class="space-y-3">
+            <li>
+              <a href="index.html" class="text-gray-400 hover:text-[#0d9488] transition-colors text-sm">Home</a>
+            </li>
+            <li>
+              <a href="types.html" class="text-gray-400 hover:text-[#0d9488] transition-colors text-sm">Types of Systems</a>
+            </li>
+            <li>
+              <a href="maintenance.html" class="text-gray-400 hover:text-[#0d9488] transition-colors text-sm">Maintenance Guide</a>
+            </li>
+            <li>
+              <a href="problems.html" class="text-gray-400 hover:text-[#0d9488] transition-colors text-sm">Common Problems</a>
+            </li>
+            <li>
+              <a href="costs.html" class="text-gray-400 hover:text-[#0d9488] transition-colors text-sm">Cost Guides</a>
+            </li>
+          </ul>
+        </div>
+        
+        <!-- Resources -->
+        <div>
+          <h3 class="text-lg font-semibold mb-4">Resources</h3>
+          <ul class="space-y-3">
+            <li>
+              <a href="installation.html" class="text-gray-400 hover:text-[#0d9488] transition-colors text-sm">Installation Guide</a>
+            </li>
+            <li>
+              <a href="inspection.html" class="text-gray-400 hover:text-[#0d9488] transition-colors text-sm">Inspection Guide</a>
+            </li>
+            <li>
+              <a href="regulations.html" class="text-gray-400 hover:text-[#0d9488] transition-colors text-sm">Regulations</a>
+            </li>
+            <li>
+              <a href="faq.html" class="text-gray-400 hover:text-[#0d9488] transition-colors text-sm">FAQ</a>
+            </li>
+            <li>
+              <a href="glossary.html" class="text-gray-400 hover:text-[#0d9488] transition-colors text-sm">Glossary</a>
+            </li>
+          </ul>
+        </div>
+        
+        <!-- Legal -->
+        <div>
+          <h3 class="text-lg font-semibold mb-4">Legal</h3>
+          <ul class="space-y-3">
+            <li>
+              <a href="#" class="text-gray-400 hover:text-[#0d9488] transition-colors text-sm">Privacy Policy</a>
+            </li>
+            <li>
+              <a href="#" class="text-gray-400 hover:text-[#0d9488] transition-colors text-sm">Terms of Use</a>
+            </li>
+            <li>
+              <a href="#" class="text-gray-400 hover:text-[#0d9488] transition-colors text-sm">Disclaimer</a>
+            </li>
+            <li>
+              <a href="#" class="text-gray-400 hover:text-[#0d9488] transition-colors text-sm">Contact</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+      
+      <!-- Bottom Bar -->
+      <div class="border-t border-[#1e293b] pt-8">
+        <div class="flex flex-col md:flex-row justify-between items-center gap-4">
+          <p class="text-gray-500 text-sm">
+            &copy; 2024 Septic Systems HQ. All rights reserved.
+          </p>
+          <p class="text-gray-500 text-sm">
+            Information provided for educational purposes only.
+          </p>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Scripts -->
+  <script src="shared/scripts.js"></script>
+  <script>
+    // Initialize Lucide icons
+    lucide.createIcons();
+    
+    // Mobile menu toggle
+    function toggleMobileMenu() {
+      const menu = document.getElementById('mobileMenu');
+      menu.classList.toggle('open');
+    }
+    
+    // Set active navigation
+    document.querySelectorAll('[data-nav]').forEach(link => {
+      link.classList.remove('active');
+      if (link.dataset.nav === 'installation') {
+        link.classList.add('active');
+      }
+    });
+    
+    // Scroll animations with Intersection Observer
+    const observerOptions = {
+      threshold: 0.1,
+      rootMargin: '0px 0px -50px 0px'
+    };
+    
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('animated');
+          observer.unobserve(entry.target);
+        }
+      });
+    }, observerOptions);
+    
+    // Observe all scroll-animate elements
+    document.querySelectorAll('.scroll-animate, .scroll-animate-left, .scroll-animate-right').forEach(el => {
+      observer.observe(el);
+    });
+  </script>
+</body>
+</html>

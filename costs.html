@@ -1,0 +1,966 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Septic System Costs | Cost Guides & Pricing - Septic Systems HQ</title>
+  <meta name="description" content="Complete septic system cost guide. Get accurate pricing for installation, pumping, repairs, and maintenance. Use our cost calculator and save money with expert tips.">
+  
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  
+  <!-- Tailwind CSS v4 -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  
+  <!-- Icons -->
+  <script src="https://unpkg.com/lucide@latest"></script>
+  
+  <!-- Shared Styles -->
+  <link rel="stylesheet" href="shared/styles.css">
+  
+  <style>
+    /* Page-specific styles */
+    .cost-card {
+      transition: all 350ms cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    }
+    
+    .cost-card:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 20px 25px -5px rgba(0,0,0,0.1), 0 8px 10px -6px rgba(0,0,0,0.1);
+    }
+    
+    .accordion-content {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 300ms ease-in-out;
+    }
+    
+    .accordion-content.open {
+      max-height: 500px;
+    }
+    
+    .accordion-icon {
+      transition: transform 300ms ease-in-out;
+    }
+    
+    .accordion-icon.open {
+      transform: rotate(180deg);
+    }
+    
+    .tip-card {
+      transition: all 300ms cubic-bezier(0.4, 0, 0.2, 1);
+    }
+    
+    .tip-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 10px 15px -3px rgba(0,0,0,0.1);
+    }
+    
+    .calculator-result {
+      transition: all 300ms ease-out;
+    }
+    
+    .calculator-result.show {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    
+    .calculator-result.hide {
+      opacity: 0;
+      transform: translateY(10px);
+    }
+  </style>
+</head>
+<body class="bg-white">
+  <!-- Header/Navigation -->
+  <header class="fixed top-0 left-0 right-0 bg-white shadow-sm z-50" style="height: 72px;">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-full">
+      <div class="flex items-center justify-between h-full">
+        <!-- Logo -->
+        <a href="index.html" class="flex items-center gap-2">
+          <div class="w-10 h-10 bg-[#0d9488] rounded-lg flex items-center justify-center">
+            <i data-lucide="home" class="w-6 h-6 text-white"></i>
+          </div>
+          <span class="text-xl font-bold text-[#1e3a5f]">Septic Systems HQ</span>
+        </a>
+        
+        <!-- Desktop Navigation -->
+        <nav class="desktop-nav hidden lg:flex items-center gap-8">
+          <a href="index.html" class="nav-link flex items-center gap-1.5" data-nav="home">
+            <i data-lucide="home" class="w-4 h-4"></i>
+            <span>Home</span>
+          </a>
+          <a href="types.html" class="nav-link flex items-center gap-1.5" data-nav="types">
+            <i data-lucide="layers" class="w-4 h-4"></i>
+            <span>Types</span>
+          </a>
+          <a href="maintenance.html" class="nav-link flex items-center gap-1.5" data-nav="maintenance">
+            <i data-lucide="calendar-check" class="w-4 h-4"></i>
+            <span>Maintenance</span>
+          </a>
+          <a href="problems.html" class="nav-link flex items-center gap-1.5" data-nav="problems">
+            <i data-lucide="alert-triangle" class="w-4 h-4"></i>
+            <span>Problems</span>
+          </a>
+          <a href="costs.html" class="nav-link flex items-center gap-1.5 active text-[#0d9488]" data-nav="costs">
+            <i data-lucide="dollar-sign" class="w-4 h-4"></i>
+            <span>Costs</span>
+          </a>
+          <a href="inspection.html" class="nav-link flex items-center gap-1.5" data-nav="inspection">
+            <i data-lucide="clipboard-check" class="w-4 h-4"></i>
+            <span>Inspection</span>
+          </a>
+          <a href="faq.html" class="nav-link flex items-center gap-1.5" data-nav="faq">
+            <i data-lucide="help-circle" class="w-4 h-4"></i>
+            <span>FAQ</span>
+          </a>
+        </nav>
+        
+        <!-- Mobile Menu Button -->
+        <button class="mobile-menu-btn lg:hidden p-2 rounded-lg hover:bg-gray-100 transition-colors" onclick="toggleMobileMenu()" aria-label="Toggle menu">
+          <i data-lucide="menu" class="w-6 h-6 text-[#475569]"></i>
+        </button>
+      </div>
+    </div>
+    
+    <!-- Mobile Menu -->
+    <div id="mobileMenu" class="mobile-menu lg:hidden">
+      <nav class="flex flex-col gap-2">
+        <a href="index.html" class="flex items-center gap-3 px-4 py-3 rounded-lg hover:bg-gray-50 text-[#475569] hover:text-[#0d9488] transition-colors" data-nav="home">
+          <i data-lucide="home" class="w-5 h-5"></i>
+          <span>Home</span>
+        </a>
+        <a href="types.html" class="flex items-center gap-3 px-4 py-3 rounded-lg hover:bg-gray-50 text-[#475569] hover:text-[#0d9488] transition-colors" data-nav="types">
+          <i data-lucide="layers" class="w-5 h-5"></i>
+          <span>Types</span>
+        </a>
+        <a href="maintenance.html" class="flex items-center gap-3 px-4 py-3 rounded-lg hover:bg-gray-50 text-[#475569] hover:text-[#0d9488] transition-colors" data-nav="maintenance">
+          <i data-lucide="calendar-check" class="w-5 h-5"></i>
+          <span>Maintenance</span>
+        </a>
+        <a href="problems.html" class="flex items-center gap-3 px-4 py-3 rounded-lg hover:bg-gray-50 text-[#475569] hover:text-[#0d9488] transition-colors" data-nav="problems">
+          <i data-lucide="alert-triangle" class="w-5 h-5"></i>
+          <span>Problems</span>
+        </a>
+        <a href="costs.html" class="flex items-center gap-3 px-4 py-3 rounded-lg bg-[#ccfbf1] text-[#0d9488] font-medium" data-nav="costs">
+          <i data-lucide="dollar-sign" class="w-5 h-5"></i>
+          <span>Costs</span>
+        </a>
+        <a href="inspection.html" class="flex items-center gap-3 px-4 py-3 rounded-lg hover:bg-gray-50 text-[#475569] hover:text-[#0d9488] transition-colors" data-nav="inspection">
+          <i data-lucide="clipboard-check" class="w-5 h-5"></i>
+          <span>Inspection</span>
+        </a>
+        <a href="faq.html" class="flex items-center gap-3 px-4 py-3 rounded-lg hover:bg-gray-50 text-[#475569] hover:text-[#0d9488] transition-colors" data-nav="faq">
+          <i data-lucide="help-circle" class="w-5 h-5"></i>
+          <span>FAQ</span>
+        </a>
+      </nav>
+    </div>
+  </header>
+  
+  <!-- Spacer for fixed header -->
+  <div style="height: 72px;"></div>
+
+  <!-- Section 2: Page Hero -->
+  <section class="bg-[#1e3a5f] py-16 lg:py-24">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid lg:grid-cols-2 gap-12 items-center">
+        <div class="scroll-animate" data-animation="fadeInUp" data-delay="0">
+          <div class="flex items-center gap-2 mb-4">
+            <span class="inline-flex items-center gap-1.5 px-3 py-1 bg-[#0d9488]/20 text-[#14b8a6] rounded-full text-sm font-medium">
+              <i data-lucide="dollar-sign" class="w-4 h-4"></i>
+              Cost Guides
+            </span>
+          </div>
+          <h1 class="text-4xl lg:text-5xl font-bold text-white mb-6 leading-tight">
+            Septic System Costs
+          </h1>
+          <p class="text-lg text-gray-300 mb-8 leading-relaxed">
+            Get accurate pricing information for installation, pumping, repairs, and maintenance. 
+            Use our cost calculator to estimate expenses and discover money-saving strategies for your septic system.
+          </p>
+          <div class="flex flex-wrap gap-4">
+            <a href="#calculator" class="btn-primary">
+              <i data-lucide="calculator" class="w-5 h-5"></i>
+              Cost Calculator
+            </a>
+            <a href="#breakdown" class="btn-secondary border-white text-white hover:bg-white/10">
+              <i data-lucide="list" class="w-5 h-5"></i>
+              View Breakdown
+            </a>
+          </div>
+        </div>
+        <div class="scroll-animate hidden lg:block" data-animation="fadeInRight" data-delay="200">
+          <img src="images/cost-comparison.png" alt="Cost comparison and budget planning illustration" class="rounded-2xl shadow-2xl w-full">
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Section 3: Cost Calculator Tool -->
+  <section id="calculator" class="py-16 lg:py-24 bg-[#f8fafc]">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-12 scroll-animate" data-animation="fadeInUp">
+        <span class="inline-flex items-center gap-1.5 px-3 py-1 bg-[#0d9488]/10 text-[#0d9488] rounded-full text-sm font-medium mb-4">
+          <i data-lucide="calculator" class="w-4 h-4"></i>
+          Interactive Tool
+        </span>
+        <h2 class="text-3xl lg:text-4xl font-bold text-[#1e293b] mb-4">
+          Septic Cost Calculator
+        </h2>
+        <p class="text-lg text-[#64748b] max-w-2xl mx-auto">
+          Get an instant estimate for your septic system pumping costs based on your specific situation.
+        </p>
+      </div>
+      
+      <div class="bg-white rounded-2xl shadow-xl p-6 lg:p-10 scroll-animate" data-animation="fadeInUp" data-delay="100">
+        <div class="grid md:grid-cols-2 gap-6 mb-8">
+          <!-- Household Size -->
+          <div>
+            <label class="block text-sm font-semibold text-[#334155] mb-2">
+              <i data-lucide="users" class="w-4 h-4 inline mr-1"></i>
+              Household Size
+            </label>
+            <select id="householdSize" class="w-full px-4 py-3 border border-[#e2e8f0] rounded-lg focus:ring-2 focus:ring-[#0d9488] focus:border-[#0d9488] transition-all bg-white">
+              <option value="1-2">1-2 people</option>
+              <option value="3-4" selected>3-4 people</option>
+              <option value="5+">5+ people</option>
+            </select>
+          </div>
+          
+          <!-- Tank Size -->
+          <div>
+            <label class="block text-sm font-semibold text-[#334155] mb-2">
+              <i data-lucide="container" class="w-4 h-4 inline mr-1"></i>
+              Tank Size
+            </label>
+            <select id="tankSize" class="w-full px-4 py-3 border border-[#e2e8f0] rounded-lg focus:ring-2 focus:ring-[#0d9488] focus:border-[#0d9488] transition-all bg-white">
+              <option value="500">500 gallons</option>
+              <option value="1000" selected>1,000 gallons</option>
+              <option value="1500">1,500 gallons</option>
+            </select>
+          </div>
+          
+          <!-- System Age -->
+          <div>
+            <label class="block text-sm font-semibold text-[#334155] mb-2">
+              <i data-lucide="clock" class="w-4 h-4 inline mr-1"></i>
+              System Age
+            </label>
+            <select id="systemAge" class="w-full px-4 py-3 border border-[#e2e8f0] rounded-lg focus:ring-2 focus:ring-[#0d9488] focus:border-[#0d9488] transition-all bg-white">
+              <option value="0-5">0-5 years (new)</option>
+              <option value="6-15" selected>6-15 years</option>
+              <option value="16+">16+ years (older)</option>
+            </select>
+          </div>
+          
+          <!-- Region -->
+          <div>
+            <label class="block text-sm font-semibold text-[#334155] mb-2">
+              <i data-lucide="map-pin" class="w-4 h-4 inline mr-1"></i>
+              Region
+            </label>
+            <select id="region" class="w-full px-4 py-3 border border-[#e2e8f0] rounded-lg focus:ring-2 focus:ring-[#0d9488] focus:border-[#0d9488] transition-all bg-white">
+              <option value="northeast">Northeast</option>
+              <option value="southeast" selected>Southeast</option>
+              <option value="midwest">Midwest</option>
+              <option value="west">West</option>
+            </select>
+          </div>
+        </div>
+        
+        <!-- Calculate Button -->
+        <button onclick="calculateCost()" class="w-full btn-primary py-4 text-lg">
+          <i data-lucide="calculator" class="w-5 h-5"></i>
+          Calculate Estimated Cost
+        </button>
+        
+        <!-- Result Display -->
+        <div id="calculatorResult" class="calculator-result hide mt-8 p-6 bg-[#ccfbf1] rounded-xl border border-[#0d9488]/20">
+          <div class="flex items-center gap-3 mb-4">
+            <div class="w-12 h-12 bg-[#0d9488] rounded-full flex items-center justify-center">
+              <i data-lucide="check" class="w-6 h-6 text-white"></i>
+            </div>
+            <div>
+              <h3 class="text-lg font-semibold text-[#1e293b]">Estimated Pumping Cost</h3>
+              <p class="text-sm text-[#64748b]">Based on your selections</p>
+            </div>
+          </div>
+          <div class="flex items-baseline gap-2">
+            <span class="text-4xl font-bold text-[#0d9488]" id="costMin">$300</span>
+            <span class="text-xl text-[#64748b]">-</span>
+            <span class="text-4xl font-bold text-[#0d9488]" id="costMax">$450</span>
+          </div>
+          <p class="text-sm text-[#64748b] mt-2">
+            <i data-lucide="info" class="w-4 h-4 inline mr-1"></i>
+            This is an estimate. Actual costs may vary based on accessibility, location, and service provider.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Section 4: Cost Breakdown by Category -->
+  <section id="breakdown" class="py-16 lg:py-24 bg-white">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-12 scroll-animate" data-animation="fadeInUp">
+        <span class="inline-flex items-center gap-1.5 px-3 py-1 bg-[#1e3a5f]/10 text-[#1e3a5f] rounded-full text-sm font-medium mb-4">
+          <i data-lucide="pie-chart" class="w-4 h-4"></i>
+          Pricing Breakdown
+        </span>
+        <h2 class="text-3xl lg:text-4xl font-bold text-[#1e293b] mb-4">
+          Cost Breakdown by Category
+        </h2>
+        <p class="text-lg text-[#64748b] max-w-2xl mx-auto">
+          Understand what goes into septic system costs across different services and scenarios.
+        </p>
+      </div>
+      
+      <div class="space-y-4" data-accordion-group>
+        <!-- Installation -->
+        <div class="cost-card bg-white rounded-xl border border-[#e2e8f0] overflow-hidden scroll-animate" data-animation="fadeInUp" data-delay="0">
+          <button onclick="toggleCostAccordion(this)" class="w-full px-6 py-5 flex items-center justify-between text-left hover:bg-[#f8fafc] transition-colors" data-accordion-trigger>
+            <div class="flex items-center gap-4">
+              <div class="w-12 h-12 bg-[#1e3a5f] rounded-xl flex items-center justify-center flex-shrink-0">
+                <i data-lucide="hard-hat" class="w-6 h-6 text-white"></i>
+              </div>
+              <div>
+                <h3 class="text-lg font-semibold text-[#1e293b]">Installation</h3>
+                <p class="text-sm text-[#64748b]">New system installation costs</p>
+              </div>
+            </div>
+            <div class="flex items-center gap-4">
+              <span class="text-2xl font-bold text-[#0d9488]">$6,000 - $25,000</span>
+              <i data-lucide="chevron-down" class="w-5 h-5 text-[#64748b] accordion-icon" data-accordion-icon></i>
+            </div>
+          </button>
+          <div class="accordion-content px-6" data-accordion-content>
+            <div class="pb-6 pt-2 border-t border-[#e2e8f0]">
+              <div class="grid md:grid-cols-3 gap-4 mt-4">
+                <div class="p-4 bg-[#f8fafc] rounded-lg">
+                  <h4 class="font-semibold text-[#334155] mb-2">Conventional</h4>
+                  <p class="text-2xl font-bold text-[#0d9488]">$3,000 - $10,000</p>
+                  <p class="text-sm text-[#64748b] mt-1">Gravity-fed system with leach field</p>
+                </div>
+                <div class="p-4 bg-[#f8fafc] rounded-lg">
+                  <h4 class="font-semibold text-[#334155] mb-2">Mound System</h4>
+                  <p class="text-2xl font-bold text-[#0d9488]">$10,000 - $20,000</p>
+                  <p class="text-sm text-[#64748b] mt-1">Raised bed for poor soil conditions</p>
+                </div>
+                <div class="p-4 bg-[#f8fafc] rounded-lg">
+                  <h4 class="font-semibold text-[#334155] mb-2">ATU System</h4>
+                  <p class="text-2xl font-bold text-[#0d9488]">$15,000 - $25,000</p>
+                  <p class="text-sm text-[#64748b] mt-1">Aerobic treatment unit with pump</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Pumping -->
+        <div class="cost-card bg-white rounded-xl border border-[#e2e8f0] overflow-hidden scroll-animate" data-animation="fadeInUp" data-delay="100">
+          <button onclick="toggleCostAccordion(this)" class="w-full px-6 py-5 flex items-center justify-between text-left hover:bg-[#f8fafc] transition-colors" data-accordion-trigger>
+            <div class="flex items-center gap-4">
+              <div class="w-12 h-12 bg-[#0d9488] rounded-xl flex items-center justify-center flex-shrink-0">
+                <i data-lucide="truck" class="w-6 h-6 text-white"></i>
+              </div>
+              <div>
+                <h3 class="text-lg font-semibold text-[#1e293b]">Pumping</h3>
+                <p class="text-sm text-[#64748b]">Regular maintenance service</p>
+              </div>
+            </div>
+            <div class="flex items-center gap-4">
+              <span class="text-2xl font-bold text-[#0d9488]">$250 - $600</span>
+              <span class="text-sm text-[#64748b]">per service</span>
+              <i data-lucide="chevron-down" class="w-5 h-5 text-[#64748b] accordion-icon" data-accordion-icon></i>
+            </div>
+          </button>
+          <div class="accordion-content px-6" data-accordion-content>
+            <div class="pb-6 pt-2 border-t border-[#e2e8f0]">
+              <div class="grid md:grid-cols-3 gap-4 mt-4">
+                <div class="p-4 bg-[#f8fafc] rounded-lg">
+                  <h4 class="font-semibold text-[#334155] mb-2">500-1000 Gallon</h4>
+                  <p class="text-2xl font-bold text-[#0d9488]">$250 - $400</p>
+                  <p class="text-sm text-[#64748b] mt-1">Small to medium residential tanks</p>
+                </div>
+                <div class="p-4 bg-[#f8fafc] rounded-lg">
+                  <h4 class="font-semibold text-[#334155] mb-2">1000-1500 Gallon</h4>
+                  <p class="text-2xl font-bold text-[#0d9488]">$350 - $500</p>
+                  <p class="text-sm text-[#64748b] mt-1">Standard residential tanks</p>
+                </div>
+                <div class="p-4 bg-[#f8fafc] rounded-lg">
+                  <h4 class="font-semibold text-[#334155] mb-2">1500+ Gallon</h4>
+                  <p class="text-2xl font-bold text-[#0d9488]">$450 - $600</p>
+                  <p class="text-sm text-[#64748b] mt-1">Large residential or commercial</p>
+                </div>
+              </div>
+              <div class="mt-4 p-4 bg-[#ccfbf1] rounded-lg">
+                <p class="text-sm text-[#0f766e]">
+                  <i data-lucide="lightbulb" class="w-4 h-4 inline mr-1"></i>
+                  <strong>Tip:</strong> Pumping every 3-5 years prevents costly repairs and extends system life.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Repairs -->
+        <div class="cost-card bg-white rounded-xl border border-[#e2e8f0] overflow-hidden scroll-animate" data-animation="fadeInUp" data-delay="200">
+          <button onclick="toggleCostAccordion(this)" class="w-full px-6 py-5 flex items-center justify-between text-left hover:bg-[#f8fafc] transition-colors" data-accordion-trigger>
+            <div class="flex items-center gap-4">
+              <div class="w-12 h-12 bg-[#f59e0b] rounded-xl flex items-center justify-center flex-shrink-0">
+                <i data-lucide="wrench" class="w-6 h-6 text-white"></i>
+              </div>
+              <div>
+                <h3 class="text-lg font-semibold text-[#1e293b]">Repairs</h3>
+                <p class="text-sm text-[#64748b]">Fixing system issues</p>
+              </div>
+            </div>
+            <div class="flex items-center gap-4">
+              <span class="text-2xl font-bold text-[#0d9488]">$500 - $5,000+</span>
+              <i data-lucide="chevron-down" class="w-5 h-5 text-[#64748b] accordion-icon" data-accordion-icon></i>
+            </div>
+          </button>
+          <div class="accordion-content px-6" data-accordion-content>
+            <div class="pb-6 pt-2 border-t border-[#e2e8f0]">
+              <div class="grid md:grid-cols-3 gap-4 mt-4">
+                <div class="p-4 bg-[#f8fafc] rounded-lg">
+                  <h4 class="font-semibold text-[#334155] mb-2">Minor Repairs</h4>
+                  <p class="text-2xl font-bold text-[#0d9488]">$500 - $1,500</p>
+                  <p class="text-sm text-[#64748b] mt-1">Baffles, filters, small fixes</p>
+                </div>
+                <div class="p-4 bg-[#f8fafc] rounded-lg">
+                  <h4 class="font-semibold text-[#334155] mb-2">Drain Field</h4>
+                  <p class="text-2xl font-bold text-[#0d9488]">$2,500 - $10,000</p>
+                  <p class="text-sm text-[#64748b] mt-1">Leach field repair/replacement</p>
+                </div>
+                <div class="p-4 bg-[#f8fafc] rounded-lg">
+                  <h4 class="font-semibold text-[#334155] mb-2">Full Replacement</h4>
+                  <p class="text-2xl font-bold text-[#0d9488]">$5,000 - $25,000</p>
+                  <p class="text-sm text-[#64748b] mt-1">Complete system replacement</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Inspection -->
+        <div class="cost-card bg-white rounded-xl border border-[#e2e8f0] overflow-hidden scroll-animate" data-animation="fadeInUp" data-delay="300">
+          <button onclick="toggleCostAccordion(this)" class="w-full px-6 py-5 flex items-center justify-between text-left hover:bg-[#f8fafc] transition-colors" data-accordion-trigger>
+            <div class="flex items-center gap-4">
+              <div class="w-12 h-12 bg-[#3b82f6] rounded-xl flex items-center justify-center flex-shrink-0">
+                <i data-lucide="clipboard-check" class="w-6 h-6 text-white"></i>
+              </div>
+              <div>
+                <h3 class="text-lg font-semibold text-[#1e293b]">Inspection</h3>
+                <p class="text-sm text-[#64748b]">Professional system evaluation</p>
+              </div>
+            </div>
+            <div class="flex items-center gap-4">
+              <span class="text-2xl font-bold text-[#0d9488]">$200 - $500</span>
+              <i data-lucide="chevron-down" class="w-5 h-5 text-[#64748b] accordion-icon" data-accordion-icon></i>
+            </div>
+          </button>
+          <div class="accordion-content px-6" data-accordion-content>
+            <div class="pb-6 pt-2 border-t border-[#e2e8f0]">
+              <div class="grid md:grid-cols-2 gap-4 mt-4">
+                <div class="p-4 bg-[#f8fafc] rounded-lg">
+                  <h4 class="font-semibold text-[#334155] mb-2">Basic Visual Inspection</h4>
+                  <p class="text-2xl font-bold text-[#0d9488]">$200 - $300</p>
+                  <p class="text-sm text-[#64748b] mt-1">Surface-level assessment and report</p>
+                </div>
+                <div class="p-4 bg-[#f8fafc] rounded-lg">
+                  <h4 class="font-semibold text-[#334155] mb-2">Full System Inspection</h4>
+                  <p class="text-2xl font-bold text-[#0d9488]">$350 - $500</p>
+                  <p class="text-sm text-[#64748b] mt-1">Tank opening, internal check, detailed report</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Section 5: Regional Cost Variations -->
+  <section class="py-16 lg:py-24 bg-[#f8fafc]">
+    <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-12 scroll-animate" data-animation="fadeInUp">
+        <span class="inline-flex items-center gap-1.5 px-3 py-1 bg-[#0d9488]/10 text-[#0d9488] rounded-full text-sm font-medium mb-4">
+          <i data-lucide="map" class="w-4 h-4"></i>
+          Regional Data
+        </span>
+        <h2 class="text-3xl lg:text-4xl font-bold text-[#1e293b] mb-4">
+          Regional Cost Variations
+        </h2>
+        <p class="text-lg text-[#64748b] max-w-2xl mx-auto">
+          Septic system costs vary significantly by region due to labor rates, soil conditions, and local regulations.
+        </p>
+      </div>
+      
+      <div class="table-container scroll-animate" data-animation="fadeInUp" data-delay="100">
+        <table class="data-table">
+          <thead>
+            <tr>
+              <th>Region</th>
+              <th>Installation</th>
+              <th>Pumping</th>
+              <th>Repairs</th>
+              <th>Key Factors</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>
+                <div class="flex items-center gap-2">
+                  <i data-lucide="map-pin" class="w-4 h-4 text-[#ef4444]"></i>
+                  <span class="font-semibold">Northeast</span>
+                </div>
+              </td>
+              <td><span class="tag tag-warning">Higher</span></td>
+              <td><span class="tag tag-warning">Higher</span></td>
+              <td><span class="tag tag-warning">Higher</span></td>
+              <td class="text-sm">Cold climate, rocky soil, strict codes</td>
+            </tr>
+            <tr>
+              <td>
+                <div class="flex items-center gap-2">
+                  <i data-lucide="map-pin" class="w-4 h-4 text-[#10b981]"></i>
+                  <span class="font-semibold">Southeast</span>
+                </div>
+              </td>
+              <td><span class="tag tag-success">Lower</span></td>
+              <td><span class="tag tag-success">Lower</span></td>
+              <td><span class="tag tag-success">Lower</span></td>
+              <td class="text-sm">Sandy soil, mild climate, lower labor</td>
+            </tr>
+            <tr>
+              <td>
+                <div class="flex items-center gap-2">
+                  <i data-lucide="map-pin" class="w-4 h-4 text-[#3b82f6]"></i>
+                  <span class="font-semibold">Midwest</span>
+                </div>
+              </td>
+              <td><span class="tag tag-info">Average</span></td>
+              <td><span class="tag tag-info">Average</span></td>
+              <td><span class="tag tag-info">Average</span></td>
+              <td class="text-sm">Clay soil, seasonal freezing</td>
+            </tr>
+            <tr>
+              <td>
+                <div class="flex items-center gap-2">
+                  <i data-lucide="map-pin" class="w-4 h-4 text-[#f59e0b]"></i>
+                  <span class="font-semibold">West</span>
+                </div>
+              </td>
+              <td><span class="tag tag-warning">Higher</span></td>
+              <td><span class="tag tag-warning">Higher</span></td>
+              <td><span class="tag tag-warning">Higher</span></td>
+              <td class="text-sm">High labor costs, environmental regs</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      
+      <div class="mt-6 p-4 bg-white rounded-lg border border-[#e2e8f0] scroll-animate" data-animation="fadeInUp" data-delay="200">
+        <p class="text-sm text-[#64748b]">
+          <i data-lucide="info" class="w-4 h-4 inline mr-1 text-[#3b82f6]"></i>
+          <strong>Note:</strong> These are general trends. Actual costs in your area may vary. Always get multiple quotes from local contractors.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Section 6: Money-Saving Tips -->
+  <section class="py-16 lg:py-24 bg-[#ccfbf1]">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-12 scroll-animate" data-animation="fadeInUp">
+        <span class="inline-flex items-center gap-1.5 px-3 py-1 bg-[#0d9488]/20 text-[#0f766e] rounded-full text-sm font-medium mb-4">
+          <i data-lucide="piggy-bank" class="w-4 h-4"></i>
+          Save Money
+        </span>
+        <h2 class="text-3xl lg:text-4xl font-bold text-[#1e293b] mb-4">
+          Money-Saving Tips
+        </h2>
+        <p class="text-lg text-[#0f766e] max-w-2xl mx-auto">
+          Smart strategies to reduce your septic system costs without cutting corners on quality.
+        </p>
+      </div>
+      
+      <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <!-- Tip 1 -->
+        <div class="tip-card bg-white rounded-xl p-6 shadow-md scroll-animate" data-animation="fadeInUp" data-delay="0">
+          <div class="w-12 h-12 bg-[#0d9488] rounded-full flex items-center justify-center mb-4">
+            <span class="text-xl font-bold text-white">1</span>
+          </div>
+          <h3 class="text-lg font-semibold text-[#1e293b] mb-2">Regular Maintenance</h3>
+          <p class="text-[#64748b]">
+            Pump every 3-5 years to prevent costly repairs. A $300 pumping beats a $5,000 drain field replacement.
+          </p>
+        </div>
+        
+        <!-- Tip 2 -->
+        <div class="tip-card bg-white rounded-xl p-6 shadow-md scroll-animate" data-animation="fadeInUp" data-delay="100">
+          <div class="w-12 h-12 bg-[#0d9488] rounded-full flex items-center justify-center mb-4">
+            <span class="text-xl font-bold text-white">2</span>
+          </div>
+          <h3 class="text-lg font-semibold text-[#1e293b] mb-2">Get Multiple Quotes</h3>
+          <p class="text-[#64748b]">
+            Always get 3-5 quotes for major work. Prices can vary by 30% or more between contractors.
+          </p>
+        </div>
+        
+        <!-- Tip 3 -->
+        <div class="tip-card bg-white rounded-xl p-6 shadow-md scroll-animate" data-animation="fadeInUp" data-delay="200">
+          <div class="w-12 h-12 bg-[#0d9488] rounded-full flex items-center justify-center mb-4">
+            <span class="text-xl font-bold text-white">3</span>
+          </div>
+          <h3 class="text-lg font-semibold text-[#1e293b] mb-2">Pump Before Problems</h3>
+          <p class="text-[#64748b]">
+            Don't wait for backups or odors. Emergency pumping costs 50-100% more than scheduled service.
+          </p>
+        </div>
+        
+        <!-- Tip 4 -->
+        <div class="tip-card bg-white rounded-xl p-6 shadow-md scroll-animate" data-animation="fadeInUp" data-delay="300">
+          <div class="w-12 h-12 bg-[#0d9488] rounded-full flex items-center justify-center mb-4">
+            <span class="text-xl font-bold text-white">4</span>
+          </div>
+          <h3 class="text-lg font-semibold text-[#1e293b] mb-2">Conserve Water</h3>
+          <p class="text-[#64748b]">
+            Reduce water usage to extend system life. Fix leaks, use low-flow fixtures, and spread out laundry loads.
+          </p>
+        </div>
+        
+        <!-- Tip 5 -->
+        <div class="tip-card bg-white rounded-xl p-6 shadow-md scroll-animate" data-animation="fadeInUp" data-delay="400">
+          <div class="w-12 h-12 bg-[#0d9488] rounded-full flex items-center justify-center mb-4">
+            <span class="text-xl font-bold text-white">5</span>
+          </div>
+          <h3 class="text-lg font-semibold text-[#1e293b] mb-2">Keep Service Records</h3>
+          <p class="text-[#64748b]">
+            Document all maintenance and repairs. Good records help diagnose issues and prove care to buyers.
+          </p>
+        </div>
+        
+        <!-- Tip 6 -->
+        <div class="tip-card bg-white rounded-xl p-6 shadow-md scroll-animate" data-animation="fadeInUp" data-delay="500">
+          <div class="w-12 h-12 bg-[#0d9488] rounded-full flex items-center justify-center mb-4">
+            <span class="text-xl font-bold text-white">6</span>
+          </div>
+          <h3 class="text-lg font-semibold text-[#1e293b] mb-2">Learn DIY Inspections</h3>
+          <p class="text-[#64748b]">
+            Do monthly visual checks yourself. Catch problems early before they become expensive repairs.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Section 7: Cost vs Value -->
+  <section class="py-16 lg:py-24 bg-white">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid lg:grid-cols-2 gap-12 items-center">
+        <!-- Left Column: Content -->
+        <div class="scroll-animate" data-animation="fadeInLeft">
+          <span class="inline-flex items-center gap-1.5 px-3 py-1 bg-[#1e3a5f]/10 text-[#1e3a5f] rounded-full text-sm font-medium mb-4">
+            <i data-lucide="trending-up" class="w-4 h-4"></i>
+            Investment Perspective
+          </span>
+          <h2 class="text-3xl lg:text-4xl font-bold text-[#1e293b] mb-6">
+            Cost vs Value: Why Maintenance Pays Off
+          </h2>
+          <p class="text-lg text-[#64748b] mb-6">
+            While septic system costs may seem high, proper maintenance is one of the best investments you can make in your home. A well-maintained system can last 20-30 years or more.
+          </p>
+          
+          <div class="space-y-4">
+            <div class="flex items-start gap-4">
+              <div class="w-10 h-10 bg-[#d1fae5] rounded-lg flex items-center justify-center flex-shrink-0">
+                <i data-lucide="check-circle" class="w-5 h-5 text-[#10b981]"></i>
+              </div>
+              <div>
+                <h4 class="font-semibold text-[#1e293b]">Preventive Maintenance Saves Thousands</h4>
+                <p class="text-[#64748b]">Regular $300 pumpings prevent $5,000+ drain field failures.</p>
+              </div>
+            </div>
+            
+            <div class="flex items-start gap-4">
+              <div class="w-10 h-10 bg-[#d1fae5] rounded-lg flex items-center justify-center flex-shrink-0">
+                <i data-lucide="check-circle" class="w-5 h-5 text-[#10b981]"></i>
+              </div>
+              <div>
+                <h4 class="font-semibold text-[#1e293b]">Increases Property Value</h4>
+                <p class="text-[#64748b]">A documented, well-maintained system adds value when selling your home.</p>
+              </div>
+            </div>
+            
+            <div class="flex items-start gap-4">
+              <div class="w-10 h-10 bg-[#d1fae5] rounded-lg flex items-center justify-center flex-shrink-0">
+                <i data-lucide="check-circle" class="w-5 h-5 text-[#10b981]"></i>
+              </div>
+              <div>
+                <h4 class="font-semibold text-[#1e293b]">Avoids Emergency Costs</h4>
+                <p class="text-[#64748b]">Planned maintenance costs 40-60% less than emergency repairs.</p>
+              </div>
+            </div>
+            
+            <div class="flex items-start gap-4">
+              <div class="w-10 h-10 bg-[#d1fae5] rounded-lg flex items-center justify-center flex-shrink-0">
+                <i data-lucide="check-circle" class="w-5 h-5 text-[#10b981]"></i>
+              </div>
+              <div>
+                <h4 class="font-semibold text-[#1e293b]">Protects Health & Environment</h4>
+                <p class="text-[#64748b]">Proper care prevents contamination of groundwater and local water sources.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Right Column: Image & Stats -->
+        <div class="scroll-animate" data-animation="fadeInRight" data-delay="100">
+          <div class="relative">
+            <img src="images/repair-work.jpg" alt="Septic system repair work" class="rounded-2xl shadow-xl w-full">
+            
+            <!-- Stats Overlay -->
+            <div class="absolute -bottom-6 -left-6 bg-white rounded-xl shadow-xl p-6 border border-[#e2e8f0]">
+              <div class="flex items-center gap-4">
+                <div class="w-14 h-14 bg-[#0d9488] rounded-full flex items-center justify-center">
+                  <i data-lucide="shield-check" class="w-7 h-7 text-white"></i>
+                </div>
+                <div>
+                  <p class="text-3xl font-bold text-[#0d9488]">20-30</p>
+                  <p class="text-sm text-[#64748b]">Years Lifespan</p>
+                </div>
+              </div>
+            </div>
+            
+            <div class="absolute -top-6 -right-6 bg-[#1e3a5f] rounded-xl shadow-xl p-6">
+              <div class="flex items-center gap-4">
+                <div class="w-14 h-14 bg-white/20 rounded-full flex items-center justify-center">
+                  <i data-lucide="dollar-sign" class="w-7 h-7 text-white"></i>
+                </div>
+                <div>
+                  <p class="text-3xl font-bold text-white">$300</p>
+                  <p class="text-sm text-gray-300">Avg. Annual Cost</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA Section -->
+  <section class="py-16 lg:py-20 bg-[#1e3a5f]">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center scroll-animate" data-animation="fadeInUp">
+      <h2 class="text-3xl lg:text-4xl font-bold text-white mb-4">
+        Ready to Maintain Your System?
+      </h2>
+      <p class="text-lg text-gray-300 mb-8 max-w-2xl mx-auto">
+        Explore our maintenance guide for detailed schedules, checklists, and expert tips to keep your septic system running smoothly for decades.
+      </p>
+      <div class="flex flex-wrap justify-center gap-4">
+        <a href="maintenance.html" class="btn-primary">
+          <i data-lucide="calendar-check" class="w-5 h-5"></i>
+          Maintenance Guide
+        </a>
+        <a href="inspection.html" class="btn-secondary border-white text-white hover:bg-white/10">
+          <i data-lucide="clipboard-check" class="w-5 h-5"></i>
+          Inspection Guide
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="bg-[#0f172a] text-white pt-16 pb-8">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-12">
+        <!-- Brand Column -->
+        <div>
+          <a href="index.html" class="flex items-center gap-2 mb-4">
+            <div class="w-10 h-10 bg-[#0d9488] rounded-lg flex items-center justify-center">
+              <i data-lucide="home" class="w-6 h-6 text-white"></i>
+            </div>
+            <span class="text-xl font-bold">Septic Systems HQ</span>
+          </a>
+          <p class="text-gray-400 text-sm leading-relaxed mb-6">
+            Your trusted resource for septic system information, maintenance guides, and expert advice.
+          </p>
+          <div class="flex gap-4">
+            <a href="#" class="w-10 h-10 bg-[#1e293b] rounded-lg flex items-center justify-center hover:bg-[#0d9488] transition-colors" aria-label="Facebook">
+              <i data-lucide="facebook" class="w-5 h-5"></i>
+            </a>
+            <a href="#" class="w-10 h-10 bg-[#1e293b] rounded-lg flex items-center justify-center hover:bg-[#0d9488] transition-colors" aria-label="Twitter">
+              <i data-lucide="twitter" class="w-5 h-5"></i>
+            </a>
+            <a href="#" class="w-10 h-10 bg-[#1e293b] rounded-lg flex items-center justify-center hover:bg-[#0d9488] transition-colors" aria-label="YouTube">
+              <i data-lucide="youtube" class="w-5 h-5"></i>
+            </a>
+          </div>
+        </div>
+        
+        <!-- Quick Links -->
+        <div>
+          <h3 class="text-lg font-semibold mb-4">Quick Links</h3>
+          <ul class="space-y-3">
+            <li>
+              <a href="index.html" class="text-gray-400 hover:text-[#0d9488] transition-colors text-sm">Home</a>
+            </li>
+            <li>
+              <a href="types.html" class="text-gray-400 hover:text-[#0d9488] transition-colors text-sm">Types of Systems</a>
+            </li>
+            <li>
+              <a href="maintenance.html" class="text-gray-400 hover:text-[#0d9488] transition-colors text-sm">Maintenance Guide</a>
+            </li>
+            <li>
+              <a href="problems.html" class="text-gray-400 hover:text-[#0d9488] transition-colors text-sm">Common Problems</a>
+            </li>
+            <li>
+              <a href="costs.html" class="text-gray-400 hover:text-[#0d9488] transition-colors text-sm">Cost Guides</a>
+            </li>
+          </ul>
+        </div>
+        
+        <!-- Resources -->
+        <div>
+          <h3 class="text-lg font-semibold mb-4">Resources</h3>
+          <ul class="space-y-3">
+            <li>
+              <a href="installation.html" class="text-gray-400 hover:text-[#0d9488] transition-colors text-sm">Installation Guide</a>
+            </li>
+            <li>
+              <a href="inspection.html" class="text-gray-400 hover:text-[#0d9488] transition-colors text-sm">Inspection Guide</a>
+            </li>
+            <li>
+              <a href="regulations.html" class="text-gray-400 hover:text-[#0d9488] transition-colors text-sm">Regulations</a>
+            </li>
+            <li>
+              <a href="faq.html" class="text-gray-400 hover:text-[#0d9488] transition-colors text-sm">FAQ</a>
+            </li>
+            <li>
+              <a href="glossary.html" class="text-gray-400 hover:text-[#0d9488] transition-colors text-sm">Glossary</a>
+            </li>
+          </ul>
+        </div>
+        
+        <!-- Legal -->
+        <div>
+          <h3 class="text-lg font-semibold mb-4">Legal</h3>
+          <ul class="space-y-3">
+            <li>
+              <a href="#" class="text-gray-400 hover:text-[#0d9488] transition-colors text-sm">Privacy Policy</a>
+            </li>
+            <li>
+              <a href="#" class="text-gray-400 hover:text-[#0d9488] transition-colors text-sm">Terms of Use</a>
+            </li>
+            <li>
+              <a href="#" class="text-gray-400 hover:text-[#0d9488] transition-colors text-sm">Disclaimer</a>
+            </li>
+            <li>
+              <a href="#" class="text-gray-400 hover:text-[#0d9488] transition-colors text-sm">Contact</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+      
+      <!-- Bottom Bar -->
+      <div class="border-t border-[#1e293b] pt-8">
+        <div class="flex flex-col md:flex-row justify-between items-center gap-4">
+          <p class="text-gray-500 text-sm">
+            &copy; 2024 Septic Systems HQ. All rights reserved.
+          </p>
+          <p class="text-gray-500 text-sm">
+            Information provided for educational purposes only.
+          </p>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Shared Scripts -->
+  <script src="shared/scripts.js"></script>
+  
+  <!-- Page-specific Scripts -->
+  <script>
+    // Cost Calculator Function
+    function calculateCost() {
+      const householdSize = document.getElementById('householdSize').value;
+      const tankSize = document.getElementById('tankSize').value;
+      const systemAge = document.getElementById('systemAge').value;
+      const region = document.getElementById('region').value;
+      
+      // Base costs by tank size
+      let baseMin = 250;
+      let baseMax = 400;
+      
+      if (tankSize === '1000') {
+        baseMin = 350;
+        baseMax = 500;
+      } else if (tankSize === '1500') {
+        baseMin = 450;
+        baseMax = 600;
+      }
+      
+      // Adjust for system age
+      if (systemAge === '16+') {
+        baseMin += 50;
+        baseMax += 75;
+      }
+      
+      // Adjust for region
+      const regionMultipliers = {
+        'northeast': 1.3,
+        'southeast': 0.9,
+        'midwest': 1.0,
+        'west': 1.25
+      };
+      
+      const multiplier = regionMultipliers[region] || 1.0;
+      baseMin = Math.round(baseMin * multiplier);
+      baseMax = Math.round(baseMax * multiplier);
+      
+      // Display result
+      document.getElementById('costMin').textContent = '$' + baseMin;
+      document.getElementById('costMax').textContent = '$' + baseMax;
+      
+      const resultDiv = document.getElementById('calculatorResult');
+      resultDiv.classList.remove('hide');
+      resultDiv.classList.add('show');
+    }
+    
+    // Cost Accordion Toggle
+    function toggleCostAccordion(button) {
+      const content = button.nextElementSibling;
+      const icon = button.querySelector('.accordion-icon');
+      const isOpen = content.style.maxHeight && content.style.maxHeight !== '0px';
+      
+      // Close all accordions in the group
+      const group = button.closest('[data-accordion-group]');
+      if (group) {
+        const allContents = group.querySelectorAll('[data-accordion-content]');
+        const allIcons = group.querySelectorAll('.accordion-icon');
+        allContents.forEach(c => c.style.maxHeight = '0px');
+        allIcons.forEach(i => i.classList.remove('open'));
+      }
+      
+      // Toggle current accordion
+      if (!isOpen) {
+        content.style.maxHeight = content.scrollHeight + 'px';
+        icon.classList.add('open');
+      }
+    }
+    
+    // Initialize Lucide icons after page load
+    document.addEventListener('DOMContentLoaded', function() {
+      if (typeof lucide !== 'undefined') {
+        lucide.createIcons();
+      }
+    });
+  </script>
+</body>
+</html>

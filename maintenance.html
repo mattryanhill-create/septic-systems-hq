@@ -1,0 +1,1051 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Septic System Maintenance Guide | Septic Systems HQ</title>
+    <meta name="description" content="Complete septic system maintenance guide with pumping schedules, seasonal care tips, do's and don'ts, and printable checklists. Keep your system running smoothly.">
+    
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+    
+    <!-- Tailwind CSS v4 -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+    
+    <!-- Animation Library -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+    
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        navy: {
+                            DEFAULT: '#1e3a5f',
+                            dark: '#152a45',
+                            light: '#2a4a73'
+                        },
+                        teal: {
+                            DEFAULT: '#0d9488',
+                            dark: '#0f766e',
+                            light: '#14b8a6',
+                            pale: '#ccfbf1'
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'system-ui', '-apple-system', 'sans-serif'],
+                        mono: ['JetBrains Mono', 'Consolas', 'Monaco', 'monospace']
+                    }
+                }
+            }
+        }
+    </script>
+    
+    <style>
+        /* Animation Keyframes */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        @keyframes fadeInLeft {
+            from {
+                opacity: 0;
+                transform: translateX(-50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+        
+        @keyframes fadeInRight {
+            from {
+                opacity: 0;
+                transform: translateX(50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+        
+        @keyframes drawLine {
+            from { width: 0; }
+            to { width: 100%; }
+        }
+        
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+        }
+        
+        /* Animation Classes */
+        .animate-fadeInUp {
+            animation: fadeInUp 0.7s cubic-bezier(0, 0, 0.2, 1) forwards;
+        }
+        
+        .animate-fadeInLeft {
+            animation: fadeInLeft 0.8s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+        }
+        
+        .animate-fadeInRight {
+            animation: fadeInRight 0.8s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+        }
+        
+        .animate-fadeIn {
+            animation: fadeIn 0.6s ease-out forwards;
+        }
+        
+        /* Scroll Animation Initial States */
+        .scroll-animate {
+            opacity: 0;
+        }
+        
+        .scroll-animate.animated {
+            opacity: 1;
+        }
+        
+        /* Timeline Animation */
+        .timeline-line {
+            width: 0;
+            transition: width 1s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        
+        .timeline-line.animated {
+            width: 100%;
+        }
+        
+        /* Tab Styles */
+        .seasonal-tab {
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        
+        .seasonal-tab.active {
+            background-color: #0d9488;
+            color: white;
+        }
+        
+        .seasonal-content {
+            display: none;
+            animation: fadeIn 0.4s ease-out;
+        }
+        
+        .seasonal-content.active {
+            display: block;
+        }
+        
+        /* Card Hover Effects */
+        .feature-card {
+            transition: all 0.35s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        }
+        
+        .feature-card:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 20px 25px -5px rgba(0,0,0,0.1), 0 8px 10px -6px rgba(0,0,0,0.1);
+        }
+        
+        /* Button Hover */
+        .btn-primary {
+            transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 14px 0 rgba(13,148,136,0.25);
+        }
+        
+        /* Stagger Animation Delays */
+        .stagger-1 { animation-delay: 0.1s; }
+        .stagger-2 { animation-delay: 0.2s; }
+        .stagger-3 { animation-delay: 0.3s; }
+        .stagger-4 { animation-delay: 0.4s; }
+        .stagger-5 { animation-delay: 0.5s; }
+        .stagger-6 { animation-delay: 0.6s; }
+        
+        /* Print Styles */
+        @media print {
+            .no-print { display: none !important; }
+            .print-only { display: block !important; }
+        }
+    </style>
+</head>
+<body class="font-sans text-gray-700 bg-white">
+    
+    <!-- Section 1: Header/Navigation -->
+    <header class="fixed top-0 left-0 right-0 bg-white shadow-sm z-50 h-[72px]">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-full">
+            <div class="flex items-center justify-between h-full">
+                <!-- Logo -->
+                <a href="index.html" class="flex items-center gap-2">
+                    <div class="w-10 h-10 bg-teal rounded-lg flex items-center justify-center">
+                        <i data-lucide="droplets" class="w-6 h-6 text-white"></i>
+                    </div>
+                    <span class="font-bold text-xl text-navy">Septic Systems HQ</span>
+                </a>
+                
+                <!-- Desktop Navigation -->
+                <nav class="hidden lg:flex items-center gap-1">
+                    <a href="index.html" class="px-4 py-2 text-[0.9375rem] font-medium text-gray-600 hover:text-teal transition-colors duration-150 rounded-lg hover:bg-gray-50 flex items-center gap-2">
+                        <i data-lucide="home" class="w-4 h-4"></i>
+                        Home
+                    </a>
+                    <a href="types.html" class="px-4 py-2 text-[0.9375rem] font-medium text-gray-600 hover:text-teal transition-colors duration-150 rounded-lg hover:bg-gray-50 flex items-center gap-2">
+                        <i data-lucide="layers" class="w-4 h-4"></i>
+                        Types
+                    </a>
+                    <a href="maintenance.html" class="px-4 py-2 text-[0.9375rem] font-medium text-teal bg-teal-pale rounded-lg flex items-center gap-2">
+                        <i data-lucide="calendar-check" class="w-4 h-4"></i>
+                        Maintenance
+                    </a>
+                    <a href="problems.html" class="px-4 py-2 text-[0.9375rem] font-medium text-gray-600 hover:text-teal transition-colors duration-150 rounded-lg hover:bg-gray-50 flex items-center gap-2">
+                        <i data-lucide="alert-triangle" class="w-4 h-4"></i>
+                        Problems
+                    </a>
+                    <a href="costs.html" class="px-4 py-2 text-[0.9375rem] font-medium text-gray-600 hover:text-teal transition-colors duration-150 rounded-lg hover:bg-gray-50 flex items-center gap-2">
+                        <i data-lucide="dollar-sign" class="w-4 h-4"></i>
+                        Costs
+                    </a>
+                    <a href="inspection.html" class="px-4 py-2 text-[0.9375rem] font-medium text-gray-600 hover:text-teal transition-colors duration-150 rounded-lg hover:bg-gray-50 flex items-center gap-2">
+                        <i data-lucide="clipboard-check" class="w-4 h-4"></i>
+                        Inspection
+                    </a>
+                    <a href="faq.html" class="px-4 py-2 text-[0.9375rem] font-medium text-gray-600 hover:text-teal transition-colors duration-150 rounded-lg hover:bg-gray-50 flex items-center gap-2">
+                        <i data-lucide="help-circle" class="w-4 h-4"></i>
+                        FAQ
+                    </a>
+                </nav>
+                
+                <!-- Mobile Menu Button -->
+                <button id="mobile-menu-btn" class="lg:hidden p-2 rounded-lg hover:bg-gray-100">
+                    <i data-lucide="menu" class="w-6 h-6 text-gray-700"></i>
+                </button>
+            </div>
+        </div>
+        
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="lg:hidden hidden bg-white border-t">
+            <div class="px-4 py-4 space-y-2">
+                <a href="index.html" class="block px-4 py-3 text-gray-600 hover:bg-gray-50 rounded-lg font-medium">Home</a>
+                <a href="types.html" class="block px-4 py-3 text-gray-600 hover:bg-gray-50 rounded-lg font-medium">Types</a>
+                <a href="maintenance.html" class="block px-4 py-3 text-teal bg-teal-pale rounded-lg font-medium">Maintenance</a>
+                <a href="problems.html" class="block px-4 py-3 text-gray-600 hover:bg-gray-50 rounded-lg font-medium">Problems</a>
+                <a href="costs.html" class="block px-4 py-3 text-gray-600 hover:bg-gray-50 rounded-lg font-medium">Costs</a>
+                <a href="inspection.html" class="block px-4 py-3 text-gray-600 hover:bg-gray-50 rounded-lg font-medium">Inspection</a>
+                <a href="faq.html" class="block px-4 py-3 text-gray-600 hover:bg-gray-50 rounded-lg font-medium">FAQ</a>
+            </div>
+        </div>
+    </header>
+
+    <main class="pt-[72px]">
+        
+        <!-- Section 2: Page Hero -->
+        <section class="bg-navy py-20 lg:py-28 relative overflow-hidden">
+            <!-- Background Pattern -->
+            <div class="absolute inset-0 opacity-10">
+                <div class="absolute top-10 left-10 w-32 h-32 border border-white rounded-full"></div>
+                <div class="absolute bottom-20 right-20 w-48 h-48 border border-white rounded-full"></div>
+                <div class="absolute top-1/2 left-1/4 w-24 h-24 border border-white rounded-full"></div>
+            </div>
+            
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+                <div class="max-w-3xl mx-auto text-center">
+                    <div class="inline-flex items-center gap-2 bg-white/10 px-4 py-2 rounded-full mb-6 animate-fadeInUp">
+                        <i data-lucide="calendar-check" class="w-4 h-4 text-teal-light"></i>
+                        <span class="text-white/90 text-sm font-medium">Essential Care Guide</span>
+                    </div>
+                    
+                    <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6 leading-tight animate-fadeInUp stagger-1" style="letter-spacing: -0.02em;">
+                        Septic System<br>Maintenance Guide
+                    </h1>
+                    
+                    <p class="text-lg md:text-xl text-white/80 mb-8 leading-relaxed animate-fadeInUp stagger-2">
+                        Keep your septic system running smoothly with our comprehensive maintenance guide. 
+                        Learn pumping schedules, seasonal care tips, and best practices to extend your system's lifespan.
+                    </p>
+                    
+                    <div class="flex flex-wrap justify-center gap-4 animate-fadeInUp stagger-3">
+                        <a href="#pumping-guide" class="btn-primary inline-flex items-center gap-2 bg-teal text-white px-6 py-3 rounded-lg font-semibold hover:bg-teal-dark">
+                            <i data-lucide="arrow-down" class="w-5 h-5"></i>
+                            View Pumping Schedule
+                        </a>
+                        <a href="#seasonal-care" class="inline-flex items-center gap-2 bg-white/10 text-white px-6 py-3 rounded-lg font-semibold hover:bg-white/20 transition-colors">
+                            <i data-lucide="sun" class="w-5 h-5"></i>
+                            Seasonal Tips
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section 3: Maintenance Schedule Visual -->
+        <section class="py-16 lg:py-24 bg-white">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="text-center mb-12 scroll-animate">
+                    <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-4">Maintenance Schedule</h2>
+                    <p class="text-lg text-gray-600 max-w-2xl mx-auto">Follow this timeline to keep your septic system in optimal condition year-round.</p>
+                </div>
+                
+                <!-- Timeline -->
+                <div class="relative scroll-animate">
+                    <!-- Timeline Line -->
+                    <div class="hidden md:block absolute top-12 left-0 right-0 h-1 bg-gray-200">
+                        <div class="timeline-line h-full bg-teal rounded-full" id="timeline-progress"></div>
+                    </div>
+                    
+                    <!-- Timeline Items -->
+                    <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+                        <!-- Monthly -->
+                        <div class="relative text-center scroll-animate stagger-1">
+                            <div class="w-24 h-24 mx-auto bg-teal-pale rounded-2xl flex items-center justify-center mb-4 relative z-10 border-4 border-white shadow-lg">
+                                <i data-lucide="calendar" class="w-10 h-10 text-teal"></i>
+                            </div>
+                            <h3 class="text-xl font-bold text-gray-900 mb-2">Monthly</h3>
+                            <ul class="text-gray-600 space-y-1 text-sm">
+                                <li>Check for odors</li>
+                                <li>Monitor drains</li>
+                                <li>Inspect lawn area</li>
+                            </ul>
+                        </div>
+                        
+                        <!-- Annually -->
+                        <div class="relative text-center scroll-animate stagger-2">
+                            <div class="w-24 h-24 mx-auto bg-teal-pale rounded-2xl flex items-center justify-center mb-4 relative z-10 border-4 border-white shadow-lg">
+                                <i data-lucide="clipboard-list" class="w-10 h-10 text-teal"></i>
+                            </div>
+                            <h3 class="text-xl font-bold text-gray-900 mb-2">Annually</h3>
+                            <ul class="text-gray-600 space-y-1 text-sm">
+                                <li>Professional inspection</li>
+                                <li>Check baffles</li>
+                                <li>Measure sludge level</li>
+                            </ul>
+                        </div>
+                        
+                        <!-- 3-5 Years -->
+                        <div class="relative text-center scroll-animate stagger-3">
+                            <div class="w-24 h-24 mx-auto bg-teal rounded-2xl flex items-center justify-center mb-4 relative z-10 border-4 border-white shadow-lg">
+                                <i data-lucide="truck" class="w-10 h-10 text-white"></i>
+                            </div>
+                            <h3 class="text-xl font-bold text-gray-900 mb-2">3-5 Years</h3>
+                            <ul class="text-gray-600 space-y-1 text-sm">
+                                <li>Septic pumping</li>
+                                <li>Full system cleaning</li>
+                                <li>Component check</li>
+                            </ul>
+                        </div>
+                        
+                        <!-- As Needed -->
+                        <div class="relative text-center scroll-animate stagger-4">
+                            <div class="w-24 h-24 mx-auto bg-navy rounded-2xl flex items-center justify-center mb-4 relative z-10 border-4 border-white shadow-lg">
+                                <i data-lucide="wrench" class="w-10 h-10 text-white"></i>
+                            </div>
+                            <h3 class="text-xl font-bold text-gray-900 mb-2">As Needed</h3>
+                            <ul class="text-gray-600 space-y-1 text-sm">
+                                <li>Repairs</li>
+                                <li>Component replacement</li>
+                                <li>Emergency service</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section 4: Pumping Guide -->
+        <section id="pumping-guide" class="py-16 lg:py-24 bg-gray-50">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="grid lg:grid-cols-2 gap-12 items-center">
+                    <!-- Left: Content -->
+                    <div class="scroll-animate">
+                        <div class="inline-flex items-center gap-2 bg-teal-pale px-4 py-2 rounded-full mb-4">
+                            <i data-lucide="truck" class="w-4 h-4 text-teal"></i>
+                            <span class="text-teal-dark text-sm font-medium">Pumping Guide</span>
+                        </div>
+                        
+                        <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-6">How Often Should You Pump?</h2>
+                        
+                        <p class="text-lg text-gray-600 mb-6">
+                            Regular pumping is the most important maintenance task for your septic system. 
+                            The frequency depends on household size, tank capacity, and usage patterns.
+                        </p>
+                        
+                        <div class="bg-white rounded-xl p-6 shadow-md mb-6">
+                            <h3 class="font-bold text-gray-900 mb-4 flex items-center gap-2">
+                                <i data-lucide="info" class="w-5 h-5 text-teal"></i>
+                                Key Factors Affecting Pumping Frequency
+                            </h3>
+                            <ul class="space-y-3">
+                                <li class="flex items-start gap-3">
+                                    <i data-lucide="users" class="w-5 h-5 text-teal mt-0.5 flex-shrink-0"></i>
+                                    <span class="text-gray-600">Number of people in household</span>
+                                </li>
+                                <li class="flex items-start gap-3">
+                                    <i data-lucide="container" class="w-5 h-5 text-teal mt-0.5 flex-shrink-0"></i>
+                                    <span class="text-gray-600">Size of septic tank (gallons)</span>
+                                </li>
+                                <li class="flex items-start gap-3">
+                                    <i data-lucide="droplet" class="w-5 h-5 text-teal mt-0.5 flex-shrink-0"></i>
+                                    <span class="text-gray-600">Daily water usage habits</span>
+                                </li>
+                                <li class="flex items-start gap-3">
+                                    <i data-lucide="flask-conical" class="w-5 h-5 text-teal mt-0.5 flex-shrink-0"></i>
+                                    <span class="text-gray-600">Use of garbage disposal</span>
+                                </li>
+                            </ul>
+                        </div>
+                        
+                        <div class="flex items-center gap-4 p-4 bg-amber-50 border border-amber-200 rounded-xl">
+                            <i data-lucide="alert-circle" class="w-6 h-6 text-amber-600 flex-shrink-0"></i>
+                            <p class="text-amber-800 text-sm">
+                                <strong>Pro Tip:</strong> It's better to pump too early than too late. 
+                                Waiting too long can cause solids to enter the drain field, leading to costly repairs.
+                            </p>
+                        </div>
+                    </div>
+                    
+                    <!-- Right: Table and Image -->
+                    <div class="scroll-animate">
+                        <!-- Pumping Schedule Table -->
+                        <div class="bg-white rounded-xl shadow-lg overflow-hidden mb-6">
+                            <div class="bg-navy px-6 py-4">
+                                <h3 class="text-white font-bold flex items-center gap-2">
+                                    <i data-lucide="table" class="w-5 h-5"></i>
+                                    Recommended Pumping Schedule
+                                </h3>
+                            </div>
+                            <div class="overflow-x-auto">
+                                <table class="w-full">
+                                    <thead class="bg-gray-50">
+                                        <tr>
+                                            <th class="px-4 py-3 text-left text-sm font-semibold text-gray-700">Household Size</th>
+                                            <th class="px-4 py-3 text-left text-sm font-semibold text-gray-700">Tank Capacity</th>
+                                            <th class="px-4 py-3 text-left text-sm font-semibold text-gray-700">Pumping Interval</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody class="divide-y divide-gray-100">
+                                        <tr class="hover:bg-gray-50">
+                                            <td class="px-4 py-4 text-gray-900 font-medium">1-2 Residents</td>
+                                            <td class="px-4 py-4 text-gray-600">500-1,000 gal</td>
+                                            <td class="px-4 py-4">
+                                                <span class="inline-flex items-center gap-1 bg-teal-pale text-teal-dark px-3 py-1 rounded-full text-sm font-medium">
+                                                    Every 3-5 years
+                                                </span>
+                                            </td>
+                                        </tr>
+                                        <tr class="hover:bg-gray-50">
+                                            <td class="px-4 py-4 text-gray-900 font-medium">3-4 Residents</td>
+                                            <td class="px-4 py-4 text-gray-600">1,000-1,500 gal</td>
+                                            <td class="px-4 py-4">
+                                                <span class="inline-flex items-center gap-1 bg-teal-pale text-teal-dark px-3 py-1 rounded-full text-sm font-medium">
+                                                    Every 2-3 years
+                                                </span>
+                                            </td>
+                                        </tr>
+                                        <tr class="hover:bg-gray-50">
+                                            <td class="px-4 py-4 text-gray-900 font-medium">5+ Residents</td>
+                                            <td class="px-4 py-4 text-gray-600">1,500+ gal</td>
+                                            <td class="px-4 py-4">
+                                                <span class="inline-flex items-center gap-1 bg-teal-pale text-teal-dark px-3 py-1 rounded-full text-sm font-medium">
+                                                    Every 1-2 years
+                                                </span>
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                        
+                        <!-- Image -->
+                        <div class="rounded-xl overflow-hidden shadow-lg">
+                            <img src="images/pumping-truck.png" alt="Septic pumping truck performing maintenance service" class="w-full h-64 object-cover">
+                            <div class="bg-navy px-4 py-3">
+                                <p class="text-white/80 text-sm">Professional septic pumping service in action</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section 5: Do's and Don'ts -->
+        <section class="py-16 lg:py-24 bg-white">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="text-center mb-12 scroll-animate">
+                    <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-4">Do's and Don'ts</h2>
+                    <p class="text-lg text-gray-600 max-w-2xl mx-auto">Simple habits that can extend your system's life and prevent costly problems.</p>
+                </div>
+                
+                <div class="grid md:grid-cols-2 gap-8">
+                    <!-- Do's Column -->
+                    <div class="scroll-animate">
+                        <div class="bg-teal-pale rounded-2xl p-8">
+                            <div class="flex items-center gap-3 mb-6">
+                                <div class="w-12 h-12 bg-teal rounded-xl flex items-center justify-center">
+                                    <i data-lucide="check" class="w-6 h-6 text-white"></i>
+                                </div>
+                                <h3 class="text-2xl font-bold text-gray-900">Do's</h3>
+                            </div>
+                            
+                            <ul class="space-y-4">
+                                <li class="flex items-start gap-3 scroll-animate stagger-1">
+                                    <div class="w-6 h-6 bg-teal rounded-full flex items-center justify-center flex-shrink-0 mt-0.5">
+                                        <i data-lucide="check" class="w-4 h-4 text-white"></i>
+                                    </div>
+                                    <span class="text-gray-700">Spread out laundry days to avoid overloading the system</span>
+                                </li>
+                                <li class="flex items-start gap-3 scroll-animate stagger-2">
+                                    <div class="w-6 h-6 bg-teal rounded-full flex items-center justify-center flex-shrink-0 mt-0.5">
+                                        <i data-lucide="check" class="w-4 h-4 text-white"></i>
+                                    </div>
+                                    <span class="text-gray-700">Use water wisely with low-flow fixtures and efficient appliances</span>
+                                </li>
+                                <li class="flex items-start gap-3 scroll-animate stagger-3">
+                                    <div class="w-6 h-6 bg-teal rounded-full flex items-center justify-center flex-shrink-0 mt-0.5">
+                                        <i data-lucide="check" class="w-4 h-4 text-white"></i>
+                                    </div>
+                                    <span class="text-gray-700">Keep a septic record with pumping dates and maintenance history</span>
+                                </li>
+                                <li class="flex items-start gap-3 scroll-animate stagger-4">
+                                    <div class="w-6 h-6 bg-teal rounded-full flex items-center justify-center flex-shrink-0 mt-0.5">
+                                        <i data-lucide="check" class="w-4 h-4 text-white"></i>
+                                    </div>
+                                    <span class="text-gray-700">Schedule regular pumping based on your household schedule</span>
+                                </li>
+                                <li class="flex items-start gap-3 scroll-animate stagger-5">
+                                    <div class="w-6 h-6 bg-teal rounded-full flex items-center justify-center flex-shrink-0 mt-0.5">
+                                        <i data-lucide="check" class="w-4 h-4 text-white"></i>
+                                    </div>
+                                    <span class="text-gray-700">Use septic-safe cleaning products and toilet paper</span>
+                                </li>
+                                <li class="flex items-start gap-3 scroll-animate stagger-6">
+                                    <div class="w-6 h-6 bg-teal rounded-full flex items-center justify-center flex-shrink-0 mt-0.5">
+                                        <i data-lucide="check" class="w-4 h-4 text-white"></i>
+                                    </div>
+                                    <span class="text-gray-700">Clean washing machine lint traps regularly</span>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                    
+                    <!-- Don'ts Column -->
+                    <div class="scroll-animate">
+                        <div class="bg-red-50 rounded-2xl p-8 border border-red-100">
+                            <div class="flex items-center gap-3 mb-6">
+                                <div class="w-12 h-12 bg-red-500 rounded-xl flex items-center justify-center">
+                                    <i data-lucide="x" class="w-6 h-6 text-white"></i>
+                                </div>
+                                <h3 class="text-2xl font-bold text-gray-900">Don'ts</h3>
+                            </div>
+                            
+                            <ul class="space-y-4">
+                                <li class="flex items-start gap-3 scroll-animate stagger-1">
+                                    <div class="w-6 h-6 bg-red-500 rounded-full flex items-center justify-center flex-shrink-0 mt-0.5">
+                                        <i data-lucide="x" class="w-4 h-4 text-white"></i>
+                                    </div>
+                                    <span class="text-gray-700">Don't flush wipes, diapers, or feminine hygiene products</span>
+                                </li>
+                                <li class="flex items-start gap-3 scroll-animate stagger-2">
+                                    <div class="w-6 h-6 bg-red-500 rounded-full flex items-center justify-center flex-shrink-0 mt-0.5">
+                                        <i data-lucide="x" class="w-4 h-4 text-white"></i>
+                                    </div>
+                                    <span class="text-gray-700">Don't pour grease, oil, or harsh chemicals down drains</span>
+                                </li>
+                                <li class="flex items-start gap-3 scroll-animate stagger-3">
+                                    <div class="w-6 h-6 bg-red-500 rounded-full flex items-center justify-center flex-shrink-0 mt-0.5">
+                                        <i data-lucide="x" class="w-4 h-4 text-white"></i>
+                                    </div>
+                                    <span class="text-gray-700">Don't park or drive vehicles over the septic system</span>
+                                </li>
+                                <li class="flex items-start gap-3 scroll-animate stagger-4">
+                                    <div class="w-6 h-6 bg-red-500 rounded-full flex items-center justify-center flex-shrink-0 mt-0.5">
+                                        <i data-lucide="x" class="w-4 h-4 text-white"></i>
+                                    </div>
+                                    <span class="text-gray-700">Don't plant trees or shrubs near the drain field</span>
+                                </li>
+                                <li class="flex items-start gap-3 scroll-animate stagger-5">
+                                    <div class="w-6 h-6 bg-red-500 rounded-full flex items-center justify-center flex-shrink-0 mt-0.5">
+                                        <i data-lucide="x" class="w-4 h-4 text-white"></i>
+                                    </div>
+                                    <span class="text-gray-700">Don't ignore warning signs like slow drains or odors</span>
+                                </li>
+                                <li class="flex items-start gap-3 scroll-animate stagger-6">
+                                    <div class="w-6 h-6 bg-red-500 rounded-full flex items-center justify-center flex-shrink-0 mt-0.5">
+                                        <i data-lucide="x" class="w-4 h-4 text-white"></i>
+                                    </div>
+                                    <span class="text-gray-700">Don't use garbage disposal excessively</span>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section 6: Seasonal Care -->
+        <section id="seasonal-care" class="py-16 lg:py-24 bg-gray-50">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="text-center mb-12 scroll-animate">
+                    <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-4">Seasonal Care Guide</h2>
+                    <p class="text-lg text-gray-600 max-w-2xl mx-auto">Different seasons bring different challenges. Follow these tips to protect your system year-round.</p>
+                </div>
+                
+                <!-- Season Tabs -->
+                <div class="flex flex-wrap justify-center gap-2 mb-8 scroll-animate">
+                    <button class="seasonal-tab active px-6 py-3 rounded-xl font-semibold flex items-center gap-2 bg-white text-gray-700 shadow-sm hover:shadow-md" data-season="spring">
+                        <i data-lucide="flower-2" class="w-5 h-5"></i>
+                        Spring
+                    </button>
+                    <button class="seasonal-tab px-6 py-3 rounded-xl font-semibold flex items-center gap-2 bg-white text-gray-700 shadow-sm hover:shadow-md" data-season="summer">
+                        <i data-lucide="sun" class="w-5 h-5"></i>
+                        Summer
+                    </button>
+                    <button class="seasonal-tab px-6 py-3 rounded-xl font-semibold flex items-center gap-2 bg-white text-gray-700 shadow-sm hover:shadow-md" data-season="fall">
+                        <i data-lucide="leaf" class="w-5 h-5"></i>
+                        Fall
+                    </button>
+                    <button class="seasonal-tab px-6 py-3 rounded-xl font-semibold flex items-center gap-2 bg-white text-gray-700 shadow-sm hover:shadow-md" data-season="winter">
+                        <i data-lucide="snowflake" class="w-5 h-5"></i>
+                        Winter
+                    </button>
+                </div>
+                
+                <!-- Seasonal Content -->
+                <div class="bg-white rounded-2xl shadow-lg overflow-hidden scroll-animate">
+                    <!-- Spring Content -->
+                    <div id="spring-content" class="seasonal-content active p-8">
+                        <div class="grid md:grid-cols-2 gap-8 items-center">
+                            <div>
+                                <div class="inline-flex items-center gap-2 bg-green-100 text-green-700 px-4 py-2 rounded-full mb-4">
+                                    <i data-lucide="flower-2" class="w-4 h-4"></i>
+                                    <span class="text-sm font-medium">March - May</span>
+                                </div>
+                                <h3 class="text-2xl font-bold text-gray-900 mb-4">Spring Maintenance</h3>
+                                <p class="text-gray-600 mb-6">After winter's freeze-thaw cycles, spring is the perfect time to assess your system and address any damage.</p>
+                                
+                                <ul class="space-y-3">
+                                    <li class="flex items-start gap-3">
+                                        <i data-lucide="check-circle" class="w-5 h-5 text-green-500 mt-0.5 flex-shrink-0"></i>
+                                        <span class="text-gray-700">Inspect for winter damage to pipes and components</span>
+                                    </li>
+                                    <li class="flex items-start gap-3">
+                                        <i data-lucide="check-circle" class="w-5 h-5 text-green-500 mt-0.5 flex-shrink-0"></i>
+                                        <span class="text-gray-700">Check for leaks around the tank and distribution box</span>
+                                    </li>
+                                    <li class="flex items-start gap-3">
+                                        <i data-lucide="check-circle" class="w-5 h-5 text-green-500 mt-0.5 flex-shrink-0"></i>
+                                        <span class="text-gray-700">Clear any debris from drain field area</span>
+                                    </li>
+                                    <li class="flex items-start gap-3">
+                                        <i data-lucide="check-circle" class="w-5 h-5 text-green-500 mt-0.5 flex-shrink-0"></i>
+                                        <span class="text-gray-700">Schedule annual inspection if due</span>
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="bg-gradient-to-br from-green-100 to-emerald-50 rounded-xl p-8 flex items-center justify-center">
+                                <i data-lucide="flower-2" class="w-32 h-32 text-green-400"></i>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Summer Content -->
+                    <div id="summer-content" class="seasonal-content p-8">
+                        <div class="grid md:grid-cols-2 gap-8 items-center">
+                            <div>
+                                <div class="inline-flex items-center gap-2 bg-amber-100 text-amber-700 px-4 py-2 rounded-full mb-4">
+                                    <i data-lucide="sun" class="w-4 h-4"></i>
+                                    <span class="text-sm font-medium">June - August</span>
+                                </div>
+                                <h3 class="text-2xl font-bold text-gray-900 mb-4">Summer Care</h3>
+                                <p class="text-gray-600 mb-6">High temperatures and increased water usage from outdoor activities require extra attention.</p>
+                                
+                                <ul class="space-y-3">
+                                    <li class="flex items-start gap-3">
+                                        <i data-lucide="check-circle" class="w-5 h-5 text-amber-500 mt-0.5 flex-shrink-0"></i>
+                                        <span class="text-gray-700">Monitor water usage during peak summer months</span>
+                                    </li>
+                                    <li class="flex items-start gap-3">
+                                        <i data-lucide="check-circle" class="w-5 h-5 text-amber-500 mt-0.5 flex-shrink-0"></i>
+                                        <span class="text-gray-700">Protect drain field from heavy traffic and equipment</span>
+                                    </li>
+                                    <li class="flex items-start gap-3">
+                                        <i data-lucide="check-circle" class="w-5 h-5 text-amber-500 mt-0.5 flex-shrink-0"></i>
+                                        <span class="text-gray-700">Keep grass mowed to prevent root intrusion</span>
+                                    </li>
+                                    <li class="flex items-start gap-3">
+                                        <i data-lucide="check-circle" class="w-5 h-5 text-amber-500 mt-0.5 flex-shrink-0"></i>
+                                        <span class="text-gray-700">Watch for soggy areas that may indicate problems</span>
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="bg-gradient-to-br from-amber-100 to-yellow-50 rounded-xl p-8 flex items-center justify-center">
+                                <i data-lucide="sun" class="w-32 h-32 text-amber-400"></i>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Fall Content -->
+                    <div id="fall-content" class="seasonal-content p-8">
+                        <div class="grid md:grid-cols-2 gap-8 items-center">
+                            <div>
+                                <div class="inline-flex items-center gap-2 bg-orange-100 text-orange-700 px-4 py-2 rounded-full mb-4">
+                                    <i data-lucide="leaf" class="w-4 h-4"></i>
+                                    <span class="text-sm font-medium">September - November</span>
+                                </div>
+                                <h3 class="text-2xl font-bold text-gray-900 mb-4">Fall Preparation</h3>
+                                <p class="text-gray-600 mb-6">Prepare your system for the cold months ahead by clearing debris and checking components.</p>
+                                
+                                <ul class="space-y-3">
+                                    <li class="flex items-start gap-3">
+                                        <i data-lucide="check-circle" class="w-5 h-5 text-orange-500 mt-0.5 flex-shrink-0"></i>
+                                        <span class="text-gray-700">Clear fallen leaves and debris from drain field</span>
+                                    </li>
+                                    <li class="flex items-start gap-3">
+                                        <i data-lucide="check-circle" class="w-5 h-5 text-orange-500 mt-0.5 flex-shrink-0"></i>
+                                        <span class="text-gray-700">Have the tank pumped before winter if due</span>
+                                    </li>
+                                    <li class="flex items-start gap-3">
+                                        <i data-lucide="check-circle" class="w-5 h-5 text-orange-500 mt-0.5 flex-shrink-0"></i>
+                                        <span class="text-gray-700">Inspect and insulate exposed pipes</span>
+                                    </li>
+                                    <li class="flex items-start gap-3">
+                                        <i data-lucide="check-circle" class="w-5 h-5 text-orange-500 mt-0.5 flex-shrink-0"></i>
+                                        <span class="text-gray-700">Mark system location for snow removal</span>
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="bg-gradient-to-br from-orange-100 to-amber-50 rounded-xl p-8 flex items-center justify-center">
+                                <i data-lucide="leaf" class="w-32 h-32 text-orange-400"></i>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Winter Content -->
+                    <div id="winter-content" class="seasonal-content p-8">
+                        <div class="grid md:grid-cols-2 gap-8 items-center">
+                            <div>
+                                <div class="inline-flex items-center gap-2 bg-blue-100 text-blue-700 px-4 py-2 rounded-full mb-4">
+                                    <i data-lucide="snowflake" class="w-4 h-4"></i>
+                                    <span class="text-sm font-medium">December - February</span>
+                                </div>
+                                <h3 class="text-2xl font-bold text-gray-900 mb-4">Winter Protection</h3>
+                                <p class="text-gray-600 mb-6">Freezing temperatures can damage your system. Take precautions to prevent freeze-ups.</p>
+                                
+                                <ul class="space-y-3">
+                                    <li class="flex items-start gap-3">
+                                        <i data-lucide="check-circle" class="w-5 h-5 text-blue-500 mt-0.5 flex-shrink-0"></i>
+                                        <span class="text-gray-700">Insulate exposed pipes and components if needed</span>
+                                    </li>
+                                    <li class="flex items-start gap-3">
+                                        <i data-lucide="check-circle" class="w-5 h-5 text-blue-500 mt-0.5 flex-shrink-0"></i>
+                                        <span class="text-gray-700">Avoid compacting snow over the drain field</span>
+                                    </li>
+                                    <li class="flex items-start gap-3">
+                                        <i data-lucide="check-circle" class="w-5 h-5 text-blue-500 mt-0.5 flex-shrink-0"></i>
+                                        <span class="text-gray-700">Use water regularly to prevent freezing</span>
+                                    </li>
+                                    <li class="flex items-start gap-3">
+                                        <i data-lucide="check-circle" class="w-5 h-5 text-blue-500 mt-0.5 flex-shrink-0"></i>
+                                        <span class="text-gray-700">Fix any leaky fixtures promptly</span>
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="bg-gradient-to-br from-blue-100 to-cyan-50 rounded-xl p-8 flex items-center justify-center">
+                                <i data-lucide="snowflake" class="w-32 h-32 text-blue-400"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section 7: Printable Checklist CTA -->
+        <section class="py-16 lg:py-24 bg-teal-pale">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="grid lg:grid-cols-2 gap-12 items-center">
+                    <!-- Left: Content -->
+                    <div class="scroll-animate">
+                        <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-4">Download Your Free Maintenance Checklist</h2>
+                        <p class="text-lg text-gray-600 mb-6">
+                            Keep track of your septic system maintenance with our comprehensive printable checklist. 
+                            Includes monthly, annual, and seasonal tasks to keep your system running smoothly.
+                        </p>
+                        
+                        <div class="space-y-4 mb-8">
+                            <div class="flex items-center gap-3">
+                                <div class="w-6 h-6 bg-teal rounded-full flex items-center justify-center">
+                                    <i data-lucide="check" class="w-4 h-4 text-white"></i>
+                                </div>
+                                <span class="text-gray-700">Monthly inspection reminders</span>
+                            </div>
+                            <div class="flex items-center gap-3">
+                                <div class="w-6 h-6 bg-teal rounded-full flex items-center justify-center">
+                                    <i data-lucide="check" class="w-4 h-4 text-white"></i>
+                                </div>
+                                <span class="text-gray-700">Seasonal maintenance tasks</span>
+                            </div>
+                            <div class="flex items-center gap-3">
+                                <div class="w-6 h-6 bg-teal rounded-full flex items-center justify-center">
+                                    <i data-lucide="check" class="w-4 h-4 text-white"></i>
+                                </div>
+                                <span class="text-gray-700">Pumping schedule tracker</span>
+                            </div>
+                            <div class="flex items-center gap-3">
+                                <div class="w-6 h-6 bg-teal rounded-full flex items-center justify-center">
+                                    <i data-lucide="check" class="w-4 h-4 text-white"></i>
+                                </div>
+                                <span class="text-gray-700">Emergency contact section</span>
+                            </div>
+                        </div>
+                        
+                        <button onclick="window.print()" class="btn-primary inline-flex items-center gap-2 bg-teal text-white px-8 py-4 rounded-xl font-semibold hover:bg-teal-dark">
+                            <i data-lucide="download" class="w-5 h-5"></i>
+                            Print Checklist
+                        </button>
+                    </div>
+                    
+                    <!-- Right: Preview Image -->
+                    <div class="scroll-animate">
+                        <div class="bg-white rounded-2xl shadow-xl p-6 transform rotate-2 hover:rotate-0 transition-transform duration-300">
+                            <div class="border-2 border-dashed border-gray-300 rounded-xl p-8 bg-gray-50">
+                                <div class="text-center mb-6">
+                                    <i data-lucide="clipboard-list" class="w-16 h-16 text-teal mx-auto mb-4"></i>
+                                    <h3 class="text-xl font-bold text-gray-900">Septic System Maintenance Checklist</h3>
+                                </div>
+                                
+                                <div class="space-y-3">
+                                    <div class="flex items-center gap-3 p-3 bg-white rounded-lg shadow-sm">
+                                        <div class="w-5 h-5 border-2 border-gray-300 rounded"></div>
+                                        <span class="text-gray-600 text-sm">Check for unusual odors</span>
+                                    </div>
+                                    <div class="flex items-center gap-3 p-3 bg-white rounded-lg shadow-sm">
+                                        <div class="w-5 h-5 border-2 border-gray-300 rounded"></div>
+                                        <span class="text-gray-600 text-sm">Inspect drain field area</span>
+                                    </div>
+                                    <div class="flex items-center gap-3 p-3 bg-white rounded-lg shadow-sm">
+                                        <div class="w-5 h-5 border-2 border-gray-300 rounded"></div>
+                                        <span class="text-gray-600 text-sm">Monitor water usage</span>
+                                    </div>
+                                    <div class="flex items-center gap-3 p-3 bg-white rounded-lg shadow-sm">
+                                        <div class="w-5 h-5 border-2 border-gray-300 rounded"></div>
+                                        <span class="text-gray-600 text-sm">Check for slow drains</span>
+                                    </div>
+                                    <div class="flex items-center gap-3 p-3 bg-white rounded-lg shadow-sm">
+                                        <div class="w-5 h-5 border-2 border-gray-300 rounded"></div>
+                                        <span class="text-gray-600 text-sm">Schedule pumping if due</span>
+                                    </div>
+                                </div>
+                                
+                                <div class="mt-6 pt-6 border-t border-gray-200">
+                                    <div class="flex items-center justify-between text-sm text-gray-500">
+                                        <span>Last Updated: 2024</span>
+                                        <span>SepticSystemsHQ.com</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Section 9: Footer -->
+    <footer class="bg-gray-900 text-white py-16">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-12">
+                <!-- Column 1: Brand -->
+                <div>
+                    <a href="index.html" class="flex items-center gap-2 mb-4">
+                        <div class="w-10 h-10 bg-teal rounded-lg flex items-center justify-center">
+                            <i data-lucide="droplets" class="w-6 h-6 text-white"></i>
+                        </div>
+                        <span class="font-bold text-xl">Septic Systems HQ</span>
+                    </a>
+                    <p class="text-gray-400 text-sm leading-relaxed">
+                        Your trusted resource for septic system information, maintenance guides, and expert advice.
+                    </p>
+                </div>
+                
+                <!-- Column 2: Quick Links -->
+                <div>
+                    <h4 class="font-semibold text-lg mb-4">Quick Links</h4>
+                    <ul class="space-y-2">
+                        <li><a href="index.html" class="text-gray-400 hover:text-teal transition-colors text-sm">Home</a></li>
+                        <li><a href="types.html" class="text-gray-400 hover:text-teal transition-colors text-sm">Types of Systems</a></li>
+                        <li><a href="maintenance.html" class="text-gray-400 hover:text-teal transition-colors text-sm">Maintenance Guide</a></li>
+                        <li><a href="problems.html" class="text-gray-400 hover:text-teal transition-colors text-sm">Common Problems</a></li>
+                        <li><a href="costs.html" class="text-gray-400 hover:text-teal transition-colors text-sm">Cost Guides</a></li>
+                    </ul>
+                </div>
+                
+                <!-- Column 3: Resources -->
+                <div>
+                    <h4 class="font-semibold text-lg mb-4">Resources</h4>
+                    <ul class="space-y-2">
+                        <li><a href="installation.html" class="text-gray-400 hover:text-teal transition-colors text-sm">Installation Guide</a></li>
+                        <li><a href="inspection.html" class="text-gray-400 hover:text-teal transition-colors text-sm">Inspection Guide</a></li>
+                        <li><a href="regulations.html" class="text-gray-400 hover:text-teal transition-colors text-sm">Regulations</a></li>
+                        <li><a href="faq.html" class="text-gray-400 hover:text-teal transition-colors text-sm">FAQ</a></li>
+                        <li><a href="glossary.html" class="text-gray-400 hover:text-teal transition-colors text-sm">Glossary</a></li>
+                    </ul>
+                </div>
+                
+                <!-- Column 4: Legal -->
+                <div>
+                    <h4 class="font-semibold text-lg mb-4">Legal</h4>
+                    <ul class="space-y-2">
+                        <li><a href="#" class="text-gray-400 hover:text-teal transition-colors text-sm">Privacy Policy</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-teal transition-colors text-sm">Terms of Use</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-teal transition-colors text-sm">Disclaimer</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-teal transition-colors text-sm">Contact</a></li>
+                    </ul>
+                </div>
+            </div>
+            
+            <!-- Bottom Bar -->
+            <div class="border-t border-gray-800 pt-8 flex flex-col md:flex-row justify-between items-center gap-4">
+                <p class="text-gray-500 text-sm">
+                    &copy; 2024 Septic Systems HQ. All rights reserved.
+                </p>
+                <p class="text-gray-500 text-sm">
+                    Information provided for educational purposes only.
+                </p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- JavaScript -->
+    <script>
+        // Initialize Lucide Icons
+        document.addEventListener('DOMContentLoaded', function() {
+            lucide.createIcons();
+        });
+        
+        // Mobile Menu Toggle
+        const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+        
+        if (mobileMenuBtn && mobileMenu) {
+            mobileMenuBtn.addEventListener('click', function() {
+                mobileMenu.classList.toggle('hidden');
+            });
+        }
+        
+        // Seasonal Tabs
+        const seasonalTabs = document.querySelectorAll('.seasonal-tab');
+        const seasonalContents = document.querySelectorAll('.seasonal-content');
+        
+        seasonalTabs.forEach(tab => {
+            tab.addEventListener('click', function() {
+                const season = this.dataset.season;
+                
+                // Remove active class from all tabs
+                seasonalTabs.forEach(t => t.classList.remove('active'));
+                
+                // Add active class to clicked tab
+                this.classList.add('active');
+                
+                // Hide all contents
+                seasonalContents.forEach(content => {
+                    content.classList.remove('active');
+                });
+                
+                // Show selected content
+                const selectedContent = document.getElementById(season + '-content');
+                if (selectedContent) {
+                    selectedContent.classList.add('active');
+                }
+            });
+        });
+        
+        // Scroll Animations with Intersection Observer
+        const scrollElements = document.querySelectorAll('.scroll-animate');
+        
+        const observerOptions = {
+            root: null,
+            rootMargin: '0px',
+            threshold: 0.1
+        };
+        
+        const scrollObserver = new IntersectionObserver((entries, observer) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('animated');
+                    
+                    // Add specific animation classes based on element
+                    if (entry.target.classList.contains('stagger-1')) {
+                        entry.target.style.animation = 'fadeInUp 0.6s cubic-bezier(0.4, 0, 0.2, 1) 0.1s forwards';
+                    } else if (entry.target.classList.contains('stagger-2')) {
+                        entry.target.style.animation = 'fadeInUp 0.6s cubic-bezier(0.4, 0, 0.2, 1) 0.2s forwards';
+                    } else if (entry.target.classList.contains('stagger-3')) {
+                        entry.target.style.animation = 'fadeInUp 0.6s cubic-bezier(0.4, 0, 0.2, 1) 0.3s forwards';
+                    } else if (entry.target.classList.contains('stagger-4')) {
+                        entry.target.style.animation = 'fadeInUp 0.6s cubic-bezier(0.4, 0, 0.2, 1) 0.4s forwards';
+                    } else if (entry.target.classList.contains('stagger-5')) {
+                        entry.target.style.animation = 'fadeInUp 0.6s cubic-bezier(0.4, 0, 0.2, 1) 0.5s forwards';
+                    } else if (entry.target.classList.contains('stagger-6')) {
+                        entry.target.style.animation = 'fadeInUp 0.6s cubic-bezier(0.4, 0, 0.2, 1) 0.6s forwards';
+                    } else {
+                        entry.target.style.animation = 'fadeInUp 0.6s cubic-bezier(0.4, 0, 0.2, 1) forwards';
+                    }
+                    
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, observerOptions);
+        
+        scrollElements.forEach(el => {
+            scrollObserver.observe(el);
+        });
+        
+        // Timeline Animation
+        const timelineProgress = document.getElementById('timeline-progress');
+        if (timelineProgress) {
+            const timelineObserver = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        setTimeout(() => {
+                            timelineProgress.classList.add('animated');
+                        }, 500);
+                        timelineObserver.unobserve(entry.target);
+                    }
+                });
+            }, { threshold: 0.3 });
+            
+            timelineObserver.observe(timelineProgress.parentElement);
+        }
+        
+        // Smooth Scroll for Anchor Links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+    </script>
+</body>
+</html>

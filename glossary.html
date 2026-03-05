@@ -1,0 +1,1087 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Septic System Glossary | Septic Systems HQ</title>
+  <meta name="description" content="Comprehensive glossary of septic system terminology. Learn the definitions of common terms related to septic tanks, drain fields, maintenance, and more.">
+  
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  
+  <!-- Tailwind CSS v4 -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  
+  <!-- Lucide Icons -->
+  <script src="https://unpkg.com/lucide@latest"></script>
+  
+  <!-- Shared Styles -->
+  <link rel="stylesheet" href="shared/styles.css">
+  
+  <style>
+    /* Page-specific styles */
+    .alphabet-nav {
+      position: sticky;
+      top: 72px;
+      z-index: 40;
+      background: white;
+      border-bottom: 1px solid var(--gray-200);
+      box-shadow: var(--shadow-sm);
+    }
+    
+    .alphabet-nav a {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 2rem;
+      height: 2rem;
+      border-radius: var(--radius-md);
+      font-weight: 600;
+      font-size: 0.875rem;
+      color: var(--gray-600);
+      transition: all var(--duration-fast) var(--ease-default);
+    }
+    
+    .alphabet-nav a:hover {
+      background: var(--teal-pale);
+      color: var(--teal-primary);
+    }
+    
+    .alphabet-nav a.active {
+      background: var(--teal-primary);
+      color: white;
+    }
+    
+    .alphabet-nav a.disabled {
+      color: var(--gray-300);
+      cursor: not-allowed;
+      pointer-events: none;
+    }
+    
+    .term-card {
+      background: white;
+      border-radius: var(--radius-lg);
+      padding: 1.5rem;
+      border: 1px solid var(--gray-200);
+      transition: all var(--duration-slow) var(--ease-spring);
+    }
+    
+    .term-card:hover {
+      box-shadow: var(--shadow-lg);
+      transform: translateY(-4px);
+      border-color: var(--teal-primary);
+    }
+    
+    .letter-section {
+      scroll-margin-top: 140px;
+    }
+    
+    .letter-header {
+      font-size: 2.5rem;
+      font-weight: 700;
+      color: var(--navy-primary);
+      border-bottom: 3px solid var(--teal-primary);
+      padding-bottom: 0.5rem;
+      margin-bottom: 1.5rem;
+      display: inline-block;
+    }
+    
+    .term-name {
+      font-size: 1.125rem;
+      font-weight: 700;
+      color: var(--gray-800);
+      margin-bottom: 0.25rem;
+    }
+    
+    .term-part {
+      font-size: 0.75rem;
+      font-weight: 500;
+      color: var(--teal-primary);
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      margin-bottom: 0.5rem;
+    }
+    
+    .term-definition {
+      color: var(--gray-600);
+      line-height: 1.7;
+    }
+    
+    .related-terms {
+      margin-top: 0.75rem;
+      padding-top: 0.75rem;
+      border-top: 1px solid var(--gray-100);
+    }
+    
+    .related-terms-label {
+      font-size: 0.75rem;
+      font-weight: 600;
+      color: var(--gray-500);
+      text-transform: uppercase;
+      letter-spacing: 0.02em;
+      margin-bottom: 0.5rem;
+    }
+    
+    .related-link {
+      display: inline-block;
+      font-size: 0.8125rem;
+      color: var(--teal-primary);
+      margin-right: 0.75rem;
+      transition: color var(--duration-fast) var(--ease-default);
+    }
+    
+    .related-link:hover {
+      color: var(--teal-dark);
+      text-decoration: underline;
+    }
+    
+    .tag-cloud {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.75rem;
+    }
+    
+    .tag-item {
+      display: inline-flex;
+      align-items: center;
+      padding: 0.5rem 1rem;
+      background: white;
+      border: 1px solid var(--gray-200);
+      border-radius: var(--radius-full);
+      font-size: 0.875rem;
+      font-weight: 500;
+      color: var(--gray-600);
+      transition: all var(--duration-normal) var(--ease-in-out);
+      cursor: pointer;
+    }
+    
+    .tag-item:hover {
+      background: var(--teal-pale);
+      border-color: var(--teal-primary);
+      color: var(--teal-primary);
+      transform: translateY(-2px);
+    }
+    
+    .tag-item.large {
+      font-size: 1rem;
+      padding: 0.625rem 1.25rem;
+    }
+    
+    .tag-item.small {
+      font-size: 0.75rem;
+      padding: 0.375rem 0.75rem;
+    }
+    
+    /* Scroll animations */
+    .scroll-animate {
+      opacity: 0;
+      transform: translateY(30px);
+      transition: opacity 0.6s cubic-bezier(0.4, 0, 0.2, 1), 
+                  transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+    
+    .scroll-animate.animated {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    
+    /* Stagger delays */
+    .stagger-1 { transition-delay: 0.1s; }
+    .stagger-2 { transition-delay: 0.2s; }
+    .stagger-3 { transition-delay: 0.3s; }
+    .stagger-4 { transition-delay: 0.4s; }
+    .stagger-5 { transition-delay: 0.5s; }
+    .stagger-6 { transition-delay: 0.6s; }
+  </style>
+</head>
+<body class="bg-gray-50">
+  <!-- Header/Navigation -->
+  <header class="fixed top-0 left-0 right-0 bg-white shadow-sm z-50" style="height: 72px;">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-full">
+      <div class="flex items-center justify-between h-full">
+        <!-- Logo -->
+        <a href="index.html" class="flex items-center gap-2">
+          <div class="w-10 h-10 bg-[#0d9488] rounded-lg flex items-center justify-center">
+            <i data-lucide="home" class="w-6 h-6 text-white"></i>
+          </div>
+          <span class="text-xl font-bold text-[#1e3a5f]">Septic Systems HQ</span>
+        </a>
+        
+        <!-- Desktop Navigation -->
+        <nav class="desktop-nav hidden lg:flex items-center gap-8">
+          <a href="index.html" class="nav-link flex items-center gap-1.5" data-nav="home">
+            <i data-lucide="home" class="w-4 h-4"></i>
+            <span>Home</span>
+          </a>
+          <a href="types.html" class="nav-link flex items-center gap-1.5" data-nav="types">
+            <i data-lucide="layers" class="w-4 h-4"></i>
+            <span>Types</span>
+          </a>
+          <a href="maintenance.html" class="nav-link flex items-center gap-1.5" data-nav="maintenance">
+            <i data-lucide="calendar-check" class="w-4 h-4"></i>
+            <span>Maintenance</span>
+          </a>
+          <a href="problems.html" class="nav-link flex items-center gap-1.5" data-nav="problems">
+            <i data-lucide="alert-triangle" class="w-4 h-4"></i>
+            <span>Problems</span>
+          </a>
+          <a href="costs.html" class="nav-link flex items-center gap-1.5" data-nav="costs">
+            <i data-lucide="dollar-sign" class="w-4 h-4"></i>
+            <span>Costs</span>
+          </a>
+          <a href="inspection.html" class="nav-link flex items-center gap-1.5" data-nav="inspection">
+            <i data-lucide="clipboard-check" class="w-4 h-4"></i>
+            <span>Inspection</span>
+          </a>
+          <a href="faq.html" class="nav-link flex items-center gap-1.5" data-nav="faq">
+            <i data-lucide="help-circle" class="w-4 h-4"></i>
+            <span>FAQ</span>
+          </a>
+        </nav>
+        
+        <!-- Mobile Menu Button -->
+        <button class="mobile-menu-btn lg:hidden p-2 rounded-lg hover:bg-gray-100 transition-colors" onclick="toggleMobileMenu()" aria-label="Toggle menu">
+          <i data-lucide="menu" class="w-6 h-6 text-[#475569]"></i>
+        </button>
+      </div>
+    </div>
+    
+    <!-- Mobile Menu -->
+    <div id="mobileMenu" class="mobile-menu lg:hidden">
+      <nav class="flex flex-col gap-2">
+        <a href="index.html" class="flex items-center gap-3 px-4 py-3 rounded-lg hover:bg-gray-50 text-[#475569] hover:text-[#0d9488] transition-colors" data-nav="home">
+          <i data-lucide="home" class="w-5 h-5"></i>
+          <span>Home</span>
+        </a>
+        <a href="types.html" class="flex items-center gap-3 px-4 py-3 rounded-lg hover:bg-gray-50 text-[#475569] hover:text-[#0d9488] transition-colors" data-nav="types">
+          <i data-lucide="layers" class="w-5 h-5"></i>
+          <span>Types</span>
+        </a>
+        <a href="maintenance.html" class="flex items-center gap-3 px-4 py-3 rounded-lg hover:bg-gray-50 text-[#475569] hover:text-[#0d9488] transition-colors" data-nav="maintenance">
+          <i data-lucide="calendar-check" class="w-5 h-5"></i>
+          <span>Maintenance</span>
+        </a>
+        <a href="problems.html" class="flex items-center gap-3 px-4 py-3 rounded-lg hover:bg-gray-50 text-[#475569] hover:text-[#0d9488] transition-colors" data-nav="problems">
+          <i data-lucide="alert-triangle" class="w-5 h-5"></i>
+          <span>Problems</span>
+        </a>
+        <a href="costs.html" class="flex items-center gap-3 px-4 py-3 rounded-lg hover:bg-gray-50 text-[#475569] hover:text-[#0d9488] transition-colors" data-nav="costs">
+          <i data-lucide="dollar-sign" class="w-5 h-5"></i>
+          <span>Costs</span>
+        </a>
+        <a href="inspection.html" class="flex items-center gap-3 px-4 py-3 rounded-lg hover:bg-gray-50 text-[#475569] hover:text-[#0d9488] transition-colors" data-nav="inspection">
+          <i data-lucide="clipboard-check" class="w-5 h-5"></i>
+          <span>Inspection</span>
+        </a>
+        <a href="faq.html" class="flex items-center gap-3 px-4 py-3 rounded-lg hover:bg-gray-50 text-[#475569] hover:text-[#0d9488] transition-colors" data-nav="faq">
+          <i data-lucide="help-circle" class="w-5 h-5"></i>
+          <span>FAQ</span>
+        </a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Spacer for fixed header -->
+  <div style="height: 72px;"></div>
+
+  <!-- Section 2: Page Hero -->
+  <section class="bg-[#1e3a5f] py-16 lg:py-24">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex flex-col lg:flex-row items-center gap-12">
+        <div class="lg:w-1/2 text-center lg:text-left">
+          <div class="inline-flex items-center gap-2 bg-[#2a4a73] text-white px-4 py-2 rounded-full text-sm font-medium mb-6 animate-fadeIn">
+            <i data-lucide="book-open" class="w-4 h-4"></i>
+            <span>Reference Guide</span>
+          </div>
+          <h1 class="text-4xl lg:text-5xl font-bold text-white mb-6 animate-fadeInUp" style="animation-delay: 0.1s;">
+            Septic System Glossary
+          </h1>
+          <p class="text-lg text-gray-300 mb-8 animate-fadeInUp" style="animation-delay: 0.2s;">
+            Your comprehensive guide to septic system terminology. Understand the language of wastewater management with clear definitions of industry terms.
+          </p>
+          <div class="flex flex-wrap justify-center lg:justify-start gap-4 animate-fadeInUp" style="animation-delay: 0.3s;">
+            <div class="flex items-center gap-2 text-gray-300">
+              <i data-lucide="check-circle" class="w-5 h-5 text-[#14b8a6]"></i>
+              <span>50+ Terms Defined</span>
+            </div>
+            <div class="flex items-center gap-2 text-gray-300">
+              <i data-lucide="check-circle" class="w-5 h-5 text-[#14b8a6]"></i>
+              <span>A-Z Navigation</span>
+            </div>
+            <div class="flex items-center gap-2 text-gray-300">
+              <i data-lucide="check-circle" class="w-5 h-5 text-[#14b8a6]"></i>
+              <span>Expert Verified</span>
+            </div>
+          </div>
+        </div>
+        <div class="lg:w-1/2 animate-scaleIn" style="animation-delay: 0.3s;">
+          <div class="relative">
+            <div class="absolute inset-0 bg-gradient-to-br from-[#0d9488]/20 to-transparent rounded-2xl"></div>
+            <img 
+              src="images/glossary-illustration.jpg" 
+              alt="Dictionary book illustration representing septic system terminology reference" 
+              class="relative z-10 rounded-2xl shadow-xl w-full max-w-md mx-auto"
+            >
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Section 3: Alphabet Navigation -->
+  <nav class="alphabet-nav py-4 animate-fadeIn" id="alphabetNav">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex flex-wrap justify-center gap-1 sm:gap-2">
+        <a href="#letter-a" class="letter-link" data-letter="A">A</a>
+        <a href="#letter-b" class="letter-link" data-letter="B">B</a>
+        <a href="#letter-c" class="letter-link" data-letter="C">C</a>
+        <a href="#letter-d" class="letter-link" data-letter="D">D</a>
+        <a href="#letter-e" class="letter-link" data-letter="E">E</a>
+        <a href="#letter-f" class="letter-link" data-letter="F">F</a>
+        <a href="#letter-g" class="letter-link" data-letter="G">G</a>
+        <a href="#letter-h" class="letter-link" data-letter="H">H</a>
+        <a href="#letter-i" class="letter-link" data-letter="I">I</a>
+        <a href="#letter-j" class="letter-link disabled" data-letter="J">J</a>
+        <a href="#letter-k" class="letter-link disabled" data-letter="K">K</a>
+        <a href="#letter-l" class="letter-link" data-letter="L">L</a>
+        <a href="#letter-m" class="letter-link" data-letter="M">M</a>
+        <a href="#letter-n" class="letter-link disabled" data-letter="N">N</a>
+        <a href="#letter-o" class="letter-link disabled" data-letter="O">O</a>
+        <a href="#letter-p" class="letter-link" data-letter="P">P</a>
+        <a href="#letter-q" class="letter-link disabled" data-letter="Q">Q</a>
+        <a href="#letter-r" class="letter-link" data-letter="R">R</a>
+        <a href="#letter-s" class="letter-link" data-letter="S">S</a>
+        <a href="#letter-t" class="letter-link" data-letter="T">T</a>
+        <a href="#letter-u" class="letter-link disabled" data-letter="U">U</a>
+        <a href="#letter-v" class="letter-link" data-letter="V">V</a>
+        <a href="#letter-w" class="letter-link" data-letter="W">W</a>
+        <a href="#letter-x" class="letter-link disabled" data-letter="X">X</a>
+        <a href="#letter-y" class="letter-link disabled" data-letter="Y">Y</a>
+        <a href="#letter-z" class="letter-link disabled" data-letter="Z">Z</a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Section 4: Term Listings -->
+  <section class="py-16 bg-white">
+    <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <!-- Letter A -->
+      <div id="letter-a" class="letter-section mb-16 scroll-animate">
+        <h2 class="letter-header">A</h2>
+        <div class="grid gap-6">
+          <div class="term-card scroll-animate stagger-1">
+            <h3 class="term-name">Absorption Field</h3>
+            <p class="term-part">noun</p>
+            <p class="term-definition">
+              An area of soil where treated effluent from a septic tank is dispersed and naturally filtered through the soil. Also commonly referred to as a drain field or leach field, this is where the final treatment of wastewater occurs before it returns to the groundwater.
+            </p>
+            <div class="related-terms">
+              <p class="related-terms-label">Related Terms</p>
+              <a href="#letter-d" class="related-link">Drain Field</a>
+              <a href="#letter-l" class="related-link">Leach Field</a>
+              <a href="#letter-e" class="related-link">Effluent</a>
+            </div>
+          </div>
+          
+          <div class="term-card scroll-animate stagger-2">
+            <h3 class="term-name">Aerobic Bacteria</h3>
+            <p class="term-part">noun</p>
+            <p class="term-definition">
+              Oxygen-dependent microorganisms that break down organic waste in septic systems. These bacteria require oxygen to survive and are more efficient at waste decomposition than anaerobic bacteria. They are commonly used in aerobic treatment units (ATUs) for advanced wastewater treatment.
+            </p>
+            <div class="related-terms">
+              <p class="related-terms-label">Related Terms</p>
+              <a href="#letter-a" class="related-link">Anaerobic Bacteria</a>
+              <a href="#letter-s" class="related-link">Septic Tank</a>
+            </div>
+          </div>
+          
+          <div class="term-card scroll-animate stagger-3">
+            <h3 class="term-name">Anaerobic Bacteria</h3>
+            <p class="term-part">noun</p>
+            <p class="term-definition">
+              Bacteria that can break down waste without the presence of oxygen. These microorganisms are the primary decomposers in conventional septic tanks, working in oxygen-free environments to digest organic solids and separate waste into layers.
+            </p>
+            <div class="related-terms">
+              <p class="related-terms-label">Related Terms</p>
+              <a href="#letter-a" class="related-link">Aerobic Bacteria</a>
+              <a href="#letter-s" class="related-link">Sludge</a>
+              <a href="#letter-s" class="related-link">Scum Layer</a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Letter B -->
+      <div id="letter-b" class="letter-section mb-16 scroll-animate">
+        <h2 class="letter-header">B</h2>
+        <div class="grid gap-6">
+          <div class="term-card scroll-animate stagger-1">
+            <h3 class="term-name">Baffle</h3>
+            <p class="term-part">noun</p>
+            <p class="term-definition">
+              A device installed at the inlet and outlet of a septic tank that prevents solids and scum from flowing into the drain field. Inlet baffles slow incoming wastewater to prevent disturbance of settled solids, while outlet baffles block floating materials from exiting the tank.
+            </p>
+            <div class="related-terms">
+              <p class="related-terms-label">Related Terms</p>
+              <a href="#letter-s" class="related-link">Septic Tank</a>
+              <a href="#letter-e" class="related-link">Effluent Filter</a>
+              <a href="#letter-s" class="related-link">Scum Layer</a>
+            </div>
+          </div>
+          
+          <div class="term-card scroll-animate stagger-2">
+            <h3 class="term-name">Biomat</h3>
+            <p class="term-part">noun</p>
+            <p class="term-definition">
+              A biological layer that forms in the soil at the interface between the drain field and the surrounding earth. This layer consists of microorganisms and their byproducts that help treat effluent. While essential for treatment, excessive biomat growth can clog the drain field and cause system failure.
+            </p>
+            <div class="related-terms">
+              <p class="related-terms-label">Related Terms</p>
+              <a href="#letter-d" class="related-link">Drain Field</a>
+              <a href="#letter-a" class="related-link">Absorption Field</a>
+              <a href="#letter-e" class="related-link">Effluent</a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Letter C -->
+      <div id="letter-c" class="letter-section mb-16 scroll-animate">
+        <h2 class="letter-header">C</h2>
+        <div class="grid gap-6">
+          <div class="term-card scroll-animate stagger-1">
+            <h3 class="term-name">Chamber System</h3>
+            <p class="term-part">noun</p>
+            <p class="term-definition">
+              A type of drain field that uses plastic chambers instead of gravel to distribute effluent. These open-bottom chambers provide a large surface area for wastewater dispersal and are easier to install than traditional gravel systems, making them a popular choice for modern septic installations.
+            </p>
+            <div class="related-terms">
+              <p class="related-terms-label">Related Terms</p>
+              <a href="#letter-d" class="related-link">Drain Field</a>
+              <a href="#letter-t" class="related-link">Trench</a>
+            </div>
+          </div>
+          
+          <div class="term-card scroll-animate stagger-2">
+            <h3 class="term-name">Conventional System</h3>
+            <p class="term-part">noun</p>
+            <p class="term-definition">
+              A traditional septic system consisting of a septic tank and a gravity-fed drain field. Wastewater flows from the home to the tank, where solids settle, and then effluent gravity-flows to the drain field for soil absorption. This is the most common and cost-effective type of septic system.
+            </p>
+            <div class="related-terms">
+              <p class="related-terms-label">Related Terms</p>
+              <a href="#letter-s" class="related-link">Septic Tank</a>
+              <a href="#letter-d" class="related-link">Drain Field</a>
+              <a href="#letter-a" class="related-link">Absorption Field</a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Letter D -->
+      <div id="letter-d" class="letter-section mb-16 scroll-animate">
+        <h2 class="letter-header">D</h2>
+        <div class="grid gap-6">
+          <div class="term-card scroll-animate stagger-1">
+            <h3 class="term-name">Distribution Box</h3>
+            <p class="term-part">noun</p>
+            <p class="term-definition">
+              A component in a septic system that receives effluent from the septic tank and evenly distributes it to multiple drain field lines. This box ensures balanced flow across all trenches, preventing overloading of any single section and maximizing the efficiency of the absorption field.
+            </p>
+            <div class="related-terms">
+              <p class="related-terms-label">Related Terms</p>
+              <a href="#letter-d" class="related-link">Drain Field</a>
+              <a href="#letter-e" class="related-link">Effluent</a>
+              <a href="#letter-t" class="related-link">Trench</a>
+            </div>
+          </div>
+          
+          <div class="term-card scroll-animate stagger-2">
+            <h3 class="term-name">Drain Field</h3>
+            <p class="term-part">noun</p>
+            <p class="term-definition">
+              The area where treated wastewater from the septic tank is released into the soil for final treatment and dispersal. Also called a leach field or absorption field, it typically consists of perforated pipes laid in gravel-filled trenches that allow effluent to slowly percolate into the surrounding soil.
+            </p>
+            <div class="related-terms">
+              <p class="related-terms-label">Related Terms</p>
+              <a href="#letter-a" class="related-link">Absorption Field</a>
+              <a href="#letter-l" class="related-link">Leach Field</a>
+              <a href="#letter-b" class="related-link">Biomat</a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Letter E -->
+      <div id="letter-e" class="letter-section mb-16 scroll-animate">
+        <h2 class="letter-header">E</h2>
+        <div class="grid gap-6">
+          <div class="term-card scroll-animate stagger-1">
+            <h3 class="term-name">Effluent</h3>
+            <p class="term-part">noun</p>
+            <p class="term-definition">
+              The liquid wastewater that exits the septic tank after solids have settled and scum has floated to the top. This partially treated water flows to the drain field for further natural filtration and dispersal into the soil. Proper effluent quality is essential for system performance.
+            </p>
+            <div class="related-terms">
+              <p class="related-terms-label">Related Terms</p>
+              <a href="#letter-s" class="related-link">Septic Tank</a>
+              <a href="#letter-d" class="related-link">Drain Field</a>
+              <a href="#letter-e" class="related-link">Effluent Filter</a>
+            </div>
+          </div>
+          
+          <div class="term-card scroll-animate stagger-2">
+            <h3 class="term-name">Effluent Filter</h3>
+            <p class="term-part">noun</p>
+            <p class="term-definition">
+              A screen installed at the outlet of a septic tank that prevents solids from entering the drain field. This filter catches floating particles and suspended solids, protecting the drain field from clogging and extending the overall lifespan of the septic system.
+            </p>
+            <div class="related-terms">
+              <p class="related-terms-label">Related Terms</p>
+              <a href="#letter-b" class="related-link">Baffle</a>
+              <a href="#letter-e" class="related-link">Effluent</a>
+              <a href="#letter-d" class="related-link">Drain Field</a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Letter F -->
+      <div id="letter-f" class="letter-section mb-16 scroll-animate">
+        <h2 class="letter-header">F</h2>
+        <div class="grid gap-6">
+          <div class="term-card scroll-animate stagger-1">
+            <h3 class="term-name">Field Lines</h3>
+            <p class="term-part">noun</p>
+            <p class="term-definition">
+              The perforated pipes installed in the drain field trenches that distribute effluent into the soil. Also called lateral lines or leach lines, these pipes allow wastewater to slowly seep out through small holes and into the surrounding gravel and soil for natural treatment.
+            </p>
+            <div class="related-terms">
+              <p class="related-terms-label">Related Terms</p>
+              <a href="#letter-d" class="related-link">Drain Field</a>
+              <a href="#letter-t" class="related-link">Trench</a>
+              <a href="#letter-d" class="related-link">Distribution Box</a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Letter G -->
+      <div id="letter-g" class="letter-section mb-16 scroll-animate">
+        <h2 class="letter-header">G</h2>
+        <div class="grid gap-6">
+          <div class="term-card scroll-animate stagger-1">
+            <h3 class="term-name">Gray Water</h3>
+            <p class="term-part">noun</p>
+            <p class="term-definition">
+              Wastewater from sinks, showers, bathtubs, and washing machines that does not contain human waste. Gray water makes up the majority of household wastewater and can sometimes be separated from black water for alternative uses like irrigation, reducing the load on the septic system.
+            </p>
+            <div class="related-terms">
+              <p class="related-terms-label">Related Terms</p>
+              <a href="#letter-w" class="related-link">Wastewater</a>
+              <a href="#letter-s" class="related-link">Septic Tank</a>
+            </div>
+          </div>
+          
+          <div class="term-card scroll-animate stagger-2">
+            <h3 class="term-name">Grease Trap</h3>
+            <p class="term-part">noun</p>
+            <p class="term-definition">
+              A plumbing device designed to intercept grease, fats, and oils before they enter the septic system. Commonly used in commercial kitchens and food service establishments, grease traps prevent these substances from solidifying in pipes and causing blockages in the septic tank and drain field.
+            </p>
+            <div class="related-terms">
+              <p class="related-terms-label">Related Terms</p>
+              <a href="#letter-s" class="related-link">Scum Layer</a>
+              <a href="#letter-s" class="related-link">Septic Tank</a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Letter H -->
+      <div id="letter-h" class="letter-section mb-16 scroll-animate">
+        <h2 class="letter-header">H</h2>
+        <div class="grid gap-6">
+          <div class="term-card scroll-animate stagger-1">
+            <h3 class="term-name">Holding Tank</h3>
+            <p class="term-part">noun</p>
+            <p class="term-definition">
+              A sealed tank that stores wastewater without any treatment or drainage. Unlike septic tanks, holding tanks must be pumped regularly when full since they have no outlet. They are used in areas where soil conditions do not permit drain fields or as temporary solutions during system repairs.
+            </p>
+            <div class="related-terms">
+              <p class="related-terms-label">Related Terms</p>
+              <a href="#letter-s" class="related-link">Septic Tank</a>
+              <a href="#letter-p" class="related-link">Pump Tank</a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Letter I -->
+      <div id="letter-i" class="letter-section mb-16 scroll-animate">
+        <h2 class="letter-header">I</h2>
+        <div class="grid gap-6">
+          <div class="term-card scroll-animate stagger-1">
+            <h3 class="term-name">Inlet</h3>
+            <p class="term-part">noun</p>
+            <p class="term-definition">
+              The opening in a septic tank where wastewater from the home enters. The inlet is typically equipped with a baffle or tee that directs incoming waste downward to prevent disturbance of the settled solids and scum layer, ensuring proper separation of waste components.
+            </p>
+            <div class="related-terms">
+              <p class="related-terms-label">Related Terms</p>
+              <a href="#letter-b" class="related-link">Baffle</a>
+              <a href="#letter-s" class="related-link">Septic Tank</a>
+            </div>
+          </div>
+          
+          <div class="term-card scroll-animate stagger-2">
+            <h3 class="term-name">Inspection Port</h3>
+            <p class="term-part">noun</p>
+            <p class="term-definition">
+              An access point installed in the septic tank lid that allows professionals to check sludge and scum levels without removing the entire cover. These ports make routine maintenance and inspections more convenient and help ensure the system is functioning properly.
+            </p>
+            <div class="related-terms">
+              <p class="related-terms-label">Related Terms</p>
+              <a href="#letter-r" class="related-link">Riser</a>
+              <a href="#letter-s" class="related-link">Septic Tank</a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Letter L -->
+      <div id="letter-l" class="letter-section mb-16 scroll-animate">
+        <h2 class="letter-header">L</h2>
+        <div class="grid gap-6">
+          <div class="term-card scroll-animate stagger-1">
+            <h3 class="term-name">Leach Field</h3>
+            <p class="term-part">noun</p>
+            <p class="term-definition">
+              An alternative term for drain field or absorption field, referring to the area where treated wastewater percolates (leaches) into the soil. This underground system of trenches and pipes allows effluent to slowly seep into the ground where natural biological processes complete the treatment.
+            </p>
+            <div class="related-terms">
+              <p class="related-terms-label">Related Terms</p>
+              <a href="#letter-d" class="related-link">Drain Field</a>
+              <a href="#letter-a" class="related-link">Absorption Field</a>
+              <a href="#letter-t" class="related-link">Trench</a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Letter M -->
+      <div id="letter-m" class="letter-section mb-16 scroll-animate">
+        <h2 class="letter-header">M</h2>
+        <div class="grid gap-6">
+          <div class="term-card scroll-animate stagger-1">
+            <h3 class="term-name">Mound System</h3>
+            <p class="term-part">noun</p>
+            <p class="term-definition">
+              A raised septic system designed for areas with poor soil conditions, high water tables, or shallow bedrock. The system is built above the natural grade in a constructed mound of sand and gravel, allowing adequate separation between the drain field and limiting conditions while providing proper treatment.
+            </p>
+            <div class="related-terms">
+              <p class="related-terms-label">Related Terms</p>
+              <a href="#letter-d" class="related-link">Drain Field</a>
+              <a href="#letter-p" class="related-link">Pump Tank</a>
+              <a href="#letter-p" class="related-link">Perc Test</a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Letter P -->
+      <div id="letter-p" class="letter-section mb-16 scroll-animate">
+        <h2 class="letter-header">P</h2>
+        <div class="grid gap-6">
+          <div class="term-card scroll-animate stagger-1">
+            <h3 class="term-name">Perc Test</h3>
+            <p class="term-part">noun</p>
+            <p class="term-definition">
+              Short for percolation test, this evaluation determines the soil's ability to absorb water. The test involves digging holes, filling them with water, and measuring how quickly the water drains. Results determine if the site is suitable for a conventional septic system and help size the drain field appropriately.
+            </p>
+            <div class="related-terms">
+              <p class="related-terms-label">Related Terms</p>
+              <a href="#letter-d" class="related-link">Drain Field</a>
+              <a href="#letter-a" class="related-link">Absorption Field</a>
+              <a href="#letter-m" class="related-link">Mound System</a>
+            </div>
+          </div>
+          
+          <div class="term-card scroll-animate stagger-2">
+            <h3 class="term-name">Pump Tank</h3>
+            <p class="term-part">noun</p>
+            <p class="term-definition">
+              A tank containing a pump that moves effluent from a lower elevation to an elevated drain field or mound system. Also called a pump chamber or lift station, this component is necessary when the drain field is located uphill from the septic tank or when pressure distribution is required.
+            </p>
+            <div class="related-terms">
+              <p class="related-terms-label">Related Terms</p>
+              <a href="#letter-m" class="related-link">Mound System</a>
+              <a href="#letter-d" class="related-link">Distribution Box</a>
+              <a href="#letter-e" class="related-link">Effluent</a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Letter R -->
+      <div id="letter-r" class="letter-section mb-16 scroll-animate">
+        <h2 class="letter-header">R</h2>
+        <div class="grid gap-6">
+          <div class="term-card scroll-animate stagger-1">
+            <h3 class="term-name">Riser</h3>
+            <p class="term-part">noun</p>
+            <p class="term-definition">
+              A vertical extension installed on a septic tank access port that brings the opening to ground level. Risers eliminate the need to dig up the yard for tank pumping and inspections, making maintenance more convenient and cost-effective for homeowners.
+            </p>
+            <div class="related-terms">
+              <p class="related-terms-label">Related Terms</p>
+              <a href="#letter-i" class="related-link">Inspection Port</a>
+              <a href="#letter-s" class="related-link">Septic Tank</a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Letter S -->
+      <div id="letter-s" class="letter-section mb-16 scroll-animate">
+        <h2 class="letter-header">S</h2>
+        <div class="grid gap-6">
+          <div class="term-card scroll-animate stagger-1">
+            <h3 class="term-name">Scum Layer</h3>
+            <p class="term-part">noun</p>
+            <p class="term-definition">
+              The layer of floating materials that accumulates at the top of a septic tank. This layer consists of oils, greases, fats, and other lightweight materials that rise to the surface. The scum layer is separated from the effluent by the outlet baffle to prevent clogging of the drain field.
+            </p>
+            <div class="related-terms">
+              <p class="related-terms-label">Related Terms</p>
+              <a href="#letter-s" class="related-link">Septic Tank</a>
+              <a href="#letter-s" class="related-link">Sludge</a>
+              <a href="#letter-b" class="related-link">Baffle</a>
+            </div>
+          </div>
+          
+          <div class="term-card scroll-animate stagger-2">
+            <h3 class="term-name">Septic Tank</h3>
+            <p class="term-part">noun</p>
+            <p class="term-definition">
+              An underground tank designed to receive and partially treat household wastewater. The tank separates solids from liquids, allows anaerobic bacteria to break down organic matter, and stores sludge and scum until pumping is required. It is the primary component of a conventional septic system.
+            </p>
+            <div class="related-terms">
+              <p class="related-terms-label">Related Terms</p>
+              <a href="#letter-s" class="related-link">Sludge</a>
+              <a href="#letter-s" class="related-link">Scum Layer</a>
+              <a href="#letter-b" class="related-link">Baffle</a>
+              <a href="#letter-e" class="related-link">Effluent</a>
+            </div>
+          </div>
+          
+          <div class="term-card scroll-animate stagger-3">
+            <h3 class="term-name">Sludge</h3>
+            <p class="term-part">noun</p>
+            <p class="term-definition">
+              The solid waste that settles at the bottom of a septic tank. Composed of heavier organic and inorganic materials that sink, sludge accumulates over time and must be removed through regular pumping to prevent tank overflow and system failure. Excessive sludge reduces tank capacity and efficiency.
+            </p>
+            <div class="related-terms">
+              <p class="related-terms-label">Related Terms</p>
+              <a href="#letter-s" class="related-link">Septic Tank</a>
+              <a href="#letter-s" class="related-link">Scum Layer</a>
+              <a href="#letter-a" class="related-link">Anaerobic Bacteria</a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Letter T -->
+      <div id="letter-t" class="letter-section mb-16 scroll-animate">
+        <h2 class="letter-header">T</h2>
+        <div class="grid gap-6">
+          <div class="term-card scroll-animate stagger-1">
+            <h3 class="term-name">Trench</h3>
+            <p class="term-part">noun</p>
+            <p class="term-definition">
+              An excavated area in the drain field where perforated pipes are laid to distribute effluent into the soil. Trenches are typically filled with gravel or contain plastic chambers that provide space for wastewater storage and gradual absorption into the surrounding soil.
+            </p>
+            <div class="related-terms">
+              <p class="related-terms-label">Related Terms</p>
+              <a href="#letter-d" class="related-link">Drain Field</a>
+              <a href="#letter-l" class="related-link">Leach Field</a>
+              <a href="#letter-d" class="related-link">Distribution Box</a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Letter V -->
+      <div id="letter-v" class="letter-section mb-16 scroll-animate">
+        <h2 class="letter-header">V</h2>
+        <div class="grid gap-6">
+          <div class="term-card scroll-animate stagger-1">
+            <h3 class="term-name">Vent Pipe</h3>
+            <p class="term-part">noun</p>
+            <p class="term-definition">
+              A pipe that allows gases produced during wastewater decomposition to escape safely from the septic system. These gases, including methane and hydrogen sulfide, are vented above roof level to prevent odors from accumulating inside the home or around the property.
+            </p>
+            <div class="related-terms">
+              <p class="related-terms-label">Related Terms</p>
+              <a href="#letter-s" class="related-link">Septic Tank</a>
+              <a href="#letter-a" class="related-link">Anaerobic Bacteria</a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Letter W -->
+      <div id="letter-w" class="letter-section mb-16 scroll-animate">
+        <h2 class="letter-header">W</h2>
+        <div class="grid gap-6">
+          <div class="term-card scroll-animate stagger-1">
+            <h3 class="term-name">Wastewater</h3>
+            <p class="term-part">noun</p>
+            <p class="term-definition">
+              Used water from homes and buildings that contains waste materials and requires treatment. Wastewater includes water from toilets, sinks, showers, appliances, and other plumbing fixtures. In septic systems, wastewater flows to the tank for initial treatment before being dispersed to the drain field.
+            </p>
+            <div class="related-terms">
+              <p class="related-terms-label">Related Terms</p>
+              <a href="#letter-s" class="related-link">Septic Tank</a>
+              <a href="#letter-e" class="related-link">Effluent</a>
+              <a href="#letter-g" class="related-link">Gray Water</a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Section 5: Related Terms Tag Cloud -->
+  <section class="py-16 bg-[#f8fafc]">
+    <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-12 scroll-animate">
+        <h2 class="text-3xl font-bold text-[#1e3a5f] mb-4">Related Terms</h2>
+        <p class="text-gray-600 max-w-2xl mx-auto">
+          Explore all the terms in our glossary. Click on any tag to jump to its definition.
+        </p>
+      </div>
+      
+      <div class="tag-cloud scroll-animate stagger-1">
+        <a href="#letter-a" class="tag-item large">Absorption Field</a>
+        <a href="#letter-a" class="tag-item">Aerobic Bacteria</a>
+        <a href="#letter-a" class="tag-item">Anaerobic Bacteria</a>
+        <a href="#letter-b" class="tag-item large">Baffle</a>
+        <a href="#letter-b" class="tag-item">Biomat</a>
+        <a href="#letter-c" class="tag-item">Chamber System</a>
+        <a href="#letter-c" class="tag-item large">Conventional System</a>
+        <a href="#letter-d" class="tag-item large">Distribution Box</a>
+        <a href="#letter-d" class="tag-item large">Drain Field</a>
+        <a href="#letter-e" class="tag-item large">Effluent</a>
+        <a href="#letter-e" class="tag-item">Effluent Filter</a>
+        <a href="#letter-f" class="tag-item">Field Lines</a>
+        <a href="#letter-g" class="tag-item">Gray Water</a>
+        <a href="#letter-g" class="tag-item">Grease Trap</a>
+        <a href="#letter-h" class="tag-item">Holding Tank</a>
+        <a href="#letter-i" class="tag-item">Inlet</a>
+        <a href="#letter-i" class="tag-item">Inspection Port</a>
+        <a href="#letter-l" class="tag-item">Leach Field</a>
+        <a href="#letter-m" class="tag-item">Mound System</a>
+        <a href="#letter-p" class="tag-item">Perc Test</a>
+        <a href="#letter-p" class="tag-item">Pump Tank</a>
+        <a href="#letter-r" class="tag-item">Riser</a>
+        <a href="#letter-s" class="tag-item">Scum Layer</a>
+        <a href="#letter-s" class="tag-item large">Septic Tank</a>
+        <a href="#letter-s" class="tag-item">Sludge</a>
+        <a href="#letter-t" class="tag-item">Trench</a>
+        <a href="#letter-v" class="tag-item">Vent Pipe</a>
+        <a href="#letter-w" class="tag-item">Wastewater</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="bg-[#0f172a] text-white pt-16 pb-8">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-12">
+        <!-- Brand Column -->
+        <div>
+          <a href="index.html" class="flex items-center gap-2 mb-4">
+            <div class="w-10 h-10 bg-[#0d9488] rounded-lg flex items-center justify-center">
+              <i data-lucide="home" class="w-6 h-6 text-white"></i>
+            </div>
+            <span class="text-xl font-bold">Septic Systems HQ</span>
+          </a>
+          <p class="text-gray-400 text-sm leading-relaxed mb-6">
+            Your trusted resource for septic system information, maintenance guides, and expert advice.
+          </p>
+          <div class="flex gap-4">
+            <a href="#" class="w-10 h-10 bg-[#1e293b] rounded-lg flex items-center justify-center hover:bg-[#0d9488] transition-colors" aria-label="Facebook">
+              <i data-lucide="facebook" class="w-5 h-5"></i>
+            </a>
+            <a href="#" class="w-10 h-10 bg-[#1e293b] rounded-lg flex items-center justify-center hover:bg-[#0d9488] transition-colors" aria-label="Twitter">
+              <i data-lucide="twitter" class="w-5 h-5"></i>
+            </a>
+            <a href="#" class="w-10 h-10 bg-[#1e293b] rounded-lg flex items-center justify-center hover:bg-[#0d9488] transition-colors" aria-label="YouTube">
+              <i data-lucide="youtube" class="w-5 h-5"></i>
+            </a>
+          </div>
+        </div>
+        
+        <!-- Quick Links -->
+        <div>
+          <h3 class="text-lg font-semibold mb-4">Quick Links</h3>
+          <ul class="space-y-3">
+            <li>
+              <a href="index.html" class="text-gray-400 hover:text-[#0d9488] transition-colors text-sm">Home</a>
+            </li>
+            <li>
+              <a href="types.html" class="text-gray-400 hover:text-[#0d9488] transition-colors text-sm">Types of Systems</a>
+            </li>
+            <li>
+              <a href="maintenance.html" class="text-gray-400 hover:text-[#0d9488] transition-colors text-sm">Maintenance Guide</a>
+            </li>
+            <li>
+              <a href="problems.html" class="text-gray-400 hover:text-[#0d9488] transition-colors text-sm">Common Problems</a>
+            </li>
+            <li>
+              <a href="costs.html" class="text-gray-400 hover:text-[#0d9488] transition-colors text-sm">Cost Guides</a>
+            </li>
+          </ul>
+        </div>
+        
+        <!-- Resources -->
+        <div>
+          <h3 class="text-lg font-semibold mb-4">Resources</h3>
+          <ul class="space-y-3">
+            <li>
+              <a href="installation.html" class="text-gray-400 hover:text-[#0d9488] transition-colors text-sm">Installation Guide</a>
+            </li>
+            <li>
+              <a href="inspection.html" class="text-gray-400 hover:text-[#0d9488] transition-colors text-sm">Inspection Guide</a>
+            </li>
+            <li>
+              <a href="regulations.html" class="text-gray-400 hover:text-[#0d9488] transition-colors text-sm">Regulations</a>
+            </li>
+            <li>
+              <a href="faq.html" class="text-gray-400 hover:text-[#0d9488] transition-colors text-sm">FAQ</a>
+            </li>
+            <li>
+              <a href="glossary.html" class="text-gray-400 hover:text-[#0d9488] transition-colors text-sm">Glossary</a>
+            </li>
+          </ul>
+        </div>
+        
+        <!-- Legal -->
+        <div>
+          <h3 class="text-lg font-semibold mb-4">Legal</h3>
+          <ul class="space-y-3">
+            <li>
+              <a href="#" class="text-gray-400 hover:text-[#0d9488] transition-colors text-sm">Privacy Policy</a>
+            </li>
+            <li>
+              <a href="#" class="text-gray-400 hover:text-[#0d9488] transition-colors text-sm">Terms of Use</a>
+            </li>
+            <li>
+              <a href="#" class="text-gray-400 hover:text-[#0d9488] transition-colors text-sm">Disclaimer</a>
+            </li>
+            <li>
+              <a href="#" class="text-gray-400 hover:text-[#0d9488] transition-colors text-sm">Contact</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+      
+      <!-- Bottom Bar -->
+      <div class="border-t border-[#1e293b] pt-8">
+        <div class="flex flex-col md:flex-row justify-between items-center gap-4">
+          <p class="text-gray-500 text-sm">
+            &copy; 2024 Septic Systems HQ. All rights reserved.
+          </p>
+          <p class="text-gray-500 text-sm">
+            Information provided for educational purposes only.
+          </p>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Scripts -->
+  <script>
+    // Initialize Lucide icons
+    lucide.createIcons();
+    
+    // Mobile menu toggle
+    function toggleMobileMenu() {
+      const menu = document.getElementById('mobileMenu');
+      menu.classList.toggle('open');
+    }
+    
+    // Scroll animations with Intersection Observer
+    const scrollElements = document.querySelectorAll('.scroll-animate');
+    
+    const observerOptions = {
+      root: null,
+      rootMargin: '0px',
+      threshold: 0.1
+    };
+    
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('animated');
+          observer.unobserve(entry.target);
+        }
+      });
+    }, observerOptions);
+    
+    scrollElements.forEach(el => observer.observe(el));
+    
+    // Alphabet navigation active state on scroll
+    const letterSections = document.querySelectorAll('.letter-section');
+    const letterLinks = document.querySelectorAll('.letter-link');
+    
+    const sectionObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          const letter = entry.target.id.replace('letter-', '').toUpperCase();
+          letterLinks.forEach(link => {
+            link.classList.remove('active');
+            if (link.dataset.letter === letter) {
+              link.classList.add('active');
+            }
+          });
+        }
+      });
+    }, { threshold: 0.5 });
+    
+    letterSections.forEach(section => sectionObserver.observe(section));
+    
+    // Smooth scroll for alphabet navigation
+    document.querySelectorAll('.letter-link:not(.disabled)').forEach(link => {
+      link.addEventListener('click', function(e) {
+        e.preventDefault();
+        const targetId = this.getAttribute('href');
+        const targetSection = document.querySelector(targetId);
+        if (targetSection) {
+          targetSection.scrollIntoView({ behavior: 'smooth' });
+        }
+      });
+    });
+    
+    // Smooth scroll for tag cloud links
+    document.querySelectorAll('.tag-item').forEach(tag => {
+      tag.addEventListener('click', function(e) {
+        const href = this.getAttribute('href');
+        if (href && href.startsWith('#')) {
+          e.preventDefault();
+          const targetSection = document.querySelector(href);
+          if (targetSection) {
+            targetSection.scrollIntoView({ behavior: 'smooth' });
+          }
+        }
+      });
+    });
+  </script>
+</body>
+</html>

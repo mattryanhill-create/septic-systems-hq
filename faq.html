@@ -1,0 +1,1141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>FAQ - Frequently Asked Questions | Septic Systems HQ</title>
+  <meta name="description" content="Find answers to frequently asked questions about septic systems. Learn about maintenance, problems, costs, installation, and more.">
+  
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  
+  <!-- Tailwind CSS v4 -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  
+  <!-- Lucide Icons -->
+  <script src="https://unpkg.com/lucide@latest"></script>
+  
+  <!-- Shared Styles -->
+  <link rel="stylesheet" href="shared/styles.css">
+  
+  <style>
+    /* Page-specific styles */
+    .faq-accordion-content {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 300ms ease-in-out, opacity 300ms ease-in-out;
+      opacity: 0;
+    }
+    
+    .faq-accordion-content.open {
+      opacity: 1;
+    }
+    
+    .faq-accordion-icon {
+      transition: transform 300ms ease-in-out;
+    }
+    
+    .faq-accordion-trigger[aria-expanded="true"] .faq-accordion-icon {
+      transform: rotate(180deg);
+    }
+    
+    .tab-btn {
+      transition: all 250ms cubic-bezier(0.4, 0, 0.2, 1);
+    }
+    
+    .tab-btn.active {
+      background-color: #0d9488;
+      color: white;
+    }
+    
+    .tab-content {
+      display: none;
+    }
+    
+    .tab-content.active {
+      display: block;
+      animation: fadeInUp 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+    
+    /* Search highlight */
+    .highlight {
+      background-color: #ccfbf1;
+      padding: 0 2px;
+      border-radius: 2px;
+    }
+    
+    /* No results message */
+    .no-results {
+      display: none;
+      text-align: center;
+      padding: 3rem;
+      color: #64748b;
+    }
+    
+    .no-results.visible {
+      display: block;
+    }
+  </style>
+</head>
+<body class="bg-white">
+  <!-- Header/Navigation -->
+  <header class="fixed top-0 left-0 right-0 bg-white shadow-sm z-50" style="height: 72px;">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-full">
+      <div class="flex items-center justify-between h-full">
+        <!-- Logo -->
+        <a href="index.html" class="flex items-center gap-2">
+          <div class="w-10 h-10 bg-[#0d9488] rounded-lg flex items-center justify-center">
+            <i data-lucide="home" class="w-6 h-6 text-white"></i>
+          </div>
+          <span class="text-xl font-bold text-[#1e3a5f]">Septic Systems HQ</span>
+        </a>
+        
+        <!-- Desktop Navigation -->
+        <nav class="desktop-nav hidden lg:flex items-center gap-8">
+          <a href="index.html" class="nav-link flex items-center gap-1.5" data-nav="home">
+            <i data-lucide="home" class="w-4 h-4"></i>
+            <span>Home</span>
+          </a>
+          <a href="types.html" class="nav-link flex items-center gap-1.5" data-nav="types">
+            <i data-lucide="layers" class="w-4 h-4"></i>
+            <span>Types</span>
+          </a>
+          <a href="maintenance.html" class="nav-link flex items-center gap-1.5" data-nav="maintenance">
+            <i data-lucide="calendar-check" class="w-4 h-4"></i>
+            <span>Maintenance</span>
+          </a>
+          <a href="problems.html" class="nav-link flex items-center gap-1.5" data-nav="problems">
+            <i data-lucide="alert-triangle" class="w-4 h-4"></i>
+            <span>Problems</span>
+          </a>
+          <a href="costs.html" class="nav-link flex items-center gap-1.5" data-nav="costs">
+            <i data-lucide="dollar-sign" class="w-4 h-4"></i>
+            <span>Costs</span>
+          </a>
+          <a href="inspection.html" class="nav-link flex items-center gap-1.5" data-nav="inspection">
+            <i data-lucide="clipboard-check" class="w-4 h-4"></i>
+            <span>Inspection</span>
+          </a>
+          <a href="faq.html" class="nav-link flex items-center gap-1.5 active text-[#0d9488]" data-nav="faq">
+            <i data-lucide="help-circle" class="w-4 h-4"></i>
+            <span>FAQ</span>
+          </a>
+        </nav>
+        
+        <!-- Mobile Menu Button -->
+        <button class="mobile-menu-btn lg:hidden p-2 rounded-lg hover:bg-gray-100 transition-colors" onclick="toggleMobileMenu()" aria-label="Toggle menu">
+          <i data-lucide="menu" class="w-6 h-6 text-[#475569]"></i>
+        </button>
+      </div>
+    </div>
+    
+    <!-- Mobile Menu -->
+    <div id="mobileMenu" class="mobile-menu lg:hidden">
+      <nav class="flex flex-col gap-2">
+        <a href="index.html" class="flex items-center gap-3 px-4 py-3 rounded-lg hover:bg-gray-50 text-[#475569] hover:text-[#0d9488] transition-colors" data-nav="home">
+          <i data-lucide="home" class="w-5 h-5"></i>
+          <span>Home</span>
+        </a>
+        <a href="types.html" class="flex items-center gap-3 px-4 py-3 rounded-lg hover:bg-gray-50 text-[#475569] hover:text-[#0d9488] transition-colors" data-nav="types">
+          <i data-lucide="layers" class="w-5 h-5"></i>
+          <span>Types</span>
+        </a>
+        <a href="maintenance.html" class="flex items-center gap-3 px-4 py-3 rounded-lg hover:bg-gray-50 text-[#475569] hover:text-[#0d9488] transition-colors" data-nav="maintenance">
+          <i data-lucide="calendar-check" class="w-5 h-5"></i>
+          <span>Maintenance</span>
+        </a>
+        <a href="problems.html" class="flex items-center gap-3 px-4 py-3 rounded-lg hover:bg-gray-50 text-[#475569] hover:text-[#0d9488] transition-colors" data-nav="problems">
+          <i data-lucide="alert-triangle" class="w-5 h-5"></i>
+          <span>Problems</span>
+        </a>
+        <a href="costs.html" class="flex items-center gap-3 px-4 py-3 rounded-lg hover:bg-gray-50 text-[#475569] hover:text-[#0d9488] transition-colors" data-nav="costs">
+          <i data-lucide="dollar-sign" class="w-5 h-5"></i>
+          <span>Costs</span>
+        </a>
+        <a href="inspection.html" class="flex items-center gap-3 px-4 py-3 rounded-lg hover:bg-gray-50 text-[#475569] hover:text-[#0d9488] transition-colors" data-nav="inspection">
+          <i data-lucide="clipboard-check" class="w-5 h-5"></i>
+          <span>Inspection</span>
+        </a>
+        <a href="faq.html" class="flex items-center gap-3 px-4 py-3 rounded-lg bg-[#ccfbf1] text-[#0d9488]" data-nav="faq">
+          <i data-lucide="help-circle" class="w-5 h-5"></i>
+          <span>FAQ</span>
+        </a>
+      </nav>
+    </div>
+  </header>
+  
+  <!-- Spacer for fixed header -->
+  <div style="height: 72px;"></div>
+
+  <!-- Section 2: Page Hero -->
+  <section class="bg-[#1e3a5f] py-16 lg:py-24">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex flex-col lg:flex-row items-center gap-12">
+        <!-- Left Content -->
+        <div class="flex-1 text-center lg:text-left">
+          <h1 class="text-3xl sm:text-4xl lg:text-5xl font-bold text-white mb-6 animate-fadeInUp" style="animation-delay: 0.1s;">
+            Frequently Asked Questions
+          </h1>
+          <p class="text-lg text-blue-100 mb-8 max-w-2xl animate-fadeInUp" style="animation-delay: 0.2s;">
+            Find answers to common questions about septic systems. Browse by category or search for specific topics.
+          </p>
+          
+          <!-- Search Input -->
+          <div class="max-w-xl mx-auto lg:mx-0 animate-fadeInUp" style="animation-delay: 0.3s;">
+            <div class="relative">
+              <i data-lucide="search" class="w-5 h-5 text-gray-400 absolute left-4 top-1/2 -translate-y-1/2"></i>
+              <input 
+                type="text" 
+                id="faqSearch" 
+                placeholder="Search FAQs..." 
+                class="w-full pl-12 pr-4 py-4 rounded-xl bg-white text-gray-800 placeholder-gray-400 border-0 focus:ring-4 focus:ring-[#0d9488]/30 focus:outline-none transition-shadow"
+              >
+            </div>
+          </div>
+        </div>
+        
+        <!-- Right Image -->
+        <div class="flex-1 flex justify-center animate-scaleIn" style="animation-delay: 0.4s;">
+          <img 
+            src="images/faq-illustration.jpg" 
+            alt="FAQ illustration with question mark" 
+            class="w-full max-w-md rounded-2xl shadow-2xl"
+          >
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Section 3: Category Tabs -->
+  <section class="py-8 bg-[#f8fafc] border-b border-gray-200">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex flex-wrap justify-center gap-3 scroll-animate" data-animation="fadeInUp">
+        <button class="tab-btn active px-6 py-3 rounded-full font-semibold text-sm bg-white text-gray-600 border border-gray-200 hover:border-[#0d9488] hover:text-[#0d9488]" data-tab="general">
+          <span class="flex items-center gap-2">
+            <i data-lucide="info" class="w-4 h-4"></i>
+            General
+          </span>
+        </button>
+        <button class="tab-btn px-6 py-3 rounded-full font-semibold text-sm bg-white text-gray-600 border border-gray-200 hover:border-[#0d9488] hover:text-[#0d9488]" data-tab="maintenance">
+          <span class="flex items-center gap-2">
+            <i data-lucide="calendar-check" class="w-4 h-4"></i>
+            Maintenance
+          </span>
+        </button>
+        <button class="tab-btn px-6 py-3 rounded-full font-semibold text-sm bg-white text-gray-600 border border-gray-200 hover:border-[#0d9488] hover:text-[#0d9488]" data-tab="problems">
+          <span class="flex items-center gap-2">
+            <i data-lucide="alert-triangle" class="w-4 h-4"></i>
+            Problems
+          </span>
+        </button>
+        <button class="tab-btn px-6 py-3 rounded-full font-semibold text-sm bg-white text-gray-600 border border-gray-200 hover:border-[#0d9488] hover:text-[#0d9488]" data-tab="costs">
+          <span class="flex items-center gap-2">
+            <i data-lucide="dollar-sign" class="w-4 h-4"></i>
+            Costs
+          </span>
+        </button>
+        <button class="tab-btn px-6 py-3 rounded-full font-semibold text-sm bg-white text-gray-600 border border-gray-200 hover:border-[#0d9488] hover:text-[#0d9488]" data-tab="installation">
+          <span class="flex items-center gap-2">
+            <i data-lucide="wrench" class="w-4 h-4"></i>
+            Installation
+          </span>
+        </button>
+      </div>
+    </div>
+  </section>
+
+  <!-- Section 4: FAQ Accordion -->
+  <section class="py-16 bg-white">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+      <!-- No Results Message -->
+      <div id="noResults" class="no-results">
+        <i data-lucide="search-x" class="w-16 h-16 mx-auto mb-4 text-gray-300"></i>
+        <h3 class="text-xl font-semibold text-gray-700 mb-2">No results found</h3>
+        <p class="text-gray-500">Try adjusting your search terms or browse by category.</p>
+      </div>
+
+      <!-- General Tab Content -->
+      <div id="general" class="tab-content active" data-accordion-group>
+        <div class="space-y-4">
+          <!-- Question 1 -->
+          <div class="faq-item bg-white border border-gray-200 rounded-xl overflow-hidden shadow-sm hover:shadow-md transition-shadow">
+            <button class="faq-accordion-trigger w-full px-6 py-5 flex items-center justify-between text-left" data-accordion-trigger onclick="toggleAccordion(this)" aria-expanded="false">
+              <span class="font-semibold text-gray-800 pr-4">What is a septic system?</span>
+              <i data-lucide="chevron-down" class="faq-accordion-icon w-5 h-5 text-gray-400 flex-shrink-0"></i>
+            </button>
+            <div class="faq-accordion-content px-6">
+              <div class="pb-5 text-gray-600 leading-relaxed">
+                A septic system is an underground wastewater treatment structure commonly used in rural areas without centralized sewer systems. It consists of a septic tank and a drain field (also called a leach field). The septic tank digests organic matter and separates floatable matter (oils, grease) and solids from the wastewater. The liquid wastewater (effluent) then exits the tank into the drain field where it percolates into the soil, which provides final treatment by removing harmful bacteria, viruses, and nutrients.
+              </div>
+            </div>
+          </div>
+
+          <!-- Question 2 -->
+          <div class="faq-item bg-white border border-gray-200 rounded-xl overflow-hidden shadow-sm hover:shadow-md transition-shadow">
+            <button class="faq-accordion-trigger w-full px-6 py-5 flex items-center justify-between text-left" data-accordion-trigger onclick="toggleAccordion(this)" aria-expanded="false">
+              <span class="font-semibold text-gray-800 pr-4">How does a septic system work?</span>
+              <i data-lucide="chevron-down" class="faq-accordion-icon w-5 h-5 text-gray-400 flex-shrink-0"></i>
+            </button>
+            <div class="faq-accordion-content px-6">
+              <div class="pb-5 text-gray-600 leading-relaxed">
+                A septic system works through a combination of natural processes and proven technology. Here's how it functions:
+                <ol class="list-decimal list-inside mt-3 space-y-2 ml-2">
+                  <li><strong>Wastewater flows from your home</strong> - All water from toilets, sinks, showers, and appliances drains into the septic tank.</li>
+                  <li><strong>Separation occurs in the tank</strong> - Heavy solids settle to the bottom (sludge), oils and grease float to the top (scum), and liquid stays in the middle.</li>
+                  <li><strong>Bacterial breakdown</strong> - Naturally occurring bacteria break down the organic matter in the tank.</li>
+                  <li><strong>Effluent exits to drain field</strong> - The liquid wastewater flows out to the drain field through a distribution box.</li>
+                  <li><strong>Soil filtration</strong> - The effluent percolates through the soil, which filters out harmful bacteria and nutrients.</li>
+                </ol>
+              </div>
+            </div>
+          </div>
+
+          <!-- Question 3 -->
+          <div class="faq-item bg-white border border-gray-200 rounded-xl overflow-hidden shadow-sm hover:shadow-md transition-shadow">
+            <button class="faq-accordion-trigger w-full px-6 py-5 flex items-center justify-between text-left" data-accordion-trigger onclick="toggleAccordion(this)" aria-expanded="false">
+              <span class="font-semibold text-gray-800 pr-4">How long do septic systems last?</span>
+              <i data-lucide="chevron-down" class="faq-accordion-icon w-5 h-5 text-gray-400 flex-shrink-0"></i>
+            </button>
+            <div class="faq-accordion-content px-6">
+              <div class="pb-5 text-gray-600 leading-relaxed">
+                With proper maintenance, a conventional septic system can last 20 to 30 years or more. Some systems have been known to last 40+ years. The lifespan depends on several factors:
+                <ul class="list-disc list-inside mt-3 space-y-2 ml-2">
+                  <li><strong>Regular pumping</strong> - Tanks pumped every 3-5 years last significantly longer.</li>
+                  <li><strong>Water usage</strong> - Excessive water use can overload the system.</li>
+                  <li><strong>What goes down the drain</strong> - Harsh chemicals and non-biodegradable items can damage the system.</li>
+                  <li><strong>Soil conditions</strong> - Well-draining soil helps the drain field function properly.</li>
+                  <li><strong>System design</strong> - Properly sized systems for the home last longer.</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+
+          <!-- Question 4 -->
+          <div class="faq-item bg-white border border-gray-200 rounded-xl overflow-hidden shadow-sm hover:shadow-md transition-shadow">
+            <button class="faq-accordion-trigger w-full px-6 py-5 flex items-center justify-between text-left" data-accordion-trigger onclick="toggleAccordion(this)" aria-expanded="false">
+              <span class="font-semibold text-gray-800 pr-4">What's the difference between septic and sewer?</span>
+              <i data-lucide="chevron-down" class="faq-accordion-icon w-5 h-5 text-gray-400 flex-shrink-0"></i>
+            </button>
+            <div class="faq-accordion-content px-6">
+              <div class="pb-5 text-gray-600 leading-relaxed">
+                The main difference is ownership and maintenance responsibility:
+                <ul class="list-disc list-inside mt-3 space-y-2 ml-2">
+                  <li><strong>Septic System:</strong> Private system on your property. You own it, maintain it, and are responsible for all costs. Wastewater is treated on-site.</li>
+                  <li><strong>Public Sewer:</strong> Connected to a municipal system. The city/town owns and maintains the infrastructure. You pay monthly sewer fees. Wastewater is transported to a central treatment facility.</li>
+                </ul>
+                <p class="mt-3">Septic systems are common in rural areas where public sewer isn't available. They require more homeowner attention but avoid monthly sewer bills.</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Question 5 -->
+          <div class="faq-item bg-white border border-gray-200 rounded-xl overflow-hidden shadow-sm hover:shadow-md transition-shadow">
+            <button class="faq-accordion-trigger w-full px-6 py-5 flex items-center justify-between text-left" data-accordion-trigger onclick="toggleAccordion(this)" aria-expanded="false">
+              <span class="font-semibold text-gray-800 pr-4">Can I use a garbage disposal with a septic system?</span>
+              <i data-lucide="chevron-down" class="faq-accordion-icon w-5 h-5 text-gray-400 flex-shrink-0"></i>
+            </button>
+            <div class="faq-accordion-content px-6">
+              <div class="pb-5 text-gray-600 leading-relaxed">
+                Yes, you can use a garbage disposal with a septic system, but with caution. Garbage disposals increase the solid waste entering your tank by up to 50%, which means you'll need to pump your tank more frequently - typically every 1-2 years instead of 3-5 years. To minimize impact:
+                <ul class="list-disc list-inside mt-3 space-y-2 ml-2">
+                  <li>Use the disposal sparingly</li>
+                  <li>Avoid putting grease, oils, and fibrous foods down the disposal</li>
+                  <li>Run plenty of water when using the disposal</li>
+                  <li>Consider a septic-safe disposal unit designed for use with septic systems</li>
+                  <li>Increase pumping frequency to prevent sludge buildup</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+
+          <!-- Question 6 -->
+          <div class="faq-item bg-white border border-gray-200 rounded-xl overflow-hidden shadow-sm hover:shadow-md transition-shadow">
+            <button class="faq-accordion-trigger w-full px-6 py-5 flex items-center justify-between text-left" data-accordion-trigger onclick="toggleAccordion(this)" aria-expanded="false">
+              <span class="font-semibold text-gray-800 pr-4">Do septic additives work?</span>
+              <i data-lucide="chevron-down" class="faq-accordion-icon w-5 h-5 text-gray-400 flex-shrink-0"></i>
+            </button>
+            <div class="faq-accordion-content px-6">
+              <div class="pb-5 text-gray-600 leading-relaxed">
+                Most experts agree that septic additives are unnecessary and can even be harmful. A healthy septic system already contains all the bacteria it needs to break down waste. The EPA and most state health departments do not recommend using additives because:
+                <ul class="list-disc list-inside mt-3 space-y-2 ml-2">
+                  <li>They can disrupt the natural bacterial balance</li>
+                  <li>Some chemicals can contaminate groundwater</li>
+                  <li>They don't reduce the need for regular pumping</li>
+                  <li>They can give homeowners a false sense of security</li>
+                </ul>
+                <p class="mt-3">The best way to maintain your system is through regular pumping and proper use - not additives.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Maintenance Tab Content -->
+      <div id="maintenance" class="tab-content" data-accordion-group>
+        <div class="space-y-4">
+          <!-- Question 1 -->
+          <div class="faq-item bg-white border border-gray-200 rounded-xl overflow-hidden shadow-sm hover:shadow-md transition-shadow">
+            <button class="faq-accordion-trigger w-full px-6 py-5 flex items-center justify-between text-left" data-accordion-trigger onclick="toggleAccordion(this)" aria-expanded="false">
+              <span class="font-semibold text-gray-800 pr-4">How often should I pump my septic tank?</span>
+              <i data-lucide="chevron-down" class="faq-accordion-icon w-5 h-5 text-gray-400 flex-shrink-0"></i>
+            </button>
+            <div class="faq-accordion-content px-6">
+              <div class="pb-5 text-gray-600 leading-relaxed">
+                Most septic tanks should be pumped every 3 to 5 years. However, the exact frequency depends on several factors:
+                <ul class="list-disc list-inside mt-3 space-y-2 ml-2">
+                  <li><strong>Household size</strong> - More people means more frequent pumping</li>
+                  <li><strong>Tank size</strong> - Smaller tanks fill up faster</li>
+                  <li><strong>Garbage disposal use</strong> - Increases solids by up to 50%</li>
+                  <li><strong>Water usage habits</strong> - High water use can affect the system</li>
+                  <li><strong>Age of system</strong> - Older systems may need more attention</li>
+                </ul>
+                <p class="mt-3">The best approach is to have your tank inspected annually and pumped when the sludge and scum layers reach about 25-30% of the tank's capacity.</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Question 2 -->
+          <div class="faq-item bg-white border border-gray-200 rounded-xl overflow-hidden shadow-sm hover:shadow-md transition-shadow">
+            <button class="faq-accordion-trigger w-full px-6 py-5 flex items-center justify-between text-left" data-accordion-trigger onclick="toggleAccordion(this)" aria-expanded="false">
+              <span class="font-semibold text-gray-800 pr-4">What should I not put down the drain?</span>
+              <i data-lucide="chevron-down" class="faq-accordion-icon w-5 h-5 text-gray-400 flex-shrink-0"></i>
+            </button>
+            <div class="faq-accordion-content px-6">
+              <div class="pb-5 text-gray-600 leading-relaxed">
+                Avoid putting these items down your drains to protect your septic system:
+                <ul class="list-disc list-inside mt-3 space-y-2 ml-2">
+                  <li><strong>Grease, fats, and oils</strong> - They solidify and clog pipes</li>
+                  <li><strong>Coffee grounds and eggshells</strong> - Don't break down easily</li>
+                  <li><strong>Feminine hygiene products</strong> - Never flush these</li>
+                  <li><strong>Paper towels and wipes</strong> - Even "flushable" wipes don't break down</li>
+                  <li><strong>Paint, solvents, and chemicals</strong> - Kill beneficial bacteria</li>
+                  <li><strong>Medications</strong> - Can contaminate groundwater</li>
+                  <li><strong>Cat litter</strong> - Doesn't dissolve and can clog pipes</li>
+                  <li><strong>Dental floss</strong> - Can wrap around pump components</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+
+          <!-- Question 3 -->
+          <div class="faq-item bg-white border border-gray-200 rounded-xl overflow-hidden shadow-sm hover:shadow-md transition-shadow">
+            <button class="faq-accordion-trigger w-full px-6 py-5 flex items-center justify-between text-left" data-accordion-trigger onclick="toggleAccordion(this)" aria-expanded="false">
+              <span class="font-semibold text-gray-800 pr-4">Can I use bleach with a septic system?</span>
+              <i data-lucide="chevron-down" class="faq-accordion-icon w-5 h-5 text-gray-400 flex-shrink-0"></i>
+            </button>
+            <div class="faq-accordion-content px-6">
+              <div class="pb-5 text-gray-600 leading-relaxed">
+                Small amounts of bleach are generally safe for septic systems, but excessive use can harm the beneficial bacteria that break down waste. Follow these guidelines:
+                <ul class="list-disc list-inside mt-3 space-y-2 ml-2">
+                  <li>Use bleach in moderation - normal laundry and cleaning amounts are fine</li>
+                  <li>Avoid pouring large quantities of straight bleach down drains</li>
+                  <li>Space out bleach use rather than using it all at once</li>
+                  <li>Consider alternatives like vinegar, baking soda, or septic-safe cleaners</li>
+                  <li>Never mix bleach with other cleaning products, especially ammonia</li>
+                </ul>
+                <p class="mt-3">If you accidentally use too much bleach, the bacterial population will usually recover within a few days to weeks.</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Question 4 -->
+          <div class="faq-item bg-white border border-gray-200 rounded-xl overflow-hidden shadow-sm hover:shadow-md transition-shadow">
+            <button class="faq-accordion-trigger w-full px-6 py-5 flex items-center justify-between text-left" data-accordion-trigger onclick="toggleAccordion(this)" aria-expanded="false">
+              <span class="font-semibold text-gray-800 pr-4">How do I find my septic tank?</span>
+              <i data-lucide="chevron-down" class="faq-accordion-icon w-5 h-5 text-gray-400 flex-shrink-0"></i>
+            </button>
+            <div class="faq-accordion-content px-6">
+              <div class="pb-5 text-gray-600 leading-relaxed">
+                Here are several ways to locate your septic tank:
+                <ol class="list-decimal list-inside mt-3 space-y-2 ml-2">
+                  <li><strong>Check your home's as-built drawings</strong> - Often show tank location</li>
+                  <li><strong>Look for visual clues</strong> - Mound, depression, or greener grass</li>
+                  <li><strong>Follow the main sewer line</strong> - Tank is usually 10-25 feet from the house</li>
+                  <li><strong>Use a probe rod</strong> - Gently probe the ground to find the tank lid</li>
+                  <li><strong>Contact your local health department</strong> - They may have records</li>
+                  <li><strong>Call a septic professional</strong> - They have specialized equipment to locate tanks</li>
+                </ol>
+                <p class="mt-3">Once found, mark the location with a visible marker for future reference.</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Question 5 -->
+          <div class="faq-item bg-white border border-gray-200 rounded-xl overflow-hidden shadow-sm hover:shadow-md transition-shadow">
+            <button class="faq-accordion-trigger w-full px-6 py-5 flex items-center justify-between text-left" data-accordion-trigger onclick="toggleAccordion(this)" aria-expanded="false">
+              <span class="font-semibold text-gray-800 pr-4">Should I use septic tank additives?</span>
+              <i data-lucide="chevron-down" class="faq-accordion-icon w-5 h-5 text-gray-400 flex-shrink-0"></i>
+            </button>
+            <div class="faq-accordion-content px-6">
+              <div class="pb-5 text-gray-600 leading-relaxed">
+                No, septic tank additives are generally unnecessary and can potentially harm your system. A properly functioning septic system already contains all the natural bacteria needed to break down waste. The EPA and most health departments advise against using additives because:
+                <ul class="list-disc list-inside mt-3 space-y-2 ml-2">
+                  <li>They don't eliminate the need for regular pumping</li>
+                  <li>Some chemicals can kill beneficial bacteria</li>
+                  <li>Certain additives can contaminate groundwater</li>
+                  <li>They may cause solids to flow into the drain field, causing clogs</li>
+                </ul>
+                <p class="mt-3">Regular pumping and proper use are the best maintenance practices.</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Question 6 -->
+          <div class="faq-item bg-white border border-gray-200 rounded-xl overflow-hidden shadow-sm hover:shadow-md transition-shadow">
+            <button class="faq-accordion-trigger w-full px-6 py-5 flex items-center justify-between text-left" data-accordion-trigger onclick="toggleAccordion(this)" aria-expanded="false">
+              <span class="font-semibold text-gray-800 pr-4">What maintenance can I do myself?</span>
+              <i data-lucide="chevron-down" class="faq-accordion-icon w-5 h-5 text-gray-400 flex-shrink-0"></i>
+            </button>
+            <div class="faq-accordion-content px-6">
+              <div class="pb-5 text-gray-600 leading-relaxed">
+                Homeowners can perform several maintenance tasks:
+                <ul class="list-disc list-inside mt-3 space-y-2 ml-2">
+                  <li><strong>Conserve water</strong> - Fix leaks and use water-efficient fixtures</li>
+                  <li><strong>Watch what goes down drains</strong> - Avoid harmful products</li>
+                  <li><strong>Inspect your drain field</strong> - Look for soggy areas or odors</li>
+                  <li><strong>Keep records</strong> - Track pumping dates and inspections</li>
+                  <li><strong>Protect the drain field</strong> - Don't drive or park on it</li>
+                  <li><strong>Divert rainwater</strong> - Keep excess water away from the system</li>
+                  <li><strong>Plant appropriate vegetation</strong> - Grass is best over the drain field</li>
+                </ul>
+                <p class="mt-3">Leave tank pumping and repairs to licensed professionals.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Problems Tab Content -->
+      <div id="problems" class="tab-content" data-accordion-group>
+        <div class="space-y-4">
+          <!-- Question 1 -->
+          <div class="faq-item bg-white border border-gray-200 rounded-xl overflow-hidden shadow-sm hover:shadow-md transition-shadow">
+            <button class="faq-accordion-trigger w-full px-6 py-5 flex items-center justify-between text-left" data-accordion-trigger onclick="toggleAccordion(this)" aria-expanded="false">
+              <span class="font-semibold text-gray-800 pr-4">Why is my grass greener over the drain field?</span>
+              <i data-lucide="chevron-down" class="faq-accordion-icon w-5 h-5 text-gray-400 flex-shrink-0"></i>
+            </button>
+            <div class="faq-accordion-content px-6">
+              <div class="pb-5 text-gray-600 leading-relaxed">
+                Unusually green or lush grass over your drain field can indicate a problem. While some greening is normal due to the moisture and nutrients from the effluent, excessively green or fast-growing grass may signal:
+                <ul class="list-disc list-inside mt-3 space-y-2 ml-2">
+                  <li><strong>System overload</strong> - Too much wastewater entering the system</li>
+                  <li><strong>Drain field failure</strong> - Effluent surfacing instead of percolating down</li>
+                  <li><strong>Clogged distribution pipes</strong> - Causing uneven distribution</li>
+                  <li><strong>High nutrient levels</strong> - May indicate inadequate treatment</li>
+                </ul>
+                <p class="mt-3">If you notice this along with soggy soil or odors, contact a septic professional immediately.</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Question 2 -->
+          <div class="faq-item bg-white border border-gray-200 rounded-xl overflow-hidden shadow-sm hover:shadow-md transition-shadow">
+            <button class="faq-accordion-trigger w-full px-6 py-5 flex items-center justify-between text-left" data-accordion-trigger onclick="toggleAccordion(this)" aria-expanded="false">
+              <span class="font-semibold text-gray-800 pr-4">What causes septic tank odors?</span>
+              <i data-lucide="chevron-down" class="faq-accordion-icon w-5 h-5 text-gray-400 flex-shrink-0"></i>
+            </button>
+            <div class="faq-accordion-content px-6">
+              <div class="pb-5 text-gray-600 leading-relaxed">
+                Septic odors can come from several sources:
+                <ul class="list-disc list-inside mt-3 space-y-2 ml-2">
+                  <li><strong>Dry plumbing traps</strong> - Water in traps evaporates, allowing gases to escape</li>
+                  <li><strong>Missing or damaged vent pipe</strong> - Prevents proper gas escape</li>
+                  <li><strong>Full or clogged tank</strong> - Needs pumping</li>
+                  <li><strong>Cracked tank or pipes</strong> - Allows gases to leak</li>
+                  <li><strong>Failing drain field</strong> - Effluent surfacing creates odors</li>
+                  <li><strong>Improper venting</strong> - Wind can blow gases toward house</li>
+                </ul>
+                <p class="mt-3">First check all drains have water in their traps. If odors persist, call a professional to inspect the system.</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Question 3 -->
+          <div class="faq-item bg-white border border-gray-200 rounded-xl overflow-hidden shadow-sm hover:shadow-md transition-shadow">
+            <button class="faq-accordion-trigger w-full px-6 py-5 flex items-center justify-between text-left" data-accordion-trigger onclick="toggleAccordion(this)" aria-expanded="false">
+              <span class="font-semibold text-gray-800 pr-4">Why are my drains slow?</span>
+              <i data-lucide="chevron-down" class="faq-accordion-icon w-5 h-5 text-gray-400 flex-shrink-0"></i>
+            </button>
+            <div class="faq-accordion-content px-6">
+              <div class="pb-5 text-gray-600 leading-relaxed">
+                Slow drains can indicate various issues:
+                <ul class="list-disc list-inside mt-3 space-y-2 ml-2">
+                  <li><strong>Clogged drain line</strong> - Hair, grease, or debris buildup</li>
+                  <li><strong>Full septic tank</strong> - Needs immediate pumping</li>
+                  <li><strong>Failing drain field</strong> - Can't accept more wastewater</li>
+                  <li><strong>Blocked vent pipe</strong> - Creates suction, slowing drainage</li>
+                  <li><strong>Compacted soil</strong> - In the drain field area</li>
+                </ul>
+                <p class="mt-3">If all drains are slow, the problem is likely with the septic system. If only one drain is slow, it's probably a localized clog.</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Question 4 -->
+          <div class="faq-item bg-white border border-gray-200 rounded-xl overflow-hidden shadow-sm hover:shadow-md transition-shadow">
+            <button class="faq-accordion-trigger w-full px-6 py-5 flex items-center justify-between text-left" data-accordion-trigger onclick="toggleAccordion(this)" aria-expanded="false">
+              <span class="font-semibold text-gray-800 pr-4">What should I do if my septic system backs up?</span>
+              <i data-lucide="chevron-down" class="faq-accordion-icon w-5 h-5 text-gray-400 flex-shrink-0"></i>
+            </button>
+            <div class="faq-accordion-content px-6">
+              <div class="pb-5 text-gray-600 leading-relaxed">
+                A septic backup is an emergency. Take these steps immediately:
+                <ol class="list-decimal list-inside mt-3 space-y-2 ml-2">
+                  <li><strong>Stop using water</strong> - Don't flush toilets or run water</li>
+                  <li><strong>Check the tank</strong> - If accessible, see if it's visibly full</li>
+                  <li><strong>Call a septic professional</strong> - This requires immediate professional attention</li>
+                  <li><strong>Avoid the affected area</strong> - Sewage contains harmful bacteria</li>
+                  <li><strong>Document the problem</strong> - Take photos for insurance if needed</li>
+                </ol>
+                <p class="mt-3">Don't attempt to pump the tank yourself or use chemical drain cleaners, which can damage the system.</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Question 5 -->
+          <div class="faq-item bg-white border border-gray-200 rounded-xl overflow-hidden shadow-sm hover:shadow-md transition-shadow">
+            <button class="faq-accordion-trigger w-full px-6 py-5 flex items-center justify-between text-left" data-accordion-trigger onclick="toggleAccordion(this)" aria-expanded="false">
+              <span class="font-semibold text-gray-800 pr-4">Can tree roots damage my septic system?</span>
+              <i data-lucide="chevron-down" class="faq-accordion-icon w-5 h-5 text-gray-400 flex-shrink-0"></i>
+            </button>
+            <div class="faq-accordion-content px-6">
+              <div class="pb-5 text-gray-600 leading-relaxed">
+                Yes, tree roots are a common cause of septic system damage. Roots naturally seek moisture and nutrients, making your septic system an attractive target. They can:
+                <ul class="list-disc list-inside mt-3 space-y-2 ml-2">
+                  <li>Crack and infiltrate pipes and tanks</li>
+                  <li>Block drain field lines</li>
+                  <li>Cause structural damage to the tank</li>
+                  <li>Create entry points for soil and debris</li>
+                </ul>
+                <p class="mt-3"><strong>Prevention:</strong> Keep trees at least 10 feet from the tank and 20 feet from the drain field. Remove trees that pose a threat. If you suspect root damage, contact a professional for inspection and repair.</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Question 6 -->
+          <div class="faq-item bg-white border border-gray-200 rounded-xl overflow-hidden shadow-sm hover:shadow-md transition-shadow">
+            <button class="faq-accordion-trigger w-full px-6 py-5 flex items-center justify-between text-left" data-accordion-trigger onclick="toggleAccordion(this)" aria-expanded="false">
+              <span class="font-semibold text-gray-800 pr-4">How do I know if my drain field is failing?</span>
+              <i data-lucide="chevron-down" class="faq-accordion-icon w-5 h-5 text-gray-400 flex-shrink-0"></i>
+            </button>
+            <div class="faq-accordion-content px-6">
+              <div class="pb-5 text-gray-600 leading-relaxed">
+                Signs of drain field failure include:
+                <ul class="list-disc list-inside mt-3 space-y-2 ml-2">
+                  <li><strong>Standing water</strong> - Puddles in the drain field area</li>
+                  <li><strong>Soggy or spongy soil</strong> - Even during dry weather</li>
+                  <li><strong>Sewage odors</strong> - Around the drain field or inside the house</li>
+                  <li><strong>Unusually green grass</strong> - Over the drain field</li>
+                  <li><strong>Slow drains</strong> - Throughout the house</li>
+                  <li><strong>Sewage backup</strong> - In toilets or drains</li>
+                  <li><strong>Gurgling sounds</strong> - From plumbing fixtures</li>
+                </ul>
+                <p class="mt-3">If you notice these signs, contact a septic professional immediately. Drain field failure requires professional repair or replacement.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Costs Tab Content -->
+      <div id="costs" class="tab-content" data-accordion-group>
+        <div class="space-y-4">
+          <!-- Question 1 -->
+          <div class="faq-item bg-white border border-gray-200 rounded-xl overflow-hidden shadow-sm hover:shadow-md transition-shadow">
+            <button class="faq-accordion-trigger w-full px-6 py-5 flex items-center justify-between text-left" data-accordion-trigger onclick="toggleAccordion(this)" aria-expanded="false">
+              <span class="font-semibold text-gray-800 pr-4">How much does septic pumping cost?</span>
+              <i data-lucide="chevron-down" class="faq-accordion-icon w-5 h-5 text-gray-400 flex-shrink-0"></i>
+            </button>
+            <div class="faq-accordion-content px-6">
+              <div class="pb-5 text-gray-600 leading-relaxed">
+                Septic pumping typically costs between $250 and $500, depending on several factors:
+                <ul class="list-disc list-inside mt-3 space-y-2 ml-2">
+                  <li><strong>Tank size</strong> - Larger tanks cost more to pump</li>
+                  <li><strong>Accessibility</strong> - Hard-to-reach tanks may have additional fees</li>
+                  <li><strong>Location</strong> - Urban areas often cost more than rural</li>
+                  <li><strong>Tank condition</strong> - Excessive sludge may increase costs</li>
+                  <li><strong>Additional services</strong> - Inspections or filter cleaning add to cost</li>
+                </ul>
+                <p class="mt-3">Regular pumping every 3-5 years is much cheaper than repairing or replacing a failed system, which can cost thousands.</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Question 2 -->
+          <div class="faq-item bg-white border border-gray-200 rounded-xl overflow-hidden shadow-sm hover:shadow-md transition-shadow">
+            <button class="faq-accordion-trigger w-full px-6 py-5 flex items-center justify-between text-left" data-accordion-trigger onclick="toggleAccordion(this)" aria-expanded="false">
+              <span class="font-semibold text-gray-800 pr-4">How much does a new septic system cost?</span>
+              <i data-lucide="chevron-down" class="faq-accordion-icon w-5 h-5 text-gray-400 flex-shrink-0"></i>
+            </button>
+            <div class="faq-accordion-content px-6">
+              <div class="pb-5 text-gray-600 leading-relaxed">
+                New septic system costs vary widely based on system type, size, and site conditions:
+                <ul class="list-disc list-inside mt-3 space-y-2 ml-2">
+                  <li><strong>Conventional system</strong> - $3,000 to $10,000</li>
+                  <li><strong>Aerobic Treatment Unit (ATU)</strong> - $10,000 to $20,000</li>
+                  <li><strong>Mound system</strong> - $10,000 to $25,000</li>
+                  <li><strong>Sand filter system</strong> - $7,000 to $15,000</li>
+                  <li><strong>Drip distribution</strong> - $8,000 to $18,000</li>
+                </ul>
+                <p class="mt-3">Additional costs may include permits ($200-$500), soil testing ($1,000-$2,000), and landscaping restoration.</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Question 3 -->
+          <div class="faq-item bg-white border border-gray-200 rounded-xl overflow-hidden shadow-sm hover:shadow-md transition-shadow">
+            <button class="faq-accordion-trigger w-full px-6 py-5 flex items-center justify-between text-left" data-accordion-trigger onclick="toggleAccordion(this)" aria-expanded="false">
+              <span class="font-semibold text-gray-800 pr-4">What factors affect septic system costs?</span>
+              <i data-lucide="chevron-down" class="faq-accordion-icon w-5 h-5 text-gray-400 flex-shrink-0"></i>
+            </button>
+            <div class="faq-accordion-content px-6">
+              <div class="pb-5 text-gray-600 leading-relaxed">
+                Several factors influence the total cost of a septic system:
+                <ul class="list-disc list-inside mt-3 space-y-2 ml-2">
+                  <li><strong>Soil conditions</strong> - Poor drainage requires more expensive systems</li>
+                  <li><strong>Site accessibility</strong> - Difficult access increases labor costs</li>
+                  <li><strong>System size</strong> - Larger homes need larger systems</li>
+                  <li><strong>System type</strong> - Advanced systems cost more than conventional</li>
+                  <li><strong>Local regulations</strong> - Permit and inspection fees vary by location</li>
+                  <li><strong>Regional labor costs</strong> - Vary significantly by area</li>
+                  <li><strong>Existing system removal</strong> - If replacing an old system</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+
+          <!-- Question 4 -->
+          <div class="faq-item bg-white border border-gray-200 rounded-xl overflow-hidden shadow-sm hover:shadow-md transition-shadow">
+            <button class="faq-accordion-trigger w-full px-6 py-5 flex items-center justify-between text-left" data-accordion-trigger onclick="toggleAccordion(this)" aria-expanded="false">
+              <span class="font-semibold text-gray-800 pr-4">Is septic maintenance expensive?</span>
+              <i data-lucide="chevron-down" class="faq-accordion-icon w-5 h-5 text-gray-400 flex-shrink-0"></i>
+            </button>
+            <div class="faq-accordion-content px-6">
+              <div class="pb-5 text-gray-600 leading-relaxed">
+                Compared to municipal sewer bills, septic maintenance is quite affordable:
+                <ul class="list-disc list-inside mt-3 space-y-2 ml-2">
+                  <li><strong>Pumping</strong> - $250-$500 every 3-5 years (about $50-$170/year)</li>
+                  <li><strong>Inspections</strong> - $100-$250 annually</li>
+                  <li><strong>Filter cleaning</strong> - $50-$100 per service</li>
+                  <li><strong>Total annual cost</strong> - Typically $150-$350</li>
+                </ul>
+                <p class="mt-3">This is often less than annual sewer bills in many areas. The key is regular maintenance to avoid costly emergency repairs.</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Question 5 -->
+          <div class="faq-item bg-white border border-gray-200 rounded-xl overflow-hidden shadow-sm hover:shadow-md transition-shadow">
+            <button class="faq-accordion-trigger w-full px-6 py-5 flex items-center justify-between text-left" data-accordion-trigger onclick="toggleAccordion(this)" aria-expanded="false">
+              <span class="font-semibold text-gray-800 pr-4">Does homeowners insurance cover septic systems?</span>
+              <i data-lucide="chevron-down" class="faq-accordion-icon w-5 h-5 text-gray-400 flex-shrink-0"></i>
+            </button>
+            <div class="faq-accordion-content px-6">
+              <div class="pb-5 text-gray-600 leading-relaxed">
+                Standard homeowners insurance typically does NOT cover septic system failures or damage from normal wear and tear. However, coverage may apply in certain situations:
+                <ul class="list-disc list-inside mt-3 space-y-2 ml-2">
+                  <li><strong>Sudden damage</strong> - From events like vehicle impact or falling trees</li>
+                  <li><strong>Fire or explosion</strong> - If the tank is damaged by covered perils</li>
+                  <li><strong>Vandalism</strong> - Intentional damage to the system</li>
+                </ul>
+                <p class="mt-3">Some insurers offer add-on coverage for septic systems. Check with your insurance agent about additional coverage options or consider a home warranty that includes septic systems.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Installation Tab Content -->
+      <div id="installation" class="tab-content" data-accordion-group>
+        <div class="space-y-4">
+          <!-- Question 1 -->
+          <div class="faq-item bg-white border border-gray-200 rounded-xl overflow-hidden shadow-sm hover:shadow-md transition-shadow">
+            <button class="faq-accordion-trigger w-full px-6 py-5 flex items-center justify-between text-left" data-accordion-trigger onclick="toggleAccordion(this)" aria-expanded="false">
+              <span class="font-semibold text-gray-800 pr-4">Do I need a permit to install a septic system?</span>
+              <i data-lucide="chevron-down" class="faq-accordion-icon w-5 h-5 text-gray-400 flex-shrink-0"></i>
+            </button>
+            <div class="faq-accordion-content px-6">
+              <div class="pb-5 text-gray-600 leading-relaxed">
+                Yes, permits are always required for septic system installation. The process typically involves:
+                <ul class="list-disc list-inside mt-3 space-y-2 ml-2">
+                  <li><strong>Site evaluation permit</strong> - For soil testing and site assessment</li>
+                  <li><strong>Construction permit</strong> - To authorize the actual installation</li>
+                  <li><strong>Inspection requirements</strong> - Multiple inspections during installation</li>
+                  <li><strong>Final approval</strong> - Certificate of completion</li>
+                </ul>
+                <p class="mt-3">Permit requirements vary by state and local jurisdiction. Your septic contractor typically handles the permitting process, but it's your responsibility to ensure all permits are obtained.</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Question 2 -->
+          <div class="faq-item bg-white border border-gray-200 rounded-xl overflow-hidden shadow-sm hover:shadow-md transition-shadow">
+            <button class="faq-accordion-trigger w-full px-6 py-5 flex items-center justify-between text-left" data-accordion-trigger onclick="toggleAccordion(this)" aria-expanded="false">
+              <span class="font-semibold text-gray-800 pr-4">How long does installation take?</span>
+              <i data-lucide="chevron-down" class="faq-accordion-icon w-5 h-5 text-gray-400 flex-shrink-0"></i>
+            </button>
+            <div class="faq-accordion-content px-6">
+              <div class="pb-5 text-gray-600 leading-relaxed">
+                Installation time varies based on system type and complexity:
+                <ul class="list-disc list-inside mt-3 space-y-2 ml-2">
+                  <li><strong>Conventional system</strong> - 2 to 5 days</li>
+                  <li><strong>Aerobic system</strong> - 3 to 7 days</li>
+                  <li><strong>Mound system</strong> - 1 to 2 weeks</li>
+                  <li><strong>Sand filter system</strong> - 1 to 2 weeks</li>
+                </ul>
+                <p class="mt-3">The complete process from planning to final approval typically takes 1-3 months, including:</p>
+                <ul class="list-disc list-inside mt-2 space-y-1 ml-2">
+                  <li>Site evaluation and soil testing (1-2 weeks)</li>
+                  <li>Design and permitting (2-4 weeks)</li>
+                  <li>Actual installation (see above)</li>
+                  <li>Final inspection and approval (1-2 weeks)</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+
+          <!-- Question 3 -->
+          <div class="faq-item bg-white border border-gray-200 rounded-xl overflow-hidden shadow-sm hover:shadow-md transition-shadow">
+            <button class="faq-accordion-trigger w-full px-6 py-5 flex items-center justify-between text-left" data-accordion-trigger onclick="toggleAccordion(this)" aria-expanded="false">
+              <span class="font-semibold text-gray-800 pr-4">Can I install my own septic system?</span>
+              <i data-lucide="chevron-down" class="faq-accordion-icon w-5 h-5 text-gray-400 flex-shrink-0"></i>
+            </button>
+            <div class="faq-accordion-content px-6">
+              <div class="pb-5 text-gray-600 leading-relaxed">
+                DIY septic installation is generally NOT recommended and often not permitted. Here's why:
+                <ul class="list-disc list-inside mt-3 space-y-2 ml-2">
+                  <li><strong>Legal requirements</strong> - Most jurisdictions require licensed installers</li>
+                  <li><strong>Complexity</strong> - Proper design requires engineering expertise</li>
+                  <li><strong>Health risks</strong> - Improper installation can contaminate groundwater</li>
+                  <li><strong>Inspection requirements</strong> - Multiple professional inspections required</li>
+                  <li><strong>Warranty issues</strong> - DIY work voids manufacturer warranties</li>
+                  <li><strong>Future problems</strong> - Mistakes can lead to costly failures</li>
+                </ul>
+                <p class="mt-3">Always hire a licensed, experienced septic contractor for installation work.</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Question 4 -->
+          <div class="faq-item bg-white border border-gray-200 rounded-xl overflow-hidden shadow-sm hover:shadow-md transition-shadow">
+            <button class="faq-accordion-trigger w-full px-6 py-5 flex items-center justify-between text-left" data-accordion-trigger onclick="toggleAccordion(this)" aria-expanded="false">
+              <span class="font-semibold text-gray-800 pr-4">What size septic tank do I need?</span>
+              <i data-lucide="chevron-down" class="faq-accordion-icon w-5 h-5 text-gray-400 flex-shrink-0"></i>
+            </button>
+            <div class="faq-accordion-content px-6">
+              <div class="pb-5 text-gray-600 leading-relaxed">
+                Septic tank size is determined by the number of bedrooms in your home and local regulations:
+                <ul class="list-disc list-inside mt-3 space-y-2 ml-2">
+                  <li><strong>1-2 bedrooms</strong> - 750 to 1,000 gallons</li>
+                  <li><strong>3 bedrooms</strong> - 1,000 to 1,250 gallons</li>
+                  <li><strong>4 bedrooms</strong> - 1,250 to 1,500 gallons</li>
+                  <li><strong>5+ bedrooms</strong> - 1,500+ gallons (add 250 gallons per bedroom)</li>
+                </ul>
+                <p class="mt-3">Other factors that may affect sizing include:</p>
+                <ul class="list-disc list-inside mt-2 space-y-1 ml-2">
+                  <li>Garbage disposal use (may require larger tank)</li>
+                  <li>High water usage habits</li>
+                  <li>Local code requirements</li>
+                  <li>Soil conditions and drain field size</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+
+          <!-- Question 5 -->
+          <div class="faq-item bg-white border border-gray-200 rounded-xl overflow-hidden shadow-sm hover:shadow-md transition-shadow">
+            <button class="faq-accordion-trigger w-full px-6 py-5 flex items-center justify-between text-left" data-accordion-trigger onclick="toggleAccordion(this)" aria-expanded="false">
+              <span class="font-semibold text-gray-800 pr-4">How do I choose the right system type?</span>
+              <i data-lucide="chevron-down" class="faq-accordion-icon w-5 h-5 text-gray-400 flex-shrink-0"></i>
+            </button>
+            <div class="faq-accordion-content px-6">
+              <div class="pb-5 text-gray-600 leading-relaxed">
+                The right system type depends on several factors evaluated during a site assessment:
+                <ul class="list-disc list-inside mt-3 space-y-2 ml-2">
+                  <li><strong>Soil conditions</strong> - Percolation rate determines system options</li>
+                  <li><strong>Lot size</strong> - Small lots may require advanced systems</li>
+                  <li><strong>Site slope</strong> - Steep slopes may need mound or pressure systems</li>
+                  <li><strong>Water table depth</strong> - High water tables limit options</li>
+                  <li><strong>Local regulations</strong> - Some systems may not be approved</li>
+                  <li><strong>Budget</strong> - Advanced systems cost more</li>
+                </ul>
+                <p class="mt-3">A licensed septic professional will evaluate your site and recommend appropriate options. Always get multiple opinions and compare long-term costs, not just installation prices.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Section 5: Still Have Questions CTA -->
+  <section class="py-20 bg-[#ccfbf1]">
+    <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 text-center scroll-animate" data-animation="fadeInUp">
+      <div class="w-16 h-16 bg-[#0d9488] rounded-2xl flex items-center justify-center mx-auto mb-6">
+        <i data-lucide="message-circle-question" class="w-8 h-8 text-white"></i>
+      </div>
+      <h2 class="text-3xl font-bold text-gray-800 mb-4">
+        Can't find what you're looking for?
+      </h2>
+      <p class="text-lg text-gray-600 mb-8 max-w-xl mx-auto">
+        Our team of septic experts is here to help. Reach out for personalized assistance with your specific questions.
+      </p>
+      <div class="flex flex-col sm:flex-row gap-4 justify-center">
+        <a href="#" class="btn-primary">
+          <i data-lucide="phone" class="w-5 h-5"></i>
+          Contact a Professional
+        </a>
+        <a href="glossary.html" class="btn-secondary">
+          <i data-lucide="book-open" class="w-5 h-5"></i>
+          Browse Glossary
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="bg-[#0f172a] text-white pt-16 pb-8">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-12">
+        <!-- Brand Column -->
+        <div>
+          <a href="index.html" class="flex items-center gap-2 mb-4">
+            <div class="w-10 h-10 bg-[#0d9488] rounded-lg flex items-center justify-center">
+              <i data-lucide="home" class="w-6 h-6 text-white"></i>
+            </div>
+            <span class="text-xl font-bold">Septic Systems HQ</span>
+          </a>
+          <p class="text-gray-400 text-sm leading-relaxed mb-6">
+            Your trusted resource for septic system information, maintenance guides, and expert advice.
+          </p>
+          <div class="flex gap-4">
+            <a href="#" class="w-10 h-10 bg-[#1e293b] rounded-lg flex items-center justify-center hover:bg-[#0d9488] transition-colors" aria-label="Facebook">
+              <i data-lucide="facebook" class="w-5 h-5"></i>
+            </a>
+            <a href="#" class="w-10 h-10 bg-[#1e293b] rounded-lg flex items-center justify-center hover:bg-[#0d9488] transition-colors" aria-label="Twitter">
+              <i data-lucide="twitter" class="w-5 h-5"></i>
+            </a>
+            <a href="#" class="w-10 h-10 bg-[#1e293b] rounded-lg flex items-center justify-center hover:bg-[#0d9488] transition-colors" aria-label="YouTube">
+              <i data-lucide="youtube" class="w-5 h-5"></i>
+            </a>
+          </div>
+        </div>
+        
+        <!-- Quick Links -->
+        <div>
+          <h3 class="text-lg font-semibold mb-4">Quick Links</h3>
+          <ul class="space-y-3">
+            <li>
+              <a href="index.html" class="text-gray-400 hover:text-[#0d9488] transition-colors text-sm">Home</a>
+            </li>
+            <li>
+              <a href="types.html" class="text-gray-400 hover:text-[#0d9488] transition-colors text-sm">Types of Systems</a>
+            </li>
+            <li>
+              <a href="maintenance.html" class="text-gray-400 hover:text-[#0d9488] transition-colors text-sm">Maintenance Guide</a>
+            </li>
+            <li>
+              <a href="problems.html" class="text-gray-400 hover:text-[#0d9488] transition-colors text-sm">Common Problems</a>
+            </li>
+            <li>
+              <a href="costs.html" class="text-gray-400 hover:text-[#0d9488] transition-colors text-sm">Cost Guides</a>
+            </li>
+          </ul>
+        </div>
+        
+        <!-- Resources -->
+        <div>
+          <h3 class="text-lg font-semibold mb-4">Resources</h3>
+          <ul class="space-y-3">
+            <li>
+              <a href="installation.html" class="text-gray-400 hover:text-[#0d9488] transition-colors text-sm">Installation Guide</a>
+            </li>
+            <li>
+              <a href="inspection.html" class="text-gray-400 hover:text-[#0d9488] transition-colors text-sm">Inspection Guide</a>
+            </li>
+            <li>
+              <a href="regulations.html" class="text-gray-400 hover:text-[#0d9488] transition-colors text-sm">Regulations</a>
+            </li>
+            <li>
+              <a href="faq.html" class="text-gray-400 hover:text-[#0d9488] transition-colors text-sm">FAQ</a>
+            </li>
+            <li>
+              <a href="glossary.html" class="text-gray-400 hover:text-[#0d9488] transition-colors text-sm">Glossary</a>
+            </li>
+          </ul>
+        </div>
+        
+        <!-- Legal -->
+        <div>
+          <h3 class="text-lg font-semibold mb-4">Legal</h3>
+          <ul class="space-y-3">
+            <li>
+              <a href="#" class="text-gray-400 hover:text-[#0d9488] transition-colors text-sm">Privacy Policy</a>
+            </li>
+            <li>
+              <a href="#" class="text-gray-400 hover:text-[#0d9488] transition-colors text-sm">Terms of Use</a>
+            </li>
+            <li>
+              <a href="#" class="text-gray-400 hover:text-[#0d9488] transition-colors text-sm">Disclaimer</a>
+            </li>
+            <li>
+              <a href="#" class="text-gray-400 hover:text-[#0d9488] transition-colors text-sm">Contact</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+      
+      <!-- Bottom Bar -->
+      <div class="border-t border-[#1e293b] pt-8">
+        <div class="flex flex-col md:flex-row justify-between items-center gap-4">
+          <p class="text-gray-500 text-sm">
+            &copy; 2024 Septic Systems HQ. All rights reserved.
+          </p>
+          <p class="text-gray-500 text-sm">
+            Information provided for educational purposes only.
+          </p>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Shared Scripts -->
+  <script src="shared/scripts.js"></script>
+  
+  <!-- Page-specific Scripts -->
+  <script>
+    // Tab switching functionality
+    document.addEventListener('DOMContentLoaded', function() {
+      const tabBtns = document.querySelectorAll('.tab-btn');
+      const tabContents = document.querySelectorAll('.tab-content');
+      
+      tabBtns.forEach(btn => {
+        btn.addEventListener('click', function() {
+          const tabId = this.dataset.tab;
+          
+          // Remove active class from all buttons and contents
+          tabBtns.forEach(b => b.classList.remove('active'));
+          tabContents.forEach(c => c.classList.remove('active'));
+          
+          // Add active class to clicked button and corresponding content
+          this.classList.add('active');
+          document.getElementById(tabId).classList.add('active');
+          
+          // Re-initialize Lucide icons for new content
+          if (typeof lucide !== 'undefined') {
+            lucide.createIcons();
+          }
+        });
+      });
+      
+      // Search functionality
+      const searchInput = document.getElementById('faqSearch');
+      const noResults = document.getElementById('noResults');
+      
+      searchInput.addEventListener('input', function() {
+        const searchTerm = this.value.toLowerCase().trim();
+        const faqItems = document.querySelectorAll('.faq-item');
+        let visibleCount = 0;
+        
+        faqItems.forEach(item => {
+          const question = item.querySelector('.faq-accordion-trigger span').textContent.toLowerCase();
+          const answer = item.querySelector('.faq-accordion-content').textContent.toLowerCase();
+          
+          if (searchTerm === '' || question.includes(searchTerm) || answer.includes(searchTerm)) {
+            item.style.display = 'block';
+            visibleCount++;
+            
+            // Highlight search term
+            if (searchTerm !== '') {
+              const questionEl = item.querySelector('.faq-accordion-trigger span');
+              highlightText(questionEl, searchTerm);
+            } else {
+              const questionEl = item.querySelector('.faq-accordion-trigger span');
+              questionEl.innerHTML = questionEl.textContent;
+            }
+          } else {
+            item.style.display = 'none';
+          }
+        });
+        
+        // Show/hide no results message
+        if (visibleCount === 0 && searchTerm !== '') {
+          noResults.classList.add('visible');
+        } else {
+          noResults.classList.remove('visible');
+        }
+        
+        // Show all tabs' content during search
+        if (searchTerm !== '') {
+          tabContents.forEach(content => {
+            content.classList.add('active');
+            content.style.display = 'block';
+          });
+          tabBtns.forEach(btn => btn.classList.remove('active'));
+        } else {
+          // Reset to first tab when search is cleared
+          tabContents.forEach((content, index) => {
+            if (index === 0) {
+              content.classList.add('active');
+              content.style.display = 'block';
+            } else {
+              content.classList.remove('active');
+              content.style.display = 'none';
+            }
+          });
+          tabBtns[0].classList.add('active');
+        }
+      });
+      
+      // Highlight text function
+      function highlightText(element, term) {
+        const text = element.textContent;
+        const regex = new RegExp(`(${escapeRegex(term)})`, 'gi');
+        element.innerHTML = text.replace(regex, '<span class="highlight">$1</span>');
+      }
+      
+      function escapeRegex(string) {
+        return string.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+      }
+    });
+    
+    // Override toggleAccordion for this page to handle animations
+    function toggleAccordion(trigger) {
+      const content = trigger.nextElementSibling;
+      const icon = trigger.querySelector('.faq-accordion-icon');
+      const isOpen = content.style.maxHeight && content.style.maxHeight !== '0px';
+      
+      // Close all other accordions in the same group
+      const group = trigger.closest('[data-accordion-group]');
+      if (group) {
+        const openTriggers = group.querySelectorAll('[data-accordion-trigger]');
+        openTriggers.forEach(t => {
+          if (t !== trigger) {
+            const c = t.nextElementSibling;
+            const i = t.querySelector('.faq-accordion-icon');
+            c.style.maxHeight = '0px';
+            c.classList.remove('open');
+            if (i) i.style.transform = 'rotate(0deg)';
+            t.setAttribute('aria-expanded', 'false');
+          }
+        });
+      }
+      
+      // Toggle current accordion
+      if (isOpen) {
+        content.style.maxHeight = '0px';
+        content.classList.remove('open');
+        if (icon) icon.style.transform = 'rotate(0deg)';
+        trigger.setAttribute('aria-expanded', 'false');
+      } else {
+        content.style.maxHeight = content.scrollHeight + 'px';
+        content.classList.add('open');
+        if (icon) icon.style.transform = 'rotate(180deg)';
+        trigger.setAttribute('aria-expanded', 'true');
+      }
+    }
+  </script>
+</body>
+</html>

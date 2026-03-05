@@ -1,0 +1,992 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Septic System Regulations | Codes, Permits & Compliance | Septic Systems HQ</title>
+  <meta name="description" content="Complete guide to septic system regulations including federal, state, and local requirements. Learn about permits, environmental regulations, and compliance checklists.">
+  
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  
+  <!-- Tailwind CSS v4 -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  
+  <!-- Lucide Icons -->
+  <script src="https://unpkg.com/lucide@latest"></script>
+  
+  <!-- Shared Styles -->
+  <link rel="stylesheet" href="shared/styles.css">
+  
+  <style>
+    /* Page-specific styles */
+    .regulation-card {
+      opacity: 0;
+      transform: translateY(30px);
+    }
+    
+    .regulation-card.animated {
+      animation: fadeInUp 0.7s var(--ease-out) forwards;
+    }
+    
+    .regulation-card:nth-child(1).animated { animation-delay: 0.1s; }
+    .regulation-card:nth-child(2).animated { animation-delay: 0.2s; }
+    .regulation-card:nth-child(3).animated { animation-delay: 0.3s; }
+    
+    .scroll-animate {
+      opacity: 0;
+      transform: translateY(20px);
+      transition: opacity 0.6s var(--ease-out), transform 0.6s var(--ease-out);
+    }
+    
+    .scroll-animate.animated {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    
+    .checklist-item {
+      transition: all var(--duration-normal) var(--ease-in-out);
+    }
+    
+    .checklist-item:hover {
+      background-color: rgba(255, 255, 255, 0.1);
+    }
+    
+    .checklist-item input[type="checkbox"]:checked + label {
+      text-decoration: line-through;
+      opacity: 0.7;
+    }
+    
+    .permit-card {
+      transition: all var(--duration-slow) var(--ease-spring);
+    }
+    
+    .permit-card:hover {
+      transform: translateY(-4px);
+      box-shadow: var(--shadow-lg);
+    }
+    
+    .state-row {
+      transition: background-color var(--duration-fast) var(--ease-default);
+    }
+    
+    .state-row:hover {
+      background-color: var(--teal-pale);
+    }
+    
+    .env-section {
+      transition: all var(--duration-normal) var(--ease-in-out);
+    }
+    
+    .env-section:hover {
+      border-color: var(--teal-primary);
+    }
+    
+    /* Search highlight */
+    .highlight {
+      background-color: var(--warning-light);
+      padding: 0 2px;
+      border-radius: 2px;
+    }
+    
+    /* No results message */
+    .no-results {
+      display: none;
+      text-align: center;
+      padding: 2rem;
+      color: var(--gray-500);
+    }
+    
+    .no-results.visible {
+      display: block;
+    }
+  </style>
+</head>
+<body class="bg-white">
+  <!-- Header/Navigation -->
+  <header class="fixed top-0 left-0 right-0 bg-white shadow-sm z-50" style="height: 72px;">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-full">
+      <div class="flex items-center justify-between h-full">
+        <!-- Logo -->
+        <a href="index.html" class="flex items-center gap-2">
+          <div class="w-10 h-10 bg-[#0d9488] rounded-lg flex items-center justify-center">
+            <i data-lucide="home" class="w-6 h-6 text-white"></i>
+          </div>
+          <span class="text-xl font-bold text-[#1e3a5f]">Septic Systems HQ</span>
+        </a>
+        
+        <!-- Desktop Navigation -->
+        <nav class="desktop-nav hidden lg:flex items-center gap-8">
+          <a href="index.html" class="nav-link flex items-center gap-1.5" data-nav="home">
+            <i data-lucide="home" class="w-4 h-4"></i>
+            <span>Home</span>
+          </a>
+          <a href="types.html" class="nav-link flex items-center gap-1.5" data-nav="types">
+            <i data-lucide="layers" class="w-4 h-4"></i>
+            <span>Types</span>
+          </a>
+          <a href="maintenance.html" class="nav-link flex items-center gap-1.5" data-nav="maintenance">
+            <i data-lucide="calendar-check" class="w-4 h-4"></i>
+            <span>Maintenance</span>
+          </a>
+          <a href="problems.html" class="nav-link flex items-center gap-1.5" data-nav="problems">
+            <i data-lucide="alert-triangle" class="w-4 h-4"></i>
+            <span>Problems</span>
+          </a>
+          <a href="costs.html" class="nav-link flex items-center gap-1.5" data-nav="costs">
+            <i data-lucide="dollar-sign" class="w-4 h-4"></i>
+            <span>Costs</span>
+          </a>
+          <a href="inspection.html" class="nav-link flex items-center gap-1.5" data-nav="inspection">
+            <i data-lucide="clipboard-check" class="w-4 h-4"></i>
+            <span>Inspection</span>
+          </a>
+          <a href="faq.html" class="nav-link flex items-center gap-1.5" data-nav="faq">
+            <i data-lucide="help-circle" class="w-4 h-4"></i>
+            <span>FAQ</span>
+          </a>
+        </nav>
+        
+        <!-- Mobile Menu Button -->
+        <button class="mobile-menu-btn lg:hidden p-2 rounded-lg hover:bg-gray-100 transition-colors" onclick="toggleMobileMenu()" aria-label="Toggle menu">
+          <i data-lucide="menu" class="w-6 h-6 text-[#475569]"></i>
+        </button>
+      </div>
+    </div>
+    
+    <!-- Mobile Menu -->
+    <div id="mobileMenu" class="mobile-menu lg:hidden">
+      <nav class="flex flex-col gap-2">
+        <a href="index.html" class="flex items-center gap-3 px-4 py-3 rounded-lg hover:bg-gray-50 text-[#475569] hover:text-[#0d9488] transition-colors" data-nav="home">
+          <i data-lucide="home" class="w-5 h-5"></i>
+          <span>Home</span>
+        </a>
+        <a href="types.html" class="flex items-center gap-3 px-4 py-3 rounded-lg hover:bg-gray-50 text-[#475569] hover:text-[#0d9488] transition-colors" data-nav="types">
+          <i data-lucide="layers" class="w-5 h-5"></i>
+          <span>Types</span>
+        </a>
+        <a href="maintenance.html" class="flex items-center gap-3 px-4 py-3 rounded-lg hover:bg-gray-50 text-[#475569] hover:text-[#0d9488] transition-colors" data-nav="maintenance">
+          <i data-lucide="calendar-check" class="w-5 h-5"></i>
+          <span>Maintenance</span>
+        </a>
+        <a href="problems.html" class="flex items-center gap-3 px-4 py-3 rounded-lg hover:bg-gray-50 text-[#475569] hover:text-[#0d9488] transition-colors" data-nav="problems">
+          <i data-lucide="alert-triangle" class="w-5 h-5"></i>
+          <span>Problems</span>
+        </a>
+        <a href="costs.html" class="flex items-center gap-3 px-4 py-3 rounded-lg hover:bg-gray-50 text-[#475569] hover:text-[#0d9488] transition-colors" data-nav="costs">
+          <i data-lucide="dollar-sign" class="w-5 h-5"></i>
+          <span>Costs</span>
+        </a>
+        <a href="inspection.html" class="flex items-center gap-3 px-4 py-3 rounded-lg hover:bg-gray-50 text-[#475569] hover:text-[#0d9488] transition-colors" data-nav="inspection">
+          <i data-lucide="clipboard-check" class="w-5 h-5"></i>
+          <span>Inspection</span>
+        </a>
+        <a href="faq.html" class="flex items-center gap-3 px-4 py-3 rounded-lg hover:bg-gray-50 text-[#475569] hover:text-[#0d9488] transition-colors" data-nav="faq">
+          <i data-lucide="help-circle" class="w-5 h-5"></i>
+          <span>FAQ</span>
+        </a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Spacer for fixed header -->
+  <div style="height: 72px;"></div>
+
+  <!-- Section 2: Page Hero -->
+  <section class="bg-[#1e3a5f] py-20 lg:py-28">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center max-w-3xl mx-auto">
+        <div class="inline-flex items-center gap-2 bg-[#2a4a73] text-white px-4 py-2 rounded-full text-sm font-medium mb-6 animate-fadeInUp">
+          <i data-lucide="scale" class="w-4 h-4"></i>
+          <span>Legal Requirements</span>
+        </div>
+        <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6 leading-tight animate-fadeInUp" style="animation-delay: 0.1s;">
+          Septic System Regulations
+        </h1>
+        <p class="text-lg md:text-xl text-gray-300 leading-relaxed animate-fadeInUp" style="animation-delay: 0.2s;">
+          Navigate federal, state, and local regulations with ease. Understand permit requirements, environmental standards, and compliance obligations for your septic system.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Section 3: Regulation Levels -->
+  <section class="py-16 lg:py-24 bg-white">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-12 scroll-animate">
+        <h2 class="text-3xl md:text-4xl font-bold text-[#1e293b] mb-4">Understanding Regulation Levels</h2>
+        <p class="text-lg text-[#64748b] max-w-2xl mx-auto">
+          Septic system regulations exist at three levels, each with different scopes and requirements.
+        </p>
+      </div>
+      
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+        <!-- Federal Card -->
+        <div class="regulation-card feature-card">
+          <div class="w-14 h-14 bg-[#dbeafe] rounded-xl flex items-center justify-center mb-6">
+            <i data-lucide="landmark" class="w-7 h-7 text-[#3b82f6]"></i>
+          </div>
+          <h3 class="text-xl font-bold text-[#1e293b] mb-3">Federal Regulations</h3>
+          <p class="text-[#64748b] mb-4">Broad environmental protection standards that apply nationwide.</p>
+          <ul class="space-y-3">
+            <li class="flex items-start gap-3">
+              <i data-lucide="check-circle" class="w-5 h-5 text-[#10b981] flex-shrink-0 mt-0.5"></i>
+              <span class="text-[#475569] text-sm">EPA guidelines</span>
+            </li>
+            <li class="flex items-start gap-3">
+              <i data-lucide="check-circle" class="w-5 h-5 text-[#10b981] flex-shrink-0 mt-0.5"></i>
+              <span class="text-[#475569] text-sm">Clean Water Act</span>
+            </li>
+            <li class="flex items-start gap-3">
+              <i data-lucide="check-circle" class="w-5 h-5 text-[#10b981] flex-shrink-0 mt-0.5"></i>
+              <span class="text-[#475569] text-sm">Safe Drinking Water Act</span>
+            </li>
+            <li class="flex items-start gap-3">
+              <i data-lucide="check-circle" class="w-5 h-5 text-[#10b981] flex-shrink-0 mt-0.5"></i>
+              <span class="text-[#475569] text-sm">General standards, not specific requirements</span>
+            </li>
+          </ul>
+        </div>
+        
+        <!-- State Card -->
+        <div class="regulation-card feature-card">
+          <div class="w-14 h-14 bg-[#ccfbf1] rounded-xl flex items-center justify-center mb-6">
+            <i data-lucide="map" class="w-7 h-7 text-[#0d9488]"></i>
+          </div>
+          <h3 class="text-xl font-bold text-[#1e293b] mb-3">State Regulations</h3>
+          <p class="text-[#64748b] mb-4">State-specific rules that vary significantly across the country.</p>
+          <ul class="space-y-3">
+            <li class="flex items-start gap-3">
+              <i data-lucide="check-circle" class="w-5 h-5 text-[#10b981] flex-shrink-0 mt-0.5"></i>
+              <span class="text-[#475569] text-sm">State health department rules</span>
+            </li>
+            <li class="flex items-start gap-3">
+              <i data-lucide="check-circle" class="w-5 h-5 text-[#10b981] flex-shrink-0 mt-0.5"></i>
+              <span class="text-[#475569] text-sm">Environmental protection agency</span>
+            </li>
+            <li class="flex items-start gap-3">
+              <i data-lucide="check-circle" class="w-5 h-5 text-[#10b981] flex-shrink-0 mt-0.5"></i>
+              <span class="text-[#475569] text-sm">Licensing requirements</span>
+            </li>
+            <li class="flex items-start gap-3">
+              <i data-lucide="check-circle" class="w-5 h-5 text-[#10b981] flex-shrink-0 mt-0.5"></i>
+              <span class="text-[#475569] text-sm">Varies significantly by state</span>
+            </li>
+          </ul>
+        </div>
+        
+        <!-- Local Card -->
+        <div class="regulation-card feature-card">
+          <div class="w-14 h-14 bg-[#fef3c7] rounded-xl flex items-center justify-center mb-6">
+            <i data-lucide="home" class="w-7 h-7 text-[#f59e0b]"></i>
+          </div>
+          <h3 class="text-xl font-bold text-[#1e293b] mb-3">Local Regulations</h3>
+          <p class="text-[#64748b] mb-4">County and municipal codes with the most specific requirements.</p>
+          <ul class="space-y-3">
+            <li class="flex items-start gap-3">
+              <i data-lucide="check-circle" class="w-5 h-5 text-[#10b981] flex-shrink-0 mt-0.5"></i>
+              <span class="text-[#475569] text-sm">County health department</span>
+            </li>
+            <li class="flex items-start gap-3">
+              <i data-lucide="check-circle" class="w-5 h-5 text-[#10b981] flex-shrink-0 mt-0.5"></i>
+              <span class="text-[#475569] text-sm">Building codes</span>
+            </li>
+            <li class="flex items-start gap-3">
+              <i data-lucide="check-circle" class="w-5 h-5 text-[#10b981] flex-shrink-0 mt-0.5"></i>
+              <span class="text-[#475569] text-sm">Zoning restrictions</span>
+            </li>
+            <li class="flex items-start gap-3">
+              <i data-lucide="check-circle" class="w-5 h-5 text-[#10b981] flex-shrink-0 mt-0.5"></i>
+              <span class="text-[#475569] text-sm">Most specific requirements</span>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Section 4: Common Permit Types -->
+  <section class="py-16 lg:py-24 bg-[#f8fafc]">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+        <div class="scroll-animate">
+          <h2 class="text-3xl md:text-4xl font-bold text-[#1e293b] mb-4">Common Permit Types</h2>
+          <p class="text-lg text-[#64748b] mb-8">
+            Most septic system work requires proper permits. Here's what you need to know about the different types.
+          </p>
+          
+          <div class="space-y-4">
+            <!-- Installation Permit -->
+            <div class="permit-card bg-white rounded-xl p-6 border border-[#e2e8f0]">
+              <div class="flex items-start gap-4">
+                <div class="w-12 h-12 bg-[#dbeafe] rounded-lg flex items-center justify-center flex-shrink-0">
+                  <i data-lucide="hammer" class="w-6 h-6 text-[#3b82f6]"></i>
+                </div>
+                <div>
+                  <h3 class="text-lg font-semibold text-[#1e293b] mb-1">Installation Permit</h3>
+                  <p class="text-[#64748b] text-sm">Required for all new septic system installations. Includes site evaluation and system design approval.</p>
+                </div>
+              </div>
+            </div>
+            
+            <!-- Repair Permit -->
+            <div class="permit-card bg-white rounded-xl p-6 border border-[#e2e8f0]">
+              <div class="flex items-start gap-4">
+                <div class="w-12 h-12 bg-[#fee2e2] rounded-lg flex items-center justify-center flex-shrink-0">
+                  <i data-lucide="wrench" class="w-6 h-6 text-[#ef4444]"></i>
+                </div>
+                <div>
+                  <h3 class="text-lg font-semibold text-[#1e293b] mb-1">Repair Permit</h3>
+                  <p class="text-[#64748b] text-sm">Required for major repairs to existing systems. Minor repairs may be exempt in some jurisdictions.</p>
+                </div>
+              </div>
+            </div>
+            
+            <!-- Modification Permit -->
+            <div class="permit-card bg-white rounded-xl p-6 border border-[#e2e8f0]">
+              <div class="flex items-start gap-4">
+                <div class="w-12 h-12 bg-[#ccfbf1] rounded-lg flex items-center justify-center flex-shrink-0">
+                  <i data-lucide="settings" class="w-6 h-6 text-[#0d9488]"></i>
+                </div>
+                <div>
+                  <h3 class="text-lg font-semibold text-[#1e293b] mb-1">Modification Permit</h3>
+                  <p class="text-[#64748b] text-sm">Required when making changes to an existing system, such as adding capacity or changing components.</p>
+                </div>
+              </div>
+            </div>
+            
+            <!-- Abandonment Permit -->
+            <div class="permit-card bg-white rounded-xl p-6 border border-[#e2e8f0]">
+              <div class="flex items-start gap-4">
+                <div class="w-12 h-12 bg-[#f3e8ff] rounded-lg flex items-center justify-center flex-shrink-0">
+                  <i data-lucide="x-circle" class="w-6 h-6 text-[#8b5cf6]"></i>
+                </div>
+                <div>
+                  <h3 class="text-lg font-semibold text-[#1e293b] mb-1">Abandonment Permit</h3>
+                  <p class="text-[#64748b] text-sm">Required when decommissioning a septic system, ensuring proper closure and environmental safety.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        <div class="scroll-animate" style="animation-delay: 0.2s;">
+          <div class="relative">
+            <img src="images/permit-document.jpg" alt="Building permit document and official paperwork" class="rounded-2xl shadow-xl w-full">
+            <div class="absolute -bottom-6 -left-6 bg-white rounded-xl p-4 shadow-lg max-w-xs">
+              <div class="flex items-center gap-3">
+                <div class="w-10 h-10 bg-[#d1fae5] rounded-full flex items-center justify-center">
+                  <i data-lucide="check" class="w-5 h-5 text-[#10b981]"></i>
+                </div>
+                <div>
+                  <p class="font-semibold text-[#1e293b] text-sm">Permit Required</p>
+                  <p class="text-[#64748b] text-xs">Work without permits may result in fines</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Section 5: Environmental Regulations -->
+  <section class="py-16 lg:py-24 bg-white">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-12 scroll-animate">
+        <h2 class="text-3xl md:text-4xl font-bold text-[#1e293b] mb-4">Environmental Regulations</h2>
+        <p class="text-lg text-[#64748b] max-w-2xl mx-auto">
+          Protecting groundwater and surface water is a primary goal of septic system regulations.
+        </p>
+      </div>
+      
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center mb-12">
+        <div class="order-2 lg:order-1 scroll-animate">
+          <img src="images/environmental.jpg" alt="Clean water source and environmental protection" class="rounded-2xl shadow-xl w-full">
+        </div>
+        
+        <div class="order-1 lg:order-2 scroll-animate" style="animation-delay: 0.2s;">
+          <div class="space-y-6">
+            <!-- Minimum Setbacks -->
+            <div class="env-section bg-[#f8fafc] rounded-xl p-6 border-2 border-transparent">
+              <div class="flex items-start gap-4">
+                <div class="w-12 h-12 bg-[#dbeafe] rounded-lg flex items-center justify-center flex-shrink-0">
+                  <i data-lucide="ruler" class="w-6 h-6 text-[#3b82f6]"></i>
+                </div>
+                <div>
+                  <h3 class="text-lg font-semibold text-[#1e293b] mb-2">Minimum Setbacks</h3>
+                  <p class="text-[#64748b] mb-3">Required distances from sensitive areas to prevent contamination.</p>
+                  <ul class="space-y-2 text-sm text-[#475569]">
+                    <li class="flex items-center gap-2">
+                      <i data-lucide="droplets" class="w-4 h-4 text-[#0d9488]"></i>
+                      <span>50-100 feet from wells</span>
+                    </li>
+                    <li class="flex items-center gap-2">
+                      <i data-lucide="waves" class="w-4 h-4 text-[#0d9488]"></i>
+                      <span>50-100 feet from water bodies</span>
+                    </li>
+                    <li class="flex items-center gap-2">
+                      <i data-lucide="trees" class="w-4 h-4 text-[#0d9488]"></i>
+                      <span>10-25 feet from property lines</span>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+            
+            <!-- Soil Requirements -->
+            <div class="env-section bg-[#f8fafc] rounded-xl p-6 border-2 border-transparent">
+              <div class="flex items-start gap-4">
+                <div class="w-12 h-12 bg-[#ccfbf1] rounded-lg flex items-center justify-center flex-shrink-0">
+                  <i data-lucide="mountain" class="w-6 h-6 text-[#0d9488]"></i>
+                </div>
+                <div>
+                  <h3 class="text-lg font-semibold text-[#1e293b] mb-2">Soil Percolation Requirements</h3>
+                  <p class="text-[#64748b] mb-3">Soil must adequately absorb and filter wastewater.</p>
+                  <ul class="space-y-2 text-sm text-[#475569]">
+                    <li class="flex items-center gap-2">
+                      <i data-lucide="check" class="w-4 h-4 text-[#10b981]"></i>
+                      <span>Minimum percolation rate testing</span>
+                    </li>
+                    <li class="flex items-center gap-2">
+                      <i data-lucide="check" class="w-4 h-4 text-[#10b981]"></i>
+                      <span>Seasonal high water table assessment</span>
+                    </li>
+                    <li class="flex items-center gap-2">
+                      <i data-lucide="check" class="w-4 h-4 text-[#10b981]"></i>
+                      <span>Soil depth and texture evaluation</span>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6 scroll-animate" style="animation-delay: 0.3s;">
+        <!-- Discharge Limits -->
+        <div class="env-section bg-[#f8fafc] rounded-xl p-6 border-2 border-transparent">
+          <div class="flex items-start gap-4">
+            <div class="w-12 h-12 bg-[#fef3c7] rounded-lg flex items-center justify-center flex-shrink-0">
+              <i data-lucide="gauge" class="w-6 h-6 text-[#f59e0b]"></i>
+            </div>
+            <div>
+              <h3 class="text-lg font-semibold text-[#1e293b] mb-2">Maximum Discharge Limits</h3>
+              <p class="text-[#64748b]">Systems must meet effluent quality standards for BOD, TSS, and fecal coliform levels to protect public health and the environment.</p>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Sensitive Areas -->
+        <div class="env-section bg-[#f8fafc] rounded-xl p-6 border-2 border-transparent">
+          <div class="flex items-start gap-4">
+            <div class="w-12 h-12 bg-[#fce7f3] rounded-lg flex items-center justify-center flex-shrink-0">
+              <i data-lucide="shield" class="w-6 h-6 text-[#ec4899]"></i>
+            </div>
+            <div>
+              <h3 class="text-lg font-semibold text-[#1e293b] mb-2">Sensitive Area Protections</h3>
+              <p class="text-[#64748b]">Enhanced requirements near drinking water sources, wetlands, flood zones, and environmentally sensitive habitats.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Section 6: Compliance Checklist -->
+  <section class="py-16 lg:py-24 bg-[#0d9488]">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+        <div class="scroll-animate">
+          <div class="inline-flex items-center gap-2 bg-white/20 text-white px-4 py-2 rounded-full text-sm font-medium mb-6">
+            <i data-lucide="clipboard-check" class="w-4 h-4"></i>
+            <span>Stay Compliant</span>
+          </div>
+          <h2 class="text-3xl md:text-4xl font-bold text-white mb-4">Compliance Checklist</h2>
+          <p class="text-lg text-white/80 mb-8">
+            Use this checklist to ensure your septic system meets all regulatory requirements. Track your progress and stay compliant.
+          </p>
+          
+          <div class="bg-white/10 backdrop-blur-sm rounded-2xl p-6 space-y-4">
+            <div class="checklist-item flex items-center gap-4 p-3 rounded-lg cursor-pointer">
+              <input type="checkbox" id="check1" class="w-5 h-5 rounded border-2 border-white/50 bg-transparent checked:bg-white checked:border-white focus:ring-0 focus:ring-offset-0 cursor-pointer">
+              <label for="check1" class="text-white cursor-pointer flex-1">All required permits obtained</label>
+            </div>
+            <div class="checklist-item flex items-center gap-4 p-3 rounded-lg cursor-pointer">
+              <input type="checkbox" id="check2" class="w-5 h-5 rounded border-2 border-white/50 bg-transparent checked:bg-white checked:border-white focus:ring-0 focus:ring-offset-0 cursor-pointer">
+              <label for="check2" class="text-white cursor-pointer flex-1">Licensed contractor used</label>
+            </div>
+            <div class="checklist-item flex items-center gap-4 p-3 rounded-lg cursor-pointer">
+              <input type="checkbox" id="check3" class="w-5 h-5 rounded border-2 border-white/50 bg-transparent checked:bg-white checked:border-white focus:ring-0 focus:ring-offset-0 cursor-pointer">
+              <label for="check3" class="text-white cursor-pointer flex-1">Inspections passed</label>
+            </div>
+            <div class="checklist-item flex items-center gap-4 p-3 rounded-lg cursor-pointer">
+              <input type="checkbox" id="check4" class="w-5 h-5 rounded border-2 border-white/50 bg-transparent checked:bg-white checked:border-white focus:ring-0 focus:ring-offset-0 cursor-pointer">
+              <label for="check4" class="text-white cursor-pointer flex-1">Records maintained</label>
+            </div>
+            <div class="checklist-item flex items-center gap-4 p-3 rounded-lg cursor-pointer">
+              <input type="checkbox" id="check5" class="w-5 h-5 rounded border-2 border-white/50 bg-transparent checked:bg-white checked:border-white focus:ring-0 focus:ring-offset-0 cursor-pointer">
+              <label for="check5" class="text-white cursor-pointer flex-1">System properly maintained</label>
+            </div>
+            <div class="checklist-item flex items-center gap-4 p-3 rounded-lg cursor-pointer">
+              <input type="checkbox" id="check6" class="w-5 h-5 rounded border-2 border-white/50 bg-transparent checked:bg-white checked:border-white focus:ring-0 focus:ring-offset-0 cursor-pointer">
+              <label for="check6" class="text-white cursor-pointer flex-1">Setbacks complied with</label>
+            </div>
+          </div>
+        </div>
+        
+        <div class="scroll-animate" style="animation-delay: 0.2s;">
+          <div class="relative">
+            <img src="images/compliance.jpg" alt="Compliance checklist and regulatory verification" class="rounded-2xl shadow-xl w-full">
+            <div class="absolute -bottom-6 -right-6 bg-white rounded-xl p-6 shadow-lg max-w-xs">
+              <div class="flex items-center gap-3 mb-3">
+                <div class="w-12 h-12 bg-[#d1fae5] rounded-full flex items-center justify-center">
+                  <i data-lucide="download" class="w-6 h-6 text-[#10b981]"></i>
+                </div>
+                <div>
+                  <p class="font-semibold text-[#1e293b]">Download Checklist</p>
+                  <p class="text-[#64748b] text-sm">PDF format</p>
+                </div>
+              </div>
+              <button class="btn-primary w-full" onclick="downloadChecklist()">
+                <i data-lucide="download" class="w-4 h-4"></i>
+                Download PDF
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Section 7: State Resources -->
+  <section class="py-16 lg:py-24 bg-[#f8fafc]">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-12 scroll-animate">
+        <h2 class="text-3xl md:text-4xl font-bold text-[#1e293b] mb-4">State Resources</h2>
+        <p class="text-lg text-[#64748b] max-w-2xl mx-auto mb-8">
+          Find your state's septic system regulatory agency and resources.
+        </p>
+        
+        <!-- Search Box -->
+        <div class="max-w-md mx-auto relative">
+          <i data-lucide="search" class="w-5 h-5 text-[#94a3b8] absolute left-4 top-1/2 -translate-y-1/2"></i>
+          <input 
+            type="text" 
+            id="stateSearch" 
+            placeholder="Search by state name..." 
+            class="w-full pl-12 pr-4 py-3 rounded-xl border border-[#e2e8f0] focus:border-[#0d9488] focus:ring-2 focus:ring-[#0d9488]/20 outline-none transition-all"
+            onkeyup="searchStates()"
+          >
+        </div>
+      </div>
+      
+      <div class="table-container scroll-animate" style="animation-delay: 0.2s;">
+        <table class="data-table" id="stateTable">
+          <thead>
+            <tr>
+              <th>State</th>
+              <th>Regulatory Agency</th>
+              <th>Website</th>
+              <th>Action</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr class="state-row">
+              <td class="font-medium text-[#1e293b]">California</td>
+              <td>CA State Water Resources Control Board</td>
+              <td>waterboards.ca.gov</td>
+              <td>
+                <a href="https://waterboards.ca.gov" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-1 text-[#0d9488] hover:text-[#0f766e] font-medium text-sm">
+                  Visit <i data-lucide="external-link" class="w-4 h-4"></i>
+                </a>
+              </td>
+            </tr>
+            <tr class="state-row">
+              <td class="font-medium text-[#1e293b]">Florida</td>
+              <td>FL Department of Health</td>
+              <td>floridahealth.gov</td>
+              <td>
+                <a href="https://floridahealth.gov" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-1 text-[#0d9488] hover:text-[#0f766e] font-medium text-sm">
+                  Visit <i data-lucide="external-link" class="w-4 h-4"></i>
+                </a>
+              </td>
+            </tr>
+            <tr class="state-row">
+              <td class="font-medium text-[#1e293b]">Texas</td>
+              <td>TX Commission on Environmental Quality</td>
+              <td>tceq.texas.gov</td>
+              <td>
+                <a href="https://tceq.texas.gov" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-1 text-[#0d9488] hover:text-[#0f766e] font-medium text-sm">
+                  Visit <i data-lucide="external-link" class="w-4 h-4"></i>
+                </a>
+              </td>
+            </tr>
+            <tr class="state-row">
+              <td class="font-medium text-[#1e293b]">New York</td>
+              <td>NY Department of Health</td>
+              <td>health.ny.gov</td>
+              <td>
+                <a href="https://health.ny.gov" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-1 text-[#0d9488] hover:text-[#0f766e] font-medium text-sm">
+                  Visit <i data-lucide="external-link" class="w-4 h-4"></i>
+                </a>
+              </td>
+            </tr>
+            <tr class="state-row">
+              <td class="font-medium text-[#1e293b]">Pennsylvania</td>
+              <td>PA Department of Environmental Protection</td>
+              <td>dep.pa.gov</td>
+              <td>
+                <a href="https://dep.pa.gov" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-1 text-[#0d9488] hover:text-[#0f766e] font-medium text-sm">
+                  Visit <i data-lucide="external-link" class="w-4 h-4"></i>
+                </a>
+              </td>
+            </tr>
+            <tr class="state-row">
+              <td class="font-medium text-[#1e293b]">Illinois</td>
+              <td>IL Environmental Protection Agency</td>
+              <td>epa.illinois.gov</td>
+              <td>
+                <a href="https://epa.illinois.gov" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-1 text-[#0d9488] hover:text-[#0f766e] font-medium text-sm">
+                  Visit <i data-lucide="external-link" class="w-4 h-4"></i>
+                </a>
+              </td>
+            </tr>
+            <tr class="state-row">
+              <td class="font-medium text-[#1e293b]">Ohio</td>
+              <td>OH Department of Health</td>
+              <td>odh.ohio.gov</td>
+              <td>
+                <a href="https://odh.ohio.gov" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-1 text-[#0d9488] hover:text-[#0f766e] font-medium text-sm">
+                  Visit <i data-lucide="external-link" class="w-4 h-4"></i>
+                </a>
+              </td>
+            </tr>
+            <tr class="state-row">
+              <td class="font-medium text-[#1e293b]">Georgia</td>
+              <td>GA Department of Public Health</td>
+              <td>dph.georgia.gov</td>
+              <td>
+                <a href="https://dph.georgia.gov" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-1 text-[#0d9488] hover:text-[#0f766e] font-medium text-sm">
+                  Visit <i data-lucide="external-link" class="w-4 h-4"></i>
+                </a>
+              </td>
+            </tr>
+            <tr class="state-row">
+              <td class="font-medium text-[#1e293b]">North Carolina</td>
+              <td>NC Department of Health and Human Services</td>
+              <td>ncdhhs.gov</td>
+              <td>
+                <a href="https://ncdhhs.gov" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-1 text-[#0d9488] hover:text-[#0f766e] font-medium text-sm">
+                  Visit <i data-lucide="external-link" class="w-4 h-4"></i>
+                </a>
+              </td>
+            </tr>
+            <tr class="state-row">
+              <td class="font-medium text-[#1e293b]">Michigan</td>
+              <td>MI Department of Environment, Great Lakes, and Energy</td>
+              <td>michigan.gov/egle</td>
+              <td>
+                <a href="https://michigan.gov/egle" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-1 text-[#0d9488] hover:text-[#0f766e] font-medium text-sm">
+                  Visit <i data-lucide="external-link" class="w-4 h-4"></i>
+                </a>
+              </td>
+            </tr>
+            <tr class="state-row">
+              <td class="font-medium text-[#1e293b]">Virginia</td>
+              <td>VA Department of Health</td>
+              <td>vdh.virginia.gov</td>
+              <td>
+                <a href="https://vdh.virginia.gov" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-1 text-[#0d9488] hover:text-[#0f766e] font-medium text-sm">
+                  Visit <i data-lucide="external-link" class="w-4 h-4"></i>
+                </a>
+              </td>
+            </tr>
+            <tr class="state-row">
+              <td class="font-medium text-[#1e293b]">Washington</td>
+              <td>WA State Department of Health</td>
+              <td>doh.wa.gov</td>
+              <td>
+                <a href="https://doh.wa.gov" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-1 text-[#0d9488] hover:text-[#0f766e] font-medium text-sm">
+                  Visit <i data-lucide="external-link" class="w-4 h-4"></i>
+                </a>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+        <div id="noResults" class="no-results">
+          <i data-lucide="search-x" class="w-12 h-12 text-[#94a3b8] mx-auto mb-3"></i>
+          <p class="text-[#64748b]">No states found matching your search.</p>
+        </div>
+      </div>
+      
+      <div class="mt-8 text-center scroll-animate" style="animation-delay: 0.3s;">
+        <p class="text-[#64748b] mb-4">Don't see your state? Contact your local health department for septic system regulations.</p>
+        <a href="https://www.nlc.org/resources/state-and-local-connections" target="_blank" rel="noopener noreferrer" class="btn-secondary inline-flex items-center gap-2">
+          <i data-lucide="map-pin" class="w-4 h-4"></i>
+          Find Your Local Health Department
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="bg-[#0f172a] text-white pt-16 pb-8">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-12">
+        <!-- Brand Column -->
+        <div>
+          <a href="index.html" class="flex items-center gap-2 mb-4">
+            <div class="w-10 h-10 bg-[#0d9488] rounded-lg flex items-center justify-center">
+              <i data-lucide="home" class="w-6 h-6 text-white"></i>
+            </div>
+            <span class="text-xl font-bold">Septic Systems HQ</span>
+          </a>
+          <p class="text-gray-400 text-sm leading-relaxed mb-6">
+            Your trusted resource for septic system information, maintenance guides, and expert advice.
+          </p>
+          <div class="flex gap-4">
+            <a href="#" class="w-10 h-10 bg-[#1e293b] rounded-lg flex items-center justify-center hover:bg-[#0d9488] transition-colors" aria-label="Facebook">
+              <i data-lucide="facebook" class="w-5 h-5"></i>
+            </a>
+            <a href="#" class="w-10 h-10 bg-[#1e293b] rounded-lg flex items-center justify-center hover:bg-[#0d9488] transition-colors" aria-label="Twitter">
+              <i data-lucide="twitter" class="w-5 h-5"></i>
+            </a>
+            <a href="#" class="w-10 h-10 bg-[#1e293b] rounded-lg flex items-center justify-center hover:bg-[#0d9488] transition-colors" aria-label="YouTube">
+              <i data-lucide="youtube" class="w-5 h-5"></i>
+            </a>
+          </div>
+        </div>
+        
+        <!-- Quick Links -->
+        <div>
+          <h3 class="text-lg font-semibold mb-4">Quick Links</h3>
+          <ul class="space-y-3">
+            <li>
+              <a href="index.html" class="text-gray-400 hover:text-[#0d9488] transition-colors text-sm">Home</a>
+            </li>
+            <li>
+              <a href="types.html" class="text-gray-400 hover:text-[#0d9488] transition-colors text-sm">Types of Systems</a>
+            </li>
+            <li>
+              <a href="maintenance.html" class="text-gray-400 hover:text-[#0d9488] transition-colors text-sm">Maintenance Guide</a>
+            </li>
+            <li>
+              <a href="problems.html" class="text-gray-400 hover:text-[#0d9488] transition-colors text-sm">Common Problems</a>
+            </li>
+            <li>
+              <a href="costs.html" class="text-gray-400 hover:text-[#0d9488] transition-colors text-sm">Cost Guides</a>
+            </li>
+          </ul>
+        </div>
+        
+        <!-- Resources -->
+        <div>
+          <h3 class="text-lg font-semibold mb-4">Resources</h3>
+          <ul class="space-y-3">
+            <li>
+              <a href="installation.html" class="text-gray-400 hover:text-[#0d9488] transition-colors text-sm">Installation Guide</a>
+            </li>
+            <li>
+              <a href="inspection.html" class="text-gray-400 hover:text-[#0d9488] transition-colors text-sm">Inspection Guide</a>
+            </li>
+            <li>
+              <a href="regulations.html" class="text-gray-400 hover:text-[#0d9488] transition-colors text-sm">Regulations</a>
+            </li>
+            <li>
+              <a href="faq.html" class="text-gray-400 hover:text-[#0d9488] transition-colors text-sm">FAQ</a>
+            </li>
+            <li>
+              <a href="glossary.html" class="text-gray-400 hover:text-[#0d9488] transition-colors text-sm">Glossary</a>
+            </li>
+          </ul>
+        </div>
+        
+        <!-- Legal -->
+        <div>
+          <h3 class="text-lg font-semibold mb-4">Legal</h3>
+          <ul class="space-y-3">
+            <li>
+              <a href="#" class="text-gray-400 hover:text-[#0d9488] transition-colors text-sm">Privacy Policy</a>
+            </li>
+            <li>
+              <a href="#" class="text-gray-400 hover:text-[#0d9488] transition-colors text-sm">Terms of Use</a>
+            </li>
+            <li>
+              <a href="#" class="text-gray-400 hover:text-[#0d9488] transition-colors text-sm">Disclaimer</a>
+            </li>
+            <li>
+              <a href="#" class="text-gray-400 hover:text-[#0d9488] transition-colors text-sm">Contact</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+      
+      <!-- Bottom Bar -->
+      <div class="border-t border-[#1e293b] pt-8">
+        <div class="flex flex-col md:flex-row justify-between items-center gap-4">
+          <p class="text-gray-500 text-sm">
+            &copy; 2024 Septic Systems HQ. All rights reserved.
+          </p>
+          <p class="text-gray-500 text-sm">
+            Information provided for educational purposes only.
+          </p>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Shared Scripts -->
+  <script src="shared/scripts.js"></script>
+  
+  <!-- Page-specific Scripts -->
+  <script>
+    // Initialize Lucide icons
+    document.addEventListener('DOMContentLoaded', function() {
+      lucide.createIcons();
+      
+      // Set active nav item
+      document.querySelectorAll('[data-nav]').forEach(link => {
+        link.classList.remove('active');
+        if (link.getAttribute('data-nav') === 'regulations') {
+          link.classList.add('active');
+        }
+      });
+      
+      // Initialize scroll animations
+      initScrollAnimations();
+    });
+    
+    // Scroll Animation Observer
+    function initScrollAnimations() {
+      const observerOptions = {
+        root: null,
+        rootMargin: '0px',
+        threshold: 0.1
+      };
+      
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('animated');
+            observer.unobserve(entry.target);
+          }
+        });
+      }, observerOptions);
+      
+      document.querySelectorAll('.scroll-animate, .regulation-card').forEach(el => {
+        observer.observe(el);
+      });
+    }
+    
+    // Mobile menu toggle
+    function toggleMobileMenu() {
+      const menu = document.getElementById('mobileMenu');
+      menu.classList.toggle('open');
+    }
+    
+    // State search functionality
+    function searchStates() {
+      const input = document.getElementById('stateSearch');
+      const filter = input.value.toLowerCase();
+      const table = document.getElementById('stateTable');
+      const rows = table.getElementsByTagName('tr');
+      const noResults = document.getElementById('noResults');
+      let visibleCount = 0;
+      
+      // Clear previous highlights
+      document.querySelectorAll('.highlight').forEach(el => {
+        const parent = el.parentNode;
+        parent.replaceChild(document.createTextNode(el.textContent), el);
+        parent.normalize();
+      });
+      
+      for (let i = 1; i < rows.length; i++) {
+        const cells = rows[i].getElementsByTagName('td');
+        let found = false;
+        
+        for (let j = 0; j < cells.length - 1; j++) {
+          const cell = cells[j];
+          const text = cell.textContent;
+          
+          if (text.toLowerCase().indexOf(filter) > -1) {
+            found = true;
+            
+            // Highlight matching text
+            if (filter.length > 0) {
+              const regex = new RegExp(`(${filter})`, 'gi');
+              cell.innerHTML = text.replace(regex, '<span class="highlight">$1</span>');
+            }
+          }
+        }
+        
+        if (found) {
+          rows[i].style.display = '';
+          visibleCount++;
+        } else {
+          rows[i].style.display = 'none';
+        }
+      }
+      
+      // Show/hide no results message
+      if (visibleCount === 0 && filter.length > 0) {
+        noResults.classList.add('visible');
+      } else {
+        noResults.classList.remove('visible');
+      }
+    }
+    
+    // Download checklist function
+    function downloadChecklist() {
+      // Create checklist content
+      const checklistContent = `
+SEPTIC SYSTEM COMPLIANCE CHECKLIST
+==================================
+
+Use this checklist to ensure your septic system meets all regulatory requirements.
+
+PERMITS & LICENSING
+-------------------
+[ ] All required permits obtained
+[ ] Licensed contractor used
+[ ] Inspections passed
+
+RECORDS & DOCUMENTATION
+-----------------------
+[ ] Records maintained
+[ ] System properly maintained
+[ ] Setbacks complied with
+
+ENVIRONMENTAL COMPLIANCE
+------------------------
+[ ] Minimum setbacks from wells (50-100 ft)
+[ ] Minimum setbacks from water bodies (50-100 ft)
+[ ] Soil percolation requirements met
+[ ] Maximum discharge limits complied with
+
+MAINTENANCE SCHEDULE
+--------------------
+[ ] Regular pumping (every 3-5 years)
+[ ] Annual inspection completed
+[ ] Repairs addressed promptly
+
+For more information, visit: https://septicsystemshq.com/regulations.html
+      `;
+      
+      // Create and download the file
+      const blob = new Blob([checklistContent], { type: 'text/plain' });
+      const url = window.URL.createObjectURL(blob);
+      const a = document.createElement('a');
+      a.href = url;
+      a.download = 'septic-compliance-checklist.txt';
+      document.body.appendChild(a);
+      a.click();
+      document.body.removeChild(a);
+      window.URL.revokeObjectURL(url);
+    }
+  </script>
+</body>
+</html>

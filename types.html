@@ -1,0 +1,1077 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Types of Septic Systems | Septic Systems HQ</title>
+  <meta name="description" content="Learn about different types of septic systems including conventional, chamber, drip distribution, mound, aerobic, and sand filter systems. Compare costs, maintenance, and treatment levels.">
+  
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  
+  <!-- Tailwind CSS v4 -->
+  <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+  
+  <!-- Lucide Icons -->
+  <script src="https://unpkg.com/lucide@latest"></script>
+  
+  <!-- Shared Styles -->
+  <link rel="stylesheet" href="shared/styles.css">
+  
+  <style>
+    /* Page-specific styles */
+    .hero-pattern {
+      background-image: radial-gradient(circle at 20% 80%, rgba(13, 148, 136, 0.1) 0%, transparent 50%),
+                        radial-gradient(circle at 80% 20%, rgba(42, 74, 115, 0.2) 0%, transparent 50%);
+    }
+    
+    .system-card {
+      opacity: 0;
+    }
+    
+    .system-card.animated {
+      opacity: 1;
+      animation: fadeInUp 0.6s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+    }
+    
+    .comparison-table {
+      opacity: 0;
+    }
+    
+    .comparison-table.animated {
+      opacity: 1;
+      animation: fadeIn 0.6s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+    }
+    
+    .resource-card {
+      opacity: 0;
+    }
+    
+    .resource-card.animated {
+      opacity: 1;
+      animation: fadeInUp 0.6s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+    }
+    
+    @keyframes fadeInUp {
+      from {
+        opacity: 0;
+        transform: translateY(30px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+    
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+      }
+      to {
+        opacity: 1;
+      }
+    }
+    
+    /* Table responsive */
+    .table-wrapper {
+      overflow-x: auto;
+      -webkit-overflow-scrolling: touch;
+    }
+    
+    /* Card hover effects */
+    .system-detail-card {
+      transition: all 0.35s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    }
+    
+    .system-detail-card:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 20px 25px -5px rgba(0,0,0,0.1), 0 8px 10px -6px rgba(0,0,0,0.1);
+    }
+    
+    /* Image container */
+    .system-image {
+      transition: transform 0.5s ease;
+    }
+    
+    .system-detail-card:hover .system-image {
+      transform: scale(1.02);
+    }
+  </style>
+</head>
+<body class="bg-white">
+  
+  <!-- Header/Navigation -->
+  <header class="fixed top-0 left-0 right-0 bg-white shadow-sm z-50" style="height: 72px;">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-full">
+      <div class="flex items-center justify-between h-full">
+        <!-- Logo -->
+        <a href="index.html" class="flex items-center gap-2">
+          <div class="w-10 h-10 bg-[#0d9488] rounded-lg flex items-center justify-center">
+            <i data-lucide="home" class="w-6 h-6 text-white"></i>
+          </div>
+          <span class="text-xl font-bold text-[#1e3a5f]">Septic Systems HQ</span>
+        </a>
+        
+        <!-- Desktop Navigation -->
+        <nav class="desktop-nav hidden lg:flex items-center gap-8">
+          <a href="index.html" class="nav-link flex items-center gap-1.5" data-nav="home">
+            <i data-lucide="home" class="w-4 h-4"></i>
+            <span>Home</span>
+          </a>
+          <a href="types.html" class="nav-link flex items-center gap-1.5 text-[#0d9488]" data-nav="types">
+            <i data-lucide="layers" class="w-4 h-4"></i>
+            <span>Types</span>
+          </a>
+          <a href="maintenance.html" class="nav-link flex items-center gap-1.5" data-nav="maintenance">
+            <i data-lucide="calendar-check" class="w-4 h-4"></i>
+            <span>Maintenance</span>
+          </a>
+          <a href="problems.html" class="nav-link flex items-center gap-1.5" data-nav="problems">
+            <i data-lucide="alert-triangle" class="w-4 h-4"></i>
+            <span>Problems</span>
+          </a>
+          <a href="costs.html" class="nav-link flex items-center gap-1.5" data-nav="costs">
+            <i data-lucide="dollar-sign" class="w-4 h-4"></i>
+            <span>Costs</span>
+          </a>
+          <a href="inspection.html" class="nav-link flex items-center gap-1.5" data-nav="inspection">
+            <i data-lucide="clipboard-check" class="w-4 h-4"></i>
+            <span>Inspection</span>
+          </a>
+          <a href="faq.html" class="nav-link flex items-center gap-1.5" data-nav="faq">
+            <i data-lucide="help-circle" class="w-4 h-4"></i>
+            <span>FAQ</span>
+          </a>
+        </nav>
+        
+        <!-- Mobile Menu Button -->
+        <button class="mobile-menu-btn lg:hidden p-2 rounded-lg hover:bg-gray-100 transition-colors" onclick="toggleMobileMenu()" aria-label="Toggle menu">
+          <i data-lucide="menu" class="w-6 h-6 text-[#475569]"></i>
+        </button>
+      </div>
+    </div>
+    
+    <!-- Mobile Menu -->
+    <div id="mobileMenu" class="mobile-menu lg:hidden">
+      <nav class="flex flex-col gap-2">
+        <a href="index.html" class="flex items-center gap-3 px-4 py-3 rounded-lg hover:bg-gray-50 text-[#475569] hover:text-[#0d9488] transition-colors">
+          <i data-lucide="home" class="w-5 h-5"></i>
+          <span>Home</span>
+        </a>
+        <a href="types.html" class="flex items-center gap-3 px-4 py-3 rounded-lg bg-[#ccfbf1] text-[#0d9488]">
+          <i data-lucide="layers" class="w-5 h-5"></i>
+          <span>Types</span>
+        </a>
+        <a href="maintenance.html" class="flex items-center gap-3 px-4 py-3 rounded-lg hover:bg-gray-50 text-[#475569] hover:text-[#0d9488] transition-colors">
+          <i data-lucide="calendar-check" class="w-5 h-5"></i>
+          <span>Maintenance</span>
+        </a>
+        <a href="problems.html" class="flex items-center gap-3 px-4 py-3 rounded-lg hover:bg-gray-50 text-[#475569] hover:text-[#0d9488] transition-colors">
+          <i data-lucide="alert-triangle" class="w-5 h-5"></i>
+          <span>Problems</span>
+        </a>
+        <a href="costs.html" class="flex items-center gap-3 px-4 py-3 rounded-lg hover:bg-gray-50 text-[#475569] hover:text-[#0d9488] transition-colors">
+          <i data-lucide="dollar-sign" class="w-5 h-5"></i>
+          <span>Costs</span>
+        </a>
+        <a href="inspection.html" class="flex items-center gap-3 px-4 py-3 rounded-lg hover:bg-gray-50 text-[#475569] hover:text-[#0d9488] transition-colors">
+          <i data-lucide="clipboard-check" class="w-5 h-5"></i>
+          <span>Inspection</span>
+        </a>
+        <a href="faq.html" class="flex items-center gap-3 px-4 py-3 rounded-lg hover:bg-gray-50 text-[#475569] hover:text-[#0d9488] transition-colors">
+          <i data-lucide="help-circle" class="w-5 h-5"></i>
+          <span>FAQ</span>
+        </a>
+      </nav>
+    </div>
+  </header>
+  
+  <!-- Spacer for fixed header -->
+  <div style="height: 72px;"></div>
+  
+  <!-- Section 2: Page Hero -->
+  <section class="bg-[#1e3a5f] text-white py-20 lg:py-28 hero-pattern relative overflow-hidden">
+    <div class="absolute inset-0 opacity-10">
+      <div class="absolute top-0 right-0 w-96 h-96 bg-[#0d9488] rounded-full blur-3xl transform translate-x-1/2 -translate-y-1/2"></div>
+      <div class="absolute bottom-0 left-0 w-64 h-64 bg-[#2a4a73] rounded-full blur-3xl transform -translate-x-1/2 translate-y-1/2"></div>
+    </div>
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+      <div class="max-w-3xl mx-auto text-center">
+        <nav class="flex items-center justify-center gap-2 text-sm text-gray-300 mb-6 animate-fadeInUp" style="animation-delay: 0s;">
+          <a href="index.html" class="hover:text-white transition-colors">Home</a>
+          <i data-lucide="chevron-right" class="w-4 h-4"></i>
+          <span class="text-white">Types of Septic Systems</span>
+        </nav>
+        <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 leading-tight animate-fadeInUp" style="animation-delay: 0.1s;">
+          Types of Septic Systems
+        </h1>
+        <p class="text-lg md:text-xl text-gray-300 leading-relaxed animate-fadeInUp" style="animation-delay: 0.2s;">
+          Compare different septic system types to find the best solution for your property. 
+          Learn about conventional, aerobic, mound, and alternative systems.
+        </p>
+      </div>
+    </div>
+  </section>
+  
+  <!-- Section 3: System Type Comparison Table -->
+  <section class="py-16 lg:py-24 bg-white">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-12">
+        <h2 class="text-3xl md:text-4xl font-bold text-[#1e293b] mb-4">System Comparison</h2>
+        <p class="text-lg text-[#64748b] max-w-2xl mx-auto">
+          Quick reference guide comparing all major septic system types across key factors.
+        </p>
+      </div>
+      
+      <div class="table-wrapper rounded-xl shadow-lg comparison-table scroll-animate" data-animation="fadeIn">
+        <table class="data-table min-w-full">
+          <thead>
+            <tr>
+              <th class="whitespace-nowrap">System Type</th>
+              <th class="whitespace-nowrap">Best For</th>
+              <th class="whitespace-nowrap">Cost Range</th>
+              <th class="whitespace-nowrap">Maintenance</th>
+              <th class="whitespace-nowrap">Treatment Level</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td class="font-semibold text-[#1e293b]">
+                <div class="flex items-center gap-2">
+                  <i data-lucide="check-circle" class="w-5 h-5 text-[#10b981]"></i>
+                  Conventional
+                </div>
+              </td>
+              <td>Standard soil conditions, flat terrain</td>
+              <td><span class="tag tag-success">$3,000 - $10,000</span></td>
+              <td>Low - Pump every 3-5 years</td>
+              <td><span class="tag tag-info">Basic</span></td>
+            </tr>
+            <tr>
+              <td class="font-semibold text-[#1e293b]">
+                <div class="flex items-center gap-2">
+                  <i data-lucide="box" class="w-5 h-5 text-[#0d9488]"></i>
+                  Chamber
+                </div>
+              </td>
+              <td>Areas with limited gravel access</td>
+              <td><span class="tag tag-success">$4,000 - $12,000</span></td>
+              <td>Low - Pump every 3-5 years</td>
+              <td><span class="tag tag-info">Basic</span></td>
+            </tr>
+            <tr>
+              <td class="font-semibold text-[#1e293b]">
+                <div class="flex items-center gap-2">
+                  <i data-lucide="droplets" class="w-5 h-5 text-[#3b82f6]"></i>
+                  Drip Distribution
+                </div>
+              </td>
+              <td>Shallow soils, uneven terrain</td>
+              <td><span class="tag tag-warning">$8,000 - $18,000</span></td>
+              <td>Moderate - Annual inspection</td>
+              <td><span class="tag tag-info">Enhanced</span></td>
+            </tr>
+            <tr>
+              <td class="font-semibold text-[#1e293b]">
+                <div class="flex items-center gap-2">
+                  <i data-lucide="mountain" class="w-5 h-5 text-[#f59e0b]"></i>
+                  Mound
+                </div>
+              </td>
+              <td>High water table, shallow bedrock</td>
+              <td><span class="tag tag-warning">$10,000 - $25,000</span></td>
+              <td>Moderate - Pump + inspection</td>
+              <td><span class="tag tag-info">Enhanced</span></td>
+            </tr>
+            <tr>
+              <td class="font-semibold text-[#1e293b]">
+                <div class="flex items-center gap-2">
+                  <i data-lucide="wind" class="w-5 h-5 text-[#8b5cf6]"></i>
+                  Aerobic (ATU)
+                </div>
+              </td>
+              <td>Poor soil, small lots, high treatment needs</td>
+              <td><span class="tag tag-warning">$10,000 - $20,000</span></td>
+              <td>High - Quarterly inspections</td>
+              <td><span class="tag tag-success">Advanced</span></td>
+            </tr>
+            <tr>
+              <td class="font-semibold text-[#1e293b]">
+                <div class="flex items-center gap-2">
+                  <i data-lucide="filter" class="w-5 h-5 text-[#ec4899]"></i>
+                  Sand Filter
+                </div>
+              </td>
+              <td>High treatment requirements, sensitive areas</td>
+              <td><span class="tag tag-warning">$12,000 - $25,000</span></td>
+              <td>High - Regular monitoring</td>
+              <td><span class="tag tag-success">Advanced</span></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+  
+  <!-- Section 4: Detailed System Cards -->
+  <section class="py-16 lg:py-24 bg-[#f8fafc]">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-16">
+        <h2 class="text-3xl md:text-4xl font-bold text-[#1e293b] mb-4">Detailed System Information</h2>
+        <p class="text-lg text-[#64748b] max-w-2xl mx-auto">
+          In-depth guides for each septic system type including how they work, pros and cons, and ideal applications.
+        </p>
+      </div>
+      
+      <!-- System Cards Stack -->
+      <div class="space-y-12">
+        
+        <!-- Conventional System -->
+        <article class="system-detail-card bg-white rounded-2xl shadow-lg overflow-hidden system-card scroll-animate" data-animation="fadeInUp" data-delay="0">
+          <div class="grid lg:grid-cols-2 gap-0">
+            <div class="p-8 lg:p-12">
+              <div class="flex items-center gap-3 mb-4">
+                <div class="w-12 h-12 bg-[#d1fae5] rounded-xl flex items-center justify-center">
+                  <i data-lucide="check-circle" class="w-6 h-6 text-[#10b981]"></i>
+                </div>
+                <span class="tag tag-success">Most Common</span>
+              </div>
+              <h3 class="text-2xl lg:text-3xl font-bold text-[#1e293b] mb-4">Conventional System</h3>
+              <p class="text-[#64748b] mb-6 leading-relaxed">
+                The most widely used septic system, consisting of a septic tank and a subsurface drainage field. 
+                Wastewater flows by gravity from the tank to the leach field where natural soil treatment occurs.
+              </p>
+              
+              <div class="grid sm:grid-cols-2 gap-4 mb-6">
+                <div class="flex items-start gap-3">
+                  <i data-lucide="plus-circle" class="w-5 h-5 text-[#10b981] flex-shrink-0 mt-0.5"></i>
+                  <div>
+                    <span class="font-semibold text-[#1e293b] block">Lowest Cost</span>
+                    <span class="text-sm text-[#64748b]">Most affordable option</span>
+                  </div>
+                </div>
+                <div class="flex items-start gap-3">
+                  <i data-lucide="plus-circle" class="w-5 h-5 text-[#10b981] flex-shrink-0 mt-0.5"></i>
+                  <div>
+                    <span class="font-semibold text-[#1e293b] block">Simple Design</span>
+                    <span class="text-sm text-[#64748b]">Fewer components to fail</span>
+                  </div>
+                </div>
+                <div class="flex items-start gap-3">
+                  <i data-lucide="minus-circle" class="w-5 h-5 text-[#ef4444] flex-shrink-0 mt-0.5"></i>
+                  <div>
+                    <span class="font-semibold text-[#1e293b] block">Requires Space</span>
+                    <span class="text-sm text-[#64748b]">Large drain field needed</span>
+                  </div>
+                </div>
+                <div class="flex items-start gap-3">
+                  <i data-lucide="minus-circle" class="w-5 h-5 text-[#ef4444] flex-shrink-0 mt-0.5"></i>
+                  <div>
+                    <span class="font-semibold text-[#1e293b] block">Soil Dependent</span>
+                    <span class="text-sm text-[#64748b]">Needs permeable soil</span>
+                  </div>
+                </div>
+              </div>
+              
+              <div class="flex flex-wrap gap-3">
+                <span class="inline-flex items-center gap-1.5 px-3 py-1.5 bg-[#f1f5f9] rounded-full text-sm text-[#475569]">
+                  <i data-lucide="home" class="w-4 h-4"></i>
+                  Single-family homes
+                </span>
+                <span class="inline-flex items-center gap-1.5 px-3 py-1.5 bg-[#f1f5f9] rounded-full text-sm text-[#475569]">
+                  <i data-lucide="map-pin" class="w-4 h-4"></i>
+                  Rural properties
+                </span>
+              </div>
+            </div>
+            <div class="bg-[#f8fafc] p-8 lg:p-12 flex items-center justify-center">
+              <img src="images/conventional-system.jpg" alt="Conventional septic system diagram showing tank and leach field" class="system-image rounded-xl shadow-md max-w-full h-auto" loading="lazy">
+            </div>
+          </div>
+        </article>
+        
+        <!-- Chamber System -->
+        <article class="system-detail-card bg-white rounded-2xl shadow-lg overflow-hidden system-card scroll-animate" data-animation="fadeInUp" data-delay="200">
+          <div class="grid lg:grid-cols-2 gap-0">
+            <div class="p-8 lg:p-12">
+              <div class="flex items-center gap-3 mb-4">
+                <div class="w-12 h-12 bg-[#ccfbf1] rounded-xl flex items-center justify-center">
+                  <i data-lucide="box" class="w-6 h-6 text-[#0d9488]"></i>
+                </div>
+                <span class="tag tag-info">Gravelless</span>
+              </div>
+              <h3 class="text-2xl lg:text-3xl font-bold text-[#1e293b] mb-4">Chamber System</h3>
+              <p class="text-[#64748b] mb-6 leading-relaxed">
+                A gravelless drain field system using plastic chambers instead of traditional gravel trenches. 
+                The open-bottom chambers provide storage and infiltration area for effluent.
+              </p>
+              
+              <div class="grid sm:grid-cols-2 gap-4 mb-6">
+                <div class="flex items-start gap-3">
+                  <i data-lucide="plus-circle" class="w-5 h-5 text-[#10b981] flex-shrink-0 mt-0.5"></i>
+                  <div>
+                    <span class="font-semibold text-[#1e293b] block">Easy Installation</span>
+                    <span class="text-sm text-[#64748b]">No gravel required</span>
+                  </div>
+                </div>
+                <div class="flex items-start gap-3">
+                  <i data-lucide="plus-circle" class="w-5 h-5 text-[#10b981] flex-shrink-0 mt-0.5"></i>
+                  <div>
+                    <span class="font-semibold text-[#1e293b] block">More Efficient</span>
+                    <span class="text-sm text-[#64748b]">Larger infiltration area</span>
+                  </div>
+                </div>
+                <div class="flex items-start gap-3">
+                  <i data-lucide="minus-circle" class="w-5 h-5 text-[#ef4444] flex-shrink-0 mt-0.5"></i>
+                  <div>
+                    <span class="font-semibold text-[#1e293b] block">Plastic Components</span>
+                    <span class="text-sm text-[#64748b]">Long-term durability concerns</span>
+                  </div>
+                </div>
+                <div class="flex items-start gap-3">
+                  <i data-lucide="minus-circle" class="w-5 h-5 text-[#ef4444] flex-shrink-0 mt-0.5"></i>
+                  <div>
+                    <span class="font-semibold text-[#1e293b] block">Higher Material Cost</span>
+                    <span class="text-sm text-[#64748b]">Specialized chambers</span>
+                  </div>
+                </div>
+              </div>
+              
+              <div class="flex flex-wrap gap-3">
+                <span class="inline-flex items-center gap-1.5 px-3 py-1.5 bg-[#f1f5f9] rounded-full text-sm text-[#475569]">
+                  <i data-lucide="truck" class="w-4 h-4"></i>
+                  Remote locations
+                </span>
+                <span class="inline-flex items-center gap-1.5 px-3 py-1.5 bg-[#f1f5f9] rounded-full text-sm text-[#475569]">
+                  <i data-lucide="zap" class="w-4 h-4"></i>
+                  Fast installation
+                </span>
+              </div>
+            </div>
+            <div class="bg-[#f8fafc] p-8 lg:p-12 flex items-center justify-center">
+              <img src="images/chamber-system.jpg" alt="Chamber system with plastic leach field chambers" class="system-image rounded-xl shadow-md max-w-full h-auto" loading="lazy">
+            </div>
+          </div>
+        </article>
+        
+        <!-- Drip Distribution -->
+        <article class="system-detail-card bg-white rounded-2xl shadow-lg overflow-hidden system-card scroll-animate" data-animation="fadeInUp" data-delay="400">
+          <div class="grid lg:grid-cols-2 gap-0">
+            <div class="p-8 lg:p-12">
+              <div class="flex items-center gap-3 mb-4">
+                <div class="w-12 h-12 bg-[#dbeafe] rounded-xl flex items-center justify-center">
+                  <i data-lucide="droplets" class="w-6 h-6 text-[#3b82f6]"></i>
+                </div>
+                <span class="tag tag-info">Pressure System</span>
+              </div>
+              <h3 class="text-2xl lg:text-3xl font-bold text-[#1e293b] mb-4">Drip Distribution</h3>
+              <p class="text-[#64748b] mb-6 leading-relaxed">
+                Uses pressure distribution to deliver effluent through small-diameter tubing at shallow depths. 
+                Ideal for sites with shallow soils or irregular terrain where conventional systems won't work.
+              </p>
+              
+              <div class="grid sm:grid-cols-2 gap-4 mb-6">
+                <div class="flex items-start gap-3">
+                  <i data-lucide="plus-circle" class="w-5 h-5 text-[#10b981] flex-shrink-0 mt-0.5"></i>
+                  <div>
+                    <span class="font-semibold text-[#1e293b] block">Shallow Installation</span>
+                    <span class="text-sm text-[#64748b]">Works in shallow soils</span>
+                  </div>
+                </div>
+                <div class="flex items-start gap-3">
+                  <i data-lucide="plus-circle" class="w-5 h-5 text-[#10b981] flex-shrink-0 mt-0.5"></i>
+                  <div>
+                    <span class="font-semibold text-[#1e293b] block">Even Distribution</span>
+                    <span class="text-sm text-[#64748b]">Pressure ensures uniformity</span>
+                  </div>
+                </div>
+                <div class="flex items-start gap-3">
+                  <i data-lucide="minus-circle" class="w-5 h-5 text-[#ef4444] flex-shrink-0 mt-0.5"></i>
+                  <div>
+                    <span class="font-semibold text-[#1e293b] block">Requires Power</span>
+                    <span class="text-sm text-[#64748b]">Pump needs electricity</span>
+                  </div>
+                </div>
+                <div class="flex items-start gap-3">
+                  <i data-lucide="minus-circle" class="w-5 h-5 text-[#ef4444] flex-shrink-0 mt-0.5"></i>
+                  <div>
+                    <span class="font-semibold text-[#1e293b] block">Clogging Risk</span>
+                    <span class="text-sm text-[#64748b]">Small emitters can clog</span>
+                  </div>
+                </div>
+              </div>
+              
+              <div class="flex flex-wrap gap-3">
+                <span class="inline-flex items-center gap-1.5 px-3 py-1.5 bg-[#f1f5f9] rounded-full text-sm text-[#475569]">
+                  <i data-lucide="mountain-snow" class="w-4 h-4"></i>
+                  Shallow bedrock
+                </span>
+                <span class="inline-flex items-center gap-1.5 px-3 py-1.5 bg-[#f1f5f9] rounded-full text-sm text-[#475569]">
+                  <i data-lucide="trees" class="w-4 h-4"></i>
+                  Wooded areas
+                </span>
+              </div>
+            </div>
+            <div class="bg-[#f8fafc] p-8 lg:p-12 flex items-center justify-center">
+              <img src="images/drip-distribution-system.jpg" alt="Drip distribution septic system with pressure lines" class="system-image rounded-xl shadow-md max-w-full h-auto" loading="lazy">
+            </div>
+          </div>
+        </article>
+        
+        <!-- Mound System -->
+        <article class="system-detail-card bg-white rounded-2xl shadow-lg overflow-hidden system-card scroll-animate" data-animation="fadeInUp" data-delay="600">
+          <div class="grid lg:grid-cols-2 gap-0">
+            <div class="p-8 lg:p-12">
+              <div class="flex items-center gap-3 mb-4">
+                <div class="w-12 h-12 bg-[#fef3c7] rounded-xl flex items-center justify-center">
+                  <i data-lucide="mountain" class="w-6 h-6 text-[#f59e0b]"></i>
+                </div>
+                <span class="tag tag-warning">Raised Bed</span>
+              </div>
+              <h3 class="text-2xl lg:text-3xl font-bold text-[#1e293b] mb-4">Mound System</h3>
+              <p class="text-[#64748b] mb-6 leading-relaxed">
+                A raised drain field built above the natural soil surface using sand fill. 
+                Used when there's a high water table, shallow bedrock, or poor soil permeability.
+              </p>
+              
+              <div class="grid sm:grid-cols-2 gap-4 mb-6">
+                <div class="flex items-start gap-3">
+                  <i data-lucide="plus-circle" class="w-5 h-5 text-[#10b981] flex-shrink-0 mt-0.5"></i>
+                  <div>
+                    <span class="font-semibold text-[#1e293b] block">Works Anywhere</span>
+                    <span class="text-sm text-[#64748b]">Overcomes poor soil</span>
+                  </div>
+                </div>
+                <div class="flex items-start gap-3">
+                  <i data-lucide="plus-circle" class="w-5 h-5 text-[#10b981] flex-shrink-0 mt-0.5"></i>
+                  <div>
+                    <span class="font-semibold text-[#1e293b] block">Visible Access</span>
+                    <span class="text-sm text-[#64748b]">Easy to inspect</span>
+                  </div>
+                </div>
+                <div class="flex items-start gap-3">
+                  <i data-lucide="minus-circle" class="w-5 h-5 text-[#ef4444] flex-shrink-0 mt-0.5"></i>
+                  <div>
+                    <span class="font-semibold text-[#1e293b] block">High Cost</span>
+                    <span class="text-sm text-[#64748b]">Most expensive option</span>
+                  </div>
+                </div>
+                <div class="flex items-start gap-3">
+                  <i data-lucide="minus-circle" class="w-5 h-5 text-[#ef4444] flex-shrink-0 mt-0.5"></i>
+                  <div>
+                    <span class="font-semibold text-[#1e293b] block">Visual Impact</span>
+                    <span class="text-sm text-[#64748b]">Large visible mound</span>
+                  </div>
+                </div>
+              </div>
+              
+              <div class="flex flex-wrap gap-3">
+                <span class="inline-flex items-center gap-1.5 px-3 py-1.5 bg-[#f1f5f9] rounded-full text-sm text-[#475569]">
+                  <i data-lucide="waves" class="w-4 h-4"></i>
+                  High water table
+                </span>
+                <span class="inline-flex items-center gap-1.5 px-3 py-1.5 bg-[#f1f5f9] rounded-full text-sm text-[#475569]">
+                  <i data-lucide="gem" class="w-4 h-4"></i>
+                  Shallow bedrock
+                </span>
+              </div>
+            </div>
+            <div class="bg-[#f8fafc] p-8 lg:p-12 flex items-center justify-center">
+              <img src="images/mound-system.jpg" alt="Mound septic system with raised sand bed" class="system-image rounded-xl shadow-md max-w-full h-auto" loading="lazy">
+            </div>
+          </div>
+        </article>
+        
+        <!-- Aerobic Treatment Unit -->
+        <article class="system-detail-card bg-white rounded-2xl shadow-lg overflow-hidden system-card scroll-animate" data-animation="fadeInUp" data-delay="800">
+          <div class="grid lg:grid-cols-2 gap-0">
+            <div class="p-8 lg:p-12">
+              <div class="flex items-center gap-3 mb-4">
+                <div class="w-12 h-12 bg-[#ede9fe] rounded-xl flex items-center justify-center">
+                  <i data-lucide="wind" class="w-6 h-6 text-[#8b5cf6]"></i>
+                </div>
+                <span class="tag tag-success">Advanced Treatment</span>
+              </div>
+              <h3 class="text-2xl lg:text-3xl font-bold text-[#1e293b] mb-4">Aerobic Treatment Unit (ATU)</h3>
+              <p class="text-[#64748b] mb-6 leading-relaxed">
+                Uses oxygen injection to promote aerobic bacteria growth, providing advanced wastewater treatment. 
+                Produces cleaner effluent suitable for sensitive environments or small lots.
+              </p>
+              
+              <div class="grid sm:grid-cols-2 gap-4 mb-6">
+                <div class="flex items-start gap-3">
+                  <i data-lucide="plus-circle" class="w-5 h-5 text-[#10b981] flex-shrink-0 mt-0.5"></i>
+                  <div>
+                    <span class="font-semibold text-[#1e293b] block">Superior Treatment</span>
+                    <span class="text-sm text-[#64748b]">90%+ pollutant removal</span>
+                  </div>
+                </div>
+                <div class="flex items-start gap-3">
+                  <i data-lucide="plus-circle" class="w-5 h-5 text-[#10b981] flex-shrink-0 mt-0.5"></i>
+                  <div>
+                    <span class="font-semibold text-[#1e293b] block">Small Footprint</span>
+                    <span class="text-sm text-[#64748b]">Works on small lots</span>
+                  </div>
+                </div>
+                <div class="flex items-start gap-3">
+                  <i data-lucide="minus-circle" class="w-5 h-5 text-[#ef4444] flex-shrink-0 mt-0.5"></i>
+                  <div>
+                    <span class="font-semibold text-[#1e293b] block">High Maintenance</span>
+                    <span class="text-sm text-[#64748b]">Quarterly inspections</span>
+                  </div>
+                </div>
+                <div class="flex items-start gap-3">
+                  <i data-lucide="minus-circle" class="w-5 h-5 text-[#ef4444] flex-shrink-0 mt-0.5"></i>
+                  <div>
+                    <span class="font-semibold text-[#1e293b] block">Depends on Power</span>
+                    <span class="text-sm text-[#64748b]">Needs electricity 24/7</span>
+                  </div>
+                </div>
+              </div>
+              
+              <div class="flex flex-wrap gap-3">
+                <span class="inline-flex items-center gap-1.5 px-3 py-1.5 bg-[#f1f5f9] rounded-full text-sm text-[#475569]">
+                  <i data-lucide="maximize" class="w-4 h-4"></i>
+                  Small lots
+                </span>
+                <span class="inline-flex items-center gap-1.5 px-3 py-1.5 bg-[#f1f5f9] rounded-full text-sm text-[#475569]">
+                  <i data-lucide="shield" class="w-4 h-4"></i>
+                  Sensitive areas
+                </span>
+              </div>
+            </div>
+            <div class="bg-[#f8fafc] p-8 lg:p-12 flex items-center justify-center">
+              <img src="images/aerobic-system.jpg" alt="Aerobic treatment unit with oxygen injection components" class="system-image rounded-xl shadow-md max-w-full h-auto" loading="lazy">
+            </div>
+          </div>
+        </article>
+        
+        <!-- Recirculating Sand Filter -->
+        <article class="system-detail-card bg-white rounded-2xl shadow-lg overflow-hidden system-card scroll-animate" data-animation="fadeInUp" data-delay="1000">
+          <div class="grid lg:grid-cols-2 gap-0">
+            <div class="p-8 lg:p-12">
+              <div class="flex items-center gap-3 mb-4">
+                <div class="w-12 h-12 bg-[#fce7f3] rounded-xl flex items-center justify-center">
+                  <i data-lucide="filter" class="w-6 h-6 text-[#ec4899]"></i>
+                </div>
+                <span class="tag tag-success">High-Level Treatment</span>
+              </div>
+              <h3 class="text-2xl lg:text-3xl font-bold text-[#1e293b] mb-4">Recirculating Sand Filter</h3>
+              <p class="text-[#64748b] mb-6 leading-relaxed">
+                Uses a bed of sand to filter and treat effluent through biological and physical processes. 
+                Effluent is recirculated through the sand multiple times for enhanced treatment.
+              </p>
+              
+              <div class="grid sm:grid-cols-2 gap-4 mb-6">
+                <div class="flex items-start gap-3">
+                  <i data-lucide="plus-circle" class="w-5 h-5 text-[#10b981] flex-shrink-0 mt-0.5"></i>
+                  <div>
+                    <span class="font-semibold text-[#1e293b] block">Excellent Quality</span>
+                    <span class="text-sm text-[#64748b]">High treatment level</span>
+                  </div>
+                </div>
+                <div class="flex items-start gap-3">
+                  <i data-lucide="plus-circle" class="w-5 h-5 text-[#10b981] flex-shrink-0 mt-0.5"></i>
+                  <div>
+                    <span class="font-semibold text-[#1e293b] block">Long Lifespan</span>
+                    <span class="text-sm text-[#64748b]">20+ years with care</span>
+                  </div>
+                </div>
+                <div class="flex items-start gap-3">
+                  <i data-lucide="minus-circle" class="w-5 h-5 text-[#ef4444] flex-shrink-0 mt-0.5"></i>
+                  <div>
+                    <span class="font-semibold text-[#1e293b] block">Large Space</span>
+                    <span class="text-sm text-[#64748b]">Requires filter bed area</span>
+                  </div>
+                </div>
+                <div class="flex items-start gap-3">
+                  <i data-lucide="minus-circle" class="w-5 h-5 text-[#ef4444] flex-shrink-0 mt-0.5"></i>
+                  <div>
+                    <span class="font-semibold text-[#1e293b] block">Complex System</span>
+                    <span class="text-sm text-[#64748b]">More parts to maintain</span>
+                  </div>
+                </div>
+              </div>
+              
+              <div class="flex flex-wrap gap-3">
+                <span class="inline-flex items-center gap-1.5 px-3 py-1.5 bg-[#f1f5f9] rounded-full text-sm text-[#475569]">
+                  <i data-lucide="leaf" class="w-4 h-4"></i>
+                  Near water bodies
+                </span>
+                <span class="inline-flex items-center gap-1.5 px-3 py-1.5 bg-[#f1f5f9] rounded-full text-sm text-[#475569]">
+                  <i data-lucide="award" class="w-4 h-4"></i>
+                  Strict regulations
+                </span>
+              </div>
+            </div>
+            <div class="bg-[#f8fafc] p-8 lg:p-12 flex items-center justify-center">
+              <img src="images/sand-filter-system.jpg" alt="Recirculating sand filter system diagram" class="system-image rounded-xl shadow-md max-w-full h-auto" loading="lazy">
+            </div>
+          </div>
+        </article>
+        
+      </div>
+    </div>
+  </section>
+  
+  <!-- Section 5: Decision Guide -->
+  <section class="py-16 lg:py-24 bg-[#ccfbf1] scroll-animate" data-animation="fadeIn">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="max-w-4xl mx-auto">
+        <div class="text-center mb-12">
+          <div class="inline-flex items-center gap-2 px-4 py-2 bg-[#0d9488] rounded-full text-white text-sm font-medium mb-4">
+            <i data-lucide="help-circle" class="w-4 h-4"></i>
+            Need Help Deciding?
+          </div>
+          <h2 class="text-3xl md:text-4xl font-bold text-[#1e293b] mb-4">Which System is Right for You?</h2>
+          <p class="text-lg text-[#475569]">
+            Consider these key factors when choosing a septic system for your property.
+          </p>
+        </div>
+        
+        <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+          <!-- Factor 1 -->
+          <div class="bg-white rounded-xl p-6 shadow-md">
+            <div class="w-12 h-12 bg-[#dbeafe] rounded-lg flex items-center justify-center mb-4">
+              <i data-lucide="map-pin" class="w-6 h-6 text-[#3b82f6]"></i>
+            </div>
+            <h3 class="text-lg font-semibold text-[#1e293b] mb-2">Soil Conditions</h3>
+            <p class="text-[#64748b] text-sm mb-4">
+              Have a percolation test done to determine soil drainage capacity.
+            </p>
+            <ul class="space-y-2 text-sm">
+              <li class="flex items-center gap-2">
+                <i data-lucide="check" class="w-4 h-4 text-[#10b981]"></i>
+                <span class="text-[#475569]">Good drainage: Conventional</span>
+              </li>
+              <li class="flex items-center gap-2">
+                <i data-lucide="check" class="w-4 h-4 text-[#10b981]"></i>
+                <span class="text-[#475569]">Poor drainage: ATU or Sand Filter</span>
+              </li>
+            </ul>
+          </div>
+          
+          <!-- Factor 2 -->
+          <div class="bg-white rounded-xl p-6 shadow-md">
+            <div class="w-12 h-12 bg-[#fef3c7] rounded-lg flex items-center justify-center mb-4">
+              <i data-lucide="ruler" class="w-6 h-6 text-[#f59e0b]"></i>
+            </div>
+            <h3 class="text-lg font-semibold text-[#1e293b] mb-2">Lot Size</h3>
+            <p class="text-[#64748b] text-sm mb-4">
+              Available space determines which systems can be installed.
+            </p>
+            <ul class="space-y-2 text-sm">
+              <li class="flex items-center gap-2">
+                <i data-lucide="check" class="w-4 h-4 text-[#10b981]"></i>
+                <span class="text-[#475569]">Large lot: Any system</span>
+              </li>
+              <li class="flex items-center gap-2">
+                <i data-lucide="check" class="w-4 h-4 text-[#10b981]"></i>
+                <span class="text-[#475569]">Small lot: ATU or Drip</span>
+              </li>
+            </ul>
+          </div>
+          
+          <!-- Factor 3 -->
+          <div class="bg-white rounded-xl p-6 shadow-md">
+            <div class="w-12 h-12 bg-[#d1fae5] rounded-lg flex items-center justify-center mb-4">
+              <i data-lucide="droplet" class="w-6 h-6 text-[#10b981]"></i>
+            </div>
+            <h3 class="text-lg font-semibold text-[#1e293b] mb-2">Water Table</h3>
+            <p class="text-[#64748b] text-sm mb-4">
+              High groundwater limits conventional system options.
+            </p>
+            <ul class="space-y-2 text-sm">
+              <li class="flex items-center gap-2">
+                <i data-lucide="check" class="w-4 h-4 text-[#10b981]"></i>
+                <span class="text-[#475569]">Deep water: Conventional</span>
+              </li>
+              <li class="flex items-center gap-2">
+                <i data-lucide="check" class="w-4 h-4 text-[#10b981]"></i>
+                <span class="text-[#475569]">High water: Mound System</span>
+              </li>
+            </ul>
+          </div>
+          
+          <!-- Factor 4 -->
+          <div class="bg-white rounded-xl p-6 shadow-md">
+            <div class="w-12 h-12 bg-[#ede9fe] rounded-lg flex items-center justify-center mb-4">
+              <i data-lucide="dollar-sign" class="w-6 h-6 text-[#8b5cf6]"></i>
+            </div>
+            <h3 class="text-lg font-semibold text-[#1e293b] mb-2">Budget</h3>
+            <p class="text-[#64748b] text-sm mb-4">
+              Installation and long-term maintenance costs vary significantly.
+            </p>
+            <ul class="space-y-2 text-sm">
+              <li class="flex items-center gap-2">
+                <i data-lucide="check" class="w-4 h-4 text-[#10b981]"></i>
+                <span class="text-[#475569]">Low budget: Conventional</span>
+              </li>
+              <li class="flex items-center gap-2">
+                <i data-lucide="check" class="w-4 h-4 text-[#10b981]"></i>
+                <span class="text-[#475569]">Higher budget: Advanced systems</span>
+              </li>
+            </ul>
+          </div>
+          
+          <!-- Factor 5 -->
+          <div class="bg-white rounded-xl p-6 shadow-md">
+            <div class="w-12 h-12 bg-[#fee2e2] rounded-lg flex items-center justify-center mb-4">
+              <i data-lucide="file-text" class="w-6 h-6 text-[#ef4444]"></i>
+            </div>
+            <h3 class="text-lg font-semibold text-[#1e293b] mb-2">Local Regulations</h3>
+            <p class="text-[#64748b] text-sm mb-4">
+              Some areas require specific system types for environmental protection.
+            </p>
+            <ul class="space-y-2 text-sm">
+              <li class="flex items-center gap-2">
+                <i data-lucide="check" class="w-4 h-4 text-[#10b981]"></i>
+                <span class="text-[#475569]">Check local health department</span>
+              </li>
+              <li class="flex items-center gap-2">
+                <i data-lucide="check" class="w-4 h-4 text-[#10b981]"></i>
+                <span class="text-[#475569]">Obtain required permits</span>
+              </li>
+            </ul>
+          </div>
+          
+          <!-- Factor 6 -->
+          <div class="bg-white rounded-xl p-6 shadow-md">
+            <div class="w-12 h-12 bg-[#ccfbf1] rounded-lg flex items-center justify-center mb-4">
+              <i data-lucide="wrench" class="w-6 h-6 text-[#0d9488]"></i>
+            </div>
+            <h3 class="text-lg font-semibold text-[#1e293b] mb-2">Maintenance</h3>
+            <p class="text-[#64748b] text-sm mb-4">
+              Consider your willingness to perform regular system maintenance.
+            </p>
+            <ul class="space-y-2 text-sm">
+              <li class="flex items-center gap-2">
+                <i data-lucide="check" class="w-4 h-4 text-[#10b981]"></i>
+                <span class="text-[#475569]">Low maintenance: Conventional</span>
+              </li>
+              <li class="flex items-center gap-2">
+                <i data-lucide="check" class="w-4 h-4 text-[#10b981]"></i>
+                <span class="text-[#475569]">OK with maintenance: ATU</span>
+              </li>
+            </ul>
+          </div>
+        </div>
+        
+        <div class="mt-12 text-center">
+          <p class="text-[#475569] mb-4">
+            Still unsure? Consult with a licensed septic professional for a site evaluation.
+          </p>
+          <a href="installation.html" class="btn-primary inline-flex">
+            <i data-lucide="arrow-right" class="w-5 h-5"></i>
+            Find a Contractor
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+  
+  <!-- Section 6: Related Resources -->
+  <section class="py-16 lg:py-24 bg-white">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-12">
+        <h2 class="text-3xl md:text-4xl font-bold text-[#1e293b] mb-4">Related Resources</h2>
+        <p class="text-lg text-[#64748b] max-w-2xl mx-auto">
+          Explore more guides to help you understand and maintain your septic system.
+        </p>
+      </div>
+      
+      <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <!-- Resource 1 -->
+        <a href="installation.html" class="resource-card feature-card scroll-animate" data-animation="fadeInUp" data-delay="0">
+          <div class="w-14 h-14 bg-[#dbeafe] rounded-xl flex items-center justify-center mb-6">
+            <i data-lucide="hard-hat" class="w-7 h-7 text-[#3b82f6]"></i>
+          </div>
+          <h3 class="text-xl font-semibold text-[#1e293b] mb-3">Installation Guide</h3>
+          <p class="text-[#64748b] mb-4 leading-relaxed">
+            Learn about the complete septic installation process, from site evaluation to final inspection.
+          </p>
+          <span class="inline-flex items-center gap-2 text-[#0d9488] font-medium">
+            Read Guide
+            <i data-lucide="arrow-right" class="w-4 h-4"></i>
+          </span>
+        </a>
+        
+        <!-- Resource 2 -->
+        <a href="maintenance.html" class="resource-card feature-card scroll-animate" data-animation="fadeInUp" data-delay="150">
+          <div class="w-14 h-14 bg-[#d1fae5] rounded-xl flex items-center justify-center mb-6">
+            <i data-lucide="calendar-check" class="w-7 h-7 text-[#10b981]"></i>
+          </div>
+          <h3 class="text-xl font-semibold text-[#1e293b] mb-3">Maintenance Schedule</h3>
+          <p class="text-[#64748b] mb-4 leading-relaxed">
+            Keep your system running smoothly with our comprehensive maintenance checklist and schedule.
+          </p>
+          <span class="inline-flex items-center gap-2 text-[#0d9488] font-medium">
+            View Schedule
+            <i data-lucide="arrow-right" class="w-4 h-4"></i>
+          </span>
+        </a>
+        
+        <!-- Resource 3 -->
+        <a href="costs.html" class="resource-card feature-card scroll-animate" data-animation="fadeInUp" data-delay="300">
+          <div class="w-14 h-14 bg-[#fef3c7] rounded-xl flex items-center justify-center mb-6">
+            <i data-lucide="calculator" class="w-7 h-7 text-[#f59e0b]"></i>
+          </div>
+          <h3 class="text-xl font-semibold text-[#1e293b] mb-3">Cost Calculator</h3>
+          <p class="text-[#64748b] mb-4 leading-relaxed">
+            Estimate installation, maintenance, and repair costs for different septic system types.
+          </p>
+          <span class="inline-flex items-center gap-2 text-[#0d9488] font-medium">
+            Calculate Costs
+            <i data-lucide="arrow-right" class="w-4 h-4"></i>
+          </span>
+        </a>
+      </div>
+    </div>
+  </section>
+  
+  <!-- Footer -->
+  <footer class="bg-[#0f172a] text-white pt-16 pb-8">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-12">
+        <!-- Brand Column -->
+        <div>
+          <a href="index.html" class="flex items-center gap-2 mb-4">
+            <div class="w-10 h-10 bg-[#0d9488] rounded-lg flex items-center justify-center">
+              <i data-lucide="home" class="w-6 h-6 text-white"></i>
+            </div>
+            <span class="text-xl font-bold">Septic Systems HQ</span>
+          </a>
+          <p class="text-gray-400 text-sm leading-relaxed mb-6">
+            Your trusted resource for septic system information, maintenance guides, and expert advice.
+          </p>
+          <div class="flex gap-4">
+            <a href="#" class="w-10 h-10 bg-[#1e293b] rounded-lg flex items-center justify-center hover:bg-[#0d9488] transition-colors" aria-label="Facebook">
+              <i data-lucide="facebook" class="w-5 h-5"></i>
+            </a>
+            <a href="#" class="w-10 h-10 bg-[#1e293b] rounded-lg flex items-center justify-center hover:bg-[#0d9488] transition-colors" aria-label="Twitter">
+              <i data-lucide="twitter" class="w-5 h-5"></i>
+            </a>
+            <a href="#" class="w-10 h-10 bg-[#1e293b] rounded-lg flex items-center justify-center hover:bg-[#0d9488] transition-colors" aria-label="YouTube">
+              <i data-lucide="youtube" class="w-5 h-5"></i>
+            </a>
+          </div>
+        </div>
+        
+        <!-- Quick Links -->
+        <div>
+          <h3 class="text-lg font-semibold mb-4">Quick Links</h3>
+          <ul class="space-y-3">
+            <li><a href="index.html" class="text-gray-400 hover:text-[#0d9488] transition-colors text-sm">Home</a></li>
+            <li><a href="types.html" class="text-gray-400 hover:text-[#0d9488] transition-colors text-sm">Types of Systems</a></li>
+            <li><a href="maintenance.html" class="text-gray-400 hover:text-[#0d9488] transition-colors text-sm">Maintenance Guide</a></li>
+            <li><a href="problems.html" class="text-gray-400 hover:text-[#0d9488] transition-colors text-sm">Common Problems</a></li>
+            <li><a href="costs.html" class="text-gray-400 hover:text-[#0d9488] transition-colors text-sm">Cost Guides</a></li>
+          </ul>
+        </div>
+        
+        <!-- Resources -->
+        <div>
+          <h3 class="text-lg font-semibold mb-4">Resources</h3>
+          <ul class="space-y-3">
+            <li><a href="installation.html" class="text-gray-400 hover:text-[#0d9488] transition-colors text-sm">Installation Guide</a></li>
+            <li><a href="inspection.html" class="text-gray-400 hover:text-[#0d9488] transition-colors text-sm">Inspection Guide</a></li>
+            <li><a href="regulations.html" class="text-gray-400 hover:text-[#0d9488] transition-colors text-sm">Regulations</a></li>
+            <li><a href="faq.html" class="text-gray-400 hover:text-[#0d9488] transition-colors text-sm">FAQ</a></li>
+            <li><a href="glossary.html" class="text-gray-400 hover:text-[#0d9488] transition-colors text-sm">Glossary</a></li>
+          </ul>
+        </div>
+        
+        <!-- Legal -->
+        <div>
+          <h3 class="text-lg font-semibold mb-4">Legal</h3>
+          <ul class="space-y-3">
+            <li><a href="#" class="text-gray-400 hover:text-[#0d9488] transition-colors text-sm">Privacy Policy</a></li>
+            <li><a href="#" class="text-gray-400 hover:text-[#0d9488] transition-colors text-sm">Terms of Use</a></li>
+            <li><a href="#" class="text-gray-400 hover:text-[#0d9488] transition-colors text-sm">Disclaimer</a></li>
+            <li><a href="#" class="text-gray-400 hover:text-[#0d9488] transition-colors text-sm">Contact</a></li>
+          </ul>
+        </div>
+      </div>
+      
+      <!-- Bottom Bar -->
+      <div class="border-t border-[#1e293b] pt-8">
+        <div class="flex flex-col md:flex-row justify-between items-center gap-4">
+          <p class="text-gray-500 text-sm">
+            &copy; 2024 Septic Systems HQ. All rights reserved.
+          </p>
+          <p class="text-gray-500 text-sm">
+            Information provided for educational purposes only.
+          </p>
+        </div>
+      </div>
+    </div>
+  </footer>
+  
+  <!-- Shared Scripts -->
+  <script src="shared/scripts.js"></script>
+  
+  <!-- Page-specific Scripts -->
+  <script>
+    // Initialize Lucide icons
+    document.addEventListener('DOMContentLoaded', function() {
+      lucide.createIcons();
+      
+      // Initialize scroll animations with Intersection Observer
+      initScrollAnimations();
+    });
+    
+    // Scroll Animation Function
+    function initScrollAnimations() {
+      const animatedElements = document.querySelectorAll('.scroll-animate');
+      
+      if (animatedElements.length === 0) return;
+      
+      const observerOptions = {
+        root: null,
+        rootMargin: '0px 0px -50px 0px',
+        threshold: 0.1
+      };
+      
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            const element = entry.target;
+            const delay = element.dataset.delay || '0';
+            
+            setTimeout(() => {
+              element.classList.add('animated');
+            }, parseInt(delay));
+            
+            observer.unobserve(element);
+          }
+        });
+      }, observerOptions);
+      
+      animatedElements.forEach(el => observer.observe(el));
+    }
+    
+    // Mobile menu toggle
+    function toggleMobileMenu() {
+      const mobileMenu = document.getElementById('mobileMenu');
+      if (mobileMenu) {
+        mobileMenu.classList.toggle('open');
+      }
+    }
+    
+    // Close mobile menu when clicking outside
+    document.addEventListener('click', function(e) {
+      const mobileMenu = document.getElementById('mobileMenu');
+      const menuBtn = document.querySelector('.mobile-menu-btn');
+      
+      if (mobileMenu && menuBtn) {
+        if (!mobileMenu.contains(e.target) && !menuBtn.contains(e.target)) {
+          mobileMenu.classList.remove('open');
+        }
+      }
+    });
+  </script>
+  
+</body>
+</html>
